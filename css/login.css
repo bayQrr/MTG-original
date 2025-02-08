@@ -59,7 +59,7 @@ button[type="submit"] {
     transition: all 0.3s ease; 
 }
 button[type="submit"]:hover {
-    background-color: #ff5733; /* Donkerder oranje voor hover */
-    transform: scale(1.1); /* Vergroot de knop lichtjes bij hover */
-    box-shadow: 0 0 25px 10px rgba(181, 74, 74, 0.8); /* Versterk de schaduw */
+    background-color: #ff5733; 
+    transform: scale(1.1); 
+    box-shadow: 0 0 25px 10px rgba(181, 74, 74, 0.8); 
 }
