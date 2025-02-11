@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/js/register.js" defer></script>
+    <title>Registreren</title>
+</head>
+
+<body id="register">
+
+    <nav class="navbar">
+        <section class="logo">
+            <img src="assets/logo/LOGO-MAGIC 2.png" alt="Logo" />
+        </section>
+    </nav>
+
+    <section class="register-container">
+
+        <h1> Registreer</h1>
+        <section class="register-form">
+            <form action="#">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name"><br><br>
+
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email"><br><br>
+
+                <label for="passwoord">Password: </label>
+                <section class="password-container">
+                    <input type="password" id="password" name="password">
+                    <span class="toggle-password" onclick="togglePassword('password', this)">
+                        <i class="fas fa-eye-slash"></i>
+                    </span>
+                </section>
+
+                <label for="confirm-password">Confirm Password: </label>
+                <section class="password-container">
+                    <input type="password" id="confirm-password" name="confirm-password" onkeyup="validatePasswords()">
+                    <span class="toggle-password" onclick="togglePassword('confirm-password', this)">
+                        <i class="fas fa-eye-slash"></i>
+                    </span>
+                </section>
+
+                <!-- BERICHT AL WW NIET JUIST IS  -->
+                <p id="password-error" class="error-message"></p>
+
+                <button type="submit" id="btn">Registreer</button>
+            </form>
+        </section>
+        <p class="login-text">Al een account? <a href="login.html">Inloggen</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MTG-original. Alle rechten voorbehouden.</p>
+    </footer>
+
+</body>
+
+</html>
