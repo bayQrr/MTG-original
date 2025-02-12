@@ -1,0 +1,322 @@
+* {
+  /*FONTS */
+  @font-face {
+    font-family: "Gotham Narrow";
+    src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Gotham Narrow";
+    src: url("../assets/fonts/GothamNarrow-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Gotham Narrow";
+    src: url("../assets/fonts/GothamNarrow-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Gotham Narrow";
+    src: url("../assets/fonts/GothamNarrow-Italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+
+
+/*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
+.login {
+    background-image: url("/assets/images/Loginbg.jpg");
+    background-size: cover;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/*nav*/
+.navbar {
+    
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+   
+    background-color: #333;
+    color: white;
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    z-index: 1; 
+}
+
+.navbar .logo img {
+    height: 40px;
+    width: auto;
+}
+/*section*/
+.Login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+     margin-right: 10rem;
+    margin-top: 3rem;
+    box-shadow: 0 0 15px 5px rgba(181, 74, 74, 0.8); 
+}
+
+.Login-container>p{
+    color: #ff5733;
+
+}
+.Login-container>h1 {
+    color:white;
+    font-family: "Bitter", serif;
+  margin-left: 10rem;
+font-weight: bold;
+font-size: 2rem;
+text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+   
+}
+
+
+
+.login-form>form> input{
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#loginbutton{
+    background-color: #ff6633;
+    border: 1px solid white;
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 10px 75px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 0 15px 5px rgba(181, 74, 74, 0.8); 
+    transition: all 0.3s ease; 
+}
+#loginbutton:hover {
+    background-color: #ff5733; 
+    transform: scale(1.1); 
+    box-shadow: 0 0 25px 10px rgba(181, 74, 74, 0.8); 
+}
+
+/*footer*/
+.footer_login{
+
+        background-color: rgba(0, 0, 0, 0.8); 
+        color: white; 
+        text-align: center; 
+        padding: 10px 0; 
+        font-size: 14px;
+        position: fixed; 
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); 
+
+}
+
+
+/*------------------------------------------- register pagina kaoutar -------------------------*/
+
+/* REGISTREER PAGINA*/
+
+
+  
+  /* BODY MET ID REGISTER */
+  #register {
+    flex: 1;
+    background-image: url("/assets/images/registerBg.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: "Gotham Narrow", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+  
+  /* NAV-BAR */
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    padding: 10px 20px;
+    z-index: 1000;
+  }
+  
+  .navbar .logo img {
+    height: 40px;
+    width: auto;
+  }
+  
+  /* FORMULIER */
+  .register-container {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    text-align: center;
+    margin: 100px 50rem 0 0;
+  }
+  
+  /* TITEL STIJLEN h1 */
+  .register-container h1 {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 5%;
+  }
+  
+  /* LOGIN TEXT STIJLEN p */
+  .login-text {
+    text-align: left;
+    margin-left: 100px;
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .login-text a {
+    color: #4b0082;
+    transition: color 0.3s ease;
+    font-weight: bold;
+  }
+  .login-text a:hover {
+    color: #9932cc;
+  }
+  
+  /* FORM STIJLEN */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .register-form label {
+    font-size: 1rem;
+    color: #4b0082;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+  }
+  
+  .register-form input {
+    padding: 12px;
+    border: 2px solid #4b0082;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 20rem;
+    margin-bottom: 15px;
+  }
+  
+  .register-form button {
+    font-family: "Gotham Narrow", serif;
+    letter-spacing: 1px;
+    padding: 15px;
+    background-color: #4b0082;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-form button:hover {
+    background-color: #9932cc;
+  }
+  
+  /* FOOTER */
+  #register > footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* EXTRA */
+  /* PASSWOORD REGELEN */
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .password-container input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #4b0082;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    padding-right: 45px;
+    box-sizing: border-box;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #4b0082;
+    user-select: none;
+  }
+  
+  /* ERROR MESSAGE */
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+  }
+  
