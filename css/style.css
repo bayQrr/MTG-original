@@ -145,44 +145,7 @@ text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 
 /* REGISTREER PAGINA*/
 
-/*FONTS */
-@font-face {
-    font-family: "Gotham Narrow";
-    src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Gotham Narrow";
-    src: url("../assets/fonts/GothamNarrow-Bold.otf") format("opentype");
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Gotham Narrow";
-    src: url("../assets/fonts/GothamNarrow-Light.otf") format("opentype");
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Gotham Narrow";
-    src: url("../assets/fonts/GothamNarrow-Italic.otf") format("opentype");
-    font-weight: normal;
-    font-style: italic;
-  }
-  
-  html,
-  body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+
   
   /* BODY MET ID REGISTER */
   #register {
