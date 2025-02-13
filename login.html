@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login pagina</title>
+    <script src="/js/register.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/font.css">
+  
+    
+</head>
+<body class="login">
+    <nav class="navbar">
+        <section class="logo">
+            <img src="assets/logo/LOGO-MAGIC 2.png" alt="Logo" />
+        </section>
+    </nav>
+    <section class="Login-container">
+    <h1>LOGIN</h1>
+  
+        <section class="login-form">
+        
+            <form action="#">
+               
+                <input type="text" placeholder="Gebruikersnaam" required>
+             
+                <!-- <input type="password" placeholder="Wachtwoord" required>
+             -->
+
+             <section class="password-container">
+                <input type="password" placeholder="Wachtwoord" required>
+
+                <span class="toggle-password" onclick="togglePassword('password', this)">
+                    <i class="fas fa-eye-slash"></i>
+                </span>
+            </section>
+            </form>
+            <button type="submit" id="loginbutton">login</button>
+            <p>Geen account? <a href="register.html">Registreer</a></p>
+        </section>
+    </section>
+    <footer class="footer_login">
+        <p>&copy; 2025 MTG-original. Alle rechten voorbehouden.</p>
+    </footer>
+</body>
+</html>
