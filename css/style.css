@@ -35,33 +35,36 @@
 .login {
     background-image: url("/assets/images/Loginbg.jpg");
     background-size: cover;
-    font-family: sans-serif;
     display: flex;
     justify-content: end;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+ 
 }
-
-/*nav*/
-.navbar {
-    
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: center; 
-   
-    background-color: #333;
-    color: white;
-    position: fixed; 
-    width: 100%;
-    top: 0;
-    z-index: 1; 
+ /* NAV-BAR */
+ .login>.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 60px;
+  padding: 10px 20px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
 }
 
 .navbar .logo img {
-    height: 40px;
-    width: auto;
+  height: 20px;
+  width: auto;
 }
+
+
 /*section*/
 .Login-container {
   display: flex;
@@ -70,21 +73,32 @@
 
 .login-form {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+ 
     padding: 30px;
     border-radius: 10px;
      margin-right: 10rem;
-    margin-top: 3rem;
-    box-shadow: 0 0 15px 5px rgba(181, 74, 74, 0.8); 
+    margin-top: 3rem; 
+    background: rgba(135, 110, 174, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
+    
+   
 }
 
-.Login-container>p{
-    color: #ff5733;
 
+
+
+.login-form>p{
+    color: white;
+    font-family:  "Gotham Narrow", serif;
+}
+.login-form>p>a{
+  color: white;
+  font-family:  "Gotham Narrow", serif;
 }
 .Login-container>h1 {
     color:white;
-    font-family: "Bitter", serif;
+    font-family:  "Gotham Narrow", serif;
   margin-left: 10rem;
 font-weight: bold;
 font-size: 2rem;
@@ -105,7 +119,7 @@ text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
 
 #loginbutton{
-    background-color: #ff6633;
+    background-color:  #9932cc;;
     border: 1px solid white;
     color: white;
     font-family: sans-serif;
@@ -116,13 +130,13 @@ text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
     text-align: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    box-shadow: 0 0 15px 5px rgba(181, 74, 74, 0.8); 
+    box-shadow: 0 0 15px 5px  #9932cc;; 
     transition: all 0.3s ease; 
 }
 #loginbutton:hover {
-    background-color: #ff5733; 
+  background-color: #9932cc;
     transform: scale(1.1); 
-    box-shadow: 0 0 25px 10px rgba(181, 74, 74, 0.8); 
+    box-shadow: 0 0 25px 10px  #9932cc;; 
 }
 
 /*footer*/
@@ -320,3 +334,121 @@ text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
     width: 100%;
   }
   
+
+  /* ---------------------zaida home pagina----------------------------------  */
+/* Algemene stijlen */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0c0c0c;
+  color: white;
+}
+
+
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hero banner */
+.hero {
+  background: url('hero.jpg') no-repeat center center/cover;
+  text-align: center;
+  padding: 100px 0;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* Introductie sectie */
+.intro {
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(rgba(75, 0, 130, 0.8), rgba(0, 0, 0, 0.8));
+  box-shadow: 0 0 20px rgba(75, 0, 130, 1);
+}
+
+.intro-img {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Nieuwe set sectie */
+.new-set {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 30px rgba(75, 0, 130, 0.9);
+}
+
+.set-img {
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.set-info h2 {
+  font-size: 1.8rem;
+  color: #FFD700;
+}
+
+/* Kaarten sectie */
+.cards {
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(75, 0, 130, 0.8));
+  box-shadow: 0 0 40px rgba(75, 0, 130, 1);
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card-container img {
+  max-width: 150px;
+  border-radius: 10px;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.card-container img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+  box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+footer img {
+  max-width: 100px;
+}
