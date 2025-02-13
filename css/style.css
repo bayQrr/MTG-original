@@ -105,27 +105,6 @@
   padding-bottom: 50px;
 }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 60px;
-  padding: 10px 20px;
-  z-index: 1000;
-}
-
-.navbar .logo img {
-  height: 40px;
-  width: auto;
-}
-
 /* FORMULIER */
 .register-container {
   width: 400px;
