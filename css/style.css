@@ -1,10 +1,9 @@
 * {
   /*FONTS */
   @font-face {
-    font-family: "Gotham Narrow";
+    font-family: "Gotham";
     src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
   }
-
 }
 
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
@@ -15,36 +14,34 @@
   justify-content: end;
   align-items: center;
   min-height: 100vh;
-
 }
 /* NAV-BAR */
 .navbar {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-background-color: #333;
-color: white;
-position: fixed;
-width: 100%;
-top: 0;
-left: 0;
-height: 60px;
-padding: 10px 20px;
-z-index: 1000;
-background-color: rgba(0, 0, 0, 0.8);
-box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 60px;
+  padding: 10px 20px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
 }
 
-.navbar .logo img {
-height: 20px;
-width: auto;
+.navbar > .logo > img {
+  height: 35px;
+  width: auto;
 }
-
 
 /*section*/
 .Login-container {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-form {
@@ -52,40 +49,31 @@ flex-direction: column;
 
   padding: 30px;
   border-radius: 10px;
-   margin-right: 10rem;
-  margin-top: 3rem; 
+  margin-right: 10rem;
+  margin-top: 3rem;
   background: rgba(135, 110, 174, 0.9);
   border-radius: 15px;
   box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
-  
- 
 }
 
-
-
-
-.login-form>p{
+.login-form > p {
   color: white;
-  font-family:  "Gotham Narrow", serif;
 }
-.login-form>p>a{
-color: white;
-font-family:  "Gotham Narrow", serif;
-}
-.Login-container>h1 {
-  color:white;
-  font-family:  "Gotham Narrow", serif;
-margin-left: 10rem;
-font-weight: bold;
-font-size: 2rem;
-text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
- 
+.login-form > p > a {
+  color: white;
 }
 
+.Login-container > h1 {
+  color: white;
+  font-family: "Gotham";
+  margin-left: 5rem;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
 
-
-.login-form>form> input{
-  width: 100%;
+.login-form > form > input {
+  width: 20rem;
   padding: 15px;
   margin: 10px 0;
   border: none;
@@ -94,11 +82,11 @@ text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
 }
 
-#loginbutton{
-  background-color:  #9932cc;;
+#loginbutton {
+  background-color: #9932cc;
   border: 1px solid white;
   color: white;
-  font-family: sans-serif;
+  font-family: "Gotham";
   font-size: 16px;
   padding: 10px 75px;
   border-radius: 10px;
@@ -106,66 +94,67 @@ text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  box-shadow: 0 0 15px 5px  #9932cc;; 
-  transition: all 0.3s ease; 
+  box-shadow: 0 0 15px 5px #9932cc;
+  transition: all 0.3s ease;
 }
 #loginbutton:hover {
-background-color: #9932cc;
-  transform: scale(1.1); 
-  box-shadow: 0 0 25px 10px  #9932cc;; 
+  background-color: #9932cc;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px 10px #9932cc;
 }
 
 /*footer*/
-.footer_login{
-
-      background-color: rgba(0, 0, 0, 0.8); 
-      color: white; 
-      text-align: center; 
-      padding: 10px 0; 
-      font-size: 14px;
-      position: fixed; 
-      bottom: 0;
-      width: 100%;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); 
-
+.footer_login {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
-
-
-
 
 /*------------------------------------------- register pagina Kaoutar -------------------------*/
 /* BODY MET ID REGISTER */
-#register {
-  flex: 1;
+.register {
   background-image: url("/assets/images/registerBg.jpg");
   background-size: cover;
-  background-position: center;
-  font-family: "Gotham Narrow";
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.register-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 50px;
 }
 
-/* FORMULIER */
-.register-container {
-  width: 400px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  padding: 40px;
+.register-form {
   text-align: center;
-  margin: 150px 0 0 500px;
+  padding: 30px;
+  border-radius: 10px;
+  margin-right: 10rem;
+  margin-top: 3rem;
+  background: rgba(135, 110, 174, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
 }
-
+.register-form > form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
 /* TITEL STIJLEN h1 */
 .register-container h1 {
-  font-size: 30px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding-bottom: 5%;
+  color: white;
+  font-family: "Gotham";
+  margin-left: 7rem;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* LOGIN TEXT STIJLEN p */
@@ -187,23 +176,6 @@ background-color: #9932cc;
 }
 
 /* FORM STIJLEN */
-.register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
-  width: 100%;
-}
-
-.register-form label {
-  font-size: 1rem;
-  color: #4b0082;
-  text-align: left;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  display: block;
-  width: 100%;
-}
 
 .register-form input {
   padding: 12px;
@@ -230,34 +202,6 @@ background-color: #9932cc;
 .register-form button:hover {
   background-color: #9932cc;
 }
-
-/* FOOTER */
-#register > footer {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-
-
-/* FOOTER */
-#register > footer {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-
 
 /* EXTRA */
 /* PASSWOORD REGELEN */
@@ -300,180 +244,3 @@ background-color: #9932cc;
   text-align: left;
   width: 100%;
 }
-
-
-  
-  /* BODY MET ID REGISTER */
-  #register {
-    flex: 1;
-    background-image: url("/assets/images/registerBg.jpg");
-    background-size: cover;
-    background-position: center;
-    font-family: "Gotham Narrow", serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 50px;
-  }
-  
-  /* NAV-BAR */
-  .navbar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 60px;
-    padding: 10px 20px;
-    z-index: 1000;
-  }
-  
-  .navbar .logo img {
-    height: 40px;
-    width: auto;
-  }
-  
-  /* FORMULIER */
-  .register-container {
-    width: 400px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    padding: 40px;
-    text-align: center;
-    margin: 100px 50rem 0 0;
-  }
-  
-  /* TITEL STIJLEN h1 */
-  .register-container h1 {
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding-bottom: 5%;
-  }
-  
-  /* LOGIN TEXT STIJLEN p */
-  .login-text {
-    text-align: left;
-    margin-left: 100px;
-    display: block;
-    margin-top: 15px;
-    font-size: 0.9rem;
-  }
-  
-  .login-text a {
-    color: #4b0082;
-    transition: color 0.3s ease;
-    font-weight: bold;
-  }
-  .login-text a:hover {
-    color: #9932cc;
-  }
-  
-  /* FORM STIJLEN */
-  .register-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    width: 100%;
-  }
-  
-  .register-form label {
-    font-size: 1rem;
-    color: #4b0082;
-    text-align: left;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    display: block;
-    width: 100%;
-  }
-  
-  .register-form input {
-    padding: 12px;
-    border: 2px solid #4b0082;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 20rem;
-    margin-bottom: 15px;
-  }
-  
-  .register-form button {
-    font-family: "Gotham Narrow", serif;
-    letter-spacing: 1px;
-    padding: 15px;
-    background-color: #4b0082;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .register-form button:hover {
-    background-color: #9932cc;
-  }
-  
-  /* FOOTER */
-  #register > footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-  }
-  
-  /* EXTRA */
-  /* PASSWOORD REGELEN */
-  .password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  .password-container input {
-    flex: 1;
-    padding: 12px;
-    border: 2px solid #4b0082;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
-    padding-right: 45px;
-    box-sizing: border-box;
-  }
-  
-  .toggle-password {
-    position: absolute;
-    right: 15px;
-    top: 16px;
-    cursor: pointer;
-    font-size: 15px;
-    color: #4b0082;
-    user-select: none;
-  }
-  
-  /* ERROR MESSAGE */
-  .error-message {
-    color: red;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    text-align: left;
-    width: 100%;
-  }
-  
-
