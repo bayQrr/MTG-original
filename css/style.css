@@ -413,7 +413,7 @@ gap:15rem;
 
 #searchBar:focus {
   box-shadow: 0 0 15px white;
-  border-color: white;
+  border-color: #8a5dbd;
 }
 
 
@@ -427,7 +427,7 @@ gap:15rem;
   width: 60px;
   height: 60px;
   border: none;
-  background-color: #3b3b3b;
+  background-color: #8a5dbd;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
