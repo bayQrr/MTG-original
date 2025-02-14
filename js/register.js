@@ -1,34 +1,34 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const passwordInput = document.querySelector(".password-container input[type='password']");
+    const togglePasswordBtn = document.querySelector(".toggle-password");
+    const passwordError = document.getElementById("password-error");
+    const submitButton = document.getElementById("btn");
 
-// OOG FUNCTIE VOOR WACHTWOORD
-function togglePassword(fieldId, eyeIcon) {
-    let passwordInput = document.getElementById(fieldId);
-    let icon = eyeIcon.querySelector("i");
-
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        icon.classList.remove("fa-eye-slash"); 
-        icon.classList.add("fa-eye"); 
-    } else {
-        passwordInput.type = "password";
-        icon.classList.remove("fa-eye"); 
-        icon.classList.add("fa-eye-slash"); 
+    // Functie om wachtwoord te tonen/verbergen
+    function togglePassword() {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePasswordBtn.innerHTML = '<i class="fas fa-eye"></i>';
+        } else {
+            passwordInput.type = "password";
+            togglePasswordBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        }
     }
-}
 
+    // Event listener voor het wachtwoord toggle-icoon
+    togglePasswordBtn.addEventListener("click", togglePassword);
 
-//CONTROLEREN OF DE WACHTWOORD EFFECTIEF OVEREENKOMT
-function validatePasswords() {
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
-    let errorMessage = document.getElementById("password-error");
+    // Wachtwoordvalidatie bij typen
+    passwordInput.addEventListener("input", function () {
+        const password = passwordInput.value;
 
-// checken of de wachtwoord juist is
-    if (password !== confirmPassword) {
-        errorMessage.textContent = "Wachtwoorden komen niet overeen!";
-        errorMessage.style.display = "block"; 
-    } else {
-    
-        errorMessage.textContent = "";
-        errorMessage.style.display = "none"; 
-    }
-}
+        if (password.length < 6) {
+            passwordError.textContent = "Wachtwoord moet minstens 6 tekens lang zijn.";
+            passwordError.style.color = "red";
+            submitButton.disabled = true;
+        } else {
+            passwordError.textContent = "";
+            submitButton.disabled = false;
+        }
+    });
+});
