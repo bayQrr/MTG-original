@@ -252,7 +252,8 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #1f1d1d;
+  /* background-color: #071d2cb9; */
+  background-color: #1e1e1e;
   color: white;
 }
 /* Navbar*/
@@ -313,6 +314,7 @@ margin-bottom: 10rem;
   text-align: center;
   position: relative;
   margin-bottom:10rem;
+ 
 
 }
 
@@ -446,10 +448,9 @@ gap:15rem;
 #kaartContainer {
   display: flex;
 flex-direction: column;
-
   gap: 20px;
   padding: 20px;
-
+background-color: #1e1e1e;
 
 }
 .rij1,.rij2{
