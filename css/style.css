@@ -244,3 +244,209 @@
   text-align: left;
   width: 100%;
 }
+
+/*--------------ZAIDA cards --------------------------------*/
+.body.login {
+  background-image: url("afbeeldingen/8000x5000-px-digital-art-dragon-fantasy-art-flying-rock-wings-1258605.jpg");
+  background-size: cover;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.Login-container {
+display: flex;
+flex-direction: column;
+}
+
+
+.login-form {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+   margin-right: 10rem;
+  box-shadow: 0 0 15px 5px rgba(181, 74, 74, 0.8); 
+}
+
+p{
+  font-family: "Gotham";
+  font-size: large;
+}
+h1 {
+  color:white;
+ 
+margin-left: 10rem;
+ 
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #ff6633;
+  border: 1px solid white;
+  color: white;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 10px 75px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 0 15px 5px rgba(181, 74, 74, 0.8); 
+  transition: all 0.3s ease; 
+}
+button[type="submit"]:hover {
+  background-color: #ff5733; /* Donkerder oranje voor hover */
+  transform: scale(1.1); /* Vergroot de knop lichtjes bij hover */
+  box-shadow: 0 0 25px 10px rgba(181, 74, 74, 0.8); /* Versterk de schaduw */
+}
+
+
+
+/*----------CARDS*-----------------------*/
+/* Algemene stijlen */
+.cards_body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1f1d1d;
+  color: white;
+}
+/* Navbar */
+
+
+.cards_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
+}
+
+.cards_navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 90px;
+}
+
+.cards_navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* banner */
+.banner {
+background-image: url(/assets/images/woman.png);
+text-align: center;
+padding: 10rem;
+box-shadow: inset 0 0 50px rgba(21, 71, 114, 0.9);
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+  font-family: "Gotham";
+}
+
+
+
+/* intro containers */
+.intro-container, .intro-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  border-radius: 15px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  background-position: center;
+  text-align: center;
+  position: relative;
+
+}
+
+/* Achtergrondafbeeldingen voor de containers */
+.intro-container {
+  background-image: url(/assets/images/landscape.png);
+}
+
+.intro-container2 {
+  background-image: url(/assets/images/Man_In_Cave.png);
+}
+
+/* Hover-effecten */
+.intro-container:hover, .intro-container2:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+/* Tekst effecten */
+.intro-text h2, .intro2-text h2 {
+  font-size: 2rem;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  transition: text-shadow 0.5s ease;
+}
+
+.intro-container:hover h2, .intro-container2:hover h2 {
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.904);
+}
+
+
+.intro-text p, .intro2-text p {
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.intro-container:hover p, .intro-container2:hover p {
+  opacity: 1;
+}
+
+/* Afbeeldingen effecten */
+.intro-container img, .intro-container2 img {
+  max-width: 300px;
+  border-radius: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.intro-container:hover img, .intro-container2:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
