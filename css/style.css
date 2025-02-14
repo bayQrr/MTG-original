@@ -248,7 +248,7 @@
 /* BODY MET ID landing-page */
 #landing-page {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #cfd8dc, #ffffff);
+  background: linear-gradient(to bottom, #0d0d0d, #0d0d0d);
   display: flex;
   justify-content: center;
   align-items: center;
