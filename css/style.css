@@ -337,4 +337,135 @@
 #footer-text {
   margin: 0;
 }
+/* game pagina */ 
+#unique-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/wallpapergames.png"); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+#unique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  flex-grow: 1;
+}
+
+#unique-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+#unique-nav-list li {
+  display: inline;
+}
+
+#unique-nav-home a, #unique-nav-decks a, #unique-nav-drawtest a, #unique-nav-rules a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#unique-profile-link {
+  text-decoration: none;
+}
+
+#unique-profile-icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+#unique-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#unique-draw-section {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#unique-deck-icon img {
+  height: 40px;
+}
+
+#unique-draw-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#unique-draw-button, #unique-reset-button, #unique-track-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#unique-progress-bar {
+  font-weight: bold;
+  color: white;
+}
+
+#unique-card-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#unique-deck-card {
+  width: 100px;
+}
+
+#unique-crossed-swords {
+  font-size: 30px;
+  color: white;
+}
+
+#unique-drawn-card {
+  width: 160px;
+}
+
+#unique-footer {
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#unique-footer-text {
+  margin: 0;
+}
+
+#unique-footer-logo {
+  width: 60px;
+}
 
