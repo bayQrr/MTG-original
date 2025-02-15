@@ -16,6 +16,8 @@
   min-height: 100vh;
 }
 /* NAV-BAR */
+
+
 .navbar {
   display: flex;
   justify-content: flex-start;
@@ -252,11 +254,19 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  /* background-color: #071d2cb9; */
   background-color: #1e1e1e;
-  color: white;
+  background-image: url(/assets/images/woman.png);
+ background-repeat: no-repeat;
+background-position: 50% 10%; 
+background-size: cover;
+
+backdrop-filter: blur(10px);
 }
+
+
+
 /* Navbar*/
+
 
 .cards_navbar {
   display: flex;
@@ -264,7 +274,10 @@
   align-items: center;
   padding: 15px 50px;
   z-index: 1;
- 
+ margin-bottom: 3rem;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
 
 }
 .cards_navbar ul {
@@ -275,96 +288,54 @@
 
 .cards_navbar a {
   text-decoration: none;
-  color: white;
+  font-size: 18px;
   font-weight: bold;
+  color: #ddd;
+  padding: 10px 15px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
+.cards_nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #00aaff;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.cards_nav ul li a:hover::before {
+  width: 100%;
+}
+
+.cards_nav ul li a:hover {
+  color: #00aaff;
+  text-shadow: 0 0 10px #00aaff, 0 0 20px #0077cc;
+  transform: scale(1.1);
+}
+
+/* profile sectie */
 .profile {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #ddd;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* banner */
-.banner {
-background-image: url(/assets/images/woman.png);
-text-align: center;
-padding: 10rem;
-box-shadow: inset 0 0 50px rgba(21, 71, 114, 0.9);
-margin-bottom: 10rem;
+.profile img {
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
 }
 
-.banner h1 {
-  font-size: 2.5rem;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-  font-family: "Gotham";
-}
-
-
-
-/* intro containers */
-.intro-container, .intro-container2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px;
-  border-radius: 15px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  background-position: center;
-  text-align: center;
-  position: relative;
-  margin-bottom:10rem;
- 
-
-}
-
-/* Achtergrondafbeeldingen voor de containers */
-.intro-container {
-  background-image: url(/assets/images/landscape.png);
-}
-
-.intro-container2 {
-  background-image: url(/assets/images/Man_In_Cave.png);
-}
-
-/* Hover-effecten */
-.intro-container:hover, .intro-container2:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-}
-
-/* Tekst effecten */
-.intro-text h2, .intro2-text h2 {
-  font-size: 2rem;
-  color:white;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-  transition: text-shadow 0.5s ease;
-}
-
-.intro-container:hover h2, .intro-container2:hover h2 {
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.904);
-}
-
-
-.intro-text p, .intro2-text p {
-  opacity: 0.8;
-  transition: opacity 0.5s ease;
-}
-
-.intro-container:hover p, .intro-container2:hover p {
-  opacity: 1;
-}
-
-/* Afbeeldingen effecten */
-.intro-container img, .intro-container2 img {
-  max-width: 300px;
-  border-radius: 10px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.intro-container:hover img, .intro-container2:hover img {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+.profile:hover img {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #00aaff;
 }
 
 /* Button styling */
@@ -384,6 +355,10 @@ margin-bottom: 10rem;
   background: rgba(255, 255, 255, 0.5);
 }
 
+.midden-container{
+  margin-top: 10rem;
+}
+
 /*kaarten*/
 /*filtering container*/
 .filtering {
@@ -391,8 +366,11 @@ margin-bottom: 10rem;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-bottom:5rem;
+
 gap:15rem;
   padding: 20px;
+
 }
 
 #searchBar {
@@ -429,7 +407,7 @@ gap:15rem;
   width: 60px;
   height: 60px;
   border: none;
-  background-color: #8a5dbd;
+  background-color: #000914;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -450,14 +428,14 @@ gap:15rem;
 flex-direction: column;
   gap: 20px;
   padding: 20px;
-background-color: #1e1e1e;
+/* background-color: #1e1e1e; */
 
 }
 .rij1,.rij2{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 10rem;
+  gap: 5rem;
   margin-bottom: 3rem;
   
 }
@@ -485,16 +463,16 @@ background-color: #1e1e1e;
 
 /* de glow dit zal ook nog aangepast worden met backend  */
 .common {
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 .uncommon {
-  box-shadow: 0 0 8px rgba(71, 126, 236, 0.749); 
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749); 
 }
 .rare {
-  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6); 
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6); 
 }
 .mythic {
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6); 
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); 
 }
 
 
@@ -509,30 +487,114 @@ background-color: #1e1e1e;
   background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
+
+  
+
 }
 
 .popup-container {
-  background: white;
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
   padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  display: flex;
+  flex-direction: row;
+gap: 2rem;  
 }
 #popupTitle{
-  color: red;
+  color: white;
+  /* to do font styl */
 }
-.popup-content img {
-  width: 300px;
+
+.delete-btn {
+
+  background: linear-gradient(45deg, #1a1a1a, #de3a2e);
+  color: #fff;
+  border: 2px solid black; 
+}
+.add-btn{
+  background: linear-gradient(45deg, #1a1a1a, #2ede51);
+  color: #fff;
+  border: 2px solid black; 
+}
+
+/* dropdown knop bij de addbutton */
+
+/* todo */
+
+.add-btn,.delete-btn{
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+margin-top: 14rem;
+  font-size: 7px;
+  font-weight: bold;
+ margin-right: 1rem;
+  padding: 12px 2px;
+}
+
+.delete-btn:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add-btn:before{
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.delete-btn:hover::before {
+  opacity: 1;
+}
+.add-btn:hover::before{
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  border-color:black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+.add-btn:hover{
+  transform: scale(1.1);
+  border-color:black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.add-btn,.delete-btn:active {
+  transform: scale(0.95);
 }
 
 /* de kruisknopt */
 .close {
   position: absolute;
-  top: 8px;
-  right: 5px;
+  top: 5px;
+  right: 2px;
   font-size: 30px;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 

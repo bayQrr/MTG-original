@@ -25,39 +25,13 @@
               <img src="/assets/icon/wizardAvatar.png" alt="wizard_icon" width="30" height="30"> 
             </section>
         </section>
-        <section class="banner">
-            <h1>Magic The Gathering</h1>
-    
-        </section>
+  
     </header>
-
-    <section class="intro-container">
-
-
-    <section class="intro-text">
-        <h2>Welkom bij Magic The Gathering!</h2>
-        <p>Nieuw? Begin met de spelregels en duik daarna de avonturen in!</p>
-        <a href="#" class="btn">Leer de spelregels hier</a>
-    </section>
-
-    <img src="/assets/images/blue dragon.png" alt="blue dragon" class="intro-img">
- 
-   </section>
-      
-  
-    </section>
-
-    <section class="intro-container2">
-        <img src="assets/images/wizard.png" alt="wizard">
-        <section class="intro2-text">
-            <h2>Een Magische Nieuwe Set Komt Eraan</h2>
-            <p>Bereid je voor op een magische uitbreiding! Verzamel de krachtigste kaarten en bouw een onvergetelijk deck.</p>
-        </section>
     
-        
-    </section>
+ 
+  <section class="midden-container">
 
-  
+     
 <section class="filtering">
   
 
@@ -124,16 +98,38 @@
 
        
     </section>
-
+</section> 
 
 <!-- de detail container -->
     <section id="kaartPopup" class="hidden">
         <section class="popup-container">
+            <section class="popup-container-img">
+                <img id="popupImg" src="" alt="Kaart">
+            </section>
+            <section class="popup-specifications">
+                <p id="popupTitle"></p>
+                <form action="#" method="GET">
+
+                    <!-- nog te fixen -->
+                    <section class="dropdown">
+                         
+                    <button class="add-btn">+ Voeg toe aan deck</button>
+                        <section class="deckkeuze">
+                          <a href="#">deck1</a>
+                          <a href="#">deck2</a>
+                          <a href="#">deck3</a>
+                        </section>
+                    </section>
+                </form>
+             
+                <button class="delete-btn">- Verwijder uit deck</button>
+                
+                
+                <!-- option welke deck -->
+            </section>
             <span class="close">&times;</span>
-            <img id="popupImg" src="" alt="Kaart">
-            <p id="popupTitle"></p><br>
-            <button class="deck-btn add">+ Voeg toe aan deck</button> <br>
-            <button class="deck-btn remove">- Verwijder uit deck</button>
+           
+           
   
         </section>
     </section>
@@ -161,3 +157,4 @@
     </footer>
 </body>
 </html>
+
