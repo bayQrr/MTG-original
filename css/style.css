@@ -427,10 +427,15 @@ gap:15rem;
   display: flex;
 flex-direction: column;
   gap: 20px;
-  padding: 20px;
-/* background-color: #1e1e1e; */
+  padding:50px;
 
+background: linear-gradient(45deg, #1a1a1a, #464849a0);
+backdrop-filter: blur(10px);
+border-radius: 5%;
+margin-left: 5rem;
+margin-right: 5rem;
 }
+
 .rij1,.rij2{
   display: flex;
   flex-direction: row;
@@ -495,7 +500,6 @@ flex-direction: column;
 .popup-container {
   background: linear-gradient(45deg, #1a1a1a, #2e86de59);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
