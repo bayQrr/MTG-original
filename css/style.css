@@ -528,7 +528,40 @@ gap: 2rem;
 
 /* dropdown knop bij de addbutton */
 
-/* todo */
+.deck-dropdown {
+  display: none;
+  position: absolute;
+
+  border: 1px solid #474242;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+  background: linear-gradient(45deg, #1a1a1a, #3d99ae);
+  color: #fff;
+  border: 2px solid black;
+  border-radius: 5%;
+}
+/* to do font styl aanpassen */
+.deck-dropdown a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.deck-dropdown a:hover {
+  background: rgba(45, 43, 43, 0.747);
+}
+
+
+.deck-dropdown.hidden {
+  display: none;
+}
+
+.deck-dropdown:not(.hidden) {
+  display: block;
+}
+
 
 .add-btn,.delete-btn{
   border-radius: 8px;
@@ -584,7 +617,7 @@ margin-top: 14rem;
 .add-btn:hover{
   transform: scale(1.1);
   border-color:black;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
 }
 
 .add-btn,.delete-btn:active {

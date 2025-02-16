@@ -32,5 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// dropdown functie bij het klikken vn addbtn
 
+document.addEventListener("DOMContentLoaded", function () {
+    const addButton = document.querySelector(".add-btn");
+    const dropdown = document.querySelector(".deck-dropdown");
 
+    addButton.addEventListener("click", function (event) {
+        event.preventDefault(); 
+        dropdown.classList.toggle("hidden"); 
+    });
+});
