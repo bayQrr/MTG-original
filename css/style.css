@@ -264,8 +264,6 @@
   align-items: center;
   padding: 15px 50px;
   z-index: 1;
- 
-
 }
 .cards_navbar ul {
   list-style: none;
@@ -287,23 +285,24 @@
 
 /* banner */
 .banner {
-background-image: url(/assets/images/woman.png);
-text-align: center;
-padding: 10rem;
-box-shadow: inset 0 0 50px rgba(21, 71, 114, 0.9);
-margin-bottom: 10rem;
+  background-image: url(/assets/images/woman.png);
+  text-align: center;
+  padding: 10rem;
+  box-shadow: inset 0 0 50px rgba(21, 71, 114, 0.9);
+  margin-bottom: 10rem;
+  height: 400px;
+  background-repeat: no-repeat;
 }
 
 .banner h1 {
-  font-size: 2.5rem;
+  font-size: 5rem;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
   font-family: "Gotham";
 }
 
-
-
 /* intro containers */
-.intro-container, .intro-container2 {
+.intro-container,
+.intro-container2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -313,58 +312,63 @@ margin-bottom: 10rem;
   background-position: center;
   text-align: center;
   position: relative;
-  margin-bottom:10rem;
- 
-
+  margin-bottom: 10rem;
+  /* max-width: 1200px; */
 }
 
 /* Achtergrondafbeeldingen voor de containers */
-.intro-container {
+/* .intro-container {
   background-image: url(/assets/images/landscape.png);
 }
 
 .intro-container2 {
   background-image: url(/assets/images/Man_In_Cave.png);
-}
+} */
 
 /* Hover-effecten */
-.intro-container:hover, .intro-container2:hover {
+.intro-container:hover,
+.intro-container2:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 30px #4286c8;
 }
 
 /* Tekst effecten */
-.intro-text h2, .intro2-text h2 {
+.intro-text h2,
+.intro2-text h2 {
   font-size: 2rem;
-  color:white;
+  color: white;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
   transition: text-shadow 0.5s ease;
 }
 
-.intro-container:hover h2, .intro-container2:hover h2 {
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.904);
+.intro-container:hover h2,
+.intro-container2:hover h2 {
+  text-shadow: 0 0 20px #4286c8;
 }
 
-
-.intro-text p, .intro2-text p {
+.intro-text p,
+.intro2-text p {
   opacity: 0.8;
   transition: opacity 0.5s ease;
 }
 
-.intro-container:hover p, .intro-container2:hover p {
+.intro-container:hover p,
+.intro-container2:hover p {
   opacity: 1;
 }
 
 /* Afbeeldingen effecten */
-.intro-container img, .intro-container2 img {
+.intro-container img,
+.intro-container2 img {
   max-width: 300px;
   border-radius: 10px;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.intro-container:hover img, .intro-container2:hover img {
+.intro-container:hover img,
+.intro-container2:hover img {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  box-shadow: 0 0 20px #4286c8;
 }
 
 /* Button styling */
@@ -391,7 +395,7 @@ margin-bottom: 10rem;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-gap:15rem;
+  gap: 15rem;
   padding: 20px;
 }
 
@@ -409,7 +413,7 @@ gap:15rem;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-#searchBar{
+#searchBar {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -418,10 +422,9 @@ gap:15rem;
   border-color: #8a5dbd;
 }
 
-
 .filtering-button {
   display: flex;
-  gap:5rem;
+  gap: 5rem;
 }
 
 /* Stijl voor de filterknoppen */
@@ -444,22 +447,20 @@ gap:15rem;
   height: 30px;
 }
 
-
 #kaartContainer {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   gap: 20px;
   padding: 20px;
-background-color: #1e1e1e;
-
+  background-color: #1e1e1e;
 }
-.rij1,.rij2{
+.rij1,
+.rij2 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10rem;
   margin-bottom: 3rem;
-  
 }
 
 .kaart {
@@ -473,7 +474,6 @@ background-color: #1e1e1e;
 }
 
 .kaart img {
- 
   width: 100%;
   border-radius: 10px;
 }
@@ -482,21 +482,19 @@ background-color: #1e1e1e;
   transform: scale(1.1);
 }
 
-
 /* de glow dit zal ook nog aangepast worden met backend  */
 .common {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 .uncommon {
-  box-shadow: 0 0 8px rgba(71, 126, 236, 0.749); 
+  box-shadow: 0 0 8px rgba(71, 126, 236, 0.749);
 }
 .rare {
-  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6); 
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
 }
 .mythic {
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6); 
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
-
 
 /* Popup stijl */
 #kaartPopup {
@@ -518,7 +516,7 @@ background-color: #1e1e1e;
   text-align: center;
   position: relative;
 }
-#popupTitle{
+#popupTitle {
   color: red;
 }
 .popup-content img {
@@ -534,7 +532,6 @@ background-color: #1e1e1e;
   cursor: pointer;
   color: black;
 }
-
 
 /*paginering*/
 /* Paginering container */
@@ -574,7 +571,8 @@ background-color: #1e1e1e;
 }
 
 /* Stijl voor de vorige/volgende knoppen */
-.prev, .next {
+.prev,
+.next {
   font-size: 18px;
 }
 
@@ -586,14 +584,100 @@ background-color: #1e1e1e;
 }
 
 /*fotoer*/
-footer{
+footer {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: center;
   padding: 10px 0;
   font-size: 14px;
- 
+
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
+
+/*--------------SPELREGELS KZ --------------------------------*/
+/* BODY SPELREGELS */
+.rules-body {
+  font-family: "Arial", sans-serif;
+  background-color: #1c1d25;
+  color: #d1d1e0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* H1 TITEL STIJLEN */
+#title {
+  color: #9a86fd;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* CONTAINER SPELREGELS  */
+.rules-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #292b36;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.image {
+  margin-bottom: 20px;
+}
+/* ONDERTITEL */
+.subtitle {
+  color: #a78bfa;
+  font-size: 1.8em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* LIST STIJLEN SPELREGELS */
+.rules ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.rules ul li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  transition: background 0.3s ease;
+}
+
+.rules ul li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* HOME BUTTON */
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  padding: 15px;
+  background-color: #4b0082;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #9932cc;
+}
+

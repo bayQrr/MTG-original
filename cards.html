@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="/kaartendetail.js"></script>
 
 </head>
+
 <body class="cards_body">
     <header>
         <section class="cards_navbar">
@@ -22,65 +24,66 @@
             </nav>
             <section class="profile">
                 <span>Mijn Profiel</span>
-              <img src="/assets/icon/wizardAvatar.png" alt="wizard_icon" width="30" height="30"> 
+                <img src="/assets/icon/wizardAvatar.png" alt="wizard_icon" width="30" height="30">
             </section>
         </section>
+
         <section class="banner">
             <h1>Magic The Gathering</h1>
-    
         </section>
     </header>
-
+    <!-- 
     <section class="intro-container">
 
 
-    <section class="intro-text">
-        <h2>Welkom bij Magic The Gathering!</h2>
-        <p>Nieuw? Begin met de spelregels en duik daarna de avonturen in!</p>
-        <a href="#" class="btn">Leer de spelregels hier</a>
+        <section class="intro-text">
+            <h2>Welkom bij Magic The Gathering!</h2>
+            <p>Nieuw? Begin met de spelregels en duik daarna de avonturen in!</p>
+            <a href="#" class="btn">Leer de spelregels hier</a>
+        </section>
+
+        <img src="/assets/images/blue dragon.png" alt="blue dragon" class="intro-img">
+
     </section>
 
-    <img src="/assets/images/blue dragon.png" alt="blue dragon" class="intro-img">
- 
-   </section>
-      
-  
+
     </section>
 
     <section class="intro-container2">
         <img src="assets/images/wizard.png" alt="wizard">
         <section class="intro2-text">
             <h2>Een Magische Nieuwe Set Komt Eraan</h2>
-            <p>Bereid je voor op een magische uitbreiding! Verzamel de krachtigste kaarten en bouw een onvergetelijk deck.</p>
+            <p>Bereid je voor op een magische uitbreiding! Verzamel de krachtigste kaarten en bouw een onvergetelijk
+                deck.</p>
         </section>
-    
-        
+
+
+    </section> -->
+
+
+    <section class="filtering">
+
+
+        <section class="filtering-button">
+            <button class="filter-btn common" data-type="common">
+                <img src="assets/icon/CummonIcon.png" alt="Common">
+            </button>
+            <button class="filter-btn uncommon" data-type="uncommon">
+                <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
+            </button>
+            <button class="filter-btn rare" data-type="rare">
+                <img src="assets/icon/RareIcon.png" alt="Rare">
+            </button>
+            <button class="filter-btn mythic" data-type="mythic">
+                <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
+            </button>
+        </section>
+        <input type="text" id="searchBar" placeholder="Zoek een kaart...">
     </section>
 
-  
-<section class="filtering">
-  
 
-   <section class="filtering-button">
-    <button class="filter-btn common" data-type="common">
-        <img src="assets/icon/CummonIcon.png" alt="Common" >
-    </button>
-    <button class="filter-btn uncommon" data-type="uncommon">
-        <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
-    </button>
-    <button class="filter-btn rare" data-type="rare">
-        <img src="assets/icon/RareIcon.png" alt="Rare">
-    </button>
-    <button class="filter-btn mythic" data-type="mythic">
-        <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
-    </button>
-   </section>
-     <input type="text" id="searchBar" placeholder="Zoek een kaart...">
-</section>
-
-
-<!-- moet nog met api opgehaald worden -->
- <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
+    <!-- moet nog met api opgehaald worden -->
+    <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
 
     <section id="kaartContainer">
         <section class="rij1">
@@ -102,7 +105,7 @@
                 <p>Kaart Naam</p>
             </section>
         </section>
- 
+
         <section class="rij2">
             <section class="kaart gewoon" onclick="showDetails(this)">
                 <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
@@ -122,11 +125,11 @@
             </section>
         </section>
 
-       
+
     </section>
 
 
-<!-- de detail container -->
+    <!-- de detail container -->
     <section id="kaartPopup" class="hidden">
         <section class="popup-container">
             <span class="close">&times;</span>
@@ -134,7 +137,7 @@
             <p id="popupTitle"></p><br>
             <button class="deck-btn add">+ Voeg toe aan deck</button> <br>
             <button class="deck-btn remove">- Verwijder uit deck</button>
-  
+
         </section>
     </section>
 
@@ -142,7 +145,7 @@
     <section id="pagination">
         <button class="page-btn prev" onclick="prevPage()">«</button>
         <section class="page-numbers">
-           
+
             <button class="page-btn active">1</button>
             <button class="page-btn">2</button>
             <button class="page-btn">3</button>
@@ -153,11 +156,12 @@
         </section>
         <button class="page-btn next" onclick="nextPage()">»</button>
     </section>
-    
+
 
     <footer>
         <p>©Copyright - MGT-Originals</p>
         <img src="/assets/logo/LOGO-MAGIC 2.png" alt="Magic The Gathering" width="90" height="40">
     </footer>
 </body>
+
 </html>
