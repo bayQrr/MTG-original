@@ -15,28 +15,7 @@
   align-items: center;
   min-height: 100vh;
 }
-/* NAV-BAR */
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 60px;
-  padding: 10px 20px;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
-}
 
-.navbar > .logo > img {
-  height: 35px;
-  width: auto;
-}
 
 /*section*/
 .Login-container {
@@ -103,18 +82,6 @@
   box-shadow: 0 0 25px 10px #9932cc;
 }
 
-/*footer*/
-.footer_login {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
 
 /*------------------------------------------- register pagina Kaoutar -------------------------*/
 /* BODY MET ID REGISTER */
@@ -243,4 +210,445 @@
   margin-bottom: 10px;
   text-align: left;
   width: 100%;
+}
+
+/*--------------ZAIDA cards --------------------------------*/
+
+/* Algemene stijlen */
+.cards_body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  background-image: url(/assets/images/woman.png);
+ background-repeat: no-repeat;
+background-position: 50% 10%; 
+background-size: cover;
+
+backdrop-filter: blur(10px);
+}
+
+
+
+/* Navbar*/
+
+#unique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  flex-grow: 1;
+  font-family: Prompt;
+ font-size: 1.2rem;
+}
+
+#unique-nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+}
+
+#unique-nav-list li {
+  display: inline;
+}
+
+#unique-nav-home a, #unique-nav-decks a, #unique-nav-drawtest a, #unique-nav-rules a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#unique-profile-link {
+  text-decoration: none;
+}
+
+#unique-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.midden-container{
+  margin-top: 10rem;
+}
+
+/*kaarten*/
+/*filtering container*/
+.filtering {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:5rem;
+
+gap:15rem;
+  padding: 20px;
+
+}
+
+#searchBar {
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+#searchBar{
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#searchBar:focus {
+  box-shadow: 0 0 15px white;
+  border-color: #8a5dbd;
+}
+
+
+.filtering-button {
+  display: flex;
+  gap:5rem;
+}
+
+/* Stijl voor de filterknoppen */
+.filter-btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: #000914;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.filter-btn img {
+  width: 90px;
+  height: 30px;
+}
+
+
+#kaartContainer {
+  display: flex;
+flex-direction: column;
+  gap: 20px;
+  padding:50px;
+
+background: linear-gradient(45deg, #1a1a1a, #464849a0);
+backdrop-filter: blur(10px);
+border-radius: 5%;
+margin-left: 5rem;
+margin-right: 5rem;
+}
+
+.rij1,.rij2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 3rem;
+  
+}
+
+.kaart {
+  width: 150px;
+  height: 220px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  padding: 5px;
+}
+
+.kaart img {
+ 
+  width: 100%;
+  border-radius: 10px;
+}
+
+.kaart:hover {
+  transform: scale(1.1);
+}
+
+
+/* de glow dit zal ook nog aangepast worden met backend  */
+.common {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+.uncommon {
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749); 
+}
+.rare {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6); 
+}
+.mythic {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); 
+}
+
+
+/* Popup stijl */
+#kaartPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+
+  
+
+}
+
+.popup-container {
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  display: flex;
+  flex-direction: row;
+gap: 2rem;  
+}
+#popupTitle{
+  color: white;
+  /* to do font styl */
+}
+
+.delete-btn {
+
+  background: linear-gradient(45deg, #1a1a1a, #de3a2e);
+  color: #fff;
+  border: 2px solid black; 
+}
+.add-btn{
+  background: linear-gradient(45deg, #1a1a1a, #2ede51);
+  color: #fff;
+  border: 2px solid black; 
+}
+
+/* dropdown knop bij de addbutton */
+
+.deck-dropdown {
+  display: none;
+  position: absolute;
+
+  border: 1px solid #474242;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+  background: linear-gradient(45deg, #1a1a1a, #3d99ae);
+  color: #fff;
+  border: 2px solid black;
+  border-radius: 5%;
+}
+/* to do font styl aanpassen */
+.deck-dropdown a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.deck-dropdown a:hover {
+  background: rgba(45, 43, 43, 0.747);
+}
+
+
+.deck-dropdown.hidden {
+  display: none;
+}
+
+.deck-dropdown:not(.hidden) {
+  display: block;
+}
+
+
+.add-btn,.delete-btn{
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+margin-top: 14rem;
+  font-size: 7px;
+  font-weight: bold;
+ margin-right: 1rem;
+  padding: 12px 2px;
+}
+
+.delete-btn:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add-btn:before{
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.delete-btn:hover::before {
+  opacity: 1;
+}
+.add-btn:hover::before{
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  border-color:black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+.add-btn:hover{
+  transform: scale(1.1);
+  border-color:black;
+  box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
+}
+
+.add-btn,.delete-btn:active {
+  transform: scale(0.95);
+}
+
+/* de kruisknopt */
+.close {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+
+/*paginering*/
+/* Paginering container */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5rem;
+}
+
+/* Algemene stijl voor paginering knoppen */
+.page-btn {
+  background-color: #1e1e1e;
+  color: white;
+  border: 2px solid #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Actieve pagina knop */
+.page-btn.active {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 15px white;
+}
+
+/* Hover effect */
+.page-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Stijl voor de vorige/volgende knoppen */
+.prev, .next {
+  font-size: 18px;
+}
+
+/* Stijl voor "..." */
+.dots {
+  color: white;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+/*footer*/
+footer{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+ text-align: right;
+  padding: 10px 0;
+
+
+  font-size: 14px;
+ 
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+footer>ul{
+  display: flex;
+ 
+ justify-content: space-between;
+
+ 
+}
+.footer-socials{
+ gap: 10px;
+ display: flex;
+ margin-right: 10px;
 }
