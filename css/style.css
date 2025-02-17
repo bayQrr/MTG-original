@@ -452,20 +452,5 @@
   width: 160px;
 }
 
-#unique-footer {
-  text-align: center;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 
-#unique-footer-text {
-  margin: 0;
-}
-
-#unique-footer-logo {
-  width: 60px;
-}
 
