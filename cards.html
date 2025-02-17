@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic The Gathering kaarten</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/kaartendetail.js"></script>
+
+</head>
+<body class="cards_body">
+    <header id="unique-header">
+        <a href="#"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo"> </a>
+
+        <nav id="unique-navigation">
+            <ul id="unique-nav-list">
+
+                <li id="unique-nav-decks"><a href="deck.html">DECKS</a></li>
+                <li id="unique-nav-drawtest"><a href="cards.html">DRAWTEST</a></li>
+                <li id="unique-nav-rules"><a href="login.html">UITLOGGEN</a></li>
+            </ul>
+        </nav>
+        <a href="#" id="unique-profile-link"><img src="assets/icon/magic-ball.png" alt="My Profile"  id="unique-profile-icon"></a>
+    </header>
+    
+ 
+  <section class="midden-container">
+
+     
+<section class="filtering">
+  
+
+   <section class="filtering-button">
+    <button class="filter-btn common" data-type="common">
+        <img src="assets/icon/CummonIcon.png" alt="Common" >
+    </button>
+    <button class="filter-btn uncommon" data-type="uncommon">
+        <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
+    </button>
+    <button class="filter-btn rare" data-type="rare">
+        <img src="assets/icon/RareIcon.png" alt="Rare">
+    </button>
+    <button class="filter-btn mythic" data-type="mythic">
+        <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
+    </button>
+   </section>
+     <input type="text" id="searchBar" placeholder="Zoek een kaart...">
+</section>
+
+
+<!-- moet nog met api opgehaald worden -->
+ <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
+
+    <section id="kaartContainer">
+        <section class="rij1">
+
+            <section class="kaart common" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
+                <p>Kaart Naam</p>
+            </section>
+            <section class="kaart uncommon" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
+                <p>Kaart Naam</p>
+            </section>
+            <section class="kaart rare" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
+                <p>Kaart Naam</p>
+            </section>
+            <section class="kaart mythic" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
+                <p>Kaart Naam</p>
+            </section>
+        </section>
+ 
+        <section class="rij2">
+            <section class="kaart gewoon" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
+                <p>Kaart Naam</p>
+            </section>
+            <section class="kaart gewoon" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
+                <p>Kaart Naam</p>
+            </section>
+            <section class="kaart gewoon" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
+                <p>Kaart Naam</p>
+            </section>
+            <section class="kaart gewoon" onclick="showDetails(this)">
+                <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
+                <p>Kaart Naam</p>
+            </section>
+        </section>
+
+       
+    </section>
+</section> 
+
+<!-- de detail container -->
+    <section id="kaartPopup" class="hidden">
+        <section class="popup-container">
+            <section class="popup-container-img">
+                <img id="popupImg" src="" alt="Kaart">
+            </section>
+            <section class="popup-specifications">
+                <p id="popupTitle"></p>
+                <form action="#" method="GET">
+
+                    <!-- nog te fixen -->
+                                       
+                            <button class="add-btn">+ Voeg toe aan deck </button>
+                               
+                            <section class="deck-dropdown hidden">
+                                <a href="#">Deck 1</a>
+                                <a href="#">Deck 2</a>
+                                <a href="#">Deck 3</a>
+                            </section>
+                            <button class="delete-btn">- Verwijder uit deck</button>
+              
+                    
+                </form>
+             
+                
+                
+                <!-- option welke deck -->
+            </section>
+            <span class="close">&times;</span>
+           
+           
+  
+        </section>
+    </section>
+
+    <!-- dit is de bonus vraag over de tabjespaginering -->
+    <section id="pagination">
+        <button class="page-btn prev" onclick="prevPage()">«</button>
+        <section class="page-numbers">
+           
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <span class="dots">...</span>
+            <button class="page-btn">10</button>
+        </section>
+        <button class="page-btn next" onclick="nextPage()">»</button>
+    </section>
+    
+
+    <footer>
+
+<ul>
+<p>&copf; MTG-Originals</p> 
+<section class="footer-socials">
+    <a href="https://www.facebook.com/MagicTheGathering"><img src="/assets/icon/facebook.png" alt="fb-logo" width="35rem"></a>
+    <a href="https://www.instagram.com/wizards_magic/"><img src="/assets/icon/social.png" alt="instagram-logo" width="35rem"></a>
+    <a href="https://www.twitch.tv/magic"><img src="/assets/icon/twitch.png" alt="twitch-logo" width="35rem"></a>
+</section>
+
+</ul>
+    </footer>
+
+</body>
+</html>
+
