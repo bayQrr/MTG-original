@@ -293,7 +293,9 @@
 #profile-link {
   color: white;
   text-decoration: none;
+  width: 100px;
 }
+
 
 #main-content {
   display: flex;
@@ -387,8 +389,8 @@
 }
 
 #unique-profile-icon {
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 
@@ -443,9 +445,8 @@
   width: 100px;
 }
 
-#unique-crossed-swords {
-  font-size: 30px;
-  color: white;
+#unique-crossed-swords  {
+ margin-left:15px;
 }
 
 #unique-drawn-card {
