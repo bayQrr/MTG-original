@@ -1,10 +1,4 @@
-* {
-  /*FONTS */
-  @font-face {
-    font-family: "Gotham";
-    src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
-  }
-}
+*
 
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
 .login {
@@ -15,28 +9,7 @@
   align-items: center;
   min-height: 100vh;
 }
-/* NAV-BAR */
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 60px;
-  padding: 10px 20px;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
-}
 
-.navbar > .logo > img {
-  height: 35px;
-  width: auto;
-}
 
 /*section*/
 .Login-container {
@@ -103,18 +76,6 @@
   box-shadow: 0 0 25px 10px #9932cc;
 }
 
-/*footer*/
-.footer_login {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
 
 /*------------------------------------------- register pagina Kaoutar -------------------------*/
 /* BODY MET ID REGISTER */
@@ -244,6 +205,71 @@
   text-align: left;
   width: 100%;
 }
+/* deck page */ 
+#body-background {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/walpaper\ 1.png"); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#deck-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.deck-item {
+  text-align: center;
+}
+
+#deck-img-1, #deck-img-2, #deck-img-3, #deck-img-4, #deck-img-5, #deck-img-6 {
+  width: 100px;
+  height: auto;
+}
+
+#deck-text-1, #deck-text-2, #deck-text-3, #deck-text-4, #deck-text-5, #deck-text-6 {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+#footer-section {
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  width:100%;
+ 
+}
+
+#footer-text {
+  margin: 0;
+}
+/* game pagina */ 
+#unique-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/wallpapergames.png"); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
 
 /*--------------ZAIDA cards --------------------------------*/
 
@@ -252,36 +278,59 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  /* background-color: #071d2cb9; */
   background-color: #1e1e1e;
-  color: white;
+  background-image: url(/assets/images/woman.png);
+ background-repeat: no-repeat;
+background-position: 50% 10%; 
+background-size: cover;
+
+backdrop-filter: blur(10px);
 }
+
+
+
 /* Navbar*/
 
-.cards_navbar {
+#unique-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 15px 50px;
   z-index: 1;
-}
-.cards_navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 90px;
+
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.cards_navbar a {
-  text-decoration: none;
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  flex-grow: 1;
+  font-family: Prompt;
+ font-size: 1.2rem
+}
+
+#unique-nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+}
+
+#unique-nav-list li {
+  display: inline;
+}
+
+#unique-nav-home a, #unique-nav-decks a, #unique-nav-drawtest a, #unique-nav-rules a {
   color: white;
+  text-decoration: none;
   font-weight: bold;
 }
 
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 /* banner */
 .banner {
@@ -303,8 +352,24 @@
 /* intro containers */
 .intro-container,
 .intro-container2 {
+
+#unique-profile-link {
+  text-decoration: none;
+}
+
+#unique-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+
+#unique-main {
+
   display: flex;
+  justify-content: center;
   align-items: center;
+
   justify-content: space-between;
   padding: 40px;
   border-radius: 15px;
@@ -369,7 +434,65 @@
 .intro-container2:hover img {
   transform: scale(1.1);
   box-shadow: 0 0 20px #4286c8;
+
+  height: 80vh;
 }
+
+#unique-draw-section {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#unique-deck-icon img {
+  height: 40px;
+}
+
+#unique-draw-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#unique-draw-button, #unique-reset-button, #unique-track-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#unique-progress-bar {
+  font-weight: bold;
+  color: white;
+}
+
+#unique-card-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#unique-deck-card {
+  width: 100px;
+}
+
+#unique-crossed-swords  {
+ margin-left:15px;
+}
+
+#unique-drawn-card {
+  width: 160px;
+
+}
+
+
+
 
 /* Button styling */
 .btn {
@@ -388,6 +511,10 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
+.midden-container{
+  margin-top: 10rem;
+}
+
 /*kaarten*/
 /*filtering container*/
 .filtering {
@@ -395,8 +522,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
   gap: 15rem;
+
+  margin-bottom:5rem;
+
+gap:15rem;
+
   padding: 20px;
+
 }
 
 #searchBar {
@@ -432,7 +566,7 @@
   width: 60px;
   height: 60px;
   border: none;
-  background-color: #8a5dbd;
+  background-color: #000914;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -451,15 +585,27 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   padding: 20px;
   background-color: #1e1e1e;
 }
 .rij1,
 .rij2 {
+
+  padding:50px;
+
+background: linear-gradient(45deg, #1a1a1a, #464849a0);
+backdrop-filter: blur(10px);
+border-radius: 5%;
+margin-left: 5rem;
+margin-right: 5rem;
+}
+
+.rij1,.rij2{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 10rem;
+  gap: 5rem;
   margin-bottom: 3rem;
 }
 
@@ -484,9 +630,10 @@
 
 /* de glow dit zal ook nog aangepast worden met backend  */
 .common {
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 .uncommon {
+
   box-shadow: 0 0 8px rgba(71, 126, 236, 0.749);
 }
 .rare {
@@ -494,6 +641,15 @@
 }
 .mythic {
   box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749); 
+}
+.rare {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6); 
+}
+.mythic {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); 
+
 }
 
 /* Popup stijl */
@@ -507,30 +663,151 @@
   background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
+
+  
+
 }
 
 .popup-container {
-  background: white;
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
   padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  display: flex;
+  flex-direction: row;
+gap: 2rem;  
 }
+  
 #popupTitle {
   color: red;
+
+#popupTitle{
+  color: white;
+  /* to do font styl */
+
 }
-.popup-content img {
-  width: 300px;
+
+.delete-btn {
+
+  background: linear-gradient(45deg, #1a1a1a, #de3a2e);
+  color: #fff;
+  border: 2px solid black; 
+}
+.add-btn{
+  background: linear-gradient(45deg, #1a1a1a, #2ede51);
+  color: #fff;
+  border: 2px solid black; 
+}
+
+/* dropdown knop bij de addbutton */
+
+.deck-dropdown {
+  display: none;
+  position: absolute;
+
+  border: 1px solid #474242;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+  background: linear-gradient(45deg, #1a1a1a, #3d99ae);
+  color: #fff;
+  border: 2px solid black;
+  border-radius: 5%;
+}
+/* to do font styl aanpassen */
+.deck-dropdown a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.deck-dropdown a:hover {
+  background: rgba(45, 43, 43, 0.747);
+}
+
+
+.deck-dropdown.hidden {
+  display: none;
+}
+
+.deck-dropdown:not(.hidden) {
+  display: block;
+}
+
+
+.add-btn,.delete-btn{
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+margin-top: 14rem;
+  font-size: 7px;
+  font-weight: bold;
+ margin-right: 1rem;
+  padding: 12px 2px;
+}
+
+.delete-btn:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add-btn:before{
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.delete-btn:hover::before {
+  opacity: 1;
+}
+.add-btn:hover::before{
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  border-color:black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+.add-btn:hover{
+  transform: scale(1.1);
+  border-color:black;
+  box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
+}
+
+.add-btn,.delete-btn:active {
+  transform: scale(0.95);
 }
 
 /* de kruisknopt */
 .close {
   position: absolute;
-  top: 8px;
-  right: 5px;
+  top: 5px;
+  right: 2px;
   font-size: 30px;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 /*paginering*/
@@ -583,102 +860,37 @@
   padding: 0 10px;
 }
 
-/*fotoer*/
-footer {
+
+
+/*footer*/
+footer{
+
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  text-align: center;
+ text-align: right;
   padding: 10px 0;
+
+
   font-size: 14px;
 
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+
 }
 
-/*--------------SPELREGELS KZ --------------------------------*/
-/* BODY SPELREGELS */
-.rules-body {
-  font-family: "Arial", sans-serif;
-  background-color: #1c1d25;
-  color: #d1d1e0;
-  padding: 20px;
-  text-align: center;
+footer>ul{
+  display: flex;
+ 
+ justify-content: space-between;
+
+ 
+}
+.footer-socials{
+ gap: 10px;
+ display: flex;
+ margin-right: 10px;
 }
 
-/* H1 TITEL STIJLEN */
-#title {
-  color: #9a86fd;
-  font-size: 2.5em;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
 
-/* CONTAINER SPELREGELS  */
-.rules-container {
-  max-width: 700px;
-  margin: 0 auto;
-  background: #292b36;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-.image {
-  margin-bottom: 20px;
-}
-/* ONDERTITEL */
-.subtitle {
-  color: #a78bfa;
-  font-size: 1.8em;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-/* LIST STIJLEN SPELREGELS */
-.rules ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
-
-.rules ul li {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px 15px;
-  border-radius: 5px;
-  margin-bottom: 8px;
-  transition: background 0.3s ease;
-}
-
-.rules ul li:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* HOME BUTTON */
-.back-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  font-size: 1.2em;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
-  padding: 15px;
-  background-color: #4b0082;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.back-btn:hover {
-  background-color: #9932cc;
-}
-
-/*--------------DECKVIEW KZ --------------------------------*/
