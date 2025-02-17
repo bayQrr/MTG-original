@@ -1,10 +1,4 @@
-* {
-  /*FONTS */
-  @font-face {
-    font-family: "Gotham";
-    src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
-  }
-}
+*
 
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
 .login {
@@ -255,48 +249,6 @@
   color: white;
 }
 
-#header-bar {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-#logo-img {
-  height: 40px;
-}
-
-#nav-menu {
-  flex-grow: 1;
-}
-
-#nav-list {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-#nav-list li {
-  display: inline;
-}
-
-#nav-home a, #nav-decks a, #nav-drawtest a, #nav-rules a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-#profile-link {
-  color: white;
-  text-decoration: none;
-  width: 100px;
-}
-
-
 #main-content {
   display: flex;
   justify-content: center;
@@ -334,6 +286,7 @@
   position: fixed;
   bottom: 0;
   width:100%;
+ 
 }
 
 #footer-text {
@@ -364,12 +317,14 @@
 
 #unique-navigation {
   flex-grow: 1;
+  font-family: Prompt;
+ font-size: 1.2rem;
 }
 
 #unique-nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: space-evenly;
   padding: 0;
   margin: 0;
 }
@@ -389,8 +344,8 @@
 }
 
 #unique-profile-icon {
-  height: 80px;
-  width: 80px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 
