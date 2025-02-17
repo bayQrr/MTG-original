@@ -15,30 +15,7 @@
   align-items: center;
   min-height: 100vh;
 }
-/* NAV-BAR */
 
-
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 60px;
-  padding: 10px 20px;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
-}
-
-.navbar > .logo > img {
-  height: 35px;
-  width: auto;
-}
 
 /*section*/
 .Login-container {
@@ -105,18 +82,6 @@
   box-shadow: 0 0 25px 10px #9932cc;
 }
 
-/*footer*/
-.footer_login {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
 
 /*------------------------------------------- register pagina Kaoutar -------------------------*/
 /* BODY MET ID REGISTER */
@@ -267,75 +232,50 @@ backdrop-filter: blur(10px);
 
 /* Navbar*/
 
-
-.cards_navbar {
+#unique-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  z-index: 1;
- margin-bottom: 3rem;
-
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
-
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
 }
-.cards_navbar ul {
+
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  flex-grow: 1;
+  font-family: Prompt;
+ font-size: 1.2rem;
+}
+
+#unique-nav-list {
   list-style: none;
   display: flex;
-  gap: 90px;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
 }
 
-.cards_navbar a {
+#unique-nav-list li {
+  display: inline;
+}
+
+#unique-nav-home a, #unique-nav-decks a, #unique-nav-drawtest a, #unique-nav-rules a {
+  color: white;
   text-decoration: none;
-  font-size: 18px;
   font-weight: bold;
-  color: #ddd;
-  padding: 10px 15px;
-  position: relative;
-  transition: all 0.3s ease-in-out;
 }
 
-.cards_nav ul li a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: #00aaff;
-  transition: all 0.3s ease-in-out;
-  transform: translateX(-50%);
+#unique-profile-link {
+  text-decoration: none;
 }
 
-.cards_nav ul li a:hover::before {
-  width: 100%;
-}
-
-.cards_nav ul li a:hover {
-  color: #00aaff;
-  text-shadow: 0 0 10px #00aaff, 0 0 20px #0077cc;
-  transform: scale(1.1);
-}
-
-/* profile sectie */
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #ddd;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.profile img {
+#unique-profile-icon {
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.profile:hover img {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px #00aaff;
 }
 
 /* Button styling */
@@ -684,15 +624,31 @@ margin-top: 14rem;
   padding: 0 10px;
 }
 
-/*fotoer*/
+/*footer*/
 footer{
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  text-align: center;
+ text-align: right;
   padding: 10px 0;
+
+
   font-size: 14px;
  
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+footer>ul{
+  display: flex;
+ 
+ justify-content: space-between;
+
+ 
+}
+.footer-socials{
+ gap: 10px;
+ display: flex;
+ margin-right: 10px;
 }
