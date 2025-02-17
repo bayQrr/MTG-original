@@ -269,7 +269,7 @@
   background-position: center;
   color: white;
 }
-=======
+
 
 /*--------------ZAIDA cards --------------------------------*/
 
@@ -295,6 +295,10 @@ backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 15px 50px;
+  z-index: 1;
+
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.5);
 }
@@ -306,7 +310,7 @@ backdrop-filter: blur(10px);
 #unique-navigation {
   flex-grow: 1;
   font-family: Prompt;
- font-size: 1.2rem;
+ font-size: 1.2rem
 }
 
 #unique-nav-list {
@@ -327,6 +331,28 @@ backdrop-filter: blur(10px);
   font-weight: bold;
 }
 
+
+/* banner */
+.banner {
+  background-image: url(/assets/images/woman.png);
+  text-align: center;
+  padding: 10rem;
+  box-shadow: inset 0 0 50px rgba(21, 71, 114, 0.9);
+  margin-bottom: 10rem;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+
+.banner h1 {
+  font-size: 5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+  font-family: "Gotham";
+}
+
+/* intro containers */
+.intro-container,
+.intro-container2 {
+
 #unique-profile-link {
   text-decoration: none;
 }
@@ -339,9 +365,76 @@ backdrop-filter: blur(10px);
 
 
 #unique-main {
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  justify-content: space-between;
+  padding: 40px;
+  border-radius: 15px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  background-position: center;
+  text-align: center;
+  position: relative;
+  margin-bottom: 10rem;
+  /* max-width: 1200px; */
+}
+
+/* Achtergrondafbeeldingen voor de containers */
+/* .intro-container {
+  background-image: url(/assets/images/landscape.png);
+}
+
+.intro-container2 {
+  background-image: url(/assets/images/Man_In_Cave.png);
+} */
+
+/* Hover-effecten */
+.intro-container:hover,
+.intro-container2:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px #4286c8;
+}
+
+/* Tekst effecten */
+.intro-text h2,
+.intro2-text h2 {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  transition: text-shadow 0.5s ease;
+}
+
+.intro-container:hover h2,
+.intro-container2:hover h2 {
+  text-shadow: 0 0 20px #4286c8;
+}
+
+.intro-text p,
+.intro2-text p {
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.intro-container:hover p,
+.intro-container2:hover p {
+  opacity: 1;
+}
+
+/* Afbeeldingen effecten */
+.intro-container img,
+.intro-container2 img {
+  max-width: 300px;
+  border-radius: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.intro-container:hover img,
+.intro-container2:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #4286c8;
+
   height: 80vh;
 }
 
@@ -395,6 +488,7 @@ backdrop-filter: blur(10px);
 
 #unique-drawn-card {
   width: 160px;
+
 }
 
 
@@ -428,9 +522,13 @@ backdrop-filter: blur(10px);
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  gap: 15rem;
+
   margin-bottom:5rem;
 
 gap:15rem;
+
   padding: 20px;
 
 }
@@ -449,7 +547,7 @@ gap:15rem;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-#searchBar{
+#searchBar {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -458,10 +556,9 @@ gap:15rem;
   border-color: #8a5dbd;
 }
 
-
 .filtering-button {
   display: flex;
-  gap:5rem;
+  gap: 5rem;
 }
 
 /* Stijl voor de filterknoppen */
@@ -484,11 +581,17 @@ gap:15rem;
   height: 30px;
 }
 
-
 #kaartContainer {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   gap: 20px;
+
+  padding: 20px;
+  background-color: #1e1e1e;
+}
+.rij1,
+.rij2 {
+
   padding:50px;
 
 background: linear-gradient(45deg, #1a1a1a, #464849a0);
@@ -504,7 +607,6 @@ margin-right: 5rem;
   justify-content: center;
   gap: 5rem;
   margin-bottom: 3rem;
-  
 }
 
 .kaart {
@@ -518,7 +620,6 @@ margin-right: 5rem;
 }
 
 .kaart img {
- 
   width: 100%;
   border-radius: 10px;
 }
@@ -527,12 +628,20 @@ margin-right: 5rem;
   transform: scale(1.1);
 }
 
-
 /* de glow dit zal ook nog aangepast worden met backend  */
 .common {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 .uncommon {
+
+  box-shadow: 0 0 8px rgba(71, 126, 236, 0.749);
+}
+.rare {
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+}
+.mythic {
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+
   box-shadow: 0 0 20px rgba(71, 126, 236, 0.749); 
 }
 .rare {
@@ -540,8 +649,8 @@ margin-right: 5rem;
 }
 .mythic {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); 
-}
 
+}
 
 /* Popup stijl */
 #kaartPopup {
@@ -571,9 +680,14 @@ margin-right: 5rem;
   flex-direction: row;
 gap: 2rem;  
 }
+  
+#popupTitle {
+  color: red;
+
 #popupTitle{
   color: white;
   /* to do font styl */
+
 }
 
 .delete-btn {
@@ -696,7 +810,6 @@ margin-top: 14rem;
   color: white;
 }
 
-
 /*paginering*/
 /* Paginering container */
 #pagination {
@@ -735,7 +848,8 @@ margin-top: 14rem;
 }
 
 /* Stijl voor de vorige/volgende knoppen */
-.prev, .next {
+.prev,
+.next {
   font-size: 18px;
 }
 
@@ -746,8 +860,11 @@ margin-top: 14rem;
   padding: 0 10px;
 }
 
+
+
 /*footer*/
 footer{
+
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
  text-align: right;
@@ -755,7 +872,7 @@ footer{
 
 
   font-size: 14px;
- 
+
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
@@ -774,4 +891,6 @@ footer>ul{
  display: flex;
  margin-right: 10px;
 }
+
+
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,10 @@
     <script src="js/kaartendetail.js"></script>
 
 </head>
+
 <body class="cards_body">
+
+
     <header id="unique-header">
         <a href="#"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo"> </a>
 
@@ -51,6 +55,7 @@
 <!-- moet nog met api opgehaald worden -->
  <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
 
+
     <section id="kaartContainer">
         <section class="rij1">
 
@@ -71,7 +76,7 @@
                 <p>Kaart Naam</p>
             </section>
         </section>
- 
+
         <section class="rij2">
             <section class="kaart gewoon" onclick="showDetails(this)">
                 <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
@@ -91,11 +96,11 @@
             </section>
         </section>
 
-       
+
     </section>
 </section> 
 
-<!-- de detail container -->
+    <!-- de detail container -->
     <section id="kaartPopup" class="hidden">
         <section class="popup-container">
             <section class="popup-container-img">
@@ -124,9 +129,15 @@
                 <!-- option welke deck -->
             </section>
             <span class="close">&times;</span>
+
+            <img id="popupImg" src="" alt="Kaart">
+            <p id="popupTitle"></p><br>
+            <button class="deck-btn add">+ Voeg toe aan deck</button> <br>
+            <button class="deck-btn remove">- Verwijder uit deck</button>
+
+
            
-           
-  
+
         </section>
     </section>
 
@@ -134,7 +145,7 @@
     <section id="pagination">
         <button class="page-btn prev" onclick="prevPage()">«</button>
         <section class="page-numbers">
-           
+
             <button class="page-btn active">1</button>
             <button class="page-btn">2</button>
             <button class="page-btn">3</button>
@@ -145,7 +156,7 @@
         </section>
         <button class="page-btn next" onclick="nextPage()">»</button>
     </section>
-    
+
 
     <footer>
 
@@ -161,5 +172,10 @@
     </footer>
 
 </body>
+
+
 </html>
+
+</html>
+
 
