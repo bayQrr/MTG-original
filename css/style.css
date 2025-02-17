@@ -1,10 +1,4 @@
-* {
-  /*FONTS */
-  @font-face {
-    font-family: "Gotham";
-    src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
-  }
-}
+*
 
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
 .login {
@@ -211,6 +205,71 @@
   text-align: left;
   width: 100%;
 }
+/* deck page */ 
+#body-background {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/walpaper\ 1.png"); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#deck-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.deck-item {
+  text-align: center;
+}
+
+#deck-img-1, #deck-img-2, #deck-img-3, #deck-img-4, #deck-img-5, #deck-img-6 {
+  width: 100px;
+  height: auto;
+}
+
+#deck-text-1, #deck-text-2, #deck-text-3, #deck-text-4, #deck-text-5, #deck-text-6 {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+#footer-section {
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  width:100%;
+ 
+}
+
+#footer-text {
+  margin: 0;
+}
+/* game pagina */ 
+#unique-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/wallpapergames.png"); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+=======
 
 /*--------------ZAIDA cards --------------------------------*/
 
@@ -277,6 +336,69 @@ backdrop-filter: blur(10px);
   width: 40px;
   border-radius: 50%;
 }
+
+
+#unique-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#unique-draw-section {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#unique-deck-icon img {
+  height: 40px;
+}
+
+#unique-draw-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#unique-draw-button, #unique-reset-button, #unique-track-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#unique-progress-bar {
+  font-weight: bold;
+  color: white;
+}
+
+#unique-card-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#unique-deck-card {
+  width: 100px;
+}
+
+#unique-crossed-swords  {
+ margin-left:15px;
+}
+
+#unique-drawn-card {
+  width: 160px;
+}
+
+
+
 
 /* Button styling */
 .btn {
@@ -652,3 +774,4 @@ footer>ul{
  display: flex;
  margin-right: 10px;
 }
+
