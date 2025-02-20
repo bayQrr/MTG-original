@@ -1,3 +1,53 @@
+/* Navbar*/
+
+#unique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  flex-grow: 1;
+  font-family: Prompt;
+  font-size: 1.2rem;
+}
+
+#unique-nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+}
+
+#unique-nav-list li {
+  display: inline;
+}
+
+#unique-nav-home a,
+#unique-nav-decks a,
+#unique-nav-drawtest a,
+#unique-nav-rules a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#unique-profile-link {
+  text-decoration: none;
+}
+
+#unique-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
 .login {
   background-image: url("/assets/images/Loginbg.jpg");
@@ -218,56 +268,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* Navbar*/
-
-#unique-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-#unique-logo {
-  height: 40px;
-}
-
-#unique-navigation {
-  flex-grow: 1;
-  font-family: Prompt;
-  font-size: 1.2rem;
-}
-
-#unique-nav-list {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0;
-  margin: 0;
-}
-
-#unique-nav-list li {
-  display: inline;
-}
-
-#unique-nav-home a,
-#unique-nav-decks a,
-#unique-nav-drawtest a,
-#unique-nav-rules a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-#unique-profile-link {
-  text-decoration: none;
-}
-
-#unique-profile-icon {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
 
 /* Button styling */
 .btn {
@@ -298,7 +298,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 5rem;
-
   gap: 15rem;
   padding: 20px;
 }
@@ -336,14 +335,26 @@
   width: 60px;
   height: 60px;
   border: none;
-  background-color: #000914;
+  background-color: #0009144b;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+
+}
+button.filter-btn.rare{
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+}
+button.filter-btn.common{
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4)
+}
+button.filter-btn.uncommon{
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
+}
+button.filter-btn.mythic{
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
 .filter-btn img {
@@ -354,14 +365,13 @@
 #kaartContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   padding: 50px;
-
   background: linear-gradient(45deg, #1a1a1a, #464849a0);
   backdrop-filter: blur(10px);
   border-radius: 5%;
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  
 }
 
 .rij1,
@@ -369,8 +379,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 5rem;
+  gap: 3rem;
   margin-bottom: 3rem;
+
 }
 
 .kaart {
@@ -381,11 +392,17 @@
   transition: transform 0.3s ease-in-out;
   text-align: center;
   padding: 5px;
+
 }
 
 .kaart img {
   width: 100%;
   border-radius: 10px;
+}
+.kaart>p{
+  color: white;
+  font-family: "prompt";
+  margin-top: 2rem;
 }
 
 .kaart:hover {
@@ -393,16 +410,16 @@
 }
 
 /* de glow dit zal ook nog aangepast worden met backend  */
-.common {
+section.kaart.common>img {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
-.uncommon {
+section>.kaart.uncommon>img {
   box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
 }
-.rare {
+section.kaart.rare>img{
   box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
 }
-.mythic {
+section>.kaart.mythic >img{
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
@@ -426,26 +443,16 @@
   padding: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
-
   display: flex;
   flex-direction: row;
   gap: 2rem;
 }
 #popupTitle {
   color: white;
-  /* to do font styl */
+  font-family: "prompt";
 }
 
-.delete-btn {
-  background: linear-gradient(45deg, #1a1a1a, #de3a2e);
-  color: #fff;
-  border: 2px solid black;
-}
-.add-btn {
-  background: linear-gradient(45deg, #1a1a1a, #2ede51);
-  color: #fff;
-  border: 2px solid black;
-}
+
 
 /* dropdown knop bij de addbutton */
 
@@ -459,6 +466,7 @@
 
   background: linear-gradient(45deg, #1a1a1a, #3d99ae);
   color: #fff;
+ 
   border: 2px solid black;
   border-radius: 5%;
 }
@@ -468,6 +476,8 @@
   padding: 5px;
   text-decoration: none;
   color: white;
+  font-family: "prompt";
+ 
 }
 
 .deck-dropdown a:hover {
@@ -482,8 +492,8 @@
   display: block;
 }
 
-.add-btn,
-.delete-btn {
+.add-btn
+ {
   border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -492,27 +502,19 @@
   position: relative;
   overflow: hidden;
   margin-top: 14rem;
-  font-size: 7px;
+  font-size: 8px;
   font-weight: bold;
   margin-right: 1rem;
   padding: 12px 2px;
+  background: linear-gradient(45deg, #1a1a1a, #2ede51);
+  color: #fff;
+  border: 2px solid black;
+  transform: scale(0.95);
+  font-family: "prompt";
 }
 
-.delete-btn:before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 110%;
-  height: 110%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 170, 255, 0.3) 10%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
+
+
 
 .add-btn:before {
   content: "";
@@ -521,6 +523,7 @@
   left: -5px;
   width: 110%;
   height: 110%;
+ 
   background: radial-gradient(
     circle,
     rgba(0, 170, 255, 0.3) 10%,
@@ -530,28 +533,19 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.delete-btn:hover::before {
-  opacity: 1;
-}
+
 .add-btn:hover::before {
   opacity: 1;
 }
 
-.delete-btn:hover {
-  transform: scale(1.1);
-  border-color: black;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-}
+
 .add-btn:hover {
   transform: scale(1.1);
   border-color: black;
   box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
 }
 
-.add-btn,
-.delete-btn:active {
-  transform: scale(0.95);
-}
+
 
 /* de kruisknopt */
 .close {
