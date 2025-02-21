@@ -1,22 +1,26 @@
 /* Navbar*/
 
+/* Navbar */
 #unique-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out; 
 }
+
 
 #unique-logo {
   height: 40px;
 }
+
 
 #unique-navigation {
   flex-grow: 1;
   font-family: Prompt;
   font-size: 1.2rem;
 }
+
 
 #unique-nav-list {
   list-style: none;
@@ -30,6 +34,7 @@
   display: inline;
 }
 
+
 #unique-nav-home a,
 #unique-nav-decks a,
 #unique-nav-drawtest a,
@@ -37,7 +42,27 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+
 }
+
+
+#unique-nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: rgb(72, 143, 173);
+  transition: width 0.3s ease-in-out;
+}
+
+#unique-nav-list a:hover::after {
+  width: 100%;
+}
+
 
 #unique-profile-link {
   text-decoration: none;
@@ -47,7 +72,26 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+#unique-profile-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(72, 143, 173, 0.7);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
 .login {
   background-image: url("/assets/images/Loginbg.jpg");
