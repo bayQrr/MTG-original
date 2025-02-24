@@ -84,8 +84,11 @@
 }
 .login-form > p > a {
   color: white;
+  transition: color 0.3s ease;
 }
-
+.login-form>p>a:hover {
+  color: #3d1452;
+}
 .login-form > h1 {
   color: white;
   font-family: "prompt";
@@ -180,6 +183,7 @@ margin-bottom: 2rem;
 }
 
 .login-text a {
+ 
   transition: color 0.3s ease;
   color: white;
 
