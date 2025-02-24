@@ -662,17 +662,54 @@ footer {
 }
 
 /* popup */
+/* Algemene stijl voor de knop */
 #add-deck-btn {
-  display: block;
-
-  margin-left: 4rem;
-  padding: 10px 20px;
-  font-size: 16px;
-  background: linear-gradient(135deg, #ff3700, #ff8800);
+  background-color: #007bff; /* Mooie blauwe kleur */
   border: none;
+  padding: 15px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  
+  /* Centreren aan de rechterkant */
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  
+  z-index: 1000;
 }
+
+/* Afbeelding binnen de knop */
+#add-deck-btn img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover-effect */
+#add-deck-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1) translateY(-50%);
+}
+
+/* Afbeelding beweegt bij hover */
+#add-deck-btn:hover img {
+  transform: rotate(90deg);
+}
+
+/* Klik-effect */
+#add-deck-btn:active {
+  transform: scale(0.9) translateY(-50%);
+}
+
+
 
 .deck-popup-container {
   display: none;
