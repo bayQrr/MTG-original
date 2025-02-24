@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,14 @@
     <link rel="stylesheet" href="css/font.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/kaartendetail.js"></script>
 
 </head>
+
 <body class="cards_body">
     <header id="unique-header">
         <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
@@ -25,82 +29,83 @@
                 <li id="unique-nav-rules"><a href="login.html">UITLOGGEN</a></li>
             </ul>
         </nav>
-        <a href="#" id="unique-profile-link"><img src="assets/icon/magic-ball.png" alt="My Profile"  id="unique-profile-icon"></a>
+        <a href="#" id="unique-profile-link"><img src="assets/icon/magic-ball.png" alt="My Profile"
+                id="unique-profile-icon"></a>
     </header>
-    
- 
-  <section class="midden-container">
-
-     
-<section class="filtering">
-  
-
-   <section class="filtering-button">
-    <button class="filter-btn common" data-type="common">
-        <img src="assets/icon/CummonIcon.png" alt="Common" >
-    </button>
-    <button class="filter-btn uncommon" data-type="uncommon">
-        <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
-    </button>
-    <button class="filter-btn rare" data-type="rare">
-        <img src="assets/icon/RareIcon.png" alt="Rare">
-    </button>
-    <button class="filter-btn mythic" data-type="mythic">
-        <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
-    </button>
-   </section>
-     <input type="text" id="searchBar" placeholder="Zoek een kaart...">
-</section>
 
 
-<!-- moet nog met api opgehaald worden -->
- <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
+    <section class="midden-container">
 
-    <section id="kaartContainer">
-        <section class="rij1">
 
-            <section class="kaart common" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
-                <p>Kaart Naam</p>
+        <section class="filtering">
+
+
+            <section class="filtering-button">
+                <button class="filter-btn common" data-type="common">
+                    <img src="assets/icon/CummonIcon.png" alt="Common">
+                </button>
+                <button class="filter-btn uncommon" data-type="uncommon">
+                    <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
+                </button>
+                <button class="filter-btn rare" data-type="rare">
+                    <img src="assets/icon/RareIcon.png" alt="Rare">
+                </button>
+                <button class="filter-btn mythic" data-type="mythic">
+                    <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
+                </button>
             </section>
-            <section class="kaart uncommon" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
-                <p>Kaart Naam</p>
-            </section>
-            <section class="kaart rare" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
-                <p>Kaart Naam</p>
-            </section>
-            <section class="kaart mythic" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
-                <p>Kaart Naam</p>
-            </section>
-        </section>
- 
-        <section class="rij2">
-            <section class="kaart gewoon" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
-                <p>Kaart Naam</p>
-            </section>
-            <section class="kaart gewoon" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
-                <p>Kaart Naam</p>
-            </section>
-            <section class="kaart gewoon" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
-                <p>Kaart Naam</p>
-            </section>
-            <section class="kaart gewoon" onclick="showDetails(this)">
-                <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
-                <p>Kaart Naam</p>
-            </section>
+            <input type="text" id="searchBar" placeholder="Zoek een kaart...">
         </section>
 
-       
+
+        <!-- moet nog met api opgehaald worden -->
+        <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
+
+        <section id="kaartContainer">
+            <section class="rij1">
+
+                <section class="kaart common" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
+                    <p>Kaart Naam</p>
+                </section>
+                <section class="kaart uncommon" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
+                    <p>Kaart Naam</p>
+                </section>
+                <section class="kaart rare" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
+                    <p>Kaart Naam</p>
+                </section>
+                <section class="kaart mythic" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
+                    <p>Kaart Naam</p>
+                </section>
+            </section>
+
+            <section class="rij2">
+                <section class="kaart gewoon" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
+                    <p>Kaart Naam</p>
+                </section>
+                <section class="kaart gewoon" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
+                    <p>Kaart Naam</p>
+                </section>
+                <section class="kaart gewoon" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
+                    <p>Kaart Naam</p>
+                </section>
+                <section class="kaart gewoon" onclick="showDetails(this)">
+                    <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
+                    <p>Kaart Naam</p>
+                </section>
+            </section>
+
+
+        </section>
     </section>
-</section> 
 
-<!-- de detail container -->
+    <!-- de detail container -->
     <section id="kaartPopup" class="hidden">
         <section class="popup-container">
             <section class="popup-container-img">
@@ -111,26 +116,26 @@
                 <form action="#" method="GET">
 
                     <!-- nog te fixen -->
-                                       
-                            <button class="add-btn">Voeg toe aan deck </button>
-                               
-                            <section class="deck-dropdown hidden">
-                                <a href="#">Deck 1</a>
-                                <a href="#">Deck 2</a>
-                                <a href="#">Deck 3</a>
-                            </section>
-                         
-                    
+
+                    <button class="add-btn">Voeg toe aan deck </button>
+
+                    <section class="deck-dropdown hidden">
+                        <a href="#">Deck 1</a>
+                        <a href="#">Deck 2</a>
+                        <a href="#">Deck 3</a>
+                    </section>
+
+
                 </form>
-             
-                
-                
+
+
+
                 <!-- option welke deck -->
             </section>
             <span class="close">&times;</span>
-           
-           
-  
+
+
+
         </section>
     </section>
 
@@ -138,7 +143,7 @@
     <section id="pagination">
         <button class="page-btn prev" onclick="prevPage()">«</button>
         <section class="page-numbers">
-           
+
             <button class="page-btn active">1</button>
             <button class="page-btn">2</button>
             <button class="page-btn">3</button>
@@ -149,20 +154,15 @@
         </section>
         <button class="page-btn next" onclick="nextPage()">»</button>
     </section>
-    
+
 
     <footer>
 
-<ul>
-<p>&copy; MTG-Originals</p> 
-<section class="footer-socials">
-    <a href="https://www.facebook.com/MagicTheGathering"><img src="/assets/icon/facebook.png" alt="fb-logo" width="35rem"></a>
-    <a href="https://www.instagram.com/wizards_magic/"><img src="/assets/icon/social.png" alt="instagram-logo" width="35rem"></a>
-    <a href="https://www.twitch.tv/magic"><img src="/assets/icon/twitch.png" alt="twitch-logo" width="35rem"></a>
-</section>
-
-</ul>
+        <ul>
+            <p>&copy; MTG-Originals - All rights reserved</p>
+        </ul>
     </footer>
 
 </body>
+
 </html>

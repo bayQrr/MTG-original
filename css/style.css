@@ -270,7 +270,6 @@
   backdrop-filter: blur(10px);
 }
 
-
 /* Button styling */
 .btn {
   display: inline-block;
@@ -344,18 +343,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-button.filter-btn.rare{
+button.filter-btn.rare {
   box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
 }
-button.filter-btn.common{
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4)
+button.filter-btn.common {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
-button.filter-btn.uncommon{
+button.filter-btn.uncommon {
   box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
 }
-button.filter-btn.mythic{
+button.filter-btn.mythic {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
@@ -373,7 +371,6 @@ button.filter-btn.mythic{
   border-radius: 5%;
   margin-left: 15rem;
   margin-right: 15rem;
-  
 }
 
 .rij1,
@@ -383,7 +380,6 @@ button.filter-btn.mythic{
   justify-content: center;
   gap: 3rem;
   margin-bottom: 3rem;
-
 }
 
 .kaart {
@@ -394,14 +390,13 @@ button.filter-btn.mythic{
   transition: transform 0.3s ease-in-out;
   text-align: center;
   padding: 5px;
-
 }
 
 .kaart img {
   width: 100%;
   border-radius: 10px;
 }
-.kaart>p{
+.kaart > p {
   color: white;
   font-family: "prompt";
   margin-top: 2rem;
@@ -412,16 +407,16 @@ button.filter-btn.mythic{
 }
 
 /* de glow dit zal ook nog aangepast worden met backend  */
-section.kaart.common>img {
+section.kaart.common > img {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
-section>.kaart.uncommon>img {
+section > .kaart.uncommon > img {
   box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
 }
-section.kaart.rare>img{
+section.kaart.rare > img {
   box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
 }
-section>.kaart.mythic >img{
+section > .kaart.mythic > img {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
@@ -454,8 +449,6 @@ section>.kaart.mythic >img{
   font-family: "prompt";
 }
 
-
-
 /* dropdown knop bij de addbutton */
 
 .deck-dropdown {
@@ -468,7 +461,7 @@ section>.kaart.mythic >img{
 
   background: linear-gradient(45deg, #1a1a1a, #3d99ae);
   color: #fff;
- 
+
   border: 2px solid black;
   border-radius: 5%;
 }
@@ -479,7 +472,6 @@ section>.kaart.mythic >img{
   text-decoration: none;
   color: white;
   font-family: "prompt";
- 
 }
 
 .deck-dropdown a:hover {
@@ -494,8 +486,7 @@ section>.kaart.mythic >img{
   display: block;
 }
 
-.add-btn
- {
+.add-btn {
   border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -515,9 +506,6 @@ section>.kaart.mythic >img{
   font-family: "prompt";
 }
 
-
-
-
 .add-btn:before {
   content: "";
   position: absolute;
@@ -525,7 +513,7 @@ section>.kaart.mythic >img{
   left: -5px;
   width: 110%;
   height: 110%;
- 
+
   background: radial-gradient(
     circle,
     rgba(0, 170, 255, 0.3) 10%,
@@ -535,19 +523,15 @@ section>.kaart.mythic >img{
   transition: opacity 0.3s ease-in-out;
 }
 
-
 .add-btn:hover::before {
   opacity: 1;
 }
-
 
 .add-btn:hover {
   transform: scale(1.1);
   border-color: black;
   box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
 }
-
-
 
 /* de kruisknopt */
 .close {
@@ -611,25 +595,14 @@ section>.kaart.mythic >img{
 
 /*footer*/
 footer {
-  position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  text-align: right;
+  text-align: center;
   padding: 10px 0;
   font-size: 14px;
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
-
-footer > ul {
-  display: flex;
-  justify-content: space-between;
-}
-.footer-socials {
-  gap: 10px;
-  display: flex;
-  margin-right: 10px;
 }
 
 /*---------------------deck page badr*----------------------------*/
@@ -660,7 +633,6 @@ footer > ul {
   padding: 20px;
   border-radius: 10px;
   margin-left: 10rem;
-
 }
 
 .deck-item {
@@ -690,8 +662,8 @@ footer > ul {
 /* popup */
 #add-deck-btn {
   display: block;
-  
-margin-left: 4rem;
+
+  margin-left: 4rem;
   padding: 10px 20px;
   font-size: 16px;
   background: linear-gradient(135deg, #ff3700, #ff8800);
@@ -956,13 +928,16 @@ margin-left: 4rem;
 /* BODY DECKVIEW  */
 .deckview {
   font-family: Arial, sans-serif;
-background: linear-gradient(180deg,#010102,
-#000e1e,
-#010c1d,
-#054e86,
-#04305c,
-#0c6ab2,
- black);
+  background: linear-gradient(
+    180deg,
+    #010102,
+    #000e1e,
+    #010c1d,
+    #054e86,
+    #04305c,
+    #0c6ab2,
+    black
+  );
   color: white;
   margin: 0;
   padding: 0;
@@ -1012,7 +987,6 @@ background: linear-gradient(180deg,#010102,
 .deck-info img {
   width: 25px;
   height: auto;
-  
 }
 
 .export-btn {
