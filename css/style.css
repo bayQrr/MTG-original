@@ -783,8 +783,27 @@ footer {
   margin-top: 5rem;
 }
 
+
 #unique-deck-icon img {
   height: 40px;
+  padding-bottom: 20px;
+}
+#unique-draw-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#unique-reset-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#unique-track-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #unique-draw-controls {
