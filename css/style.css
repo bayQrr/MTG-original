@@ -8,14 +8,17 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+#logo{
+  width: 130px;
+}
+
 #unique-logo {
   height: 40px;
 }
 
 #unique-navigation {
-  flex-grow: 1;
   font-family: Prompt;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 #unique-nav-list {
@@ -797,12 +800,13 @@ margin-left: 4rem;
 
 #unique-draw-section {
   background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  padding: 70px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  margin-top: 5rem;
 }
 
 #unique-deck-icon img {
@@ -813,6 +817,7 @@ margin-left: 4rem;
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 #unique-draw-button,
@@ -838,15 +843,15 @@ margin-left: 4rem;
 }
 
 #unique-deck-card {
-  width: 100px;
+  width: 130px;
 }
 
 #unique-crossed-swords {
-  margin-left: 15px;
+  padding: 1rem;
 }
 
 #unique-drawn-card {
-  width: 160px;
+  width: 130px;
 }
 
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/
