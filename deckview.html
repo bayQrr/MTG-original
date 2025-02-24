@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script src="js/logout.js" defer></script>
     <title>Deck view</title>
 </head>
 
@@ -28,13 +29,17 @@
 
                     <li id="unique-nav-decks"><a href="deck.html">DECKS</a></li>
                     <li id="unique-nav-drawtest"><a href="game.html">DRAWTEST</a></li>
-                    <li id="unique-nav-rules"><a href="login.html">UITLOGGEN</a></li>
                 </ul>
             </nav>
             <a href="#" id="unique-profile-link"><img src="assets/icon/magic-ball.png" alt="My Profile"
-                    id="unique-profile-icon"></a>
+                    id="unique-profile-icon">
+            </a>
+            <div id="profile-dropdown" class="dropdown-menu hidden">
+                <a href="login.html"> <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
+                    Uitloggen</a>
+            </div>
+            </a>
         </header>
-
 
         <!-- deck overzicht -->
         <section class="deck-overview">
