@@ -80,7 +80,9 @@
   color: white;
 }
 .login-form > p > a {
-  color: white;
+  color: #4b0082;
+  transition: color 0.3sease;
+  font-weight: bold;
 }
 
 .login-form > h1 {
@@ -101,6 +103,8 @@ margin-bottom: 2rem;
   border-radius: 5px;
   box-sizing: border-box;
 }
+
+
 
 #loginbutton {
   background-color: #9932cc;
