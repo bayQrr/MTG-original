@@ -624,7 +624,7 @@ section > .kaart.mythic > img {
   box-shadow: 0 0 15px white;
 }
 
-/* Hover effect */
+
 .page-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
@@ -636,7 +636,7 @@ section > .kaart.mythic > img {
   font-size: 18px;
 }
 
-/* Stijl voor "..." */
+
 .dots {
   color: white;
   font-size: 18px;
@@ -710,9 +710,9 @@ footer {
 }
 
 /* popup */
-/* Algemene stijl voor de knop */
+
 #add-deck-btn {
-  background-color: #007bff; /* Mooie blauwe kleur */
+  background-color: #007bff; 
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -930,6 +930,69 @@ footer {
 #unique-drawn-card {
   width: 130px;
 }
+.popup {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.8); 
+  justify-content: center; 
+  align-items: center; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.5s ease, visibility 0s 0.5s; 
+  display: flex; 
+}
+
+.popup.active {
+  opacity: 1; 
+  visibility: visible; 
+  transition: opacity 0.5s ease, visibility 0s 0s; 
+}
+
+.popup-content {
+  background-color: white; 
+  padding: 30px;
+  border-radius: 12px; 
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  max-width: 600px; 
+  width: 90%; 
+  animation: fadeIn 0.5s ease-out; 
+}
+
+.close {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%; 
+  transition: background-color 0.3s ease; 
+}
+
+.close:hover,
+.close:focus {
+  background-color: rgba(231, 76, 60, 0.8); 
+  color: white; 
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/
 /* BODY MET ID landing-page */
@@ -1149,65 +1212,4 @@ footer {
   width: 150px;
   height: auto;
   margin-bottom: 15px;
-}
-.popup {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-  justify-content: center; /* Center the popup horizontally */
-  align-items: center; /* Center the popup vertically */
-  opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Make it not interactable */
-  transition: opacity 0.5s ease, visibility 0s 0.5s; /* Fade in/out effect */
-  display: flex; /* Use flexbox for centering */
-}
-
-.popup.active {
-  opacity: 1; /* Fully visible */
-  visibility: visible; /* Make it interactable */
-  transition: opacity 0.5s ease, visibility 0s 0s; /* Fade in transition */
-}
-
-.popup-content {
-  background-color: white; /* White background */
-  padding: 30px;
-  border-radius: 12px; /* Rounded corners */
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
-  max-width: 600px; /* Maximum width */
-  width: 90%; /* Responsive width */
-  animation: fadeIn 0.5s ease-out; /* Smooth fade-in animation */
-}
-
-.close {
-  color: black;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 50%; /* Circular close button */
-  transition: background-color 0.3s ease; /* Smooth background change */
-}
-
-.close:hover,
-.close:focus {
-  background-color: rgba(231, 76, 60, 0.8); /* Red background on hover */
-  color: white; /* White text when hovering */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
