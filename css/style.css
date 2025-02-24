@@ -8,7 +8,7 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-#logo{
+#logo {
   width: 130px;
 }
 
@@ -51,6 +51,42 @@
   width: 40px;
   border-radius: 50%;
 }
+
+.dropdown-menu {
+  font-family: prompt;
+  text-transform: uppercase;
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  padding: 5px;
+  background: #1c1d25;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden .icon-img {
+  width: 20px;
+}
+.show {
+  display: flex;
+}
+
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
 .login {
   background-image: url("/assets/images/Loginbg.jpg");
@@ -92,7 +128,7 @@
 .login-form > h1 {
   color: white;
   font-family: "prompt";
-margin-bottom: 2rem;
+  margin-bottom: 2rem;
   font-weight: bold;
   font-size: 2rem;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
@@ -128,7 +164,6 @@ margin-bottom: 2rem;
   transform: scale(1.1);
   box-shadow: 0 0 25px 10px #9932cc;
 }
-
 
 /*------------------------------------------- register pagina Kaoutar -------------------------*/
 /* BODY MET ID REGISTER */
@@ -179,14 +214,12 @@ margin-bottom: 2rem;
   margin-top: 15px;
   font-size: 0.9rem;
   color: white;
- 
 }
 
 .login-text a {
  
   transition: color 0.3s ease;
   color: white;
-
 }
 .login-text a:hover {
   color: #3d1452;
@@ -834,7 +867,6 @@ footer {
   gap: 15px;
   margin-top: 5rem;
 }
-
 
 #unique-deck-icon img {
   height: 40px;
