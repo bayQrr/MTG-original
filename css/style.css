@@ -158,8 +158,8 @@ margin-bottom: 2rem;
 /* TITEL STIJLEN h1 */
 .register-container h1 {
   color: white;
-  font-family: "Gotham";
-  margin-left: 7rem;
+  font-family: "prompt";
+
   font-weight: bold;
   font-size: 2rem;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
@@ -172,12 +172,14 @@ margin-bottom: 2rem;
   display: block;
   margin-top: 15px;
   font-size: 0.9rem;
+  color: white;
+ 
 }
 
 .login-text a {
-  color: #4b0082;
   transition: color 0.3s ease;
-  font-weight: bold;
+  color: white;
+
 }
 .login-text a:hover {
   color: #9932cc;
