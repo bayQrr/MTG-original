@@ -544,7 +544,7 @@ section > .kaart.mythic > img {
   transition: 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
-  margin-top: 14rem;
+  margin-top: 2rem;
   font-size: 8px;
   font-weight: bold;
   margin-right: 1rem;
@@ -593,6 +593,36 @@ section > .kaart.mythic > img {
   color: white;
 }
 
+/* kaart verhogen/verlagen */
+
+.card-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+margin-top: 15rem;
+}
+
+.card-counter button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-counter button:hover {
+  background-color: #45a049;
+}
+
+#cardCount {
+  font-size: 20px;
+  font-weight: bold;
+}
 /*paginering*/
 /* Paginering container */
 #pagination {
@@ -643,6 +673,10 @@ section > .kaart.mythic > img {
   padding: 0 10px;
 }
 
+
+
+
+
 /*footer*/
 footer {
   background-color: rgba(0, 0, 0, 0.8);
@@ -654,6 +688,8 @@ footer {
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
+
+
 
 /*---------------------deck page badr*----------------------------*/
 /* deck page */

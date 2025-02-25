@@ -4,9 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const popupImg = document.getElementById("popupImg");
     const popupTitle = document.getElementById("popupTitle");
     const closeButton = document.querySelector(".close");
-    const searchBar = document.getElementById("searchBar");
 
-  
+    // Teller functionaliteit
+    const increaseBtn = document.querySelector(".increase-btn");
+    const decreaseBtn = document.querySelector(".decrease-btn");
+    const cardCount = document.getElementById("cardCount");
+
+    let count = 1;
+
+    increaseBtn.addEventListener("click", function () {
+        count++;
+        cardCount.textContent = count;
+    });
+
+    decreaseBtn.addEventListener("click", function () {
+        if (count > 1) {
+            count--;
+            cardCount.textContent = count;
+        }
+    });
+
     // Kaarten aanklikken om details te tonen
     kaarten.forEach(kaart => {
         kaart.addEventListener("click", function () {
@@ -16,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
             popupImg.src = imgSrc;
             popupTitle.textContent = naam;
             popup.style.display = "flex";
+
+            // Reset teller naar 1 bij openen van popup
+            count = 1;
+            cardCount.textContent = count;
         });
     });
 
@@ -29,17 +50,5 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target === popup) {
             popup.style.display = "none";
         }
-    });
-});
-
-// dropdown functie bij het klikken vn addbtn
-
-document.addEventListener("DOMContentLoaded", function () {
-    const addButton = document.querySelector(".add-btn");
-    const dropdown = document.querySelector(".deck-dropdown");
-
-    addButton.addEventListener("click", function (event) {
-        event.preventDefault(); 
-        dropdown.classList.toggle("hidden"); 
     });
 });
