@@ -5,26 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const popupTitle = document.getElementById("popupTitle");
     const closeButton = document.querySelector(".close");
 
-    // Teller functionaliteit
+//    kaarten verhogen/verlagen
     const increaseBtn = document.querySelector(".increase-btn");
     const decreaseBtn = document.querySelector(".decrease-btn");
     const cardCount = document.getElementById("cardCount");
 
     let count = 1;
+    cardCount.textContent = count;
 
-    increaseBtn.addEventListener("click", function () {
+    increaseBtn.addEventListener("click", function (event) {
+        event.preventDefault();
         count++;
         cardCount.textContent = count;
     });
 
-    decreaseBtn.addEventListener("click", function () {
+    decreaseBtn.addEventListener("click", function (event) {
+        event.preventDefault();
         if (count > 1) {
             count--;
             cardCount.textContent = count;
         }
     });
 
-    // Kaarten aanklikken om details te tonen
+    // Kaarten klikken om die details te tonen
     kaarten.forEach(kaart => {
         kaart.addEventListener("click", function () {
             let imgSrc = this.querySelector("img").src;
@@ -40,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Sluit popup bij klikken op de sluitknop
+    // Sluit bij sliotknop
     closeButton.addEventListener("click", function () {
         popup.style.display = "none";
     });
 
-    // Sluit popup bij klikken buiten de content
+    // Sluit popup bij klikken ergens buiten de container
     popup.addEventListener("click", function (event) {
         if (event.target === popup) {
             popup.style.display = "none";
