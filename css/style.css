@@ -415,7 +415,7 @@ button.filter-btn.mythic {
 #kaartContainer {
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 30px;
   background: linear-gradient(45deg, #1a1a1a, #464849a0);
   backdrop-filter: blur(10px);
   border-radius: 5%;
@@ -433,8 +433,8 @@ button.filter-btn.mythic {
 }
 
 .kaart {
-  width: 150px;
-  height: 220px;
+  width: 120px;
+  height: 180px;
   cursor: pointer;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
@@ -449,7 +449,8 @@ button.filter-btn.mythic {
 .kaart > p {
   color: white;
   font-family: "prompt";
-  margin-top: 2rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
 .kaart:hover {
@@ -600,7 +601,15 @@ section > .kaart.mythic > img {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 5rem;
+  margin: 3rem auto 5rem;
+  max-width: 400px;
+  padding: 0 20px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 /* Algemene stijl voor paginering knoppen */
@@ -608,10 +617,10 @@ section > .kaart.mythic > img {
   background-color: #1e1e1e;
   color: white;
   border: 2px solid #fff;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
@@ -672,15 +681,17 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  min-height: calc(100vh - 200px);
+  margin: 50px 0;
+  padding: 20px;
 }
 
 #deck-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 40px;
   background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
   margin-left: 10rem;
 }
@@ -1018,7 +1029,8 @@ footer {
   display: flex;
   gap: 15px;
   align-items: center;
-  transition: transform 0.5s ease-in-out;
+  position: relative;
+  width: 100%;
 }
 
 .slider-item {
@@ -1029,15 +1041,30 @@ footer {
   position: relative;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.slider-item:hover {
+.slider-item.active {
+  display: flex;
   width: 390px;
   height: 550px;
+}
+
+/* Toon de slides naast de actieve slide */
+.slider-item.active + .slider-item,
+.slider-item.active + .slider-item + .slider-item {
+  display: flex;
+  width: 150px;
+  height: 500px;
+}
+
+.slider-item.active ~ .slider-item {
+  display: flex;
+  width: 150px;
+  height: 500px;
 }
 
 /* AFBEELDINGEN*/
@@ -1212,4 +1239,422 @@ footer {
   width: 150px;
   height: auto;
   margin-bottom: 15px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 100;
+  transition: background-color 0.3s;
+}
+
+.slider-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-arrow-left {
+  left: 20px;
+}
+
+.slider-arrow-right {
+  right: 20px;
+}
+
+#slider-container {
+  position: relative;
+}
+
+/* Algemene media queries */
+@media screen and (max-width: 768px) {
+  /* Navbar styling voor mobiel */
+  #unique-header {
+    flex-direction: column;
+    padding: 15px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  #logo {
+    height: 35px;
+    margin-bottom: 15px;
+  }
+
+  #unique-navigation {
+    width: 100%;
+  }
+
+  #unique-nav-list {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  #unique-nav-list li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #unique-nav-list li:last-child {
+    border-bottom: none;
+  }
+
+  #unique-nav-list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  #unique-nav-list a:hover {
+    color: #9932cc;
+    transform: scale(1.05);
+  }
+
+  #unique-profile-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  #unique-profile-icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  /* Footer styling voor mobiel/tablet */
+  footer > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .footer-socials {
+    margin-right: 0;
+  }
+
+  #main-content {
+    min-height: calc(100vh - 150px);
+    margin: 30px 0;
+  }
+
+  #deck-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+
+  #kaartContainer {
+    padding: 20px;
+    margin: 10px;
+    width: auto;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .kaart {
+    width: calc(50% - 1.5rem); /* 50% breedte min de gap */
+    max-width: 160px;
+    height: 220px;
+  }
+
+  .kaart > p {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #unique-header {
+    padding: 15px 30px;
+  }
+
+  #unique-nav-list {
+    gap: 30px;
+  }
+
+  #unique-nav-list a {
+    font-size: 1rem;
+  }
+
+  #main-content {
+    margin: 40px 0;
+  }
+
+  #deck-section {
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #kaartContainer {
+    width: 95%;
+    padding: 35px;
+  }
+
+  .kaart {
+    width: 140px;
+    height: 200px;
+  }
+}
+
+/* Login/Register pagina's */
+@media screen and (max-width: 768px) {
+  .login,
+  .register {
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-position: center;
+  }
+
+  .Login-container,
+  .register-container {
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .login-form,
+  .register-form {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .Login-container h1,
+  .register-container h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .login-form input,
+  .register-form input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-form > form > input {
+    width: 100%;
+  }
+
+  .password-container {
+    width: 100%;
+  }
+
+  .login-text {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  #loginbutton {
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto;
+  }
+}
+
+/* Cards pagina */
+@media screen and (max-width: 768px) {
+  .filtering {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .filtering-button {
+    gap: 10px;
+  }
+
+  #searchBar {
+    width: 90%;
+  }
+
+  #kaartContainer {
+    padding: 20px;
+    margin: 10px;
+    width: auto;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .kaart {
+    width: calc(50% - 1.5rem); /* 50% breedte min de gap */
+    max-width: 160px;
+    height: 220px;
+  }
+
+  .kaart > p {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* Deck pagina */
+@media screen and (max-width: 768px) {
+  #deck-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 25px;
+    margin: 15px;
+  }
+
+  .deck-item {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .deck-item:hover {
+    transform: scale(1.05);
+  }
+
+  .deck-item img {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .deck-item p {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+}
+
+/* Deck view pagina */
+@media screen and (max-width: 768px) {
+  .deck-banner {
+    width: 100%;
+  }
+
+  .deck-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .deck-list ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-display {
+    justify-content: center;
+  }
+
+  .card-display section {
+    width: 90%;
+  }
+}
+
+/* Game pagina */
+@media screen and (max-width: 768px) {
+  #unique-draw-section {
+    width: 90%;
+    padding: 10px;
+  }
+
+  #unique-card-display {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #unique-deck-card,
+  #unique-drawn-card {
+    width: 80%;
+    max-width: 200px;
+  }
+}
+
+/* Tablet specifieke aanpassingen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Cards pagina */
+  #kaartContainer {
+    margin: 20px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Deck pagina */
+  #deck-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Deck view pagina */
+  .deck-banner {
+    width: 90%;
+  }
+
+  .card-display {
+    gap: 20px;
+  }
+
+  /* Game pagina */
+  #unique-draw-section {
+    width: 80%;
+  }
+}
+
+/* Landing pagina slider aanpassingen */
+@media screen and (max-width: 768px) {
+  #slider-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .slider-item {
+    width: 100%;
+    height: auto;
+  }
+
+  .slider-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #slider-container {
+    width: 90%;
+  }
+
+  .slider-item {
+    width: 200px;
+  }
+
+  .slider-item:hover {
+    width: 300px;
+  }
 }
