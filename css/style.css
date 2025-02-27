@@ -1070,8 +1070,7 @@ footer {
   display: flex;
   gap: 15px;
   align-items: center;
-  position: relative;
-  width: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slider-item {
@@ -1082,33 +1081,18 @@ footer {
   position: relative;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.slider-item.active {
-  display: flex;
+.slider-item:hover {
   width: 390px;
   height: 550px;
 }
 
-/* Toon de slides naast de actieve slide */
-.slider-item.active + .slider-item,
-.slider-item.active + .slider-item + .slider-item {
-  display: flex;
-  width: 150px;
-  height: 500px;
-}
-
-.slider-item.active ~ .slider-item {
-  display: flex;
-  width: 150px;
-  height: 500px;
-}
-
-/* AFBEELDINGEN*/
+/* AFBEELDINGEN/
 .slider-item a {
   display: block;
   width: 100%;
@@ -1127,7 +1111,7 @@ footer {
   filter: grayscale(0%);
 }
 
-/* TITEL */
+/ TITEL */
 .slider-title {
   position: absolute;
   left: 0;
@@ -1592,6 +1576,7 @@ footer {
   }
 }
 
+
 /* Deck view pagina */
 @media screen and (max-width: 768px) {
   .deck-banner {
@@ -1614,6 +1599,7 @@ footer {
 
   .card-display section {
     width: 90%;
+    
   }
 }
 
@@ -1697,5 +1683,87 @@ footer {
 
   .slider-item:hover {
     width: 300px;
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  left: 20px; /* Plaatst de hamburger naast het logo */
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  #unique-navigation {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: calc(100vh - 70px); /* Volle hoogte minus header */
+    text-align: center;
+    transition: 0.3s;
+    z-index: 99;
+  }
+
+  #unique-nav-list {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  #unique-nav-list li {
+    margin: 16px 0;
+  }
+
+  #unique-nav-list li a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  #unique-navigation.active {
+    left: 0;
+  }
+}
+
+/* Styling voor desktop versie */
+@media screen and (min-width: 769px) {
+  #unique-navigation {
+    margin-left: auto;
+  }
+
+  #unique-nav-list {
+    display: flex;
+    gap: 2rem;
   }
 }
