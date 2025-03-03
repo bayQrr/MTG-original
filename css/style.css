@@ -97,6 +97,18 @@
   min-height: 100vh;
 }
 
+/* logo links boven */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo-container img {
+  width: 150px;
+  height: auto;
+}
+
 /*section*/
 .Login-container {
   display: flex;
