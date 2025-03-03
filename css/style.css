@@ -1,9 +1,90 @@
-* {
-  /*FONTS */
-  @font-face {
-    font-family: "Gotham";
-    src: url("../assets/fonts/GothamNarrow-Book.otf") format("opentype");
-  }
+/* Navbar*/
+
+#unique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#logo {
+  width: 130px;
+}
+
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  font-family: Prompt;
+  font-size: 1rem;
+}
+
+#unique-nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+}
+
+#unique-nav-list li {
+  display: inline;
+}
+
+#unique-nav-home a,
+#unique-nav-decks a,
+#unique-nav-drawtest a,
+#unique-nav-rules a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#unique-profile-link {
+  text-decoration: none;
+}
+
+#unique-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  font-family: prompt;
+  text-transform: uppercase;
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  padding: 5px;
+  background: #1c1d25;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden .icon-img {
+  width: 20px;
+}
+.show {
+  display: flex;
 }
 
 /*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
@@ -14,28 +95,6 @@
   justify-content: end;
   align-items: center;
   min-height: 100vh;
-}
-/* NAV-BAR */
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 60px;
-  padding: 10px 20px;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
-}
-
-.navbar > .logo > img {
-  height: 35px;
-  width: auto;
 }
 
 /*section*/
@@ -61,12 +120,15 @@
 }
 .login-form > p > a {
   color: white;
+  transition: color 0.3s ease;
 }
-
-.Login-container > h1 {
+.login-form > p > a:hover {
+  color: #3d1452;
+}
+.login-form > h1 {
   color: white;
-  font-family: "Gotham";
-  margin-left: 5rem;
+  font-family: "prompt";
+  margin-bottom: 2rem;
   font-weight: bold;
   font-size: 2rem;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
@@ -86,8 +148,8 @@
   background-color: #9932cc;
   border: 1px solid white;
   color: white;
-  font-family: "Gotham";
-  font-size: 16px;
+  font-family: "prompt";
+  font-size: 18px;
   padding: 10px 75px;
   border-radius: 10px;
   display: inline-block;
@@ -103,20 +165,7 @@
   box-shadow: 0 0 25px 10px #9932cc;
 }
 
-/*footer*/
-.footer_login {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
-
-/*------------------------------------------- Register pagina Kaoutar -------------------------*/
+/*------------------------------------------- register pagina Kaoutar -------------------------*/
 /* BODY MET ID REGISTER */
 .register {
   background-image: url("/assets/images/registerBg.jpg");
@@ -150,8 +199,8 @@
 /* TITEL STIJLEN h1 */
 .register-container h1 {
   color: white;
-  font-family: "Gotham";
-  margin-left: 7rem;
+  font-family: "prompt";
+
   font-weight: bold;
   font-size: 2rem;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
@@ -164,17 +213,37 @@
   display: block;
   margin-top: 15px;
   font-size: 0.9rem;
+  color: white;
 }
 
 .login-text a {
-  color: #4b0082;
   transition: color 0.3s ease;
-  font-weight: bold;
+  color: white;
 }
 .login-text a:hover {
-  color: #9932cc;
+  color: #3d1452;
 }
 
+#btn {
+  background-color: #9932cc;
+  border: 1px solid white;
+  color: white;
+  font-family: "prompt";
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 0 15px 5px #9932cc;
+  transition: all 0.3s ease;
+  width: 50%;
+  margin: auto;
+}
+#btn:hover {
+  background-color: #9932cc;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px 10px #9932cc;
+}
 /* FORM STIJLEN */
 .register-form input {
   padding: 12px;
@@ -183,19 +252,6 @@
   font-size: 1rem;
   width: 20rem;
   margin-bottom: 15px;
-}
-
-.register-form button {
-  font-family: "Gotham Narrow", serif;
-  letter-spacing: 1px;
-  padding: 15px;
-  background-color: #4b0082;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .register-form button:hover {
@@ -217,7 +273,6 @@
   padding: 12px;
   border: 2px solid #4b0082;
   border-radius: 5px;
-  font-size: 1rem;
   width: 100%;
   padding-right: 45px;
   box-sizing: border-box;
@@ -242,6 +297,1498 @@
   margin-bottom: 10px;
   text-align: left;
   width: 100%;
+}
+
+/*--------------ZAIDA cards --------------------------------*/
+
+/* Algemene stijlen */
+.cards_body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  background-image: url(/assets/images/woman.png);
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.midden-container {
+  margin-top: 10rem;
+}
+
+/*kaarten*/
+/*filtering container*/
+.filtering {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+  gap: 15rem;
+  padding: 20px;
+}
+
+#searchBar {
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+#searchBar {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#searchBar:focus {
+  box-shadow: 0 0 15px white;
+  border-color: #8a5dbd;
+}
+
+.filtering-button {
+  display: flex;
+  gap: 5rem;
+}
+
+/* Stijl voor de filterknoppen */
+.filter-btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: #0009144b;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button.filter-btn.rare {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+}
+button.filter-btn.common {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+button.filter-btn.uncommon {
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
+}
+button.filter-btn.mythic {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.filter-btn img {
+  width: 90px;
+  height: 30px;
+}
+
+#kaartContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: linear-gradient(45deg, #1a1a1a, #464849a0);
+  backdrop-filter: blur(10px);
+  border-radius: 5%;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.rij1,
+.rij2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.kaart {
+  width: 120px;
+  height: 180px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  padding: 5px;
+}
+
+.kaart img {
+  width: 100%;
+  border-radius: 10px;
+}
+.kaart > p {
+  color: white;
+  font-family: "prompt";
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.kaart:hover {
+  transform: scale(1.1);
+}
+
+/* de glow dit zal ook nog aangepast worden met backend  */
+section.kaart.common > img {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+section > .kaart.uncommon > img {
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
+}
+section.kaart.rare > img {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+}
+section > .kaart.mythic > img {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+/* Popup stijl */
+#kaartPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-container {
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+#popupTitle {
+  color: white;
+  font-family: "prompt";
+}
+
+/* dropdown knop bij de addbutton */
+
+.deck-dropdown {
+  display: none;
+  position: absolute;
+
+  border: 1px solid #474242;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+  background: linear-gradient(45deg, #1a1a1a, #3d99ae);
+  color: #fff;
+
+  border: 2px solid black;
+  border-radius: 5%;
+}
+/* to do font styl aanpassen */
+.deck-dropdown a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  font-family: "prompt";
+}
+
+.deck-dropdown a:hover {
+  background: rgba(45, 43, 43, 0.747);
+}
+
+.deck-dropdown.hidden {
+  display: none;
+}
+
+.deck-dropdown:not(.hidden) {
+  display: block;
+}
+
+.add-btn {
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  font-size: 8px;
+  font-weight: bold;
+  margin-right: 1rem;
+  padding: 12px 2px;
+  background: linear-gradient(45deg, #1a1a1a, #2ede51);
+  color: #fff;
+  border: 2px solid black;
+  transform: scale(0.95);
+  font-family: "prompt";
+}
+
+.add-btn:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 170, 255, 0.3) 10%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add-btn:hover::before {
+  opacity: 1;
+}
+
+.add-btn:hover {
+  transform: scale(1.1);
+  border-color: black;
+  box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
+}
+
+/* de kruisknopt */
+.close {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* kaart verhogen/verlagen */
+
+.card-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 2rem;
+
+  margin-top: 15rem;
+}
+
+.card-counter button {
+  width: 20px;
+  height: 20px;
+
+  font-weight: bold;
+  background-color: #184e23;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 2px;
+}
+
+.card-counter button:hover {
+  background-color: #28a745; /* Iets donkerder groen voor hover */
+  transform: scale(1.1);
+}
+
+#cardCount {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+/*paginering*/
+/* Paginering container */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 3rem auto 5rem;
+  max-width: 400px;
+  padding: 0 20px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Algemene stijl voor paginering knoppen */
+.page-btn {
+  background-color: #1e1e1e;
+  color: white;
+  border: 2px solid #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Actieve pagina knop */
+.page-btn.active {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 15px white;
+}
+
+.page-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Stijl voor de vorige/volgende knoppen */
+.prev,
+.next {
+  font-size: 18px;
+}
+
+.dots {
+  color: white;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+/*footer*/
+footer {
+  background-color: #000000cc;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px #00000080;
+}
+
+/*---------------------deck page badr*----------------------------*/
+/* deck page */
+#body-background {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/walpaper\ 1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  margin: 50px 0;
+  padding: 20px;
+}
+
+#deck-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  margin-left: 10rem;
+}
+
+.deck-item {
+  text-align: center;
+}
+
+#deck-img-1,
+#deck-img-2,
+#deck-img-3,
+#deck-img-4,
+#deck-img-5,
+#deck-img-6 {
+  width: 100px;
+  height: auto;
+}
+
+#deck-text-1,
+#deck-text-2,
+#deck-text-3,
+#deck-text-4,
+#deck-text-5,
+#deck-text-6 {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* popup */
+
+#add-deck-btn {
+  background-color: #007bff;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  /* Centreren aan de rechterkant */
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  z-index: 1000;
+}
+
+/* Afbeelding binnen de knop */
+#add-deck-btn img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover-effect */
+#add-deck-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1) translateY(-50%);
+}
+
+/* Afbeelding beweegt bij hover */
+#add-deck-btn:hover img {
+  transform: rotate(90deg);
+}
+
+/* Klik-effect */
+#add-deck-btn:active {
+  transform: scale(0.9) translateY(-50%);
+}
+
+.deck-popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.deck-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  color: black;
+  position: relative;
+}
+
+.deck-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*------------------game pagina badr*---------------------------/
+/* game pagina */
+#unique-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("/assets/images/wallpapergames.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+#unique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#unique-logo {
+  height: 40px;
+}
+
+#unique-navigation {
+  flex-grow: 1;
+  font-family: Prompt;
+  font-size: 1.2rem;
+}
+
+#unique-nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+}
+
+#unique-nav-list li {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+  transition: color 0.5s ease;
+}
+
+#unique-nav-list li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  background-size: 300% 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#unique-nav-list li a:hover {
+  color: #ffffff;
+}
+
+#unique-nav-list li a:hover::after {
+  opacity: 1;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+#unique-nav-home a,
+#unique-nav-decks a,
+#unique-nav-drawtest a,
+#unique-nav-rules a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+#unique-nav-decks a:hover,
+#unique-nav-drawtest a:hover {
+  transform: scale(1.1);
+}
+
+#unique-profile-link {
+  text-decoration: none;
+}
+
+#unique-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+#unique-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+#unique-draw-section {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 70px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5rem;
+}
+
+#unique-deck-icon img {
+  height: 40px;
+  padding-bottom: 20px;
+}
+#unique-draw-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#unique-reset-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#unique-track-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#unique-draw-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#unique-draw-button,
+#unique-reset-button,
+#unique-track-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#unique-progress-bar {
+  font-weight: bold;
+  color: white;
+}
+
+#unique-card-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#unique-deck-card {
+  width: 130px;
+}
+
+#unique-crossed-swords {
+  padding: 1rem;
+}
+
+#unique-drawn-card {
+  width: 130px;
+}
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+  display: flex;
+}
+
+.popup.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0s 0s;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.close {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  background-color: rgba(231, 76, 60, 0.8);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*------------------------------------------- Landing pagina Kaoutar -------------------------*/
+/* BODY MET ID landing-page */
+#landing-page {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #0d0d0d, #0d0d0d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+#slider-images {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+  width: 150px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-item:hover {
+  width: 390px;
+  height: 550px;
+}
+
+/* AFBEELDINGEN/
+.slider-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.slider-item:hover .slider-image {
+  filter: grayscale(0%);
+}
+
+/ TITEL */
+.slider-title {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.slider-item:hover .slider-title {
+  height: auto;
+  width: auto;
+  top: auto;
+  bottom: 10px;
+  left: 10px;
+  writing-mode: initial;
+  text-orientation: initial;
+  transform: rotate(0deg);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+/*------------------------------------------- DECKVIEW pagina Kaoutar -------------------------*/
+/* BODY DECKVIEW  */
+.deckview {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    180deg,
+    #010102,
+    #000e1e,
+    #010c1d,
+    #054e86,
+    #04305c,
+    #0c6ab2,
+    black
+  );
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* DECK */
+.deck-overview {
+  position: relative;
+  display: inline-block;
+}
+
+.deck-overview h2 {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.deck-banner {
+  width: 1000px;
+  padding-top: 4rem;
+}
+
+.deck-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  margin: 10px 0;
+  font-size: 18px;
+  padding: 20px 20px;
+  background-color: #28282e;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: auto;
+}
+.deck-info span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  color: white;
+}
+
+.deck-info img {
+  width: 25px;
+  height: auto;
+}
+
+.export-btn {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* DECK LIST */
+.deck-list ul {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+  list-style: none;
+}
+
+.deck-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+
+.deck-item img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* KAARTEN OVERZICHT */
+.card-display {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+.card-display section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card-display img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 100;
+  transition: background-color 0.3s;
+}
+
+.slider-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-arrow-left {
+  left: 20px;
+}
+
+.slider-arrow-right {
+  right: 20px;
+}
+
+#slider-container {
+  position: relative;
+}
+
+/* Algemene media queries */
+@media screen and (max-width: 768px) {
+  /* Navbar styling voor mobiel */
+  #unique-header {
+    flex-direction: column;
+    padding: 15px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  #logo {
+    height: 35px;
+    margin-bottom: 15px;
+  }
+
+  #unique-navigation {
+    width: 100%;
+  }
+
+  #unique-nav-list {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  #unique-nav-list li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #unique-nav-list li:last-child {
+    border-bottom: none;
+  }
+
+  #unique-nav-list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  #unique-nav-list a:hover {
+    color: #9932cc;
+    transform: scale(1.05);
+  }
+
+  #unique-profile-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  #unique-profile-icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  /* Footer styling voor mobiel/tablet */
+  footer > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .footer-socials {
+    margin-right: 0;
+  }
+
+  #main-content {
+    min-height: calc(100vh - 150px);
+    margin: 30px 0;
+  }
+
+  #deck-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+
+  #kaartContainer {
+    padding: 20px;
+    margin: 10px;
+    width: auto;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .kaart {
+    width: calc(50% - 1.5rem); /* 50% breedte min de gap */
+    max-width: 160px;
+    height: 220px;
+  }
+
+  .kaart > p {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #unique-header {
+    padding: 15px 30px;
+  }
+
+  #unique-nav-list {
+    gap: 30px;
+  }
+
+  #unique-nav-list a {
+    font-size: 1rem;
+  }
+
+  #main-content {
+    margin: 40px 0;
+  }
+
+  #deck-section {
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #kaartContainer {
+    width: 95%;
+    padding: 35px;
+  }
+
+  .kaart {
+    width: 140px;
+    height: 200px;
+  }
+}
+
+/* Login/Register pagina's */
+@media screen and (max-width: 768px) {
+  .login,
+  .register {
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-position: center;
+  }
+
+  .Login-container,
+  .register-container {
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .login-form,
+  .register-form {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .Login-container h1,
+  .register-container h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .login-form input,
+  .register-form input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-form > form > input {
+    width: 100%;
+  }
+
+  .password-container {
+    width: 100%;
+  }
+
+  .login-text {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  #loginbutton {
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto;
+  }
+}
+
+/* Cards pagina */
+@media screen and (max-width: 768px) {
+  .filtering {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .filtering-button {
+    gap: 10px;
+  }
+
+  #searchBar {
+    width: 90%;
+  }
+
+  #kaartContainer {
+    padding: 20px;
+    margin: 10px;
+    width: auto;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .kaart {
+    width: calc(50% - 1.5rem); /* 50% breedte min de gap */
+    max-width: 160px;
+    height: 220px;
+  }
+
+  .kaart > p {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* Deck pagina */
+@media screen and (max-width: 768px) {
+  #deck-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 25px;
+    margin: 15px;
+  }
+
+  .deck-item {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .deck-item:hover {
+    transform: scale(1.05);
+  }
+
+  .deck-item img {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .deck-item p {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+}
+
+/* Deck view pagina */
+@media screen and (max-width: 768px) {
+  .deck-banner {
+    width: 100%;
+  }
+
+  .deck-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .deck-list ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-display {
+    justify-content: center;
+  }
+
+  .card-display section {
+    width: 90%;
+  }
+}
+
+/* Game pagina */
+@media screen and (max-width: 768px) {
+  #unique-draw-section {
+    width: 90%;
+    padding: 10px;
+  }
+
+  #unique-card-display {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #unique-deck-card,
+  #unique-drawn-card {
+    width: 80%;
+    max-width: 200px;
+  }
+}
+
+/* Tablet specifieke aanpassingen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Cards pagina */
+  #kaartContainer {
+    margin: 20px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Deck pagina */
+  #deck-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Deck view pagina */
+  .deck-banner {
+    width: 90%;
+  }
+
+  .card-display {
+    gap: 20px;
+  }
+
+  /* Game pagina */
+  #unique-draw-section {
+    width: 80%;
+  }
+}
+
+/* Landing pagina slider aanpassingen */
+@media screen and (max-width: 768px) {
+  #slider-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .slider-item {
+    width: 100%;
+    height: auto;
+  }
+
+  .slider-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #slider-container {
+    width: 90%;
+  }
+
+  .slider-item {
+    width: 200px;
+  }
+
+  .slider-item:hover {
+    width: 300px;
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  left: 20px; /* Plaatst de hamburger naast het logo */
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  #unique-navigation {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: calc(100vh - 70px); /* Volle hoogte minus header */
+    text-align: center;
+    transition: 0.3s;
+    z-index: 99;
+  }
+
+  #unique-nav-list {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  #unique-nav-list li {
+    margin: 16px 0;
+  }
+
+  #unique-nav-list li a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  #unique-navigation.active {
+    left: 0;
+  }
+}
+
+/* Styling voor desktop versie */
+@media screen and (min-width: 769px) {
+  #unique-navigation {
+    margin-left: auto;
+  }
+
+  #unique-nav-list {
+    display: flex;
+    gap: 2rem;
+  }
 }
 
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="js/logout.js" defer></script>
+    <script src="js/deck.js" defer></script>
+    <title>Deck view</title>
+</head>
+
+<body class="deckview">
+
+    <!-- navbar -->
+
+    <body class="cards_body">
+        <header id="unique-header">
+            <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav id="unique-navigation">
+                <ul id="unique-nav-list">
+
+                    <li id="unique-nav-decks"><a href="deck.html">DECKS</a></li>
+                    <li id="unique-nav-drawtest"><a href="game.html">DRAWTEST</a></li>
+                </ul>
+            </nav>
+            <a href="#" id="unique-profile-link"><img src="assets/icon/magic-ball.png" alt="My Profile"
+                    id="unique-profile-icon">
+            </a>
+            <div id="profile-dropdown" class="dropdown-menu hidden">
+                <a href="login.html"> <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
+                    Uitloggen</a>
+            </div>
+            </a>
+        </header>
+
+        <!-- deck overzicht -->
+        <section class="deck-overview">
+            <img src="assets/images/deckview.png" alt="Deck Monsters" class="deck-banner">
+
+            <section class="deck-info">
+                <h2>Deck Monsters</h2>
+                <span> <img src="/assets/icon/mana icon.png" alt="mana">Mana: 0</span>
+                <span> <img src="/assets/icon/cards icon.png" alt="cards">Kaarten: 7/60</span>
+                <span> <img src="assets/icon/tree icon.png" alt="landcards">Landkaarten: 0</span>
+                <button class="export-btn"><img src="assets/icon/export .png" alt="icon"></button>
+            </section>
+        </section>
+
+        <!-- deck lijst -->
+        <section class="deck-list">
+
+            <ul>
+                <li class="deck-item">
+                    <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
+                    deck1
+                </li>
+                <li class="deck-item">
+                    <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
+                    deck2
+                </li>
+                <li class="deck-item">
+                    <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
+                    deck3
+                </li>
+                <li class="deck-item">
+                    <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
+                    deck4
+                </li>
+                <li class="deck-item">
+                    <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
+                    deck5
+                </li>
+            </ul>
+        </section>
+
+        <!-- kaarten overzicht -->
+        <section class="card-display">
+            <section class="card_uncommon">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x1</span>
+            </section>
+            <section class="card_mythic">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x3</span>
+            </section>
+            <section class="card_rare">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x2</span>
+            </section>
+            <section class="card_uncommon">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x1</span>
+            </section>
+            <section class="card_common">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x3</span>
+            </section>
+            <section class="card_rare">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x2</span>
+            </section>
+            <section class="card_special">
+                <img src="/assets/images/cardExample.jpg" alt="Card">
+                <span>x1</span>
+            </section>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <ul>
+                <p>&copy; MTG-Originals - All rights reserved</p>
+            </ul>
+        </footer>
+    </body>
+
+</html>
