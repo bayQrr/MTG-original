@@ -412,12 +412,14 @@ button.filter-btn.mythic {
 #kaartContainer {
   display: flex;
   flex-direction: column;
+
   padding: 30px;
   background: linear-gradient(45deg, #1a1a1a, #464849a0);
   backdrop-filter: blur(10px);
   border-radius: 5%;
   margin-left: 15rem;
   margin-right: 15rem;
+
 }
 
 .rij1,
@@ -428,7 +430,24 @@ button.filter-btn.mythic {
   gap: 3rem;
   margin-bottom: 5rem;
 }
+/* -----*/
+/*uit api kaarten rij komt uit js */
+section.rij{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
 
+.popup-specifications>p>strong{
+  font-weight: bold;
+}
+.popup-specifications>p>em{
+  font-style: italic;
+}
+
+/* ---- */
 .kaart {
   width: 120px;
   height: 180px;
@@ -495,12 +514,21 @@ section > .kaart.mythic > img {
 }
 
 .popup-specifications{
-margin-right: 2rem
+margin-right: 2rem;
+
 }
+.popup-specifications>p{
+  color:white;
+  margin-bottom: 2rem;
+  font-family: "prompt";
+  
+}
+
 #popupTitle {
   color: white;
   font-family: "prompt";
   font-size: 20px;
+  font-weight: bolder;
 }
 
 /* dropdown knop bij de addbutton */
@@ -598,7 +626,7 @@ font-size: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 15rem;
+  margin-top: 4rem;
 }
 
 .card-counter button {
