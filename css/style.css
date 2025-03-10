@@ -122,7 +122,7 @@
   color: white;
   transition: color 0.3s ease;
 }
-.login-form>p>a:hover {
+.login-form > p > a:hover {
   color: #3d1452;
 }
 .login-form > h1 {
@@ -217,7 +217,6 @@
 }
 
 .login-text a {
- 
   transition: color 0.3s ease;
   color: white;
 }
@@ -225,15 +224,13 @@
   color: #3d1452;
 }
 
-
-
 #btn {
   background-color: #9932cc;
   border: 1px solid white;
   color: white;
   font-family: "prompt";
   font-size: 18px;
- padding:10px;
+  padding: 10px;
   border-radius: 10px;
   display: inline-block;
   text-align: center;
@@ -241,7 +238,6 @@
   transition: all 0.3s ease;
   width: 50%;
   margin: auto;
-  
 }
 #btn:hover {
   background-color: #9932cc;
@@ -258,7 +254,6 @@
   width: 20rem;
   margin-bottom: 15px;
 }
-
 
 .register-form button:hover {
   background-color: #9932cc;
@@ -602,15 +597,15 @@ section > .kaart.mythic > img {
   gap: 10px;
   margin-left: 2rem;
 
-margin-top: 15rem;
+  margin-top: 15rem;
 }
 
 .card-counter button {
   width: 20px;
   height: 20px;
-  
+
   font-weight: bold;
-  background-color: #184e23;  
+  background-color: #184e23;
   color: white;
   border: 2px solid black;
   border-radius: 5px;
@@ -620,7 +615,7 @@ margin-top: 15rem;
 }
 
 .card-counter button:hover {
-  background-color: #28a745;  /* Iets donkerder groen voor hover */
+  background-color: #28a745; /* Iets donkerder groen voor hover */
   transform: scale(1.1);
 }
 
@@ -668,7 +663,6 @@ margin-top: 15rem;
   box-shadow: 0 0 15px white;
 }
 
-
 .page-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
@@ -680,16 +674,11 @@ margin-top: 15rem;
   font-size: 18px;
 }
 
-
 .dots {
   color: white;
   font-size: 18px;
   padding: 0 10px;
 }
-
-
-
-
 
 /*footer*/
 footer {
@@ -702,8 +691,6 @@ footer {
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
-
-
 
 /*---------------------deck page badr*----------------------------*/
 /* deck page */
@@ -764,7 +751,7 @@ footer {
 /* popup */
 
 #add-deck-btn {
-  background-color: #007bff; 
+  background-color: #007bff;
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -776,13 +763,13 @@ footer {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  
+
   /* Centreren aan de rechterkant */
   position: fixed;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-  
+
   z-index: 1000;
 }
 
@@ -808,8 +795,6 @@ footer {
 #add-deck-btn:active {
   transform: scale(0.9) translateY(-50%);
 }
-
-
 
 .deck-popup-container {
   display: none;
@@ -847,6 +832,9 @@ footer {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-image: url("/assets/images/wallpapergames.png");
   background-size: cover;
   background-position: center;
@@ -858,7 +846,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #00000080;
 }
 
 #unique-logo {
@@ -880,7 +868,43 @@ footer {
 }
 
 #unique-nav-list li {
-  display: inline;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
+  transition: color 0.5s ease;
+}
+
+#unique-nav-list li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  background-size: 300% 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#unique-nav-list li a:hover {
+  color: #ffffff;
+}
+
+#unique-nav-list li a:hover::after {
+  opacity: 1;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 #unique-nav-home a,
@@ -890,6 +914,10 @@ footer {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+#unique-nav-decks a:hover,
+#unique-nav-drawtest a:hover {
+  transform: scale(1.1);
 }
 
 #unique-profile-link {
@@ -906,11 +934,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  flex: 1;
 }
 
 #unique-draw-section {
-  background: rgba(0, 0, 0, 0.5);
+  background: #00000080;
   padding: 70px;
   border-radius: 10px;
   display: flex;
@@ -925,7 +953,7 @@ footer {
   padding-bottom: 20px;
 }
 #unique-draw-button:hover {
-  background-color: #d32f2f;
+  background-color: #d33131;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -952,7 +980,7 @@ footer {
 #unique-draw-button,
 #unique-reset-button,
 #unique-track-button {
-  background: rgba(255, 255, 255, 0.2);
+  background: #ffffff33;
   color: white;
   border: 1px solid white;
   padding: 5px 15px;
@@ -983,37 +1011,37 @@ footer {
   width: 130px;
 }
 .popup {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0, 0, 0, 0.8); 
-  justify-content: center; 
-  align-items: center; 
-  opacity: 0; 
-  visibility: hidden; 
-  transition: opacity 0.5s ease, visibility 0s 0.5s; 
-  display: flex; 
+  width: 100%;
+  height: 100%;
+  background-color: #000000cc;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+  display: flex;
 }
 
 .popup.active {
-  opacity: 1; 
-  visibility: visible; 
-  transition: opacity 0.5s ease, visibility 0s 0s; 
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0s 0s;
 }
 
 .popup-content {
-  background-color: white; 
+  background-color: white;
   padding: 30px;
-  border-radius: 12px; 
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-  max-width: 600px; 
-  width: 90%; 
-  animation: fadeIn 0.5s ease-out; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .close {
@@ -1022,17 +1050,16 @@ footer {
   font-weight: bold;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 50%; 
-  transition: background-color 0.3s ease; 
+  background-color: #ffffffb3;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 .close:hover,
 .close:focus {
-  background-color: rgba(231, 76, 60, 0.8); 
-  color: white; 
+  background-color: #e74c3ccc;
+  color: white;
 }
-
 
 @keyframes fadeIn {
   from {
@@ -1044,8 +1071,6 @@ footer {
     transform: scale(1);
   }
 }
-
-
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/
 /* BODY MET ID landing-page */
 #landing-page {
@@ -1586,7 +1611,6 @@ footer {
   }
 }
 
-
 /* Deck view pagina */
 @media screen and (max-width: 768px) {
   .deck-banner {
@@ -1609,7 +1633,6 @@ footer {
 
   .card-display section {
     width: 90%;
-    
   }
 }
 
@@ -1778,8 +1801,6 @@ footer {
   }
 }
 
-
-
 /* Media query voor schermen kleiner dan 1300px */
 @media screen and (max-width: 1300px) {
   .slider-item {
@@ -1818,7 +1839,6 @@ footer {
 .slider-item {
   transition: all 0.5s ease-in-out;
 }
-
 
 /* Media query voor mobiele telefoons */
 @media screen and (max-width: 800px) {
@@ -1882,5 +1902,3 @@ footer {
     max-width: 260px;
   }
 }
-
-
