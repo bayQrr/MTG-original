@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         deckImgUrlInput.value = "";
     });
 
-    // 🔹 Voeg de bewerk-pop-up toe aan de body als die nog niet bestaat
+    
     let editPopup = document.getElementById("edit-popup");
     let editOverlay = document.getElementById("edit-overlay");
 
