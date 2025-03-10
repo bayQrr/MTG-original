@@ -92,7 +92,7 @@
   background-image: url("/assets/images/Loginbg.jpg");
   background-size: cover;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
@@ -105,11 +105,9 @@
 
 .login-form {
   text-align: center;
-
   padding: 30px;
   border-radius: 10px;
-  margin-right: 10rem;
-  margin-top: 3rem;
+  margin: 0 auto;
   background: rgba(135, 110, 174, 0.9);
   border-radius: 15px;
   box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
@@ -171,7 +169,7 @@
   background-image: url("/assets/images/registerBg.jpg");
   background-size: cover;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
@@ -185,8 +183,7 @@
   text-align: center;
   padding: 30px;
   border-radius: 10px;
-  margin-right: 10rem;
-  margin-top: 3rem;
+  margin: 0 auto;
   background: rgba(135, 110, 174, 0.9);
   border-radius: 15px;
   box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
