@@ -2233,3 +2233,47 @@ height: 100%;
   margin-left: 1rem;
   font-family: "Prompt", sans-serif;
 }
+/* Animatie voor het trekken van een kaart */
+.draw-animation {
+  animation: flipCard 0.5s ease-in-out;
+}
+
+@keyframes flipCard {
+  0% {
+      transform: rotateY(0deg);
+  }
+  50% {
+      transform: rotateY(90deg);
+  }
+  100% {
+      transform: rotateY(0deg);
+  }
+}
+
+/* Fade-in effect voor getrokken kaarten in de geschiedenis */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+/* Schokkerige beweging bij het schudden van de deck */
+.shuffle-animation {
+  animation: shuffleShake 0.5s ease-in-out;
+}
+
+@keyframes shuffleShake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
