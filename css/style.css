@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: #00000080;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 #logo {
@@ -97,34 +97,22 @@
   min-height: 100vh;
 }
 
-/* logo links boven */
-.logo-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.logo-container img {
-  width: 150px;
-  height: auto;
-}
-
 /*section*/
 .Login-container {
   display: flex;
   flex-direction: column;
-  font-family: "prompt";
 }
 
 .login-form {
   text-align: center;
+
   padding: 30px;
   border-radius: 10px;
   margin-right: 10rem;
   margin-top: 3rem;
-  background: #876eaee6;
+  background: rgba(135, 110, 174, 0.9);
   border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
+  box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
 }
 
 .login-form > p {
@@ -134,37 +122,40 @@
   color: white;
   transition: color 0.3s ease;
 }
-.login-form > p > a:hover {
+.login-form>p>a:hover {
   color: #3d1452;
 }
 .login-form > h1 {
   color: white;
+  font-family: "prompt";
   margin-bottom: 2rem;
   font-weight: bold;
   font-size: 2rem;
-  text-shadow: 3px 3px 10px #000000cc;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
 
 .login-form > form > input {
   width: 20rem;
-  padding: 12px;
-  margin: 5.5px auto;
-  border: 2px solid #4b0082;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  background-color: #f5f5f5;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
 #loginbutton {
   background-color: #9932cc;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid white;
+  color: white;
   font-family: "prompt";
   font-size: 18px;
   padding: 10px 75px;
   border-radius: 10px;
   display: inline-block;
   text-align: center;
-  margin: 3rem 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   box-shadow: 0 0 15px 5px #9932cc;
   transition: all 0.3s ease;
 }
@@ -188,7 +179,6 @@
 .register-container {
   display: flex;
   flex-direction: column;
-  font-family: "prompt";
 }
 
 .register-form {
@@ -197,32 +187,37 @@
   border-radius: 10px;
   margin-right: 10rem;
   margin-top: 3rem;
-  background: #876eaee6;
+  background: rgba(135, 110, 174, 0.9);
   border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
+  box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
 }
-.register-form form {
+.register-form > form {
   display: flex;
   flex-direction: column;
+  padding: 30px;
 }
 /* TITEL STIJLEN h1 */
 .register-container h1 {
   color: white;
-  margin-bottom: 2rem;
+  font-family: "prompt";
+
   font-weight: bold;
   font-size: 2rem;
-  text-shadow: 3px 3px 10px #000000cc;
-  text-transform: uppercase;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* LOGIN TEXT STIJLEN p */
 .login-text {
+  text-align: left;
+  margin-left: 100px;
   display: block;
   margin-top: 15px;
+  font-size: 0.9rem;
   color: white;
 }
 
 .login-text a {
+ 
   transition: color 0.3s ease;
   color: white;
 }
@@ -230,19 +225,23 @@
   color: #3d1452;
 }
 
+
+
 #btn {
   background-color: #9932cc;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid white;
+  color: white;
   font-family: "prompt";
   font-size: 18px;
-  padding: 10px 50px;
+ padding:10px;
   border-radius: 10px;
   display: inline-block;
   text-align: center;
   box-shadow: 0 0 15px 5px #9932cc;
   transition: all 0.3s ease;
-  margin: 2rem auto;
+  width: 50%;
+  margin: auto;
+  
 }
 #btn:hover {
   background-color: #9932cc;
@@ -250,14 +249,16 @@
   box-shadow: 0 0 25px 10px #9932cc;
 }
 /* FORM STIJLEN */
-.register-form > form > input {
-  width: 20rem;
+
+.register-form input {
   padding: 12px;
-  margin: 5px auto;
   border: 2px solid #4b0082;
   border-radius: 5px;
-  box-sizing: border-box;
+  font-size: 1rem;
+  width: 20rem;
+  margin-bottom: 15px;
 }
+
 
 .register-form button:hover {
   background-color: #9932cc;
@@ -270,15 +271,16 @@
   display: flex;
   align-items: center;
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .password-container input {
   flex: 1;
   padding: 12px;
   border: 2px solid #4b0082;
-  margin: 4px 0;
   border-radius: 5px;
   width: 100%;
+  padding-right: 45px;
   box-sizing: border-box;
 }
 
@@ -323,16 +325,16 @@
   display: inline-block;
   padding: 10px 20px;
   margin-top: 20px;
-  background: #ffffff1a;
+  background: rgba(255, 255, 255, 0.1);
   border: 2px solid white;
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #ffffff80;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .midden-container {
@@ -357,16 +359,16 @@
   border-radius: 20px;
   border: 2px solid #fff;
   background-color: #1e1e1e;
-  color: #ffffff;
+  color: white;
   font-size: 16px;
   text-align: center;
   outline: none;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 8px #ffffff4d;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 #searchBar {
-  color: #ffffff80;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #searchBar:focus {
@@ -393,16 +395,16 @@
   align-items: center;
 }
 button.filter-btn.rare {
-  box-shadow: 0 0 20px #ffff0099;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
 }
 button.filter-btn.common {
-  box-shadow: 0 0 20px #ffffff66;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 button.filter-btn.uncommon {
-  box-shadow: 0 0 20px #477eecbf;
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
 }
 button.filter-btn.mythic {
-  box-shadow: 0 0 20px #ff000099;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
 .filter-btn img {
@@ -457,16 +459,16 @@ button.filter-btn.mythic {
 
 /* de glow dit zal ook nog aangepast worden met backend  */
 section.kaart.common > img {
-  box-shadow: 0 0 20px #ffffff66;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 section > .kaart.uncommon > img {
-  box-shadow: 0 0 20px #477eecbf;
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
 }
 section.kaart.rare > img {
-  box-shadow: 0 0 20px #ffff0099;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
 }
 section > .kaart.mythic > img {
-  box-shadow: 0 0 20px #ff000099;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
 /* Popup stijl */
@@ -487,8 +489,8 @@ section > .kaart.mythic > img {
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 8px 32px #0000004d;
-  border: 1px solid #ffffff4d;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -506,12 +508,12 @@ section > .kaart.mythic > img {
 
   border: 1px solid #474242;
   padding: 10px;
-  box-shadow: 0px 4px 8px #00000033;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
   background: linear-gradient(45deg, #1a1a1a, #3d99ae);
   color: #fff;
 
-  border: 2px solid #000000;
+  border: 2px solid black;
   border-radius: 5%;
 }
 /* to do font styl aanpassen */
@@ -579,7 +581,7 @@ section > .kaart.mythic > img {
 .add-btn:hover {
   transform: scale(1.1);
   border-color: black;
-  box-shadow: 0 0 20px #171616b3;
+  box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
 }
 
 /* de kruisknopt */
@@ -600,16 +602,16 @@ section > .kaart.mythic > img {
   gap: 10px;
   margin-left: 2rem;
 
-  margin-top: 15rem;
+margin-top: 15rem;
 }
 
 .card-counter button {
   width: 20px;
   height: 20px;
-
+  
   font-weight: bold;
-  background-color: #184e23;
-  color: #ffffff;
+  background-color: #184e23;  
+  color: white;
   border: 2px solid black;
   border-radius: 5px;
   cursor: pointer;
@@ -618,7 +620,7 @@ section > .kaart.mythic > img {
 }
 
 .card-counter button:hover {
-  background-color: #28a745; /* Iets donkerder groen voor hover */
+  background-color: #28a745;  /* Iets donkerder groen voor hover */
   transform: scale(1.1);
 }
 
@@ -655,7 +657,7 @@ section > .kaart.mythic > img {
   cursor: pointer;
   font-size: 14px;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 8px #ffffff4d;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* Actieve pagina knop */
@@ -666,9 +668,10 @@ section > .kaart.mythic > img {
   box-shadow: 0 0 15px white;
 }
 
+
 .page-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px #ffffffcc;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 /* Stijl voor de vorige/volgende knoppen */
@@ -677,23 +680,30 @@ section > .kaart.mythic > img {
   font-size: 18px;
 }
 
+
 .dots {
   color: white;
   font-size: 18px;
   padding: 0 10px;
 }
 
+
+
+
+
 /*footer*/
 footer {
-  background-color: #000000cc;
-  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
   text-align: center;
   padding: 10px 0;
   font-size: 14px;
   bottom: 0;
   width: 100%;
-  box-shadow: 0 -2px 10px #00000080;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
+
+
 
 /*---------------------deck page badr*----------------------------*/
 /* deck page */
@@ -754,7 +764,7 @@ footer {
 /* popup */
 
 #add-deck-btn {
-  background-color: #007bff;
+  background-color: #007bff; 
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -765,14 +775,14 @@ footer {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 10px #00000026;
-
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  
   /* Centreren aan de rechterkant */
   position: fixed;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-
+  
   z-index: 1000;
 }
 
@@ -798,6 +808,8 @@ footer {
 #add-deck-btn:active {
   transform: scale(0.9) translateY(-50%);
 }
+
+
 
 .deck-popup-container {
   display: none;
@@ -835,9 +847,6 @@ footer {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   background-image: url("/assets/images/wallpapergames.png");
   background-size: cover;
   background-position: center;
@@ -849,7 +858,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: #00000080;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 #unique-logo {
@@ -871,43 +880,7 @@ footer {
 }
 
 #unique-nav-list li {
-  color: #ffffff;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  position: relative;
-  transition: color 0.5s ease;
-}
-
-#unique-nav-list li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ffffff, transparent);
-  background-size: 300% 100%;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-#unique-nav-list li a:hover {
-  color: #ffffff;
-}
-
-#unique-nav-list li a:hover::after {
-  opacity: 1;
-  animation: shimmer 2s linear infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  display: inline;
 }
 
 #unique-nav-home a,
@@ -917,10 +890,6 @@ footer {
   color: white;
   text-decoration: none;
   font-weight: bold;
-}
-#unique-nav-decks a:hover,
-#unique-nav-drawtest a:hover {
-  transform: scale(1.1);
 }
 
 #unique-profile-link {
@@ -937,11 +906,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  height: 80vh;
 }
 
 #unique-draw-section {
-  background: #00000080;
+  background: rgba(0, 0, 0, 0.5);
   padding: 70px;
   border-radius: 10px;
   display: flex;
@@ -956,7 +925,7 @@ footer {
   padding-bottom: 20px;
 }
 #unique-draw-button:hover {
-  background-color: #d33131;
+  background-color: #d32f2f;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -983,7 +952,7 @@ footer {
 #unique-draw-button,
 #unique-reset-button,
 #unique-track-button {
-  background: #ffffff33;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   border: 1px solid white;
   padding: 5px 15px;
@@ -1014,37 +983,37 @@ footer {
   width: 130px;
 }
 .popup {
-  display: none;
-  position: fixed;
-  z-index: 1000;
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000cc;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0s 0.5s;
-  display: flex;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.8); 
+  justify-content: center; 
+  align-items: center; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.5s ease, visibility 0s 0.5s; 
+  display: flex; 
 }
 
 .popup.active {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s ease, visibility 0s 0s;
+  opacity: 1; 
+  visibility: visible; 
+  transition: opacity 0.5s ease, visibility 0s 0s; 
 }
 
 .popup-content {
-  background-color: white;
+  background-color: white; 
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 12px; 
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  width: 90%;
-  animation: fadeIn 0.5s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  max-width: 600px; 
+  width: 90%; 
+  animation: fadeIn 0.5s ease-out; 
 }
 
 .close {
@@ -1053,16 +1022,17 @@ footer {
   font-weight: bold;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #ffffffb3;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%; 
+  transition: background-color 0.3s ease; 
 }
 
 .close:hover,
 .close:focus {
-  background-color: #e74c3ccc;
-  color: white;
+  background-color: rgba(231, 76, 60, 0.8); 
+  color: white; 
 }
+
 
 @keyframes fadeIn {
   from {
@@ -1075,6 +1045,7 @@ footer {
   }
 }
 
+
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/
 /* BODY MET ID landing-page */
 #landing-page {
@@ -1083,16 +1054,18 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
 }
 
 #slider-container {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 90%;
   max-width: 1200px;
-  overflow: hidden;
 }
 
 #slider-images {
@@ -1152,7 +1125,7 @@ footer {
   align-items: center;
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
-  background: #000000b3;
+  background: rgba(0, 0, 0, 0.7);
   color: white;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -1169,7 +1142,7 @@ footer {
   writing-mode: initial;
   text-orientation: initial;
   transform: rotate(0deg);
-  background: #000000cc;
+  background: rgba(0, 0, 0, 0.8);
   padding: 5px 10px;
   font-size: 1rem;
 }
@@ -1261,7 +1234,7 @@ footer {
   align-items: center;
   text-align: center;
   font-size: 14px;
-  color: #ffffff;
+  color: white;
 }
 
 .deck-item img {
@@ -1286,7 +1259,7 @@ footer {
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 6px #00000080;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .card-display img {
@@ -1295,36 +1268,44 @@ footer {
   margin-bottom: 15px;
 }
 
+.slider-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
 .slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #00000080;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   border: none;
-  padding: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  font-size: 24px;
-  z-index: 100;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.3s;
 }
 
 .slider-arrow:hover {
-  background: #000000cc;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .slider-arrow-left {
-  left: 20px;
+  left: auto;
 }
 
 .slider-arrow-right {
-  right: 20px;
+  right: auto;
 }
-
-#slider-container {
-  position: relative;
-}
-
 /* Algemene media queries */
 @media screen and (max-width: 768px) {
   /* Navbar styling voor mobiel */
@@ -1332,7 +1313,7 @@ footer {
     flex-direction: column;
     padding: 15px;
     position: relative;
-    background: #000000e6;
+    background: rgba(0, 0, 0, 0.9);
   }
 
   #logo {
@@ -1354,7 +1335,7 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ffffff1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   #unique-nav-list li:last-child {
@@ -1585,7 +1566,7 @@ footer {
 
   .deck-item {
     padding: 15px;
-    background: #0000004d;
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     transition: transform 0.3s ease;
   }
@@ -1604,6 +1585,7 @@ footer {
     margin-top: 8px;
   }
 }
+
 
 /* Deck view pagina */
 @media screen and (max-width: 768px) {
@@ -1627,6 +1609,7 @@ footer {
 
   .card-display section {
     width: 90%;
+    
   }
 }
 
@@ -1730,7 +1713,7 @@ footer {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -1755,7 +1738,7 @@ footer {
     left: -100%;
     top: 70px;
     gap: 0;
-    background-color: #000000e6;
+    background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
     height: calc(100vh - 70px); /* Volle hoogte minus header */
     text-align: center;
@@ -1794,3 +1777,110 @@ footer {
     gap: 2rem;
   }
 }
+
+
+
+/* Media query voor schermen kleiner dan 1300px */
+@media screen and (max-width: 1300px) {
+  .slider-item {
+    display: none; /* Verberg alle items standaard */
+  }
+
+  /* Toon alleen de middelste drie items */
+  .slider-item:nth-child(2),
+  .slider-item:nth-child(3),
+  .slider-item:nth-child(4) {
+    display: flex;
+  }
+
+  /* Pas de breedte aan voor de zichtbare items */
+  .slider-item.active {
+    width: 350px; /* Iets smaller dan op grote schermen */
+  }
+
+  .slider-item.active + .slider-item,
+  .slider-item.active + .slider-item + .slider-item {
+    width: 130px;
+  }
+
+  /* Zorg ervoor dat de container de juiste breedte heeft */
+  #slider-container {
+    max-width: 900px;
+  }
+
+  #slider-images {
+    justify-content: center;
+    gap: 10px; /* Kleinere gap tussen items */
+  }
+}
+
+/* Voeg animatie toe voor smooth transitions */
+.slider-item {
+  transition: all 0.5s ease-in-out;
+}
+
+
+/* Media query voor mobiele telefoons */
+@media screen and (max-width: 800px) {
+  #landing-page {
+    padding: 10px;
+    min-height: 100vh;
+    justify-content: flex-start; /* Veranderd van center naar flex-start */
+    padding-top: 20px; /* Voeg wat ruimte toe aan de bovenkant */
+  }
+
+  #slider-container {
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 20px; /* Voeg ruimte toe onder de container */
+  }
+
+  .slider-item {
+    display: none;
+    height: auto; /* Laat de hoogte zich aanpassen aan de inhoud */
+  }
+
+  .slider-item.active {
+    display: flex;
+    width: 100%;
+    max-width: 300px; /* Iets kleinere max-width */
+    height: auto;
+  }
+
+  #slider-images {
+    justify-content: center;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .slider-image {
+    width: 100%;
+    height: auto;
+    max-height: 600px; /* Maximum hoogte voor de afbeelding */
+    object-fit: contain; /* Zorgt dat de afbeelding volledig zichtbaar blijft */
+  }
+
+  .slider-controls {
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+  }
+
+  .slider-arrow {
+    width: 35px; /* Iets kleinere pijlen */
+    height: 35px;
+  }
+}
+
+/* Extra specifieke aanpassing voor zeer smalle schermen */
+@media screen and (max-width: 400px) {
+  #slider-container {
+    max-width: 280px; /* Nog kleiner voor zeer smalle schermen */
+  }
+
+  .slider-item.active {
+    max-width: 260px;
+  }
+}
+
+
