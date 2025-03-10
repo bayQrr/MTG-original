@@ -1186,8 +1186,9 @@ footer {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Gotham', sans-serif;
   font-size: 1rem;
+  
 }
 
 #odds-result {
@@ -2209,13 +2210,7 @@ height: 100%;
   margin-bottom: 2rem;
 }
 
-#card-search {
-  padding: 10px;
-  width: 300px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-}
+
 
 #odds-result {
   margin-top: 1rem;
@@ -2393,13 +2388,7 @@ height: 100%;
   margin-top: 1rem;
 }
 
-#card-search {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-family: "Prompt", sans-serif;
-  font-size: 1rem;
-}
+
 
 #calculate-odds {
   /* De button styling wordt nu overgenomen van #unique-draw-controls button */
