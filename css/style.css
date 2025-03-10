@@ -1175,39 +1175,23 @@ footer {
 /* BODY DECKVIEW  */
 .deckview {
   font-family: Arial, sans-serif;
-  background: linear-gradient(
-    180deg,
-    #010102,
-    #000e1e,
-    #010c1d,
-    #054e86,
-    #04305c,
-    #0c6ab2,
-    black
-  );
+  background-image: url("/assets/images/deckview.png");
+  background-position: center;
   color: white;
-  margin: 0;
-  padding: 0;
   text-align: center;
 }
 
 /* DECK */
-.deck-overview {
-  position: relative;
-  display: inline-block;
+.deckview-main {
+  font-family: "prompt";
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .deck-overview h2 {
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.deck-banner {
-  width: 1000px;
-  padding-top: 4rem;
 }
 
 .deck-info {
@@ -1215,19 +1199,17 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 6rem;
-  margin: 10px 0;
   font-size: 18px;
-  padding: 20px 20px;
+  padding: 20px 10px;
   background-color: #28282e;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin: auto;
+  border-radius: 10px;
+  margin: 40px 0;
 }
 .deck-info span {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 1rem;
+  font-size: 16.6px;
   color: white;
 }
 
@@ -1247,8 +1229,7 @@ footer {
 /* DECK LIST */
 .deck-list ul {
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-between;
   padding: 20px;
   list-style: none;
 }
@@ -1263,7 +1244,7 @@ footer {
 }
 
 .deck-item img {
-  width: 100px;
+  width: 152px;
   height: auto;
   margin-bottom: 15px;
 }
@@ -1273,8 +1254,9 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
 .card-display section {
@@ -1282,17 +1264,20 @@ footer {
   flex-direction: column;
   align-items: center;
   background-color: #333;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  width: 180px;
+  text-align: center;
+  box-shadow: 0px 4px 6px #00000080;
 }
 
 .card-display img {
-  width: 150px;
+  width: 100%;
   height: auto;
   margin-bottom: 15px;
 }
 
+/* STUKJE LANDINGPAGINA */
 .slider-controls {
   width: 100%;
   display: flex;
