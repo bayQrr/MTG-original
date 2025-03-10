@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/logout.js" defer></script>
     <script src="js/hamburger.js" defer></script>
+    <script src="js/drawtest.js" defer></script>
 
 </head>
 
@@ -46,20 +47,40 @@
 
     <main id="unique-main">
         <section id="unique-draw-section">
-            <span id="unique-deck-icon"><img src="assets/logo/LOGO-MAGIC 2.png" alt="Deck Icon"></span>
             <div id="unique-draw-controls">
-                <button id="unique-draw-button">Draw</button>
-                <button id="unique-reset-button">Reset</button>
-                <button id="unique-track-button">Track</button>
-                <span id="unique-progress-bar">50%</span>
+                <div id="main-buttons">
+                    <button id="unique-draw-button">Draw</button>
+                    <button id="unique-shuffle-button">Shuffle</button>
+                    <button id="unique-reset-button">Reset</button>
+                </div>
+
+                <div id="search-controls">
+                    <input type="text" id="card-search" placeholder="Zoek een kaart...">
+                    <button id="calculate-odds">Kans</button>
+                    <span id="odds-result"></span>
+                </div>
             </div>
 
+            <span id="unique-deck-icon">
+                
+                <span id="cards-remaining">60 kaarten over</span>
+            </span>
+
             <div id="unique-card-display">
-                <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
-                <span id="unique-crossed-swords"><img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem"
-                        alt=""></span>
-                <img src="/assets/images/Magic_card_back 19.png" alt="Archangel Azraz" id="unique-drawn-card">
+                <div id="deck-pile">
+                    <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
+                </div>
+                <span id="unique-crossed-swords">
+                    <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="">
+                </span>
+                <div id="drawn-pile">
+                    <div id="current-card">
+                        <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card" id="unique-drawn-card">
+                    </div>
+                </div>
             </div>
+
+            <div id="drawn-cards-history"></div>
         </section>
     </main>
 
