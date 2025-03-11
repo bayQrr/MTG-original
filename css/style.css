@@ -2435,3 +2435,8 @@ footer {
     transform: translateX(0);
   }
 }
+/* UITLOG KNOP */
+#profile-dropdown {
+  font-family: "prompt";
+  font-weight: bold;
+}
