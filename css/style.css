@@ -317,7 +317,7 @@
   display: inline-block;
   padding: 10px 20px;
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff1a;
   border: 2px solid white;
   color: white;
   text-decoration: none;
@@ -326,7 +326,7 @@
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: #ffffff80;
 }
 
 .midden-container {
@@ -356,11 +356,11 @@
   text-align: center;
   outline: none;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px #ffffff4d;
 }
 
 #searchBar {
-  color: rgba(255, 255, 255, 0.5);
+  color: #ffffff80;
 }
 
 #searchBar:focus {
@@ -387,16 +387,16 @@
   align-items: center;
 }
 button.filter-btn.rare {
-  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+  box-shadow: 0 0 20px #ffff0099;
 }
 button.filter-btn.common {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px #ffffff66;
 }
 button.filter-btn.uncommon {
-  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
+  box-shadow: 0 0 20px #477eecbf;
 }
 button.filter-btn.mythic {
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 20px #ff000099;
 }
 
 .filter-btn img {
@@ -410,7 +410,7 @@ button.filter-btn.mythic {
   padding: 30px;
   background: linear-gradient(45deg, #1a1a1a, #464849a0);
   backdrop-filter: blur(10px);
-  border-radius: 5%;
+  border-radius: 15px;
   margin-left: 15rem;
   margin-right: 15rem;
 }
@@ -692,9 +692,8 @@ footer {
 /*---------------------deck page badr*----------------------------*/
 /* deck page */
 
-
 #body-background {
-  font-family: 'Gotham', sans-serif;
+  font-family: "Gotham", sans-serif;
 
   margin: 0;
   padding: 0;
@@ -731,7 +730,7 @@ footer {
 
 /* H2 voor nieuwe decks */
 #new-deck-title {
-  font-family: 'Gotham', sans-serif;
+  font-family: "Gotham", sans-serif;
   width: 100%;
   text-align: center;
   color: white;
@@ -739,7 +738,6 @@ footer {
   margin-top: 20px;
   display: none; /* Verberg standaard */
 }
-
 
 #deck-img-1,
 #deck-img-2,
@@ -764,7 +762,7 @@ footer {
 /* popup */
 
 #add-deck-btn {
-  background-color: rgb(239,67,35);
+  background-color: rgb(239, 67, 35);
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -795,7 +793,7 @@ footer {
 
 /* Hover-effect */
 #add-deck-btn:hover {
-  background-color: rgb(239,67,35);
+  background-color: rgb(239, 67, 35);
   transform: scale(1.1) translateY(-50%);
 }
 
@@ -819,7 +817,6 @@ footer {
   background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
-  
 }
 
 /* Stijl voor de pop-up container */
@@ -877,8 +874,6 @@ footer {
 
 /* Opslaan knop */
 .deck-popup-content button {
-  
-  
   border: none;
   padding: 10px 15px;
   border-radius: 6px;
@@ -898,7 +893,8 @@ footer {
   margin-top: 5px;
 }
 
-.edit-deck, .delete-deck {
+.edit-deck,
+.delete-deck {
   background: rgba(255, 255, 255, 0.2);
   border: none;
   padding: 5px 10px;
@@ -942,7 +938,6 @@ footer {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  
 }
 
 /* Input velden */
@@ -954,7 +949,6 @@ footer {
   border-radius: 6px;
   font-size: 14px;
   font-family: "Gotham";
- 
 }
 
 /* Bewerk knoppen */
@@ -962,12 +956,9 @@ footer {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  
-  
 }
 
 .edit-popup button {
- 
   font-family: "Gotham";
   border: none;
   padding: 10px 15px;
@@ -978,7 +969,7 @@ footer {
 }
 
 .edit-popup button:hover {
- background-color: blue;
+  background-color: blue;
 }
 
 /* Sluit-knop */
@@ -990,12 +981,10 @@ footer {
   background-color: blue;
 }
 
-
-
 /*------------------game pagina badr*---------------------------/
 /* game pagina */
 #unique-body {
-  font-family: 'Gotham', sans-serif;
+  font-family: "Gotham", sans-serif;
 
   margin: 0;
   padding: 0;
@@ -1081,7 +1070,6 @@ footer {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  
 }
 #unique-nav-decks a:hover,
 #unique-nav-drawtest a:hover {
@@ -1184,9 +1172,8 @@ footer {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  font-family: 'Gotham', sans-serif;
+  font-family: "Gotham", sans-serif;
   font-size: 1rem;
-  
 }
 
 #odds-result {
@@ -1340,9 +1327,9 @@ footer {
 
 /* AFBEELDINGEN*/
 .slider-item a {
-display: block;
-width: 100%;
-height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* TITEL */
@@ -1392,39 +1379,23 @@ height: 100%;
 /* BODY DECKVIEW  */
 .deckview {
   font-family: Arial, sans-serif;
-  background: linear-gradient(
-    180deg,
-    #010102,
-    #000e1e,
-    #010c1d,
-    #054e86,
-    #04305c,
-    #0c6ab2,
-    black
-  );
+  background-image: url("/assets/images/deckview.png");
+  background-position: center;
   color: white;
-  margin: 0;
-  padding: 0;
   text-align: center;
 }
 
 /* DECK */
-.deck-overview {
-  position: relative;
-  display: inline-block;
+.deckview-main {
+  font-family: "prompt";
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .deck-overview h2 {
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.deck-banner {
-  width: 1000px;
-  padding-top: 4rem;
 }
 
 .deck-info {
@@ -1432,19 +1403,17 @@ height: 100%;
   justify-content: center;
   align-items: center;
   gap: 6rem;
-  margin: 10px 0;
   font-size: 18px;
-  padding: 20px 20px;
+  padding: 20px 10px;
   background-color: #28282e;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin: auto;
+  border-radius: 10px;
+  margin: 40px 0;
 }
 .deck-info span {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 1rem;
+  font-size: 16.6px;
   color: white;
 }
 
@@ -1460,12 +1429,19 @@ height: 100%;
   cursor: pointer;
   border-radius: 5px;
 }
+.deck-containter {
+  padding: 15px;
+  background: linear-gradient(45deg, #1a1a1a, #464849a0);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin-bottom: 60px;
+}
 
 /* DECK LIST */
 .deck-list ul {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 60px;
   padding: 20px;
   list-style: none;
 }
@@ -1521,26 +1497,27 @@ height: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
 .card-display section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  width: 180px;
+  text-align: center;
 }
 
 .card-display img {
-  width: 150px;
+  width: 100%;
   height: auto;
   margin-bottom: 15px;
+  border-radius: 10px;
 }
 
+/* STUKJE LANDINGPAGINA */
 .slider-controls {
   width: 100%;
   display: flex;
@@ -2152,11 +2129,9 @@ height: 100%;
   }
 }
 
-
 /*----------------------------------------------------------------------------*/
 
-* Drawtest Page Styling */
-#drawtest-page {
+* Drawtest Page Styling */ #drawtest-page {
   background-image: url("/assets/images/drawtest-bg.jpg");
   background-size: cover;
   background-position: center;
@@ -2238,8 +2213,6 @@ height: 100%;
   gap: 1rem;
   margin-bottom: 2rem;
 }
-
-
 
 #odds-result {
   margin-top: 1rem;
@@ -2394,7 +2367,7 @@ height: 100%;
 #unique-draw-controls button {
   padding: 10px 20px;
   font-size: 1rem;
-  font-family: 'Gotham', sans-serif;
+  font-family: "Gotham", sans-serif;
   color: white;
   background: linear-gradient(45deg, #4a148c, #7b1fa2);
   border: none;
@@ -2417,9 +2390,8 @@ height: 100%;
   margin-top: 1rem;
 }
 
-
-
 #calculate-odds {
+  margin: 0;
   /* De button styling wordt nu overgenomen van #unique-draw-controls button */
 }
 
@@ -2435,13 +2407,13 @@ height: 100%;
 
 @keyframes flipCard {
   0% {
-      transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   50% {
-      transform: rotateY(90deg);
+    transform: rotateY(90deg);
   }
   100% {
-      transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
 }
 
@@ -2452,10 +2424,10 @@ height: 100%;
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 /* Schokkerige beweging bij het schudden van de deck */
@@ -2464,12 +2436,24 @@ height: 100%;
 }
 
 @keyframes shuffleShake {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-5px); }
-  40% { transform: translateX(5px); }
-  60% { transform: translateX(-5px); }
-  80% { transform: translateX(5px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 /* Container voor de deck-kiezer */
 #draw-deck-selector-container {
