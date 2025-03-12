@@ -352,7 +352,6 @@
   border: 2px solid #fff;
   background-color: #1e1e1e;
   color: white;
-  
   font-size: 16px;
   text-align: center;
   outline: none;
@@ -362,12 +361,7 @@
 
 #searchBar {
   color: #ffffff80;
-
-#searchBar::placeholder {
-    color: white;
-
 }
-
 
 #searchBar:focus {
   box-shadow: 0 0 15px white;
@@ -376,7 +370,7 @@
 
 .filtering-button {
   display: flex;
-  gap: 2rem;
+  gap: 5rem;
 }
 
 /* Stijl voor de filterknoppen */
@@ -393,7 +387,6 @@
   align-items: center;
 }
 button.filter-btn.rare {
-
   box-shadow: 0 0 20px #ffff0099;
 }
 button.filter-btn.common {
@@ -404,17 +397,6 @@ button.filter-btn.uncommon {
 }
 button.filter-btn.mythic {
   box-shadow: 0 0 20px #ff000099;
-  box-shadow: 0 0 20px rgb(255, 255, 0);
-}
-button.filter-btn.common {
-  box-shadow: 0 0 20px rgb(255, 255, 255);
-}
-button.filter-btn.uncommon {
-  box-shadow: 0 0 20px rgba(71, 126, 236, 0.986);
-}
-button.filter-btn.mythic {
-  box-shadow: 0 0 20px rgb(255, 0, 0);
-
 }
 
 .filter-btn img {
@@ -425,14 +407,12 @@ button.filter-btn.mythic {
 #kaartContainer {
   display: flex;
   flex-direction: column;
-
   padding: 30px;
   background: linear-gradient(45deg, #1a1a1a, #464849a0);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   margin-left: 15rem;
   margin-right: 15rem;
-
 }
 
 .rij1,
@@ -441,26 +421,9 @@ button.filter-btn.mythic {
   flex-direction: row;
   justify-content: center;
   gap: 3rem;
-  margin-bottom: 5rem;
-}
-/* -----*/
-/*uit api kaarten rij komt uit js */
-section.rij{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
-.popup-specifications>p>strong{
-  font-weight: bold;
-}
-.popup-specifications>p>em{
-  font-style: italic;
-}
-
-/* ---- */
 .kaart {
   width: 120px;
   height: 180px;
@@ -479,8 +442,7 @@ section.rij{
   color: white;
   font-family: "prompt";
   margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-size: 20px;
+  font-size: 0.9rem;
 }
 
 .kaart:hover {
@@ -489,16 +451,16 @@ section.rij{
 
 /* de glow dit zal ook nog aangepast worden met backend  */
 section.kaart.common > img {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.991);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 section > .kaart.uncommon > img {
-  box-shadow: 0 0 20px rgb(71, 126, 236);
+  box-shadow: 0 0 20px rgba(71, 126, 236, 0.749);
 }
 section.kaart.rare > img {
-  box-shadow: 0 0 20px rgb(255, 255, 0);
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
 }
 section > .kaart.mythic > img {
-  box-shadow: 0 0 20px rgb(255, 0, 0);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
 /* Popup stijl */
@@ -525,23 +487,9 @@ section > .kaart.mythic > img {
   flex-direction: row;
   gap: 2rem;
 }
-
-.popup-specifications{
-margin-right: 2rem;
-
-}
-.popup-specifications>p{
-  color:white;
-  margin-bottom: 2rem;
-  font-family: "prompt";
-  
-}
-
 #popupTitle {
   color: white;
   font-family: "prompt";
-  font-size: 20px;
-  font-weight: bolder;
 }
 
 /* dropdown knop bij de addbutton */
@@ -556,7 +504,7 @@ margin-right: 2rem;
 
   background: linear-gradient(45deg, #1a1a1a, #3d99ae);
   color: #fff;
-font-size: 20px;
+
   border: 2px solid black;
   border-radius: 5%;
 }
@@ -590,7 +538,7 @@ font-size: 20px;
   position: relative;
   overflow: hidden;
   margin-top: 2rem;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: bold;
   margin-right: 1rem;
   padding: 12px 2px;
@@ -599,11 +547,16 @@ font-size: 20px;
   border: 2px solid black;
   transform: scale(0.95);
   font-family: "prompt";
-  width: 5rem;
 }
 
 .add-btn:before {
- 
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 110%;
+  height: 110%;
+
   background: radial-gradient(
     circle,
     rgba(0, 170, 255, 0.3) 10%,
@@ -639,13 +592,15 @@ font-size: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 4rem;
+  margin-left: 2rem;
+
+  margin-top: 15rem;
 }
 
 .card-counter button {
-  width: 25px;
-  height: 25px;
-font-size: 20px;
+  width: 20px;
+  height: 20px;
+
   font-weight: bold;
   background-color: #184e23;
   color: white;
