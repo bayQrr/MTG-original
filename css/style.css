@@ -722,7 +722,7 @@ footer {
   background: rgba(0, 0, 0, 0.5);
   padding: 40px;
   border-radius: 10px;
-  max-width: 1200px;
+  max-width: 800px;
   width: 90%; /* Houd breedte binnen scherm */
   margin: 0 auto; /* Centreert de container */
 }
@@ -1114,8 +1114,9 @@ footer {
   align-items: center;
   gap: 15px;
   margin-top: 5rem;
-  max-width: 1200px;
+  max-width: 800px;
   width: 120%;
+  margin-bottom: 5rem;
   
 }
 
@@ -1468,6 +1469,16 @@ height: 100%;
   padding: 20px;
   list-style: none;
 }
+.deck-item a {
+  display: block;
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.deck-item a:hover {
+  opacity: 0.8; 
+}
+
 
 
 .deck-item {
