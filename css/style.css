@@ -727,10 +727,7 @@ footer {
   margin: 0 auto; /* Centreert de container */
 }
 
-.deck-item {
-  text-align: center;
-  width: 150px;
-}
+
 
 /* H2 voor nieuwe decks */
 #new-deck-title {
@@ -1472,19 +1469,40 @@ height: 100%;
   list-style: none;
 }
 
+
 .deck-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  font-size: 14px;
-  color: white;
+  width: 160px;
+  background: rgba(0, 0, 0, 0.5); 
+  border: 2px solid white; 
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* Hover-effect */
+.deck-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.8); 
+}
+
+
 .deck-item img {
-  width: 100px;
-  height: auto;
-  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Stijl voor de deck naam */
+.deck-item p {
+  font-family: "Gotham", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin-top: 8px;
+  text-transform: uppercase;
 }
 
 /* KAARTEN OVERZICHT */
@@ -2442,4 +2460,37 @@ height: 100%;
   80% { transform: translateX(5px); }
   100% { transform: translateX(0); }
 }
+/* Container voor de deck-kiezer */
+#draw-deck-selector-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Stijl van de dropdown */
+#draw-deck-selector {
+  font-family: "Gotham", sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 250px;
+  text-align: center;
+}
+
+#draw-deck-selector:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Geel kader om geselecteerd deck te markeren */
+.selected-deck {
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
 
