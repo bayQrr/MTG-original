@@ -361,6 +361,11 @@
 
 #searchBar {
   color: #ffffff80;
+
+}
+#searchBar::placeholder {
+    color: white;
+
 }
 
 #searchBar:focus {
