@@ -9,19 +9,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let newDeckTitle = document.getElementById("new-deck-title");
 
+    // Zorg ervoor dat de pop-up standaard verborgen blijft
+    deckPopup.style.display = "none";  
+
     if (!newDeckTitle) {
         newDeckTitle = document.createElement("h2");
         newDeckTitle.id = "new-deck-title";
         newDeckTitle.textContent = "New Deck";
+        newDeckTitle.style.display = "none"; // Standaard verbergen
         deckSection.appendChild(newDeckTitle);
     }
 
-    // Open de popup
+    // Open de popup alleen bij klikken op de knop
     addDeckBtn.addEventListener("click", () => {
         deckPopup.style.display = "flex";
     });
 
-    // Sluit de popup
+    // Sluit de popup bij klikken op sluitknop
     closePopup.addEventListener("click", () => {
         deckPopup.style.display = "none";
     });
@@ -70,9 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         newDeck.appendChild(deckImage);
         newDeck.appendChild(deckText);
-        newDeck.appendChild(deckActions); // Voeg knoppen toe
+        newDeck.appendChild(deckActions);
 
-        deckSection.appendChild(newDeck); // Voeg het deck toe aan deck-section
+        deckSection.appendChild(newDeck);
 
         // Popup sluiten
         deckPopup.style.display = "none";
@@ -82,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         deckImgUrlInput.value = "";
     });
 
-    
+    // Zorg ervoor dat de bewerk-pop-up niet opent bij het laden van de pagina
     let editPopup = document.getElementById("edit-popup");
     let editOverlay = document.getElementById("edit-overlay");
 
@@ -90,11 +94,13 @@ document.addEventListener("DOMContentLoaded", function () {
         editOverlay = document.createElement("div");
         editOverlay.id = "edit-overlay";
         editOverlay.classList.add("edit-overlay");
+        editOverlay.style.display = "none"; // Zorgt ervoor dat het niet zichtbaar is
         document.body.appendChild(editOverlay);
 
         editPopup = document.createElement("div");
         editPopup.id = "edit-popup";
         editPopup.classList.add("edit-popup");
+        editPopup.style.display = "none"; // Zorgt ervoor dat het niet zichtbaar is
         editPopup.innerHTML = `
             <h2>Bewerk Deck</h2>
             <input type="text" id="edit-deck-name" placeholder="Nieuwe naam">
