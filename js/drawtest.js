@@ -109,3 +109,54 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialiseer het spel
   resetGame();
 });
+document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("unique-draw-section")) return;
+
+    const drawControls = document.getElementById("unique-draw-controls");
+    
+    // Maak een container voor de dropdown
+    const deckSelectorContainer = document.createElement("div");
+    deckSelectorContainer.id = "draw-deck-selector-container";
+
+    // Maak de dropdown
+    const deckSelector = document.createElement("select");
+    deckSelector.id = "draw-deck-selector";
+    deckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
+    
+    deckSelectorContainer.appendChild(deckSelector);
+    drawControls.insertBefore(deckSelectorContainer, drawControls.firstChild);
+
+    let availableDecks = JSON.parse(localStorage.getItem("savedDecks")) || [];
+
+    function updateDeckDropdown() {
+        deckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
+        
+        availableDecks.forEach((deck, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = deck.name;
+            deckSelector.appendChild(option);
+        });
+    }
+
+    deckSelector.addEventListener("change", function () {
+        if (deckSelector.value !== "") {
+            const selectedDeck = availableDecks[deckSelector.value];
+
+            // Update de game met het gekozen deck
+            initializeGameWithDeck(selectedDeck);
+        }
+    });
+
+    function initializeGameWithDeck(deck) {
+        alert(`Je hebt ${deck.name} geselecteerd!`);
+        
+        // Reset en laad het gekozen deck in de game
+        deckCards = deck.cards.slice();
+        drawnCards = [];
+        updateDisplay();
+    }
+
+    updateDeckDropdown();
+});
+

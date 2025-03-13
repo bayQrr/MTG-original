@@ -702,6 +702,7 @@ section > .kaart.mythic > img {
 
 /*footer*/
 footer {
+  font-family: "prompt";
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: center;
@@ -716,8 +717,6 @@ footer {
 /* deck page */
 
 #body-background {
-  font-family: "Gotham", sans-serif;
-
   margin: 0;
   padding: 0;
   background-image: url("/assets/images/walpaper\ 1.png");
@@ -728,6 +727,7 @@ footer {
 }
 
 #main-content {
+  font-family: "Gotham", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -744,14 +744,9 @@ footer {
   background: rgba(0, 0, 0, 0.5);
   padding: 40px;
   border-radius: 10px;
-  max-width: 1200px;
+  max-width: 800px;
   width: 90%; /* Houd breedte binnen scherm */
   margin: 0 auto; /* Centreert de container */
-}
-
-.deck-item {
-  text-align: center;
-  width: 150px;
 }
 
 /* H2 voor nieuwe decks */
@@ -1010,8 +1005,6 @@ footer {
 /*------------------game pagina badr*---------------------------/
 /* game pagina */
 #unique-body {
-  font-family: "Gotham", sans-serif;
-
   margin: 0;
   padding: 0;
   display: flex;
@@ -1128,8 +1121,9 @@ footer {
   align-items: center;
   gap: 15px;
   margin-top: 5rem;
-  max-width: 1200px;
+  max-width: 800px;
   width: 120%;
+  margin-bottom: 5rem;
 }
 
 #unique-deck-icon img {
@@ -1470,30 +1464,48 @@ footer {
   padding: 20px;
   list-style: none;
 }
-
-.deck-list::after {
-  content: "";
+.deck-item a {
   display: block;
-  width: 90%;
-  height: 1px;
-  background-color: #ffffff33;
-  margin: 15px auto;
-  opacity: 0.5;
+  text-decoration: none;
+  color: inherit;
+}
+
+.deck-item a:hover {
+  opacity: 0.8;
 }
 
 .deck-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  font-size: 14px;
-  color: white;
+  width: 160px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover-effect */
+.deck-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.8);
 }
 
 .deck-item img {
-  width: 140px;
-  height: auto;
-  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Stijl voor de deck naam */
+.deck-item p {
+  font-family: "Gotham", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin-top: 8px;
+  text-transform: uppercase;
 }
 
 /* KAARTEN OVERZICHT */
@@ -2420,10 +2432,37 @@ footer {
     transform: translateX(0);
   }
 }
-/* UITLOG KNOP */
-#profile-dropdown {
-  font-family: "prompt";
-  font-weight: bold;
+/* Container voor de deck-kiezer */
+#draw-deck-selector-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Stijl van de dropdown */
+#draw-deck-selector {
+  font-family: "Gotham", sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 250px;
+  text-align: center;
+}
+
+#draw-deck-selector:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Geel kader om geselecteerd deck te markeren */
+.selected-deck {
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Specifiek voor de landing page */
