@@ -742,7 +742,7 @@ section > .kaart.mythic > img {
 
 /*footer*/
 footer {
-  font-family: "prompt";
+  font-family: stratum;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: center;
@@ -767,7 +767,7 @@ footer {
 }
 
 #main-content {
-  font-family: "Gotham", sans-serif;
+  font-family: magic;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2536,4 +2536,9 @@ footer {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
   display: flex;
+}
+
+/* UITLOGGEN */
+#profile-dropdown {
+  font-family: stratum;
 }
