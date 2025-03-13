@@ -1,16 +1,11 @@
 /* Navbar*/
-
 #unique-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background: #00000080;
-  position: sticky;
-  z-index: 1000;
-  top: 0;
 }
-
 #logo {
   width: 130px;
 }
@@ -64,7 +59,7 @@
   padding: 5px;
   background: #1c1d25;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px #0000001a;
   display: none;
   flex-direction: column;
   min-width: 120px;
@@ -90,20 +85,22 @@
   display: flex;
 }
 
-/*----------------------------------LOGIN PAGINA _ZAIDA*-------------------------------------------------*/
+/* ----------------------------------LOGINPAGINA ZAIDA*------------------------------------------------- */
 .login {
   background-image: url("/assets/images/Loginbg.jpg");
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  /* display: flex; */
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /*section*/
-.Login-container {
+.login-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .login-form {
@@ -111,38 +108,9 @@
   padding: 30px;
   border-radius: 10px;
   margin: 0 auto;
-  background: rgba(135, 110, 174, 0.9);
+  background: #876eaee6;
   border-radius: 15px;
-  box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
-}
-
-.login-form > p {
-  color: white;
-}
-.login-form > p > a {
-  color: white;
-  transition: color 0.3s ease;
-}
-.login-form > p > a:hover {
-  color: #3d1452;
-}
-.login-form > h1 {
-  color: white;
-  font-family: mythical;
-  margin-bottom: 2rem;
-  font-weight: bold;
-  font-size: 2rem;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
-}
-
-.login-form > form > input {
-  width: 20rem;
-  padding: 15px;
-  margin: 10px 0;
-  border: none;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  box-sizing: border-box;
+  box-shadow: 0 6px 30px #000001e6;
 }
 
 #loginbutton {
@@ -155,8 +123,6 @@
   border-radius: 10px;
   display: inline-block;
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
   box-shadow: 0 0 15px 5px #9932cc;
   transition: all 0.3s ease;
 }
@@ -171,15 +137,15 @@
 .register {
   background-image: url("/assets/images/registerBg.jpg");
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  overflow-y: hidden;
 }
 
 .register-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .register-form {
@@ -187,9 +153,9 @@
   padding: 30px;
   border-radius: 10px;
   margin: 0 auto;
-  background: rgba(135, 110, 174, 0.9);
+  background: #876eaee6;
   border-radius: 15px;
-  box-shadow: 0 6px 30px rgba(0, 0, 1, 0.9);
+  box-shadow: 0 6px 30px #000001e6;
 }
 .register-form > form {
   display: flex;
@@ -200,7 +166,6 @@
 .register-container h1 {
   color: white;
   font-family: "prompt";
-
   font-weight: bold;
   font-size: 2rem;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
@@ -208,11 +173,10 @@
 
 /* LOGIN TEXT STIJLEN p */
 .login-text {
-  text-align: left;
-  margin-left: 100px;
+  text-align: center;
+  margin-right: auto;
   display: block;
   margin-top: 15px;
-  font-size: 0.9rem;
   color: white;
 }
 
@@ -250,7 +214,6 @@
   padding: 12px;
   border: 2px solid #4b0082;
   border-radius: 5px;
-  font-size: 1rem;
   width: 20rem;
   margin-bottom: 15px;
 }
@@ -266,7 +229,6 @@
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 15px;
 }
 
 .password-container input {
@@ -1026,6 +988,7 @@ footer {
   align-items: center;
   padding: 10px 20px;
   background: #00000080;
+  /* width: 100%; */
 }
 
 #unique-logo {
@@ -1480,18 +1443,18 @@ footer {
 .deck-item {
   text-align: center;
   width: 160px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 2px solid white;
+  background: #00000080;
+  border: 2px solid #ffffff33;
   border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  padding: 13px;
+  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* Hover-effect */
 .deck-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.8);
+  /* box-shadow: 0 4px 15px #a1a09ccc; */
 }
 
 .deck-item img {
@@ -1499,17 +1462,18 @@ footer {
   border-radius: 8px;
   display: block;
   margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 /* Stijl voor de deck naam */
-.deck-item p {
+/* .deck-item ul {
   font-family: "Gotham", sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: white;
   margin-top: 8px;
   text-transform: uppercase;
-}
+} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -2497,22 +2461,4 @@ footer {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
   display: flex;
-}
-/* Login pagina navbar */
-
-.login-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: #00000080;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.login-header img {
-  height: 40px;
 }
