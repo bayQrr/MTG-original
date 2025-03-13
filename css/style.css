@@ -446,6 +446,11 @@ section.rij{
 .popup-specifications>p>em{
   font-style: italic;
 }
+.popup-specifications>form{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
 
 /* ---- */
 .kaart {
@@ -467,7 +472,7 @@ section.rij{
   font-family: "prompt";
   margin-top: 1rem;
   margin-bottom: 2rem;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .kaart:hover {
@@ -511,6 +516,7 @@ section > .kaart.mythic > img {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  max-width: 50%;
 }
 
 .popup-specifications{
@@ -610,6 +616,10 @@ font-size: 20px;
   box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
 }
 
+.dropdown-and-add{
+  display: flex;
+  flex-direction: row;
+}
 /* de kruisknopt */
 .close {
   position: absolute;
@@ -626,7 +636,7 @@ font-size: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .card-counter button {
@@ -707,6 +717,76 @@ font-size: 20px;
   color: white;
   font-size: 18px;
   padding: 0 10px;
+}
+/* uitleg icoon en popup */
+
+#uitlegPopup {
+  display: none;
+  position: fixed;
+  top:10%;
+  left: 40%;
+  transform: translateX(-50%);
+  border-radius: 1rem;
+  padding: 2rem;
+  z-index: 1000;
+  width: 50%;
+  max-width: 600px;
+
+}
+#uitlegPopup>.uitlegIndex{
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 55rem;
+  color: white;
+ 
+}
+#uitlegPopup.active {
+  display: block;
+}
+#uitleg-knop {
+display: flex;
+justify-content: flex-end;
+margin-top: 5rem;
+  margin-right: 3rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+#uitleg-knop img {
+  width: 40px;
+  height: 40px;
+  
+}
+#uitleg-knop img :hover{
+  transform: scale(1.2) rotate(15deg);
+}
+.close-uitleg {
+  position: absolute;
+
+top:1px;
+  right: 1px;
+  
+
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 2px 7px;
+  background-color: #ffffffb3;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+
+.close-uitleg:hover,
+.close-uitleg:focus {
+  color: white;
 }
 
 /*footer*/

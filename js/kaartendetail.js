@@ -147,3 +147,21 @@ function showDetails(kaart) {
 document.querySelector('.close').addEventListener('click', function() {
     document.getElementById("kaartPopup").style.display = "none";
 });
+
+
+// vraagteken
+document.addEventListener("DOMContentLoaded", function () {
+    // ... (jouw bestaande code hierboven blijft)
+
+    const uitlegKnop = document.getElementById("openUitlegPopup");
+    const uitlegPopup = document.getElementById("uitlegPopup");
+    const closeUitlegBtn = document.querySelector(".close-uitleg");
+
+    uitlegKnop.addEventListener("click", function () {
+        uitlegPopup.classList.add("active");
+    });
+
+    closeUitlegBtn.addEventListener("click", function () {
+        uitlegPopup.classList.remove("active");
+    });
+});
