@@ -2495,28 +2495,6 @@ footer {
   cursor: pointer;
   display: flex;
 }
-
-/* Media query voor schermen kleiner dan 1300px */
-@media screen and (max-width: 1300px) {
-  #landing-page #slider-container {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  #landing-page #slider-images {
-    justify-content: center;
-  }
-
-  #landing-page .slider-item {
-    display: none;
-  }
-
-  #landing-page .slider-item:nth-child(2),
-  #landing-page .slider-item:nth-child(3),
-  #landing-page .slider-item:nth-child(4) {
-    display: flex;
-  }
-}
 /* Login pagina navbar */
 
 .login-header {
