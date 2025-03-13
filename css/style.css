@@ -676,7 +676,7 @@ section > .kaart.mythic > img {
 }
 /* uitleg icoon en popup */
 
-#uitlegPopup {
+/* #uitlegPopup {
   display: none;
   position: fixed;
   top: 10%;
@@ -739,6 +739,106 @@ section > .kaart.mythic > img {
 .close-uitleg:focus {
   color: white;
 }
+*/
+/* From Uiverse.io by Cksunandh */ 
+/* Basic reset and styling */
+
+/* Tooltip container */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  margin-right: 10rem;
+  margin-top: 3rem;
+  justify-content: end;
+}
+
+/* Icon styling */
+.icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* SVG Animation: Rotate and scale effect */
+.icon svg {
+  transition: transform 0.5s ease-in-out;
+  margin-top: 2rem;
+}
+
+.icon:hover svg {
+  transform: rotate(360deg) scale(1.2);
+}
+
+
+.tooltip {
+  visibility: hidden;
+  width: 63rem;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+ font-family: "prompt";
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  left: 17%;
+ 
+  opacity: 0;
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+  transform: translateY(10px);
+}
+.tooltip>p{
+  margin-bottom: 2rem;
+}
+
+/* Tooltip Arrow */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Show tooltip on hover */
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  animation: bounce 0.6s ease;
+}
 
 /*footer*/
 footer {
@@ -751,7 +851,7 @@ footer {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
+} 
 
 /*---------------------deck page badr*----------------------------*/
 /* deck page */
@@ -823,7 +923,10 @@ footer {
 /* popup */
 
 #add-deck-btn {
-  background-color: rgb(239, 67, 35);
+  /* background-color: rgb(239, 67, 35); */
+
+  background: linear-gradient(45deg, #1a1a1a, #ef4323);
+  backdrop-filter: blur(10px);
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -858,10 +961,6 @@ footer {
   transform: scale(1.1) translateY(-50%);
 }
 
-/* Afbeelding beweegt bij hover */
-#add-deck-btn:hover img {
-  transform: rotate(90deg);
-}
 
 /* Klik-effect */
 #add-deck-btn:active {
@@ -908,25 +1007,26 @@ footer {
 }
 
 /* Close-knop */
-.deck-popup-content .close-btn {
+.deck-popup-content .deck-close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 18px;
+ font-family:"gotham";
+  font-size: 35px;
+
   cursor: pointer;
   color: black;
   transition: color 0.3s ease;
+  
 }
 
-.deck-popup-content .close-btn:hover {
-  color: red;
-}
 
 /* Input velden */
 .deck-popup-content input {
   width: 100%;
   padding: 8px;
-  margin: 10px 0;
+  margin: 10px ;
+  margin-top: 25px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
@@ -1041,6 +1141,40 @@ footer {
 .close-edit-popup:hover {
   background-color: blue;
 }
+
+/* info icon */
+
+#main-content>.tooltip-container {
+  /* nog afwerken */
+
+}
+
+
+
+.tooltip {
+  visibility: hidden;
+  width: 63rem;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+ font-family: "prompt";
+  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  left: 17%;
+ 
+  opacity: 0;
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+  transform: translateY(10px);
+}
+.tooltip>p{
+  margin-bottom: 2rem;
+}
+
 
 /*------------------game pagina badr*---------------------------/
 /* game pagina */
