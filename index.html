@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl-BE">
 
 <head>
@@ -47,11 +47,7 @@
 
 
     <section class="midden-container">
-
-
         <section class="filtering">
-
-
             <section class="filtering-button">
                 <button class="filter-btn common" data-type="common">
                     <img src="assets/icon/CummonIcon.png" alt="Common">
@@ -79,49 +75,49 @@
                 <section class="kaart common" onclick="showDetails(this)">
                     <p>Kaart Naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
-                 
+
                 </section>
                 <section class="kaart uncommon" onclick="showDetails(this)">
                     <p>Kaart Naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
-                    
+
                 </section>
                 <section class="kaart rare" onclick="showDetails(this)">
                     <p>Kaart Naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
-                   
+
                 </section>
                 <section class="kaart mythic" onclick="showDetails(this)">
                     <p>Kaart Naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
-               
+
                 </section>
             </section>
 
             <section class="rij2">
-              
+
                 <section class="kaart gewoon" onclick="showDetails(this)">
                     <p>kaart naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
-             
+
                 </section>
-               
+
                 <section class="kaart gewoon" onclick="showDetails(this)">
                     <p>kaart naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
-                 
+
                 </section>
-               
+
                 <section class="kaart gewoon" onclick="showDetails(this)">
                     <p>kaart naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
-                  
+
                 </section>
-               
+
                 <section class="kaart gewoon" onclick="showDetails(this)">
                     <p>kaart naam</p>
                     <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
-                   
+
                 </section>
             </section>
 
@@ -137,7 +133,7 @@
             </section>
             <section class="popup-specifications">
                 <p id="popupTitle"></p>
-<!-- specificaties die uit api gehaald worden -->
+                <!-- specificaties die uit api gehaald worden -->
                 <p><strong>Type:</strong> <span id="popupType"></span></p>
                 <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
                 <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
@@ -146,28 +142,28 @@
                 <p><em><span id="popupText"></span></em></p>
                 <p><strong>Flavor:</strong> <span id="popupFlavor"></span></p>
                 <p><strong>Artist:</strong> <span id="popupArtist"></span></p>
-                
+
                 <form action="#" method="GET">
 
-                        <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
-                        <section class="card-counter">
-                            <button class="decrease-btn">-</button>
-                            <span id="cardCount">1</span>
-                            <button class="increase-btn">+</button>
+                    <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
+                    <section class="card-counter">
+                        <button class="decrease-btn">-</button>
+                        <span id="cardCount">1</span>
+                        <button class="increase-btn">+</button>
+                    </section>
+                    <section>
+                        <button class="add-btn">Voeg toe</button>
+
+                        <section class="deck-dropdown hidden">
+                            <a href="#">Deck 1</a>
+                            <a href="#">Deck 2</a>
+                            <a href="#">Deck 3</a>
                         </section>
-           <section>
-            <button class="add-btn">Voeg toe</button>
-
-            <section class="deck-dropdown hidden">
-                <a href="#">Deck 1</a>
-                <a href="#">Deck 2</a>
-                <a href="#">Deck 3</a>
-            </section>
 
 
-           </section>
-                
-                
+                    </section>
+
+
 
                 </form>
 

@@ -3,6 +3,11 @@
   src: url(../assets/fonts/Designer.otf);
 }
 @font-face {
-  font-family:dragon;
+  font-family: dragon;
   src: url(../assets/fonts/PowerOfDragonRegular-axZom.ttf);
+}
+
+@font-face {
+  font-family: stratum;
+  src: url(../assets/fonts/StratumNo2.otf);
 }
