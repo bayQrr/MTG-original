@@ -16,54 +16,33 @@
 
 <body class="login">
 
+    <header id="unique-header">
+        <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo"> </a>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
     <section class="Login-container">
+        <section class="register-container">
+            <section class="register-form">
+                <h1>INLOGGEN</h1>
+                <form action="#">
 
-        <header id="unique-header">
-            <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-    
-            <nav id="unique-navigation">
-                <ul id="unique-nav-list">
-    
-                    <li id="unique-nav-decks"><a href="deck.html">DECKS</a></li>
-                    <li id="unique-nav-drawtest"><a href="game.html">DRAWTEST</a></li>
-                </ul>
-            </nav>
-            <a href="#" id="unique-profile-link"><img src="assets/images/dragonbadr.png" alt="My Profile"
-                    id="unique-profile-icon">
-            </a>
-            <div id="profile-dropdown" class="dropdown-menu hidden">
-                <a href="login.html"> <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
-                    Uitloggen</a>
-            </div>
-            </a>
-        </header>
+                    <input type="text" placeholder="Gebruikersnaam" required>
+                    <section class="password-container">
+                        <input type="password" placeholder="Wachtwoord" required>
 
-
-        <section class="login-form">
-            <h1>INLOGGEN</h1>
-
-            <form action="#">
-
-                <input type="text" placeholder="Gebruikersnaam" required>
-
-
-
-                <section class="password-container">
-                    <input type="password" placeholder="Wachtwoord" required>
-
-                    <span class="toggle-password" onclick="togglePassword('password', this)">
-                        <i class="fas fa-eye-slash"></i>
-                    </span>
-                </section>
-            </form>
-            <button type="submit" id="loginbutton">Login</button>
-            <p>Geen account? <a href="register.html">Registreer</a></p>
-            <!-- <a href="landing.html">Terug</a> -->
+                        <span class="toggle-password" onclick="togglePassword('password', this)">
+                            <i class="fas fa-eye-slash"></i>
+                        </span>
+                    </section>
+                </form>
+                <button type="submit" id="btn">Inloggen</button>
+                <p class="login-text">Geen account? <a href="register.html">Registreer</a></p>
+            </section>
         </section>
     </section>
 

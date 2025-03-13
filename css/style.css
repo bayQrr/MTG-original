@@ -405,7 +405,7 @@ section.rij {
 .popup-specifications > p > em {
   font-style: italic;
 }
-.popup-specifications>form{
+.popup-specifications > form {
   display: flex;
   flex-direction: row;
   gap: 3rem;
@@ -572,7 +572,7 @@ section > .kaart.mythic > img {
   box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
 }
 
-.dropdown-and-add{
+.dropdown-and-add {
   display: flex;
   flex-direction: row;
 }
@@ -679,7 +679,7 @@ section > .kaart.mythic > img {
 #uitlegPopup {
   display: none;
   position: fixed;
-  top:10%;
+  top: 10%;
   left: 40%;
   transform: translateX(-50%);
   border-radius: 1rem;
@@ -687,9 +687,8 @@ section > .kaart.mythic > img {
   z-index: 1000;
   width: 50%;
   max-width: 600px;
-
 }
-#uitlegPopup>.uitlegIndex{
+#uitlegPopup > .uitlegIndex {
   background: linear-gradient(45deg, #1a1a1a, #2e86de59);
   backdrop-filter: blur(10px);
   border-radius: 15px;
@@ -701,15 +700,14 @@ section > .kaart.mythic > img {
   gap: 2rem;
   width: 55rem;
   color: white;
- 
 }
 #uitlegPopup.active {
   display: block;
 }
 #uitleg-knop {
-display: flex;
-justify-content: flex-end;
-margin-top: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5rem;
   margin-right: 3rem;
   cursor: pointer;
   z-index: 1100;
@@ -717,17 +715,15 @@ margin-top: 5rem;
 #uitleg-knop img {
   width: 40px;
   height: 40px;
-  
 }
-#uitleg-knop img :hover{
+#uitleg-knop img :hover {
   transform: scale(1.2) rotate(15deg);
 }
 .close-uitleg {
   position: absolute;
 
-top:1px;
+  top: 1px;
   right: 1px;
-  
 
   color: black;
   font-size: 30px;
@@ -738,7 +734,6 @@ top:1px;
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
-
 
 .close-uitleg:hover,
 .close-uitleg:focus {

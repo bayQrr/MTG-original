@@ -11,3 +11,7 @@
   font-family: stratum;
   src: url(../assets/fonts/StratumNo2.otf);
 }
+@font-face {
+  font-family: magic;
+  src: url(../assets/fonts/Magicmedieval-pRV1.ttf);
+}
