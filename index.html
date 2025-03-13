@@ -35,7 +35,7 @@
                 <li id="unique-nav-drawtest"><a href="game.html">DRAWTEST</a></li>
             </ul>
         </nav>
-        <a href="#" id="unique-profile-link"><img src="assets/icon/magic-ball.png" alt="My Profile"
+        <a href="#" id="unique-profile-link"><img src="assets/images/dragonbadr.png" alt="My Profile"
                 id="unique-profile-icon">
         </a>
         <div id="profile-dropdown" class="dropdown-menu hidden">
@@ -44,6 +44,7 @@
         </div>
         </a>
     </header>
+
 
  <main>
     <!-- icon eerste versie  -->
@@ -100,89 +101,112 @@
                 <button class="filter-btn mythic" data-type="mythic">
                     <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
                 </button>
+
             </section>
-            <input type="text" id="searchBar" placeholder="Zoek een kaart...">
         </section>
 
+        <section class="midden-container">
 
-        <!-- moet nog met api opgehaald worden -->
-        <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
 
-        <section id="kaartContainer">
-            <section class="rij1">
+            <section class="filtering">
 
-                <section class="kaart common" onclick="showDetails(this)">
-                    <p>Kaart Naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
-                 
-                </section>
-                <section class="kaart uncommon" onclick="showDetails(this)">
-                    <p>Kaart Naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
-                    
-                </section>
-                <section class="kaart rare" onclick="showDetails(this)">
-                    <p>Kaart Naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
-                   
-                </section>
-                <section class="kaart mythic" onclick="showDetails(this)">
-                    <p>Kaart Naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
-               
-                </section>
-            </section>
 
-            <section class="rij2">
-              
-                <section class="kaart gewoon" onclick="showDetails(this)">
-                    <p>kaart naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
-             
+                <section class="filtering-button">
+                    <button class="filter-btn common" data-type="common">
+                        <img src="assets/icon/CummonIcon.png" alt="Common">
+                    </button>
+                    <button class="filter-btn uncommon" data-type="uncommon">
+                        <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
+                    </button>
+                    <button class="filter-btn rare" data-type="rare">
+                        <img src="assets/icon/RareIcon.png" alt="Rare">
+                    </button>
+                    <button class="filter-btn mythic" data-type="mythic">
+                        <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
+                    </button>
                 </section>
-               
-                <section class="kaart gewoon" onclick="showDetails(this)">
-                    <p>kaart naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
-                 
-                </section>
-               
-                <section class="kaart gewoon" onclick="showDetails(this)">
-                    <p>kaart naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
-                  
-                </section>
-               
-                <section class="kaart gewoon" onclick="showDetails(this)">
-                    <p>kaart naam</p>
-                    <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
-                   
-                </section>
+                <input type="text" id="searchBar" placeholder="Zoek een kaart...">
             </section>
 
 
+            <!-- moet nog met api opgehaald worden -->
+            <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
+
+            <section id="kaartContainer">
+                <section class="rij1">
+
+                    <section class="kaart common" onclick="showDetails(this)">
+                        <p>Kaart Naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
+
+                    </section>
+                    <section class="kaart uncommon" onclick="showDetails(this)">
+                        <p>Kaart Naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
+
+                    </section>
+                    <section class="kaart rare" onclick="showDetails(this)">
+                        <p>Kaart Naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
+
+                    </section>
+                    <section class="kaart mythic" onclick="showDetails(this)">
+                        <p>Kaart Naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
+
+                    </section>
+                </section>
+
+                <section class="rij2">
+
+                    <section class="kaart gewoon" onclick="showDetails(this)">
+                        <p>kaart naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
+
+                    </section>
+
+                    <section class="kaart gewoon" onclick="showDetails(this)">
+                        <p>kaart naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
+
+                    </section>
+
+                    <section class="kaart gewoon" onclick="showDetails(this)">
+                        <p>kaart naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
+
+                    </section>
+
+                    <section class="kaart gewoon" onclick="showDetails(this)">
+                        <p>kaart naam</p>
+                        <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
+
+                    </section>
+                </section>
+
+
+            </section>
         </section>
-    </section>
 
-    <!-- de detail container -->
-    <section id="kaartPopup" class="hidden">
-        <section class="popup-container">
-            <section class="popup-container-img">
-                <img id="popupImg" src="" alt="Kaart">
-            </section>
-            <section class="popup-specifications">
-                <p id="popupTitle"></p>
-<!-- specificaties die uit api gehaald worden -->
-                <p><strong>Type:</strong> <span id="popupType"></span></p>
-                <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
-                <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
-                <p><strong>Set:</strong> <span id="popupSet"></span></p>
-                <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
-                <p><em><span id="popupText"></span></em></p>
-                <p><strong>Flavor:</strong> <span id="popupFlavor"></span></p>
-                <p><strong>Artist:</strong> <span id="popupArtist"></span></p>
-                
-                <form action="#" method="GET">
+        <!-- de detail container -->
+        <section id="kaartPopup" class="hidden">
+            <section class="popup-container">
+                <section class="popup-container-img">
+                    <img id="popupImg" src="" alt="Kaart">
+                </section>
+                <section class="popup-specifications">
+                    <p id="popupTitle"></p>
+                    <!-- specificaties die uit api gehaald worden -->
+                    <p><strong>Type:</strong> <span id="popupType"></span></p>
+                    <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
+                    <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
+                    <p><strong>Set:</strong> <span id="popupSet"></span></p>
+                    <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
+                    <p><em><span id="popupText"></span></em></p>
+                    <p><strong>Flavor:</strong> <span id="popupFlavor"></span></p>
+                    <p><strong>Artist:</strong> <span id="popupArtist"></span></p>
+
+                    <form action="#" method="GET">
 
                         <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
                         <section class="card-counter">
@@ -190,51 +214,51 @@
                             <span id="cardCount">1</span>
                             <button class="increase-btn">+</button>
                         </section>
-           <section>
-           
-            <button class="add-btn">Voeg toe</button>
+                        <section>
 
-            <section class="deck-dropdown hidden">
-                <a href="#">Deck 1</a>
-                <a href="#">Deck 2</a>
-                <a href="#">Deck 3</a>
+                            <button class="add-btn">Voeg toe</button>
+
+                            <section class="deck-dropdown hidden">
+                                <a href="#">Deck 1</a>
+                                <a href="#">Deck 2</a>
+                                <a href="#">Deck 3</a>
+                            </section>
+
+
+                        </section>
+
+
+
+                    </form>
+
+
+
+                    <!-- option welke deck -->
+                </section>
+                <span class="close">&times;</span>
+
+
+
             </section>
-       
+        </section>
 
-           </section>
-                
-                
+        <!-- dit is de bonus vraag over de tabjespaginering -->
+        <section id="pagination">
+            <button class="page-btn prev" onclick="prevPage()">«</button>
+            <section class="page-numbers">
 
-                </form>
-
-
-
-                <!-- option welke deck -->
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn">5</button>
+                <span class="dots">...</span>
+                <button class="page-btn">10</button>
             </section>
-            <span class="close">&times;</span>
-
-
-
+            <button class="page-btn next" onclick="nextPage()">»</button>
         </section>
-    </section>
 
-    <!-- dit is de bonus vraag over de tabjespaginering -->
-    <section id="pagination">
-        <button class="page-btn prev" onclick="prevPage()">«</button>
-        <section class="page-numbers">
-
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
-            <button class="page-btn">5</button>
-            <span class="dots">...</span>
-            <button class="page-btn">10</button>
-        </section>
-        <button class="page-btn next" onclick="nextPage()">»</button>
-    </section>
-
-</main>
+    </main>
     <footer>
 
         <ul>
