@@ -109,4 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Koppel de standaard "nieuw deck opslaan" functie aan de Opslaan knop
     saveDeckBtn.onclick = saveNewDeck;
+
 });
+
+
