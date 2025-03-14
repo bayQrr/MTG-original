@@ -1187,7 +1187,10 @@ footer {
 /*------------------game pagina badr*---------------------------/
 /* game pagina */
 #unique-body {
-  font-family: "Gotham", sans-serif;
+  font-family: magic;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.6rem;
   margin: 0;
   padding: 0;
   display: flex;
@@ -1351,37 +1354,44 @@ footer {
   gap: 1rem;
   margin-top: 0.5rem;
 }
-
 #unique-draw-controls button {
   padding: 10px 20px;
   font-size: 1rem;
-  font-family: "Prompt", sans-serif;
+ font-family: magic;
+ letter-spacing: 2px;
   color: white;
+  font-weight: bold;
   background: linear-gradient(45deg, #4a148c, #7b1fa2);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  margin: 0 5px;
 }
 
 #unique-draw-controls button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
 #card-search {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  font-family: "Gotham", sans-serif;
+  border: 1px solid #828181;
+  font-family: "magic";
+  letter-spacing: 2px;
   font-size: 1rem;
 }
 
 #odds-result {
   color: white;
   margin-left: 1rem;
-  font-family: "Prompt", sans-serif;
+  font-family: magic;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
 }
+
+
 
 #unique-progress-bar {
   font-weight: bold;
@@ -2398,12 +2408,6 @@ footer {
   margin-bottom: 2rem;
 }
 
-#odds-result {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1.1rem;
-}
-
 /* History Sectie */
 #history-section {
   background: rgba(0, 0, 0, 0.7);
@@ -2487,9 +2491,7 @@ footer {
   margin: 1rem 0;
 }
 
-#odds-result {
-  margin-top: 1rem;
-}
+
 
 #drawn-cards-history {
   display: flex;
@@ -2525,27 +2527,7 @@ footer {
   border: 1px solid #ccc;
 }
 
-#odds-result {
-  color: white;
-  margin-left: 1rem;
-}
-#unique-draw-controls button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-family: "Gotham", sans-serif;
-  color: white;
-  background: linear-gradient(45deg, #4a148c, #7b1fa2);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin: 0 5px;
-}
 
-#unique-draw-controls button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
 
 /* Specifieke styling voor de search controls */
 #search-controls {
@@ -2557,13 +2539,10 @@ footer {
 
 #calculate-odds {
   margin: 0;
+  
 }
 
-#odds-result {
-  color: white;
-  margin-left: 1rem;
-  font-family: "Prompt", sans-serif;
-}
+
 /* Animatie voor het trekken van een kaart */
 .draw-animation {
   animation: flipCard 0.5s ease-in-out;
@@ -2627,7 +2606,9 @@ footer {
 
 /* Stijl van de dropdown */
 #draw-deck-selector {
-  font-family: "Gotham", sans-serif;
+  font-family:magic;
+  letter-spacing: 2px;
+  font-weight: bold;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border: 2px solid white;
