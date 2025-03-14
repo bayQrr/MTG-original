@@ -5,33 +5,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveDeckBtn = document.getElementById("save-deck-btn");
     const deckNameInput = document.getElementById("deck-name");
     const deckImgUrlInput = document.getElementById("deck-img-url");
-    const deckSection = document.getElementById("deck-section");
-
-    let newDeckTitle = document.getElementById("new-deck-title");
+    const deckContainer = document.getElementById("deck-container");
 
     // Zorg ervoor dat de pop-up standaard verborgen blijft
-    deckPopup.style.display = "none";  
+    deckPopup.style.display = "none";
 
-    if (!newDeckTitle) {
-        newDeckTitle = document.createElement("h2");
-        newDeckTitle.id = "new-deck-title";
-        newDeckTitle.textContent = "New Deck";
-        newDeckTitle.style.display = "none"; // Standaard verbergen
-        deckSection.appendChild(newDeckTitle);
-    }
-
-    // Open de popup alleen bij klikken op de knop
+    // Open de popup bij klikken op de knop
     addDeckBtn.addEventListener("click", () => {
+        resetPopup(); // Reset velden voor een nieuw deck
         deckPopup.style.display = "flex";
     });
 
     // Sluit de popup bij klikken op sluitknop
     closePopup.addEventListener("click", () => {
         deckPopup.style.display = "none";
+        saveDeckBtn.onclick = saveNewDeck; // Zorgt ervoor dat de knop teruggaat naar de standaard functie
     });
 
-    // Deck opslaan
-    saveDeckBtn.addEventListener("click", () => {
+    // Functie voor nieuw deck opslaan
+    function saveNewDeck() {
         const deckName = deckNameInput.value.trim();
         const deckImgUrl = deckImgUrlInput.value.trim() || "/assets/images/Magic_card_back 19.png";
 
@@ -39,9 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Geef een naam aan het deck.");
             return;
         }
-
-        // Toon "New Deck" titel als er een nieuw deck wordt toegevoegd
-        newDeckTitle.style.display = "block";
 
         // Maak een nieuw deck item
         const newDeck = document.createElement("article");
@@ -76,70 +65,48 @@ document.addEventListener("DOMContentLoaded", function () {
         newDeck.appendChild(deckText);
         newDeck.appendChild(deckActions);
 
-        deckSection.appendChild(newDeck);
+        deckContainer.appendChild(newDeck); // Voeg het nieuwe deck toe aan de juiste section
 
         // Popup sluiten
         deckPopup.style.display = "none";
 
-        // Input velden resetten
+        // Reset de event listener zodat hij niet vast blijft in de bewerk-modus
+        saveDeckBtn.onclick = saveNewDeck;
+    }
+
+    // Functie om een bestaand deck te bewerken
+    function openEditPopup(deckText, deckImage) {
+        // Vul de invoervelden met de huidige gegevens
+        deckNameInput.value = deckText.textContent;
+        deckImgUrlInput.value = deckImage.src;
+
+        // Verander de "Opslaan" knop naar update-modus
+        saveDeckBtn.onclick = function () {
+            if (deckNameInput.value.trim() !== "") {
+                deckText.textContent = deckNameInput.value.trim();
+            }
+            if (deckImgUrlInput.value.trim() !== "") {
+                deckImage.src = deckImgUrlInput.value.trim();
+            }
+
+            // Sluit de pop-up na opslaan
+            deckPopup.style.display = "none";
+
+            // Reset de event listener naar de standaard "nieuw deck" functie
+            saveDeckBtn.onclick = saveNewDeck;
+        };
+
+        // Toon de bestaande pop-up
+        deckPopup.style.display = "flex";
+    }
+
+    // Functie om de pop-up te resetten bij een nieuw deck
+    function resetPopup() {
         deckNameInput.value = "";
         deckImgUrlInput.value = "";
-    });
-
-    // Zorg ervoor dat de bewerk-pop-up niet opent bij het laden van de pagina
-    let editPopup = document.getElementById("edit-popup");
-    let editOverlay = document.getElementById("edit-overlay");
-
-    if (!editPopup) {
-        editOverlay = document.createElement("div");
-        editOverlay.id = "edit-overlay";
-        editOverlay.classList.add("edit-overlay");
-        editOverlay.style.display = "none"; // Zorgt ervoor dat het niet zichtbaar is
-        document.body.appendChild(editOverlay);
-
-        editPopup = document.createElement("div");
-        editPopup.id = "edit-popup";
-        editPopup.classList.add("edit-popup");
-        editPopup.style.display = "none"; // Zorgt ervoor dat het niet zichtbaar is
-        editPopup.innerHTML = `
-            <h2>Bewerk Deck</h2>
-            <input type="text" id="edit-deck-name" placeholder="Nieuwe naam">
-            <input type="url" id="edit-deck-img-url" placeholder="Nieuwe afbeelding URL">
-            <div class="popup-buttons">
-                <button id="save-edit-btn">Opslaan</button>
-                <button class="close-edit-popup">Annuleren</button>
-            </div>
-        `;
-        document.body.appendChild(editPopup);
+        saveDeckBtn.onclick = saveNewDeck;
     }
 
-    const closeEditPopup = editPopup.querySelector(".close-edit-popup");
-    closeEditPopup.addEventListener("click", () => {
-        editPopup.style.display = "none";
-        editOverlay.style.display = "none";
-    });
-
-    // Open de bewerk-pop-up
-    function openEditPopup(deckText, deckImage) {
-        const editDeckName = document.getElementById("edit-deck-name");
-        const editDeckImgUrl = document.getElementById("edit-deck-img-url");
-        const saveEditBtn = document.getElementById("save-edit-btn");
-
-        editDeckName.value = deckText.textContent;
-        editDeckImgUrl.value = deckImage.src;
-
-        editPopup.style.display = "block";
-        editOverlay.style.display = "block";
-
-        saveEditBtn.onclick = function () {
-            if (editDeckName.value.trim() !== "") {
-                deckText.textContent = editDeckName.value.trim();
-            }
-            if (editDeckImgUrl.value.trim() !== "") {
-                deckImage.src = editDeckImgUrl.value.trim();
-            }
-            editPopup.style.display = "none";
-            editOverlay.style.display = "none";
-        };
-    }
+    // Koppel de standaard "nieuw deck opslaan" functie aan de Opslaan knop
+    saveDeckBtn.onclick = saveNewDeck;
 });
