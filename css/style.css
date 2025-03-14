@@ -2170,14 +2170,18 @@ button {
     justify-content: center;
   }
 
-  #landing-page .slider-item {
+   #landing-page .slider-item {
     display: none;
-  }
+  } 
 
   #landing-page .slider-item:nth-child(2),
   #landing-page .slider-item:nth-child(3),
   #landing-page .slider-item:nth-child(4) {
     display: flex;
+  }
+  #landing-page .slider-item:nth-child(1),
+  #landing-page .slider-item:nth-child(6){
+    display: none;
   }
 }
 
@@ -2204,10 +2208,14 @@ button {
     justify-content: center;
     width: 100%;
   }
-
-  .slider-item {
+  #landing-page .slider-item:nth-child(2),
+  #landing-page .slider-item:nth-child(5){
     display: none;
   }
+
+  /* .slider-item {
+    display: none;
+  } */
 
   .slider-item.active {
     display: block;
@@ -2223,13 +2231,16 @@ button {
 }
 
 /* Extra specifieke aanpassing voor zeer smalle schermen */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   #slider-container {
     max-width: 280px;
   }
 
   .slider-item.active {
     max-width: 260px;
+  }
+  #landing-page .slider-item:nth-child(3){
+    display: none;
   }
 }
 

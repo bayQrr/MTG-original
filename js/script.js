@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Toon maar één item op kleine schermen
         sliderItems.forEach((item, index) => {
           if (index === currentIndex) {
-            item.style.display = "flex";
+            // item.style.display = "flex";
             item.classList.add("active");
           } else {
-            item.style.display = "none";
+            // item.style.display = "none";
             item.classList.remove("active");
           }
         });
@@ -27,12 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
               item.classList.remove("active");
             }
           } else {
-            item.style.display = "none";
+           /* if(window.innerWidth <= 1300)
+              item.style.display = "none";
+            if(window.innerWidth >= 1300)
+            
+            item.style.display = "flex";
+            */
+            
           }
-        });
+        })
       }
     }
-  
+
     leftArrow.addEventListener("click", () => {
       if (window.innerWidth <= 800) {
         // Voor kleine schermen
