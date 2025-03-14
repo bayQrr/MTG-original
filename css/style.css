@@ -262,7 +262,7 @@
   width: 100%;
 }
 
-/*--------------ZAIDA cards --------------------------------*/
+/*------------------------------------------- index pagina Zaida -------------------------*/
 
 /* Algemene stijlen */
 .cards_body {
@@ -435,9 +435,8 @@ section.rij {
   letter-spacing: 2px;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  
-  font-size: 20px;
 
+  font-size: 20px;
 }
 
 .kaart:hover {
@@ -746,9 +745,8 @@ section > .kaart.mythic > img {
   color: white;
 }
 */
-/* From Uiverse.io by Cksunandh */ 
-/* Basic reset and styling */
 
+/* ICON INFO */
 /* Tooltip container */
 .tooltip-container {
   position: relative;
@@ -764,9 +762,7 @@ section > .kaart.mythic > img {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 /* SVG Animation: Rotate and scale effect */
@@ -779,7 +775,6 @@ section > .kaart.mythic > img {
   transform: rotate(360deg) scale(1.2);
 }
 
-
 .tooltip {
   visibility: hidden;
   width: 63rem;
@@ -788,19 +783,17 @@ section > .kaart.mythic > img {
   border-radius: 5px;
   padding: 10px;
   position: absolute;
- font-family: "prompt";
+  font-family: "prompt";
   background: linear-gradient(45deg, #1a1a1a, #2e86de59);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   left: 17%;
- 
+
   opacity: 0;
-  transition:
-    opacity 0.5s,
-    transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s;
   transform: translateY(10px);
 }
-.tooltip>p{
+.tooltip > p {
   margin-bottom: 2rem;
 }
 
@@ -857,11 +850,11 @@ footer {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-} 
+}
 
-/*---------------------deck page badr*----------------------------*/
+/*------------------------------------------- deck pagina Badr -------------------------*/
+
 /* deck page */
-
 #body-background {
   margin: 0;
   padding: 0;
@@ -873,14 +866,14 @@ footer {
 }
 
 #main-content {
-  font-family: magic;
   display: flex;
-  letter-spacing: 2px;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 200px);
   margin: 50px 0;
   padding: 20px;
+  font-family: magic;
+  letter-spacing: 2px;
 }
 
 #deck-section {
@@ -888,34 +881,64 @@ footer {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 40px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #00000080;
   padding: 40px;
   border-radius: 10px;
   max-width: 800px;
-  width: 90%; /* Houd breedte binnen scherm */
-  margin: 0 auto; /* Centreert de container */
+  width: 90%;
+  margin: 0 auto;
+}
+.deck-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
-/* H2 voor nieuwe decks */
-#new-deck-title {
-  font-family: "Gotham", sans-serif;
-  width: 100%;
+.deck-item a:hover {
+  opacity: 0.8;
+}
+
+.deck-item {
   text-align: center;
-  color: white;
-  font-size: 20px;
-  margin-top: 20px;
-  display: none; /* Verberg standaard */
+  width: 160px;
+  background: #00000080;
+  border: 2px solid #ffffff33;
+  border-radius: 10px;
+  padding: 13px;
+  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-#deck-img-1,
+/* Hover-effect */
+.deck-item:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 4px 15px #a1a09ccc; */
+}
+
+.deck-item img {
+  width: 100px;
+  /* height: 10px; */
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.deck-item p {
+  font-family: magic;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 10px 0;
+}
+/* #deck-img-1,
 #deck-img-2,
 #deck-img-3,
 #deck-img-4,
 #deck-img-5,
 #deck-img-6 {
   width: 100px;
-  height: auto;
-}
+} */
 
 #deck-text-1,
 #deck-text-2,
@@ -927,80 +950,54 @@ footer {
   font-weight: bold;
 }
 
-/* popup */
-
+/* KNOP DECK TOEVOEGEN */
 #add-deck-btn {
-  /* background-color: rgb(239, 67, 35); */
-
   background: linear-gradient(45deg, #1a1a1a, #ef4323);
   backdrop-filter: blur(10px);
   border: none;
   padding: 15px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  /* width: 60px;
+  height: 60px; */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
-  /* Centreren aan de rechterkant */
-  position: fixed;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-
-  z-index: 1000;
+  /* transition: transform 0.3s ease-in-out; */
+  box-shadow: 0 4px 10px #00000026;
+  margin-top: 3rem;
+  /* margin: 0 auto; */
+  /* position: absolute;
+  right: 60px;
+  top: calc(50% + 60px); */
+  /* transform: translateX(-70px); */
+  /* transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; */
 }
 
-/* Afbeelding binnen de knop */
 #add-deck-btn img {
   width: 30px;
   height: 30px;
-  transition: transform 0.3s ease-in-out;
 }
 
-/* Hover-effect */
 #add-deck-btn:hover {
-  background-color: rgb(239, 67, 35);
-  transform: scale(1.1) translateY(-50%);
+  background-color: #ef4323;
+  /* transform: translateX(-10px) scale(1.1); */
 }
 
-
-/* Klik-effect */
-#add-deck-btn:active {
-  transform: scale(0.9) translateY(-50%);
-}
-
+/* Popup */
 .deck-popup-container {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-/* Stijl voor de pop-up container */
-.deck-popup-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5); /* Donkere overlay */
+  background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* Stijl voor de pop-up content */
 .deck-popup-content {
   background-image: url("/assets/images/blue\ dragon.png");
   padding: 25px;
@@ -1013,35 +1010,35 @@ footer {
   animation: popupFadeIn 0.3s ease-out;
 }
 
-/* Close-knop */
 .deck-popup-content .deck-close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
- font-family:gotham;
   font-size: 35px;
-
   cursor: pointer;
   color: black;
   transition: color 0.3s ease;
-  
+  font-family: Gotham;
 }
 
-
-/* Input velden */
+/* Input */
+.deck-popup-content input,
+button {
+  font-family: prompt;
+  margin: 10px;
+}
 .deck-popup-content input {
-  width: 100%;
+  width: 90%;
   padding: 8px;
-  margin: 10px ;
-  margin-top: 25px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
-  font-family: prompt;
-
 }
 
-/* Opslaan knop */
+/* GEBRUIK ALLEEN DE EERSTE INPUT VELD */
+.deck-popup-content input:first-of-type {
+  margin-top: 25px;
+}
 .deck-popup-content button {
   border: none;
   padding: 10px 15px;
@@ -1049,148 +1046,54 @@ footer {
   cursor: pointer;
   font-size: 14px;
   transition: background 0.3s ease;
-  font-family: prompt;
+  background-color: #4582be;
 }
 
-.deck-popup-content button:hover {
-  background-color: #0056b3;
-}
-.deck-actions {
+/* JS CODE CSS*/
+.new-deck-wrapper {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 5px;
 }
 
-.edit-deck,
-.delete-deck {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+.new-deck-wrapper h2 {
+  text-align: center;
+  font-size: 30px;
+  font-family: magic;
+  text-shadow: 2px 2px 5px #00000080;
+  margin-bottom: 10px;
+  width: 100%;
   color: white;
-  transition: background 0.3s;
 }
-
-.edit-deck:hover {
-  background: #007bff; /* Blauw voor bewerken */
-}
-
-.delete-deck:hover {
-  background: #ff4d4d; /* Rood voor verwijderen */
-}
-/* Algemene pop-up styling */
-.edit-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
-  text-align: center;
-  z-index: 1000;
-  background-image: url("/assets/images/blue\ dragon.png");
-}
-
-/* Overlay achtergrond */
-.edit-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-/* Input velden */
-.edit-popup input {
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: "Gotham";
-}
-
-/* Bewerk knoppen */
-.edit-popup .popup-buttons {
+#deck-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.edit-popup button {
-  font-family: "Gotham";
+/* JS ICON BEWERKEN/VERWIJDEREN */
+.deck-actions button {
+  background: #ffffff33;
   border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s ease;
-}
-
-.edit-popup button:hover {
-  background-color: blue;
-}
-
-/* Sluit-knop */
-.close-edit-popup {
-  font-family: "Gotham";
-}
-
-.close-edit-popup:hover {
-  background-color: blue;
-}
-
-/* info icon */
- /* nog afwerken */
-/* #main-content>.tooltip-container {
- 
-
-} */
-
-
-
-.tooltip {
-  visibility: hidden;
-  width: 63rem;
-  color: #fff;
-  text-align: center;
+  padding: 8px;
   border-radius: 5px;
-  padding: 10px;
-  position: absolute;
- font-family: "prompt";
-  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  left: 17%;
- 
-  opacity: 0;
-  transition:
-    opacity 0.5s,
-    transform 0.5s;
-  transform: translateY(10px);
-}
-.tooltip>p{
-  margin-bottom: 2rem;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-
-/*------------------game pagina badr*---------------------------/
+.deck-actions button:hover {
+  background: #ffffff66;
+  transform: scale(1.1);
+}
+/*------------------------------------------- game pagina Badr -------------------------*/
 /* game pagina */
 #unique-body {
-  font-family: magic;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-size: 1.6rem;
   margin: 0;
   padding: 0;
   display: flex;
@@ -1296,6 +1199,10 @@ footer {
   justify-content: center;
   align-items: center;
   flex: 1;
+  font-family: magic;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.6rem;
 }
 
 #unique-draw-section {
@@ -1357,8 +1264,8 @@ footer {
 #unique-draw-controls button {
   padding: 10px 20px;
   font-size: 1rem;
- font-family: magic;
- letter-spacing: 2px;
+  font-family: magic;
+  letter-spacing: 2px;
   color: white;
   font-weight: bold;
   background: linear-gradient(45deg, #4a148c, #7b1fa2);
@@ -1390,8 +1297,6 @@ footer {
   font-size: 1.1rem;
   letter-spacing: 2px;
 }
-
-
 
 #unique-progress-bar {
   font-weight: bold;
@@ -1616,10 +1521,10 @@ footer {
   align-items: center;
   gap: 6rem;
   font-size: 18px;
-  padding: 20px 10px;
+  /* padding: 20px 10px; */
   background-color: #28282e;
   border-radius: 10px;
-  margin: 40px 0;
+  margin: 80px 0;
 }
 .deck-info span {
   display: flex;
@@ -1647,6 +1552,9 @@ footer {
   backdrop-filter: blur(10px);
   border-radius: 10px;
   margin-bottom: 60px;
+}
+.deck-containter,
+.deck-list {
   font-family: magic;
   letter-spacing: 2px;
   font-size: 1rem;
@@ -1660,17 +1568,17 @@ footer {
   padding: 20px;
   list-style: none;
 }
-.deck-item a {
+.deck-items a {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-.deck-item a:hover {
+.deck-items a:hover {
   opacity: 0.8;
 }
 
-.deck-item {
+.deck-items {
   text-align: center;
   width: 160px;
   background: #00000080;
@@ -1682,28 +1590,18 @@ footer {
 }
 
 /* Hover-effect */
-.deck-item:hover {
+.deck-items:hover {
   transform: scale(1.05);
   /* box-shadow: 0 4px 15px #a1a09ccc; */
 }
 
-.deck-item img {
+.deck-items img {
   width: 100%;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
 }
-
-/* Stijl voor de deck naam */
-/* .deck-item ul {
-  font-family: "Gotham", sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  margin-top: 8px;
-  text-transform: uppercase;
-} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -1843,13 +1741,47 @@ footer {
 
   #main-content {
     min-height: calc(100vh - 150px);
-    margin: 30px 0;
+    margin: 70px auto;
   }
 
   #deck-section {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
+  }
+  .deck-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .deck-item a:hover {
+    opacity: 0.8;
+  }
+
+  .deck-item {
+    text-align: center;
+    width: 160px;
+    background: #00000080;
+    border: 2px solid #ffffff33;
+    border-radius: 10px;
+    padding: 13px;
+    /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  /* Hover-effect */
+  .deck-item:hover {
+    transform: scale(1.05);
+    /* box-shadow: 0 4px 15px #a1a09ccc; */
+  }
+
+  .deck-item img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
   }
 
   #kaartContainer {
@@ -2491,8 +2423,6 @@ footer {
   margin: 1rem 0;
 }
 
-
-
 #drawn-cards-history {
   display: flex;
   flex-wrap: wrap;
@@ -2527,8 +2457,6 @@ footer {
   border: 1px solid #ccc;
 }
 
-
-
 /* Specifieke styling voor de search controls */
 #search-controls {
   display: flex;
@@ -2539,9 +2467,7 @@ footer {
 
 #calculate-odds {
   margin: 0;
-  
 }
-
 
 /* Animatie voor het trekken van een kaart */
 .draw-animation {
@@ -2606,7 +2532,7 @@ footer {
 
 /* Stijl van de dropdown */
 #draw-deck-selector {
-  font-family:magic;
+  font-family: magic;
   letter-spacing: 2px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.5);
