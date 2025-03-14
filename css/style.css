@@ -1476,6 +1476,124 @@ footer {
     transform: scale(1);
   }
 }
+
+
+/*----------------------------------------------------------------------------*/
+
+* Drawtest Page Styling */ #drawtest-page {
+  background-image: url("/assets/images/drawtest-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  font-family: "Prompt", sans-serif;
+  color: white;
+}
+
+#drawtest-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 20px;
+}
+
+/* Deck en Drawn Pile Sectie */
+#deck-section {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.card-pile {
+  position: relative;
+  width: 250px;
+  text-align: center;
+}
+
+.card-pile img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#current-card img {
+  /* width: 100%; */
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-pile span {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls Sectie */
+#controls-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#controls-section button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: "Prompt", sans-serif;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #4a148c, #7b1fa2);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#controls-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Search Sectie */
+#search-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* History Sectie */
+#history-section {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+#history-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+#drawn-cards-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#drawn-cards-history img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+
+#drawn-cards-history img:hover {
+  transform: scale(1.1);
+}
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/
 /* BODY MET ID landing-page */
 #landing-page {
@@ -2323,122 +2441,7 @@ footer {
   }
 }
 
-/*----------------------------------------------------------------------------*/
 
-* Drawtest Page Styling */ #drawtest-page {
-  background-image: url("/assets/images/drawtest-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  font-family: "Prompt", sans-serif;
-  color: white;
-}
-
-#drawtest-container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 20px;
-}
-
-/* Deck en Drawn Pile Sectie */
-#deck-section {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  margin-bottom: 2rem;
-}
-
-.card-pile {
-  position: relative;
-  width: 250px;
-  text-align: center;
-}
-
-.card-pile img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-#current-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.card-pile span {
-  display: block;
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Controls Sectie */
-#controls-section {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-#controls-section button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-family: "Prompt", sans-serif;
-  border: none;
-  border-radius: 5px;
-  background: linear-gradient(45deg, #4a148c, #7b1fa2);
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-#controls-section button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Search Sectie */
-#search-section {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-/* History Sectie */
-#history-section {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 2rem;
-}
-
-#history-section h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-#drawn-cards-history {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-#drawn-cards-history img {
-  width: 100px;
-  height: auto;
-  border-radius: 5px;
-  transition: transform 0.2s;
-}
-
-#drawn-cards-history img:hover {
-  transform: scale(1.1);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

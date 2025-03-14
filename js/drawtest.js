@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
       deck = Array.from({ length: 60 }, (_, i) => ({
           id: i + 1,
           name: `Card ${i + 1}`,
-          image: `assets/images/Magic_card_back 19.png`,
+        //   image: `assets/images/Magic_card_back 19.png`,
+        image: `/assets/images/cardExample.jpg`
       }));
   }
 
