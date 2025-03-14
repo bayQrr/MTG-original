@@ -5,46 +5,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveDeckBtn = document.getElementById("save-deck-btn");
     const deckNameInput = document.getElementById("deck-name");
     const deckImgUrlInput = document.getElementById("deck-img-url");
-    const deckSection = document.getElementById("deck-section");
+    const deckContainer = document.getElementById("deck-container");
 
-    let newDeckWrapper = document.getElementById("new-deck-wrapper");
-    let newDeckTitle = document.getElementById("new-deck-title");
-    let newDeckContainer = document.getElementById("new-deck-container");
+    // Zorg ervoor dat de pop-up standaard verborgen blijft
+    deckPopup.style.display = "none";
 
-    // **Stap 1: Maak een nieuwe section voor de titel en decks**
-    if (!newDeckWrapper) {
-        newDeckWrapper = document.createElement("section");
-        newDeckWrapper.id = "new-deck-wrapper";
-        deckSection.appendChild(newDeckWrapper);
-    }
-
-    // **Stap 2: Voeg de titel toe binnen de nieuwe section**
-    if (!newDeckTitle) {
-        newDeckTitle = document.createElement("h2");
-        newDeckTitle.id = "new-deck-title";
-        newDeckTitle.textContent = "New Deck";
-        newDeckWrapper.appendChild(newDeckTitle);
-    }
-
-    // **Stap 3: Voeg de deck-container toe binnen dezelfde section**
-    if (!newDeckContainer) {
-        newDeckContainer = document.createElement("section");
-        newDeckContainer.id = "new-deck-container";
-        newDeckWrapper.appendChild(newDeckContainer);
-    }
-
-    // Open de popup alleen bij klikken op de knop
+    // Open de popup bij klikken op de knop
     addDeckBtn.addEventListener("click", () => {
+        resetPopup(); // Reset velden voor een nieuw deck
         deckPopup.style.display = "flex";
     });
 
     // Sluit de popup bij klikken op sluitknop
     closePopup.addEventListener("click", () => {
         deckPopup.style.display = "none";
+        saveDeckBtn.onclick = saveNewDeck; // Zorgt ervoor dat de knop teruggaat naar de standaard functie
     });
 
-    // **Deck opslaan**
-    saveDeckBtn.addEventListener("click", () => {
+    // Functie voor nieuw deck opslaan
+    function saveNewDeck() {
         const deckName = deckNameInput.value.trim();
         const deckImgUrl = deckImgUrlInput.value.trim() || "/assets/images/Magic_card_back 19.png";
 
@@ -53,10 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // **Zorg ervoor dat de "New Deck" titel correct wordt weergegeven**
-        newDeckTitle.style.display = "block";
-
-        // **Maak een nieuw deck item**
+        // Maak een nieuw deck item
         const newDeck = document.createElement("article");
         newDeck.classList.add("deck-item");
 
@@ -89,14 +65,48 @@ document.addEventListener("DOMContentLoaded", function () {
         newDeck.appendChild(deckText);
         newDeck.appendChild(deckActions);
 
-        // **Voeg het nieuwe deck toe binnen de deck-container**
-        newDeckContainer.appendChild(newDeck);
+        deckContainer.appendChild(newDeck); // Voeg het nieuwe deck toe aan de juiste section
 
         // Popup sluiten
         deckPopup.style.display = "none";
 
-        // Input velden resetten
+        // Reset de event listener zodat hij niet vast blijft in de bewerk-modus
+        saveDeckBtn.onclick = saveNewDeck;
+    }
+
+    // Functie om een bestaand deck te bewerken
+    function openEditPopup(deckText, deckImage) {
+        // Vul de invoervelden met de huidige gegevens
+        deckNameInput.value = deckText.textContent;
+        deckImgUrlInput.value = deckImage.src;
+
+        // Verander de "Opslaan" knop naar update-modus
+        saveDeckBtn.onclick = function () {
+            if (deckNameInput.value.trim() !== "") {
+                deckText.textContent = deckNameInput.value.trim();
+            }
+            if (deckImgUrlInput.value.trim() !== "") {
+                deckImage.src = deckImgUrlInput.value.trim();
+            }
+
+            // Sluit de pop-up na opslaan
+            deckPopup.style.display = "none";
+
+            // Reset de event listener naar de standaard "nieuw deck" functie
+            saveDeckBtn.onclick = saveNewDeck;
+        };
+
+        // Toon de bestaande pop-up
+        deckPopup.style.display = "flex";
+    }
+
+    // Functie om de pop-up te resetten bij een nieuw deck
+    function resetPopup() {
         deckNameInput.value = "";
         deckImgUrlInput.value = "";
-    });
+        saveDeckBtn.onclick = saveNewDeck;
+    }
+
+    // Koppel de standaard "nieuw deck opslaan" functie aan de Opslaan knop
+    saveDeckBtn.onclick = saveNewDeck;
 });

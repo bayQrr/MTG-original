@@ -262,7 +262,7 @@
   width: 100%;
 }
 
-/*--------------ZAIDA cards --------------------------------*/
+/*------------------------------------------- index pagina Zaida -------------------------*/
 
 /* Algemene stijlen */
 .cards_body {
@@ -745,9 +745,8 @@ section > .kaart.mythic > img {
   color: white;
 }
 */
-/* From Uiverse.io by Cksunandh */
-/* Basic reset and styling */
 
+/* ICON INFO */
 /* Tooltip container */
 .tooltip-container {
   position: relative;
@@ -853,7 +852,8 @@ footer {
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/*---------------------deck page badr*----------------------------*/
+/*------------------------------------------- deck pagina Badr -------------------------*/
+
 /* deck page */
 #body-background {
   margin: 0;
@@ -888,15 +888,57 @@ footer {
   width: 90%;
   margin: 0 auto;
 }
+.deck-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
 
-#deck-img-1,
+.deck-item a:hover {
+  opacity: 0.8;
+}
+
+.deck-item {
+  text-align: center;
+  width: 160px;
+  background: #00000080;
+  border: 2px solid #ffffff33;
+  border-radius: 10px;
+  padding: 13px;
+  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover-effect */
+.deck-item:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 4px 15px #a1a09ccc; */
+}
+
+.deck-item img {
+  width: 100px;
+  /* height: 10px; */
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.deck-item p {
+  font-family: magic;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 10px 0;
+}
+/* #deck-img-1,
 #deck-img-2,
 #deck-img-3,
 #deck-img-4,
 #deck-img-5,
 #deck-img-6 {
   width: 100px;
-}
+} */
 
 #deck-text-1,
 #deck-text-2,
@@ -915,19 +957,21 @@ footer {
   border: none;
   padding: 15px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  /* width: 60px;
+  height: 60px; */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   /* transition: transform 0.3s ease-in-out; */
   box-shadow: 0 4px 10px #00000026;
-  position: absolute;
+  margin-top: 3rem;
+  /* margin: 0 auto; */
+  /* position: absolute;
   right: 60px;
-  top: calc(50% + 60px);
-  transform: translateX(-70px);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  top: calc(50% + 60px); */
+  /* transform: translateX(-70px); */
+  /* transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; */
 }
 
 #add-deck-btn img {
@@ -937,7 +981,7 @@ footer {
 
 #add-deck-btn:hover {
   background-color: #ef4323;
-  transform: translateX(-70px) scale(1.1);
+  /* transform: translateX(-10px) scale(1.1); */
 }
 
 /* Popup */
@@ -1005,17 +1049,25 @@ button {
   background-color: #4582be;
 }
 
-/* js code css */
-#new-deck-title {
+/* JS CODE CSS*/
+.new-deck-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-deck-wrapper h2 {
   text-align: center;
-  font-size: 28px;
+  font-size: 30px;
   font-family: magic;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 5px #00000080;
   margin-bottom: 10px;
   width: 100%;
   color: white;
 }
-#new-deck-container {
+#deck-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1023,18 +1075,7 @@ button {
   width: 100%;
   margin-top: 20px;
 }
-.deck-item img {
-  width: 160px;
-  /* height: auto; */
-}
 
-.deck-item p {
-  font-family: magic;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  margin: 10px 0;
-}
 /* JS ICON BEWERKEN/VERWIJDEREN */
 .deck-actions button {
   background: #ffffff33;
@@ -1050,7 +1091,7 @@ button {
   background: #ffffff66;
   transform: scale(1.1);
 }
-/*------------------game pagina badr*---------------------------/
+/*------------------------------------------- game pagina Badr -------------------------*/
 /* game pagina */
 #unique-body {
   margin: 0;
@@ -1527,17 +1568,17 @@ button {
   padding: 20px;
   list-style: none;
 }
-.deck-item a {
+.deck-items a {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-.deck-item a:hover {
+.deck-items a:hover {
   opacity: 0.8;
 }
 
-.deck-item {
+.deck-items {
   text-align: center;
   width: 160px;
   background: #00000080;
@@ -1549,28 +1590,18 @@ button {
 }
 
 /* Hover-effect */
-.deck-item:hover {
+.deck-items:hover {
   transform: scale(1.05);
   /* box-shadow: 0 4px 15px #a1a09ccc; */
 }
 
-.deck-item img {
+.deck-items img {
   width: 100%;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
 }
-
-/* Stijl voor de deck naam */
-/* .deck-item ul {
-  font-family: "Gotham", sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  margin-top: 8px;
-  text-transform: uppercase;
-} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -1717,6 +1748,40 @@ button {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
+  }
+  .deck-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .deck-item a:hover {
+    opacity: 0.8;
+  }
+
+  .deck-item {
+    text-align: center;
+    width: 160px;
+    background: #00000080;
+    border: 2px solid #ffffff33;
+    border-radius: 10px;
+    padding: 13px;
+    /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  /* Hover-effect */
+  .deck-item:hover {
+    transform: scale(1.05);
+    /* box-shadow: 0 4px 15px #a1a09ccc; */
+  }
+
+  .deck-item img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
   }
 
   #kaartContainer {
