@@ -372,12 +372,15 @@ button.filter-btn.mythic {
   height: 30px;
 }
 
+
 #kaartContainer {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background: linear-gradient(45deg, #1a1a1a, #464849a0);
-  backdrop-filter: blur(10px);
+  /* background: linear-gradient(45deg, #1a1a1a, #464849a0); */
+ 
+  background: #00000080;
+   /* backdrop-filter: blur(10px); */
   border-radius: 10px;
   margin-left: 15rem;
   margin-right: 15rem;
@@ -604,7 +607,7 @@ section > .kaart.mythic > img {
 .card-counter button {
   width: 25px;
   height: 25px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   background-color: #184e23;
   color: white;
@@ -631,7 +634,6 @@ section > .kaart.mythic > img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
   margin: 3rem auto 5rem;
   max-width: 400px;
   padding: 0 20px;
@@ -639,7 +641,7 @@ section > .kaart.mythic > img {
 
 .page-numbers {
   display: flex;
-  gap: 8px;
+
   align-items: center;
 }
 
