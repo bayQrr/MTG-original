@@ -2544,6 +2544,17 @@ footer {
   margin: 0;
   
 }
+.moving-card {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  z-index: 1000;
+  display: none;
+  margin-top: 10rem;
+  border-radius: 10px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
 
 
 /* Animatie voor het trekken van een kaart */
