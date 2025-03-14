@@ -1008,7 +1008,10 @@ footer {
 }
 
 .deck-popup-content {
-  background-image: url("/assets/images/blue\ dragon.png");
+   background-image: url("/assets/images/image.png");
+  background-position: center;
+ background-size: cover; 
+
   padding: 25px;
   border-radius: 12px;
   text-align: center;
