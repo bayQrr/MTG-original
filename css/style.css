@@ -376,8 +376,7 @@ button.filter-btn.mythic {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background: linear-gradient(45deg, #1a1a1a, #464849a0);
-  backdrop-filter: blur(10px);
+  background: #00000080;
   border-radius: 10px;
   margin-left: 15rem;
   margin-right: 15rem;
@@ -1382,10 +1381,8 @@ button {
   }
 }
 
-
-/*----------------------------------------------------------------------------*/
-
-* Drawtest Page Styling */ #drawtest-page {
+/* Drawtest Page Styling */
+#drawtest-page {
   background-image: url("/assets/images/drawtest-bg.jpg");
   background-size: cover;
   background-position: center;
@@ -2373,8 +2370,6 @@ button {
   }
 }
 
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
   #deck-section {
@@ -2481,7 +2476,6 @@ button {
   border-radius: 10px;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
-
 
 /* Animatie voor het trekken van een kaart */
 .draw-animation {
