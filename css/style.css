@@ -1046,9 +1046,9 @@ footer {
 }
 
 .deck-popup-content {
-   background-image: url("/assets/images/image.png");
+  background-image: url("/assets/images/image.png");
   background-position: center;
- background-size: cover; 
+  background-size: cover;
 
   padding: 25px;
   border-radius: 12px;
@@ -1137,6 +1137,7 @@ footer {
   background: #ffffff66;
   transform: scale(1.1);
 }
+
 /*------------------------------------------- game pagina Badr -------------------------*/
 /* game pagina */
 #unique-body {
@@ -1146,6 +1147,7 @@ footer {
   flex-direction: column;
   min-height: 100vh;
   background-image: url("/assets/images/wallpapergames.png");
+  background-attachment: fixed;
   background-size: cover; 
   background-position: center; 
   color: white;
@@ -1369,6 +1371,7 @@ footer {
 
 #unique-drawn-card {
   width: 130px;
+  border-radius: 10px;
 }
 .popup {
   display: none;
@@ -1517,6 +1520,46 @@ footer {
   width: fit-content;
 }
 
+
+.slider-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.slider-arrow {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.slider-arrow-left {
+  left: auto;
+}
+
+.slider-arrow-right {
+  right: auto;
+}
+
 /* Hover effect voor grotere schermen */
 @media screen and (min-width: 801px) {
   .slider-item:hover .slider-title {
@@ -1598,8 +1641,7 @@ footer {
 }
 .deck-containter {
   padding: 15px;
-  background: linear-gradient(45deg, #1a1a1a, #464849a0);
-  backdrop-filter: blur(10px);
+  background: #00000080;
   border-radius: 10px;
   margin-bottom: 60px;
 }
@@ -1608,6 +1650,40 @@ footer {
   font-family: magic;
   letter-spacing: 2px;
   font-size: 1rem;
+}
+
+/* DECK SELECTEREN */
+#deck-selector-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 76px auto;
+}
+
+#deck-selector {
+  font-family: magic;
+  letter-spacing: 2px;
+  font-weight: bold;
+  background: #00000080;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px auto;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 250px;
+  text-align: center;
+  /* appearance: none; */
+}
+
+#deck-selector option {
+  background: #0a0a0ae6;
+  color: white;
+  font-size: 19px;
+  padding: 10px;
+  font-family: magic;
 }
 
 /* DECK LIST */
@@ -1628,30 +1704,30 @@ footer {
   opacity: 0.8;
 }
 
-.deck-items {
+/* .deck-items {
   text-align: center;
   width: 160px;
   background: #00000080;
   border: 2px solid #ffffff33;
   border-radius: 10px;
   padding: 13px;
-  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
+} */
 
 /* Hover-effect */
-.deck-items:hover {
+/* .deck-items:hover {
   transform: scale(1.05);
-  /* box-shadow: 0 4px 15px #a1a09ccc; */
-}
+  box-shadow: 0 4px 15px #a1a09ccc;
+} */
 
-.deck-items img {
+/* .deck-items img {
   width: 100%;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
-}
+} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -1678,45 +1754,7 @@ footer {
   border-radius: 10px;
 }
 
-/* STUKJE LANDINGPAGINA */
-.slider-controls {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  padding: 20px 0;
-}
 
-.slider-arrow {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-}
-
-.slider-arrow:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.slider-arrow-left {
-  left: auto;
-}
-
-.slider-arrow-right {
-  right: auto;
-}
 /* Algemene media queries */
 @media screen and (max-width: 768px) {
   /* Navbar styling voor mobiel */

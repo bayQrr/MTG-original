@@ -7,22 +7,59 @@ document.addEventListener("DOMContentLoaded", function () {
     const deckImgUrlInput = document.getElementById("deck-img-url");
     const deckContainer = document.getElementById("deck-container");
 
-    // Zorg ervoor dat de pop-up standaard verborgen blijft
-    deckPopup.style.display = "none";
+    let decks = JSON.parse(localStorage.getItem("savedDecks")) || [];
 
-    // Open de popup bij klikken op de knop
-    addDeckBtn.addEventListener("click", () => {
-        resetPopup(); // Reset velden voor een nieuw deck
-        deckPopup.style.display = "flex";
-    });
+    function saveDecksToStorage() {
+        localStorage.setItem("savedDecks", JSON.stringify(decks));
+    }
 
-    // Sluit de popup bij klikken op sluitknop
-    closePopup.addEventListener("click", () => {
-        deckPopup.style.display = "none";
-        saveDeckBtn.onclick = saveNewDeck; // Zorgt ervoor dat de knop teruggaat naar de standaard functie
-    });
+    function renderDecks() {
+        deckContainer.innerHTML = "";
+        decks.forEach((deck, index) => {
+            const newDeck = document.createElement("article");
+            newDeck.classList.add("deck-item");
 
-    // Functie voor nieuw deck opslaan
+            const deckImage = document.createElement("img");
+            deckImage.src = deck.imgUrl;
+            deckImage.alt = deck.name;
+            deckImage.width = 100;
+
+            const deckText = document.createElement("p");
+            deckText.textContent = deck.name;
+
+            const deckActions = document.createElement("div");
+            deckActions.classList.add("deck-actions");
+
+            const editButton = document.createElement("button");
+            editButton.classList.add("edit-deck");
+            editButton.textContent = "✏️";
+            editButton.addEventListener("click", (event) => {
+                event.stopPropagation();
+                openEditPopup(index);
+            });
+
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("delete-deck");
+            deleteButton.textContent = "🗑️";
+            deleteButton.addEventListener("click", (event) => {
+                event.stopPropagation();
+                deleteDeck(index);
+            });
+
+            deckActions.appendChild(editButton);
+            deckActions.appendChild(deleteButton);
+
+            newDeck.appendChild(deckImage);
+            newDeck.appendChild(deckText);
+            newDeck.appendChild(deckActions);
+            deckContainer.appendChild(newDeck);
+
+            newDeck.addEventListener("click", () => {
+                window.location.href = "deckview.html";
+            });
+        });
+    }
+
     function saveNewDeck() {
         const deckName = deckNameInput.value.trim();
         const deckImgUrl = deckImgUrlInput.value.trim() || "/assets/images/Magic_card_back 19.png";
@@ -31,85 +68,64 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Geef een naam aan het deck.");
             return;
         }
+        
+        // Check of er al 9 decks zijn
+        if (decks.length >= 9) {
+            alert("Je hebt te veel decks");
+            return;
+        }
 
-        // Maak een nieuw deck item
-        const newDeck = document.createElement("article");
-        newDeck.classList.add("deck-item");
-
-        const deckImage = document.createElement("img");
-        deckImage.src = deckImgUrl;
-        deckImage.alt = deckName;
-        deckImage.width = 100;
-
-        const deckText = document.createElement("p");
-        deckText.textContent = deckName;
-
-        // Maak de bewerk/verwijder knoppen
-        const deckActions = document.createElement("div");
-        deckActions.classList.add("deck-actions");
-
-        const editButton = document.createElement("button");
-        editButton.classList.add("edit-deck");
-        editButton.textContent = "✏️";
-        editButton.addEventListener("click", () => openEditPopup(deckText, deckImage));
-
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-deck");
-        deleteButton.textContent = "🗑️";
-        deleteButton.addEventListener("click", () => newDeck.remove());
-
-        deckActions.appendChild(editButton);
-        deckActions.appendChild(deleteButton);
-
-        newDeck.appendChild(deckImage);
-        newDeck.appendChild(deckText);
-        newDeck.appendChild(deckActions);
-
-        deckContainer.appendChild(newDeck); // Voeg het nieuwe deck toe aan de juiste section
-
-        // Popup sluiten
+        decks.push({ name: deckName, imgUrl: deckImgUrl });
+        saveDecksToStorage();
+        renderDecks();
         deckPopup.style.display = "none";
-
-        // Reset de event listener zodat hij niet vast blijft in de bewerk-modus
-        saveDeckBtn.onclick = saveNewDeck;
     }
 
-    // Functie om een bestaand deck te bewerken
-    function openEditPopup(deckText, deckImage) {
-        // Vul de invoervelden met de huidige gegevens
-        deckNameInput.value = deckText.textContent;
-        deckImgUrlInput.value = deckImage.src;
+    function openEditPopup(index) {
+        const deck = decks[index];
+        deckNameInput.value = deck.name;
+        deckImgUrlInput.value = deck.imgUrl;
 
-        // Verander de "Opslaan" knop naar update-modus
         saveDeckBtn.onclick = function () {
             if (deckNameInput.value.trim() !== "") {
-                deckText.textContent = deckNameInput.value.trim();
+                decks[index].name = deckNameInput.value.trim();
             }
             if (deckImgUrlInput.value.trim() !== "") {
-                deckImage.src = deckImgUrlInput.value.trim();
+                decks[index].imgUrl = deckImgUrlInput.value.trim();
             }
 
-            // Sluit de pop-up na opslaan
+            saveDecksToStorage();
+            renderDecks();
             deckPopup.style.display = "none";
-
-            // Reset de event listener naar de standaard "nieuw deck" functie
             saveDeckBtn.onclick = saveNewDeck;
         };
 
-        // Toon de bestaande pop-up
         deckPopup.style.display = "flex";
     }
 
-    // Functie om de pop-up te resetten bij een nieuw deck
+    function deleteDeck(index) {
+        decks.splice(index, 1);
+        saveDecksToStorage();
+        renderDecks();
+    }
+
     function resetPopup() {
         deckNameInput.value = "";
         deckImgUrlInput.value = "";
         saveDeckBtn.onclick = saveNewDeck;
     }
 
-    // Koppel de standaard "nieuw deck opslaan" functie aan de Opslaan knop
+    addDeckBtn.addEventListener("click", () => {
+        resetPopup();
+        deckPopup.style.display = "flex";
+    });
+
+    closePopup.addEventListener("click", () => {
+        deckPopup.style.display = "none";
+        saveDeckBtn.onclick = saveNewDeck;
+    });
+
     saveDeckBtn.onclick = saveNewDeck;
 
+    renderDecks();
 });
-
-
