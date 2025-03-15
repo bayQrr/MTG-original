@@ -109,8 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       movingCard.src = card.image;
       movingCard.alt = card.name;
   
-      movingCard.style.left = `${deckRect.left}px`;
-      movingCard.style.top = `${deckRect.top}px`;
+
       movingCard.style.display = "block";
       movingCard.style.opacity = "1";
   
