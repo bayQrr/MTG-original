@@ -61,43 +61,50 @@
 
     <main id="unique-main">
         <section id="unique-draw-section">
-            <div id="unique-draw-controls">
-                <div id="main-buttons">
-                    <button id="unique-draw-button">Draw</button>
-                    <button id="unique-shuffle-button">Shuffle</button>
-                    <button id="unique-reset-button">Reset</button>
-                </div>
+            <section class="draws">
+                <section class="draw-part1">
+                    <div id="unique-draw-controls">
+                        <div id="main-buttons">
+                            <button id="unique-draw-button">Draw</button>
+                            <button id="unique-shuffle-button">Shuffle</button>
+                            <button id="unique-reset-button">Reset</button>
+                        </div>
 
-                <div id="search-controls">
-                    <input type="text" id="card-search" placeholder="Zoek een kaart...">
-                    <button id="calculate-odds">Kans</button>
-                    <span id="odds-result"></span>
-                </div>
-            </div>
-
-            <span id="unique-deck-icon">
-                <span id="cards-remaining">60 kaarten over</span>
-            </span>
-
-            <div id="unique-card-display">
-                <div id="deck-pile">
-                    <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
-                </div>
-                <span id="unique-crossed-swords">
-                    <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="">
-                </span>
-                <!-- Voeg dit toe in je HTML tussen je twee stapels -->
-<img id="moving-card" class="moving-card" src="" alt="" style="display:none;" />
-
-                <div id="drawn-pile">
-                    <div id="current-card">
-                        <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card" id="unique-drawn-card">
-                     
+                        <div id="search-controls">
+                            <input type="text" id="card-search" placeholder="Zoek een kaart...">
+                            <button id="calculate-odds">Kans</button>
+                            <span id="odds-result"></span>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </section>
 
-            <div id="drawn-cards-history"></div>
+                <section class="draw-part2">
+                    <span id="unique-deck-icon">
+                        <span id="cards-remaining">60 kaarten over</span>
+                    </span>
+
+                    <div id="unique-card-display">
+                        <div id="deck-pile">
+                            <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
+                        </div>
+                        <span id="unique-crossed-swords">
+                            <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="">
+                        </span>
+                        <!-- Voeg dit toe in je HTML tussen je twee stapels -->
+                        <img id="moving-card" class="moving-card" src="" alt="" style="display:none;" />
+
+                        <div id="drawn-pile">
+                            <div id="current-card">
+                                <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card"
+                                    id="unique-drawn-card">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="drawn-cards-history"></div>
+                </section>
+            </section>
         </section>
     </main>
 

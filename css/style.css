@@ -372,15 +372,14 @@ button.filter-btn.mythic {
   height: 30px;
 }
 
-
 #kaartContainer {
   display: flex;
   flex-direction: column;
   padding: 30px;
   /* background: linear-gradient(45deg, #1a1a1a, #464849a0); */
- 
+
   background: #00000080;
-   /* backdrop-filter: blur(10px); */
+  /* backdrop-filter: blur(10px); */
   border-radius: 10px;
   margin-left: 15rem;
   margin-right: 15rem;
@@ -438,9 +437,8 @@ section.rij {
   letter-spacing: 2px;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  
-  font-size: 20px;
 
+  font-size: 20px;
 }
 
 .kaart:hover {
@@ -748,7 +746,7 @@ section > .kaart.mythic > img {
   color: white;
 }
 */
-/* From Uiverse.io by Cksunandh */ 
+/* From Uiverse.io by Cksunandh */
 /* Basic reset and styling */
 
 /* Tooltip container */
@@ -766,9 +764,7 @@ section > .kaart.mythic > img {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 /* SVG Animation: Rotate and scale effect */
@@ -781,7 +777,6 @@ section > .kaart.mythic > img {
   transform: rotate(360deg) scale(1.2);
 }
 
-
 .tooltip {
   visibility: hidden;
   width: 63rem;
@@ -790,19 +785,17 @@ section > .kaart.mythic > img {
   border-radius: 5px;
   padding: 10px;
   position: absolute;
- font-family: "prompt";
+  font-family: "prompt";
   background: linear-gradient(45deg, #1a1a1a, #2e86de59);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   left: 17%;
- 
+
   opacity: 0;
-  transition:
-    opacity 0.5s,
-    transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s;
   transform: translateY(10px);
 }
-.tooltip>p{
+.tooltip > p {
   margin-bottom: 2rem;
 }
 
@@ -859,7 +852,7 @@ footer {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-} 
+}
 
 /*------------------------------------------- deck pagina Badr -------------------------*/
 
@@ -1008,9 +1001,9 @@ footer {
 }
 
 .deck-popup-content {
-   background-image: url("/assets/images/image.png");
+  background-image: url("/assets/images/image.png");
   background-position: center;
- background-size: cover; 
+  background-size: cover;
 
   padding: 25px;
   border-radius: 12px;
@@ -1123,7 +1116,6 @@ button {
   align-items: center;
   padding: 10px 20px;
   background: #00000080;
-  /* width: 100%; */
 }
 
 #unique-logo {
@@ -1165,6 +1157,7 @@ button {
   opacity: 0;
   transition: opacity 0.5s;
 }
+
 #unique-nav-list li a:hover {
   color: #ffffff;
 }
@@ -1191,6 +1184,7 @@ button {
   text-decoration: none;
   font-weight: bold;
 }
+
 #unique-nav-decks a:hover,
 #unique-nav-drawtest a:hover {
   transform: scale(1.1);
@@ -1225,40 +1219,67 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  margin-top: 5rem;
+  margin: 5rem auto 5rem;
   max-width: 800px;
   width: 120%;
-  margin-bottom: 5rem;
 }
 
-#unique-deck-icon img {
-  height: 40px;
-  padding-bottom: 20px;
+#unique-deck-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
 }
+
+/* deck selecteren*/
+#unique-deck-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: magic;
+  letter-spacing: 2px;
+  font-weight: bold;
+  background: #00000080;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 250px;
+  text-align: center;
+  margin: 30px 32px;
+}
+
+#unique-deck-selector option {
+  background: #0a0a0ae6;
+  color: white;
+  font-size: 19px;
+  padding: 10px;
+  font-family: magic;
+}
+
+.draws {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* knoppen voor draw-controls */
 #unique-draw-button:hover {
   background-color: #d33131;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#unique-reset-button:hover {
-  background-color: #d32f2f;
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
+#unique-reset-button:hover,
 #unique-track-button:hover {
   background-color: #d32f2f;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#unique-draw-controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 #main-buttons {
@@ -1273,6 +1294,7 @@ button {
   gap: 1rem;
   margin-top: 0.5rem;
 }
+
 #unique-draw-controls button {
   padding: 10px 20px;
   font-size: 1rem;
@@ -1292,13 +1314,19 @@ button {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 #card-search {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #828181;
-  font-family: "magic";
+  font-family: magic;
   letter-spacing: 2px;
   font-size: 1rem;
+  width: 13rem;
+}
+
+.draw-part2 {
+  margin-top: 20px;
 }
 
 #odds-result {
@@ -1321,7 +1349,8 @@ button {
   gap: 20px;
 }
 
-#unique-deck-card {
+#unique-deck-card,
+#unique-drawn-card {
   width: 130px;
 }
 
@@ -1329,9 +1358,7 @@ button {
   padding: 1rem;
 }
 
-#unique-drawn-card {
-  width: 130px;
-}
+/* popup */
 .popup {
   display: none;
   position: fixed;
@@ -1346,13 +1373,12 @@ button {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0s 0.5s;
-  display: flex;
 }
 
 .popup.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s ease, visibility 0s 0s;
+  transition: opacity 0.5s ease;
 }
 
 .popup-content {
@@ -1393,6 +1419,7 @@ button {
     transform: scale(1);
   }
 }
+
 /*------------------------------------------- Landing pagina Kaoutar -------------------------*/
 /* BODY MET ID landing-page */
 #landing-page {
@@ -1560,8 +1587,7 @@ button {
 }
 .deck-containter {
   padding: 15px;
-  background: linear-gradient(45deg, #1a1a1a, #464849a0);
-  backdrop-filter: blur(10px);
+  background: #00000080;
   border-radius: 10px;
   margin-bottom: 60px;
 }
@@ -1570,6 +1596,40 @@ button {
   font-family: magic;
   letter-spacing: 2px;
   font-size: 1rem;
+}
+
+/* DECK SELECTEREN */
+#deck-selector-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 76px auto;
+}
+
+#deck-selector {
+  font-family: magic;
+  letter-spacing: 2px;
+  font-weight: bold;
+  background: #00000080;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px auto;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 250px;
+  text-align: center;
+  /* appearance: none; */
+}
+
+#deck-selector option {
+  background: #0a0a0ae6;
+  color: white;
+  font-size: 19px;
+  padding: 10px;
+  font-family: magic;
 }
 
 /* DECK LIST */
@@ -1590,30 +1650,30 @@ button {
   opacity: 0.8;
 }
 
-.deck-items {
+/* .deck-items {
   text-align: center;
   width: 160px;
   background: #00000080;
   border: 2px solid #ffffff33;
   border-radius: 10px;
   padding: 13px;
-  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
+} */
 
 /* Hover-effect */
-.deck-items:hover {
+/* .deck-items:hover {
   transform: scale(1.05);
-  /* box-shadow: 0 4px 15px #a1a09ccc; */
-}
+  box-shadow: 0 4px 15px #a1a09ccc;
+} */
 
-.deck-items img {
+/* .deck-items img {
   width: 100%;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
-}
+} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -2170,9 +2230,9 @@ button {
     justify-content: center;
   }
 
-   #landing-page .slider-item {
+  #landing-page .slider-item {
     display: none;
-  } 
+  }
 
   #landing-page .slider-item:nth-child(2),
   #landing-page .slider-item:nth-child(3),
@@ -2180,7 +2240,7 @@ button {
     display: flex;
   }
   #landing-page .slider-item:nth-child(1),
-  #landing-page .slider-item:nth-child(6){
+  #landing-page .slider-item:nth-child(6) {
     display: none;
   }
 }
@@ -2209,7 +2269,7 @@ button {
     width: 100%;
   }
   #landing-page .slider-item:nth-child(2),
-  #landing-page .slider-item:nth-child(5){
+  #landing-page .slider-item:nth-child(5) {
     display: none;
   }
 
@@ -2239,12 +2299,10 @@ button {
   .slider-item.active {
     max-width: 260px;
   }
-  #landing-page .slider-item:nth-child(3){
+  #landing-page .slider-item:nth-child(3) {
     display: none;
   }
 }
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -2297,8 +2355,6 @@ button {
   margin: 1rem 0;
 }
 
-
-
 #drawn-cards-history {
   display: flex;
   flex-wrap: wrap;
@@ -2333,8 +2389,6 @@ button {
   border: 1px solid #ccc;
 }
 
-
-
 /* Specifieke styling voor de search controls */
 #search-controls {
   display: flex;
@@ -2345,7 +2399,6 @@ button {
 
 #calculate-odds {
   margin: 0;
-  
 }
 .moving-card {
   position: absolute;
@@ -2357,8 +2410,6 @@ button {
   border-radius: 10px;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
-
-
 
 /* Animatie voor het trekken van een kaart */
 .draw-animation {
@@ -2423,7 +2474,7 @@ button {
 
 /* Stijl van de dropdown */
 #draw-deck-selector {
-  font-family:magic;
+  font-family: magic;
   letter-spacing: 2px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.5);

@@ -202,53 +202,103 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialiseer het spel
     resetGame();
   });
+  
   document.addEventListener("DOMContentLoaded", function () {
-      if (!document.getElementById("unique-draw-section")) return;
+    // 1. Controleer of het element "unique-draw-section" bestaat
+    if (!document.getElementById("unique-draw-section")) return;
+
+    // 2. Pak het element waarin we de dropdown willen plaatsen
+    const uniqueDrawControls = document.getElementById("unique-draw-controls");
+
+    // 3. Maak een container voor de dropdown
+    const uniqueDeckSelectorContainer = document.createElement("div");
+    uniqueDeckSelectorContainer.id = "unique-deck-selector-container";
+
+    // 4. Maak de dropdown zelf
+    const uniqueDeckSelector = document.createElement("select");
+    uniqueDeckSelector.id = "unique-deck-selector";
+    uniqueDeckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
+
+    // 5. Voeg de dropdown toe aan de container en zet die bovenin je controls
+    uniqueDeckSelectorContainer.appendChild(uniqueDeckSelector);
+    uniqueDrawControls.insertBefore(uniqueDeckSelectorContainer, uniqueDrawControls.firstChild);
+
+    // 6. Lees bestaande decks uit localStorage (indien aanwezig)
+    let uniqueAvailableDecks = JSON.parse(localStorage.getItem("savedDecks")) || [];
+
+    // 7. Functie om de dropdown te vullen
+    function updateUniqueDeckDropdown() {
+        // Begin met een "lege" dropdown (alleen de prompt)
+        uniqueDeckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
+
+        // a) Voeg drie “default” decks toe
+        const defaultDecks = [
+            { name: "Deck 1", value: "default1" },
+            { name: "Deck 2", value: "default2" },
+            { name: "Deck 3", value: "default3" }
+        ];
+
+        defaultDecks.forEach(deck => {
+            const option = document.createElement("option");
+            option.value = deck.value;       // "default1", "default2", ...
+            option.textContent = deck.name;  // "Deck 1", "Deck 2", "Deck 3"
+            uniqueDeckSelector.appendChild(option);
+        });
+
+        // b) Voeg decks uit localStorage toe (als die bestaan)
+        uniqueAvailableDecks.forEach((deck, index) => {
+            const option = document.createElement("option");
+            option.value = index;            // index in de array
+            option.textContent = deck.name;  // naam van het deck uit localStorage
+            uniqueDeckSelector.appendChild(option);
+        });
+    }
+
+    // 8. Als de gebruiker een deck kiest in de dropdown
+    uniqueDeckSelector.addEventListener("change", function () {
+        const selectedValue = uniqueDeckSelector.value;
+
+        if (selectedValue !== "") {
+            let selectedDeck;
+
+            // a) Als de value begint met "default", is het één van de 3 default decks
+            if (selectedValue.startsWith("default")) {
+                if (selectedValue === "default1") {
+                    selectedDeck = { name: "Deck 1" };
+                } else if (selectedValue === "default2") {
+                    selectedDeck = { name: "Deck 2" };
+                } else if (selectedValue === "default3") {
+                    selectedDeck = { name: "Deck 3" };
+                }
+            } else {
+                // b) Anders is het er één uit de localStorage
+                selectedDeck = uniqueAvailableDecks[selectedValue];
+            }
+
+            // 9. Voer de init-functie uit om het deck in de game te laden
+            initializeUniqueDeck(selectedDeck);
+        }
+    });
+
+    // 10. Deck inladen
+    function initializeUniqueDeck(deck) {
+        // Wil je geen alert, laat dit weg of comment it out
+        // alert(`Je hebt ${deck.name} geselecteerd!`);
+
+        // Als het deck een `cards` property heeft (zoals bij localStorage), zet je deckCards gelijk daaraan
+        if (deck.cards !== undefined) {
+            deckCards = deck.cards.slice();
+        }
+
+        // Anders blijven je hardcoded deckCards uit deck.html actief
+
+        // Reset je getrokken kaarten en update de UI
+        drawnCards = [];
+        updateDisplay();
+    }
+
+    // 11. Bij het laden van de pagina vullen we de dropdown
+    updateUniqueDeckDropdown();
+});
+
   
-      const drawControls = document.getElementById("unique-draw-controls");
-      
-      // Maak een container voor de dropdown
-      const deckSelectorContainer = document.createElement("div");
-      deckSelectorContainer.id = "draw-deck-selector-container";
-  
-      // Maak de dropdown
-      const deckSelector = document.createElement("select");
-      deckSelector.id = "draw-deck-selector";
-      deckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
-      
-      deckSelectorContainer.appendChild(deckSelector);
-      drawControls.insertBefore(deckSelectorContainer, drawControls.firstChild);
-  
-      let availableDecks = JSON.parse(localStorage.getItem("savedDecks")) || [];
-  
-      function updateDeckDropdown() {
-          deckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
-          
-          availableDecks.forEach((deck, index) => {
-              const option = document.createElement("option");
-              option.value = index;
-              option.textContent = deck.name;
-              deckSelector.appendChild(option);
-          });
-      }
-  
-      deckSelector.addEventListener("change", function () {
-          if (deckSelector.value !== "") {
-              const selectedDeck = availableDecks[deckSelector.value];
-  
-              // Update de game met het gekozen deck
-              initializeGameWithDeck(selectedDeck);
-          }
-      });
-  
-      function initializeGameWithDeck(deck) {
-          alert(`Je hebt ${deck.name} geselecteerd!`);
-          
-          // Reset en laad het gekozen deck in de game
-          deckCards = deck.cards.slice();
-          drawnCards = [];
-          updateDisplay();
-      }
-  
-      updateDeckDropdown();
-  });
