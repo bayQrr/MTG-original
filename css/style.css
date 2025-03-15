@@ -153,8 +153,8 @@
   padding: 30px;
   border-radius: 10px;
   margin: 0 auto;
- background: transparent;
- backdrop-filter: blur(20px);
+  background: transparent;
+  backdrop-filter: blur(20px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
 }
@@ -189,7 +189,8 @@
   color: #0e3c81;
 }
 
-#btn,#loginbtn {
+#btn,
+#loginbtn {
   background-color: rgb(42, 115, 160);
   border: 1px solid white;
   color: white;
@@ -210,7 +211,7 @@
   box-shadow: 0 0 25px 10px #000000;
 }
 
-#loginbtn:hover{
+#loginbtn:hover {
   background-color: #0a75a3;
   transform: scale(1.1);
   box-shadow: 0 0 25px 10px #9cc7e4;
@@ -295,13 +296,12 @@
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #1e1e1e;
-  background-image: url("/assets/images/1313732.jpg");
+  background-image: url("/assets/images/1305500.jpg");
   background-repeat: no-repeat;
   background-position: 50% 10%;
   background-size: cover;
   backdrop-filter: blur(5px);
 }
-
 
 .midden-container {
   display: flex;
@@ -310,14 +310,15 @@
   width: 1000px;
   height: 900px;
   background: transparent;
- backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
   margin: 0 auto;
-  background-image: url("/assets/images/1313732.jpg");
- background-position: center;
- background-size: cover;
+  background-image: url("/assets/images/1305500.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: 60px;
 }
 
 #kaartContainer {
@@ -326,7 +327,7 @@
   width: 900px;
   height: 800px;
   background: transparent;
- backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
@@ -392,8 +393,6 @@
   height: 30px;
 }
 
-
-
 .rij1,
 .rij2 {
   display: flex;
@@ -401,7 +400,6 @@
   justify-content: center;
   gap: 3rem;
   margin-bottom: 5rem;
- 
 }
 /* -----*/
 /*uit api kaarten rij komt uit js */
@@ -449,9 +447,8 @@ section.rij {
   letter-spacing: 2px;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  
-  font-size: 20px;
 
+  font-size: 20px;
 }
 
 .kaart:hover {
@@ -460,17 +457,19 @@ section.rij {
 
 /* de glow dit zal ook nog aangepast worden met backend  */
 section.kaart.common > img {
-  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.991);
+  box-shadow: 0 0 60px 20px rgba(255, 255, 255, 1);
+}
 
-}
 section > .kaart.uncommon > img {
-  box-shadow: 0 0 20px rgb(71, 126, 236);
+  box-shadow: 0 0 40px 15px rgb(58, 92, 240);
 }
+
 section.kaart.rare > img {
-  box-shadow: 0 0 20px rgb(255, 255, 0);
+  box-shadow: 0 0 40px 10px rgb(255, 255, 0);
 }
+
 section > .kaart.mythic > img {
-  box-shadow: 0 0 20px rgb(255, 0, 0);
+  box-shadow: 0 0 40px 15px rgb(255, 0, 0);
 }
 
 /* Popup stijl */
@@ -698,8 +697,6 @@ input:focus {
   outline: 2px solid white;
 }
 
-
-
 .search-form {
   width: 100vw;
   display: flex;
@@ -777,7 +774,7 @@ input:focus {
   color: white;
 }
 */
-/* From Uiverse.io by Cksunandh */ 
+/* From Uiverse.io by Cksunandh */
 /* Basic reset and styling */
 
 /* Tooltip container */
@@ -794,9 +791,7 @@ input:focus {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 /* SVG Animation: Rotate and scale effect */
@@ -809,7 +804,6 @@ input:focus {
   transform: rotate(360deg) scale(1.2);
 }
 
-
 .tooltip {
   visibility: hidden;
   width: 63rem;
@@ -818,19 +812,18 @@ input:focus {
   border-radius: 5px;
   padding: 10px;
   position: absolute;
- font-family: "prompt";
-  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+  font-family: "prompt";
+  background-color: #1a1a1a;
+  /* background: linear-gradient(45deg, #1a1a1a, #2e86de59); */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   left: 17%;
- 
+  z-index: 9999;
   opacity: 0;
-  transition:
-    opacity 0.5s,
-    transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s;
   transform: translateY(10px);
 }
-.tooltip>p{
+.tooltip > p {
   margin-bottom: 2rem;
 }
 
@@ -887,7 +880,7 @@ footer {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-} 
+}
 
 /*------------------------------------------- deck pagina Badr -------------------------*/
 
@@ -903,7 +896,7 @@ footer {
 }
 
 #main-content {
- text-align: center;
+  text-align: center;
   min-height: calc(100vh - 200px);
   padding: 20px;
   font-family: magic;
@@ -921,7 +914,7 @@ footer {
   justify-content: center;
   gap: 20px;
   background: transparent;
- backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
@@ -1145,8 +1138,8 @@ footer {
   min-height: 100vh;
   background-image: url("/assets/images/wallpapergames.png");
   background-attachment: fixed;
-  background-size: cover; 
-  background-position: center; 
+  background-size: cover;
+  background-position: center;
   color: white;
 }
 
@@ -1155,7 +1148,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
- 
+
   /* width: 100%; */
 }
 
@@ -1252,7 +1245,7 @@ footer {
 
 #unique-draw-section {
   background: #00000080;
- backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
@@ -1517,7 +1510,6 @@ footer {
   width: fit-content;
 }
 
-
 .slider-controls {
   width: 100%;
   display: flex;
@@ -1750,7 +1742,6 @@ footer {
   margin-bottom: 15px;
   border-radius: 10px;
 }
-
 
 /* Algemene media queries */
 @media screen and (max-width: 768px) {
@@ -2109,7 +2100,6 @@ footer {
   }
 }
 
-
 /* Landing pagina slider aanpassingen */
 @media screen and (max-width: 800px) {
   #landing-page {
@@ -2217,8 +2207,7 @@ footer {
   }
 }
 
-
-.slider-arrow{
+.slider-arrow {
   display: none;
 }
 
@@ -2236,9 +2225,7 @@ footer {
     font-size: 1rem;
     padding: 8px;
   }
-  
 }
-
 
 /* Media query voor schermen kleiner dan 1300px */
 @media screen and (max-width: 1300px) {
@@ -2246,24 +2233,18 @@ footer {
     width: 90%;
     margin: 0 auto;
   }
-  
 
   #landing-page #slider-images {
     justify-content: center;
   }
 
-   #landing-page .slider-item {
+  #landing-page .slider-item {
     display: none;
-  } 
-
+  }
 }
 
 @media screen and (max-width: 1100px) {
- 
-  
-  
 }
-
 
 /* Voeg animatie toe voor smooth transitions */
 .slider-item {
@@ -2271,12 +2252,10 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
- 
-  .slider-arrow{
+  .slider-arrow {
     display: block;
   }
 }
-
 
 @media screen and (max-width: 540px) {
   #slider-container {
@@ -2286,7 +2265,7 @@ footer {
   .slider-item.active {
     max-width: 260px;
   }
-  #landing-page .slider-item:nth-child(3){
+  #landing-page .slider-item:nth-child(3) {
     display: none;
   }
 }
@@ -2300,10 +2279,7 @@ footer {
   .slider-item.active {
     max-width: 260px;
   }
- 
 }
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -2356,8 +2332,6 @@ footer {
   margin: 1rem 0;
 }
 
-
-
 #drawn-cards-history {
   display: flex;
   flex-wrap: wrap;
@@ -2392,8 +2366,6 @@ footer {
   border: 1px solid #ccc;
 }
 
-
-
 /* Specifieke styling voor de search controls */
 #search-controls {
   display: flex;
@@ -2404,7 +2376,6 @@ footer {
 
 #calculate-odds {
   margin: 0;
-  
 }
 .moving-card {
   position: absolute;
@@ -2415,9 +2386,6 @@ footer {
 
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
-
-
-
 
 /* Fade-in effect voor getrokken kaarten in de geschiedenis */
 .fade-in {
@@ -2465,7 +2433,7 @@ footer {
 
 /* Stijl van de dropdown */
 #draw-deck-selector {
-  font-family:magic;
+  font-family: magic;
   letter-spacing: 2px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.5);
@@ -2528,9 +2496,4 @@ footer {
   font-family: stratum;
 }
 
-
-
-
 /* badr code ----------============================= */
-
-
