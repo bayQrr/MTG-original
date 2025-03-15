@@ -2429,29 +2429,14 @@ footer {
   position: absolute;
   width: 100px;
   height: auto;
-  z-index: 1000;
-  display: none;
-  margin-top: 10rem;
+  margin-top: 3rem;
   border-radius: 10px;
+
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* Animatie voor het trekken van een kaart */
-.draw-animation {
-  animation: flipCard 0.5s ease-in-out;
-}
 
-@keyframes flipCard {
-  0% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(90deg);
-  }
-  100% {
-    transform: rotateY(0deg);
-  }
-}
+
 
 /* Fade-in effect voor getrokken kaarten in de geschiedenis */
 .fade-in {
