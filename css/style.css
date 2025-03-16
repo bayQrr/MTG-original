@@ -1681,7 +1681,7 @@ footer {
     flex-direction: column;
     padding: 15px;
     position: relative;
-    background: rgba(0, 0, 0, 0.9);
+   
   }
 
   #logo {
@@ -1753,13 +1753,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
+    width: 70%;
   }
 
-  #kaartContainer {
-    padding: 20px;
-    margin: 10px;
-    width: auto;
-  }
+ 
 
   .rij1,
   .rij2 {
@@ -1779,6 +1776,10 @@ footer {
   .kaart > p {
     font-size: 0.8rem;
     margin-top: 0.8rem;
+  }
+
+  .icon svg {
+    margin-top: 0rem;
   }
 }
 
@@ -1823,6 +1824,7 @@ footer {
 
 /* Login/Register pagina's */
 @media screen and (max-width: 768px) {
+
   .login,
   .register {
     justify-content: center;
@@ -1900,6 +1902,9 @@ footer {
     width: auto;
   }
 
+ 
+
+
   .rij1,
   .rij2 {
     flex-direction: row;
@@ -1950,15 +1955,14 @@ footer {
     font-size: 0.9rem;
     margin-top: 8px;
   }
-}
 
-/* Deck view pagina */
-@media screen and (max-width: 768px) {
+
+
   .deck-banner {
     width: 100%;
   }
 
-  
+  /* Deck view pagina */
 
   .deck-list ul {
     flex-direction: column;
@@ -1972,10 +1976,13 @@ footer {
   .card-display section {
     width: 90%;
   }
-}
+  .card-display img{
+   width: 40%;
+  }
 
+  
 /* Game pagina */
-@media screen and (max-width: 768px) {
+
   #unique-draw-section {
     width: 90%;
     padding: 10px;
@@ -1992,6 +1999,7 @@ footer {
     max-width: 200px;
   }
 }
+
 
 /* Tablet specifieke aanpassingen */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -2131,11 +2139,38 @@ footer {
   #unique-navigation.active {
     left: 0;
   }
+
+  #deck-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .card-pile {
+    width: 200px;
+  }
+
+  #controls-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #card-search {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 .slider-arrow {
   display: none;
 }
+
+
 
 /* Styling voor desktop versie */
 @media screen and (min-width: 764px) {
@@ -2205,35 +2240,10 @@ footer {
   .slider-item.active {
     max-width: 260px;
   }
+
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  #deck-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
 
-  .card-pile {
-    width: 200px;
-  }
-
-  #controls-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #search-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #card-search {
-    width: 100%;
-    max-width: 300px;
-  }
-}
 /* Minimale styling voor drawtest functionaliteit */
 .card-pile {
   position: relative;
@@ -2599,6 +2609,13 @@ footer {
       font-size: 12px;
       padding: 5px;
       margin: 50px 0;
+      margin-left:0.6rem;
+  }
+
+ .tooltip{
+    width: 10rem;
+left :0%;
+right: 100%;
   }
 }
 /* Groot scherm (boven 1200px) */
@@ -2850,11 +2867,14 @@ footer {
   }
 
   #kaartContainer {
-    width: 100%;
+  
     height: auto;
     margin-bottom: 2rem;
     box-shadow: none; /* eventueel minder schaduw */
   }
+
+
+  
 
   /* Filtering in kolom in plaats van rij */
   .filtering {
@@ -2887,9 +2907,11 @@ footer {
   .popup-container {
     display: flex;
     gap: 2rem;
-    max-width: 50%;
     display: flex;
     flex-direction: column;
+  }
+  .popupImg{
+    border-radius: 10px;
   }
   .rij1,
   .rij2 {
@@ -2945,4 +2967,15 @@ footer {
   #searchBar {
     width: 90%;
   }
+
+  .icon svg {
+    margin-top: 0rem;
+  }
+#kaartContainer{
+ margin: 0;
+ padding: 0;
+ 
+}
+
+
 }
