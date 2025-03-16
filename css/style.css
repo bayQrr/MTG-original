@@ -878,7 +878,6 @@ footer {
   margin-top: 20px;
 }
 
-
 /* Aanpassing voor deck items */
 .deck-item {
   text-align: center;
@@ -1692,12 +1691,7 @@ footer {
   #unique-header {
     flex-direction: column;
     padding: 15px;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-   
-    
+    position: relative;
   }
 
   #logo {
@@ -1796,7 +1790,9 @@ footer {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  
+  #unique-header {
+    padding: 15px 30px;
+  }
 
   #unique-nav-list {
     gap: 30px;
