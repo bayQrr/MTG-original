@@ -1742,9 +1742,7 @@ footer {
     padding: 10px;
   }
 
-  .footer-socials {
-    margin-right: 0;
-  }
+  
 
   #main-content {
     min-height: calc(100vh - 150px);
@@ -2455,7 +2453,7 @@ footer {
 
 @media (max-width: 1050px) {
   .tooltip {
-    width: 10px;
+    width: 550px;
     font-size: 13px;
     top: 55px;
     justify-content: center;

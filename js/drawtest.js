@@ -36,58 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     function animateShuffle() {
-        deckCard.classList.remove("shuffle-animation"); // Reset animatie
-        void deckCard.offsetWidth; // Forceer hertekening van het element
+        deckCard.classList.remove("shuffle-animation"); 
+        void deckCard.offsetWidth; 
         deckCard.classList.add("shuffle-animation");
     }
   
   
-  // function drawCard() {
-  //     if (deck.length === 0) {
-  //         alert("Geen kaarten meer over!");
-  //         return;
-  //     }
   
-  //     const card = deck.pop();
-  //     drawnCards.push(card);
-  
-  //     // Posities berekenen
-  //     const deckRect = deckCard.getBoundingClientRect();
-  //     const drawnRect = drawnCard.getBoundingClientRect();
-  
-  //     // ⬇️ Verberg de bovenste kaart van de stapel
-  //     deckCard.style.visibility = "hidden";
-  
-  //     // Toon animatiekaart
-  //     const movingCard = document.getElementById("moving-card");
-  //     movingCard.src = card.image;
-  //     movingCard.alt = card.name;
-  
-  //     movingCard.style.left = `${deckRect.left}px`;
-  //     movingCard.style.top = `${deckRect.top}px`;
-  //     movingCard.style.display = "block";
-  //     movingCard.style.opacity = "1";
-  
-  //     void movingCard.offsetWidth; // Force redraw
-  
-  //     const translateX = drawnRect.left - deckRect.left;
-  //     const translateY = drawnRect.top - deckRect.top;
-  
-  //     movingCard.style.transform = `translate(${translateX}px, ${translateY}px)`;
-  
-  //     setTimeout(() => {
-  //         drawnCard.src = card.image;
-  //         drawnCard.alt = card.name;
-  //         movingCard.style.opacity = "0";
-  
-  //         // ⬇️ Toon de deck-kaart terug zodra animatie klaar is
-  //         deckCard.style.visibility = "visible";
-  
-  //         addToHistory(card);
-  //     }, 600); // zelfde duur als CSS transition
-  
-  //     updateDisplay();
-  // }
   function drawCard() {
       if (deck.length === 0) {
           alert("Geen kaarten meer over!");
@@ -117,17 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
       void movingCard.offsetWidth;
   
       // Reset de transform en zorg dat de animatie opnieuw start
-      movingCard.style.transition = "none"; // Zet overgang uit om reset mogelijk te maken
-      movingCard.style.transform = `translate(0, 0)`; // Reset de transform naar startpositie
+      movingCard.style.transition = "none"; 
+      movingCard.style.transform = `translate(0, 0)`; 
   
-      // Forceer hertekening en zet de animatie terug
+      
       void movingCard.offsetWidth;
   
-      // Stel de juiste transformatie in voor de animatie
+     
       const translateX = drawnRect.left - deckRect.left;
       const translateY = drawnRect.top - deckRect.top;
   
-      movingCard.style.transition = "transform 0.6s ease"; // Zorg ervoor dat de animatie weer ingeschakeld is
+      movingCard.style.transition = "transform 0.6s ease"; 
       movingCard.style.transform = `translate(${translateX}px, ${translateY}px)`;
   
   
@@ -140,21 +95,21 @@ document.addEventListener("DOMContentLoaded", function () {
           deckCard.style.visibility = "visible";
   
           addToHistory(card);
-      }, 600); // Zorg ervoor dat de animatie wordt uitgevoerd voordat de kaart verandert
+      }, 600); 
   
       updateDisplay();
   }
   
   
     function animateDraw(card) {
-        drawnCard.classList.remove("draw-animation"); // Reset animatie
-        void drawnCard.offsetWidth; // Forceer her-tekenen van element
+        drawnCard.classList.remove("draw-animation"); 
+        void drawnCard.offsetWidth; 
         drawnCard.classList.add("draw-animation");
   
         setTimeout(() => {
             drawnCard.src = card.image;
             drawnCard.alt = card.name;
-        }, 500); // Zorg ervoor dat de afbeelding verandert nadat de animatie begint
+        }, 500); 
     }
   
     function updateDisplay() {
@@ -166,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cardElement.src = card.image;
         cardElement.alt = card.name;
         cardElement.title = card.name;
-        cardElement.classList.add("history-card", "fade-in"); // Voeg fade-in animatie toe
+        cardElement.classList.add("history-card", "fade-in"); 
         drawnCardsHistory.insertBefore(cardElement, drawnCardsHistory.firstChild);
     }
   

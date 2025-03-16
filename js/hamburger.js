@@ -5,7 +5,7 @@ const body = document.querySelector("body");
 hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
-    // Voorkom scrollen wanneer menu open is
+
     body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "auto";
 });
 

@@ -151,7 +151,7 @@ document.querySelector('.close').addEventListener('click', function() {
 
 // vraagteken
 document.addEventListener("DOMContentLoaded", function () {
-    // ... (jouw bestaande code hierboven blijft)
+    
 
     const uitlegKnop = document.getElementById("openUitlegPopup");
     const uitlegPopup = document.getElementById("uitlegPopup");

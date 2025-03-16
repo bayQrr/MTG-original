@@ -96,18 +96,18 @@ document.addEventListener("DOMContentLoaded", function () {
       currentIndex = (currentIndex + 1) % totalItems;
     }
 
-    // Verwijder active class van alle items
+    
     sliderItems.forEach((item) => item.classList.remove("active"));
 
-    // Voeg active class toe aan huidige item
+    
     sliderItems[currentIndex].classList.add("active");
 
     // Bereken de verschuiving om het actieve item te centreren
-    const itemWidth = 165; // 150px + 15px gap
+    const itemWidth = 165; 
     const offset = -currentIndex * itemWidth;
-    const centerOffset = (window.innerWidth - 350) / 2 - 100; // 350px is de breedte van het actieve item
+    const centerOffset = (window.innerWidth - 350) / 2 - 100; 
 
-    // Pas de transform toe met een vloeiende transitie
+    
     sliderContainer.style.transform = `translateX(${offset + centerOffset}px)`;
 
     // Als we bij het einde of begin zijn, bereid dan voor op de overgang
