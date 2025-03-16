@@ -1692,7 +1692,12 @@ footer {
   #unique-header {
     flex-direction: column;
     padding: 15px;
-    position: relative;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+   
+    
   }
 
   #logo {
@@ -1791,9 +1796,7 @@ footer {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  #unique-header {
-    padding: 15px 30px;
-  }
+  
 
   #unique-nav-list {
     gap: 30px;
