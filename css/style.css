@@ -871,16 +871,13 @@ footer {
 /* Aanpassing voor deck items container */
 #deck-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  flex-wrap: wrap; /* Zorgt ervoor dat items naast elkaar komen, maar naar beneden gaan als er geen ruimte is */
+  justify-content: center; /* Centreert de items */
+  gap: 20px; /* Ruimte tussen de items */
   width: 100%;
-  position: absolute; /* Voeg dit toe */
-  top: 50%; /* Voeg dit toe */
-  left: 50%; /* Voeg dit toe */
-  transform: translate(-50%, -50%); /* Voeg dit toe */
+  margin-top: 20px;
 }
+
 
 /* Aanpassing voor deck items */
 .deck-item {
