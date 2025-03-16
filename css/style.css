@@ -824,37 +824,76 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Voeg dit toe voor verticale centrering */
   text-align: center;
   min-height: calc(100vh - 200px);
   padding: 20px;
   font-family: magic;
   letter-spacing: 2px;
+  gap: 2rem; /* Voeg wat ruimte toe tussen elementen */
 }
 
 #main-content h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0; /* Reset margin */
 }
 
+/* Aanpassing voor deck section */
 #deck-section {
+  flex: 0 1 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   background: transparent;
   backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
-  border-radius: 10px;
   padding: 20px;
-  border-radius: 10px;
   max-width: 800px;
   width: 90%;
   margin: 0 auto;
+  min-height: 400px;
+  position: relative; /* Voeg dit toe */
 }
+
+/* Aanpassing voor deck items container */
+#deck-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  position: absolute; /* Voeg dit toe */
+  top: 50%; /* Voeg dit toe */
+  left: 50%; /* Voeg dit toe */
+  transform: translate(-50%, -50%); /* Voeg dit toe */
+}
+
+/* Aanpassing voor deck items */
+.deck-item {
+  text-align: center;
+  width: 160px;
+  background: #00000080;
+  border: 2px solid #ffffff33;
+  border-radius: 10px;
+  padding: 13px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin: 0;
+}
+
 .deck-item a {
   display: block;
   text-decoration: none;
@@ -863,23 +902,6 @@ footer {
 
 .deck-item a:hover {
   opacity: 0.8;
-}
-
-.deck-item {
-  text-align: center;
-  width: 160px;
-  background: #00000080;
-  border: 2px solid #ffffff33;
-  border-radius: 10px;
-  padding: 13px;
-  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Hover-effect */
-.deck-item:hover {
-  transform: scale(1.05);
-  /* box-shadow: 0 4px 15px #a1a09ccc; */
 }
 
 .deck-item img {
@@ -1023,6 +1045,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem; /* Voeg wat ruimte toe boven de add deck knop */
 }
 
 .new-deck-wrapper h2 {
@@ -1033,14 +1056,6 @@ footer {
   margin-bottom: 10px;
   width: 100%;
   color: white;
-}
-#deck-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
 }
 
 /* JS ICON BEWERKEN/VERWIJDEREN */
@@ -1681,7 +1696,6 @@ footer {
     flex-direction: column;
     padding: 15px;
     position: relative;
-   
   }
 
   #logo {
@@ -1742,8 +1756,6 @@ footer {
     padding: 10px;
   }
 
-  
-
   #main-content {
     min-height: calc(100vh - 150px);
     margin: 30px 0;
@@ -1755,8 +1767,6 @@ footer {
     padding: 20px;
     width: 70%;
   }
-
- 
 
   .rij1,
   .rij2 {
@@ -1824,7 +1834,6 @@ footer {
 
 /* Login/Register pagina's */
 @media screen and (max-width: 768px) {
-
   .login,
   .register {
     justify-content: center;
@@ -1902,9 +1911,6 @@ footer {
     width: auto;
   }
 
- 
-
-
   .rij1,
   .rij2 {
     flex-direction: row;
@@ -1956,8 +1962,6 @@ footer {
     margin-top: 8px;
   }
 
-
-
   .deck-banner {
     width: 100%;
   }
@@ -1976,12 +1980,11 @@ footer {
   .card-display section {
     width: 90%;
   }
-  .card-display img{
-   width: 40%;
+  .card-display img {
+    width: 40%;
   }
 
-  
-/* Game pagina */
+  /* Game pagina */
 
   #unique-draw-section {
     width: 90%;
@@ -1999,7 +2002,6 @@ footer {
     max-width: 200px;
   }
 }
-
 
 /* Tablet specifieke aanpassingen */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -2060,8 +2062,8 @@ footer {
 
   .slider-item.active {
     display: block;
-    width: 200px; 
-    height: 400px; 
+    width: 200px;
+    height: 400px;
   }
 
   .slider-image {
@@ -2075,7 +2077,7 @@ footer {
   display: none;
   cursor: pointer;
   position: absolute;
-  left: 20px; 
+  left: 20px;
   top: 40%;
   transform: translateY(-50%);
   z-index: 100;
@@ -2115,7 +2117,7 @@ footer {
     gap: 0;
     background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
-    height: calc(100vh - 70px); 
+    height: calc(100vh - 70px);
     text-align: center;
     transition: 0.3s;
     z-index: 99;
@@ -2169,8 +2171,6 @@ footer {
 .slider-arrow {
   display: none;
 }
-
-
 
 /* Styling voor desktop versie */
 @media screen and (min-width: 764px) {
@@ -2240,9 +2240,7 @@ footer {
   .slider-item.active {
     max-width: 260px;
   }
-
 }
-
 
 /* Minimale styling voor drawtest functionaliteit */
 .card-pile {
@@ -2432,7 +2430,6 @@ footer {
   font-family: stratum;
 }
 
-
 @media (max-width: 1200px) {
   .tooltip {
     width: 230px;
@@ -2440,26 +2437,22 @@ footer {
   }
 }
 
-
 @media (max-width: 1199px) {
   .tooltip {
     width: 120px;
     font-size: 14px;
     top: 50px;
   }
-
 }
-
 
 @media (max-width: 1099px) {
   .tooltip {
     width: 800px;
-   align-items: start;
+    align-items: start;
     font-size: 13.5px;
     top: 55px;
   }
 }
-
 
 @media (max-width: 1050px) {
   .tooltip {
@@ -2468,9 +2461,7 @@ footer {
     top: 55px;
     justify-content: center;
   }
-  
 }
-
 
 @media (max-width: 899px) {
   .tooltip-container {
@@ -2488,7 +2479,6 @@ footer {
   }
 }
 
-
 @media (max-width: 799px) {
   .tooltip {
     width: 180px;
@@ -2496,7 +2486,6 @@ footer {
     top: 65px;
   }
 }
-
 
 @media (max-width: 699px) {
   .tooltip {
@@ -2507,7 +2496,6 @@ footer {
   }
 }
 
-
 @media (max-width: 599px) {
   .tooltip {
     width: 160px;
@@ -2516,7 +2504,6 @@ footer {
     top: 75px;
   }
 }
-
 
 @media (max-width: 499px) {
   .tooltip {
@@ -2527,7 +2514,6 @@ footer {
   }
 }
 
-
 @media (max-width: 399px) {
   .tooltip {
     width: 140px;
@@ -2536,7 +2522,6 @@ footer {
     top: 85px;
   }
 }
-
 
 @media (max-width: 299px) {
   .tooltip {
@@ -2562,260 +2547,260 @@ footer {
   margin-right: auto;
 }
 
-
 @media (max-width: 1200px) {
   .deck-info {
-      gap: 4rem;
-      font-size: 16px;
-      padding: 15px;
-      max-width: 900px;
+    gap: 4rem;
+    font-size: 16px;
+    padding: 15px;
+    max-width: 900px;
   }
 }
-
 
 @media (max-width: 999px) {
   .deck-info {
-      gap: 3rem;
-      font-size: 15px;
-      max-width: 750px;
+    gap: 3rem;
+    font-size: 15px;
+    max-width: 750px;
   }
 }
-
 
 @media (max-width: 799px) {
   .deck-info {
-      flex-direction: column;
-      gap: 2rem;
-      text-align: center;
-      max-width: 90%;
-      font-size: 14px;
-      padding: 10px;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    max-width: 90%;
+    font-size: 14px;
+    padding: 10px;
   }
 }
-
 
 @media (max-width: 599px) {
   .deck-info {
-      gap: 1.5rem;
-      font-size: 13px;
-      padding: 8px;
+    gap: 1.5rem;
+    font-size: 13px;
+    padding: 8px;
   }
 }
 
-
 @media (max-width: 399px) {
   .deck-info {
-      gap: 1rem;
-      font-size: 12px;
-      padding: 5px;
-      margin: 50px 0;
-      margin-left:0.6rem;
+    gap: 1rem;
+    font-size: 12px;
+    padding: 5px;
+    margin: 50px 0;
+    margin-left: 0.6rem;
   }
 
- .tooltip{
+  .tooltip {
     width: 10rem;
-left :0%;
-right: 100%;
+    left: 0%;
+    right: 100%;
   }
 }
 /* Groot scherm (boven 1200px) */
 @media (max-width: 1200px) {
-    .filtering {
-        gap: 10rem;
-    }
-    
-    .kaart {
-        width: 110px;
-        height: 170px;
-    }
+  .filtering {
+    gap: 10rem;
+  }
 
-    .filter-btn img {
-        width: 80px;
-        height: 25px;
-    }
+  .kaart {
+    width: 110px;
+    height: 170px;
+  }
+
+  .filter-btn img {
+    width: 80px;
+    height: 25px;
+  }
 }
 
 /* Laptops en kleinere schermen (1200px - 999px) */
 @media (max-width: 999px) {
-    .filtering {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding: 15px;
-    }
+  .filtering {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 15px;
+  }
 
-    .filtering-button {
-        gap: 1.5rem;
-    }
+  .filtering-button {
+    gap: 1.5rem;
+  }
 
-    #searchBar {
-        width: 250px;
-        font-size: 14px;
-    }
+  #searchBar {
+    width: 250px;
+    font-size: 14px;
+  }
 
-    .kaart {
-        width: 100px;
-        height: 160px;
-    }
+  .kaart {
+    width: 100px;
+    height: 160px;
+  }
 
-    .rij1, .rij2 {
-        gap: 2rem;
-        margin-bottom: 4rem;
-    }
+  .rij1,
+  .rij2 {
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
 }
 
 /* Tablets en grotere telefoons (999px - 799px) */
 @media (max-width: 799px) {
-    .filtering {
-        gap: 1.5rem;
-        padding: 10px;
-    }
+  .filtering {
+    gap: 1.5rem;
+    padding: 10px;
+  }
 
-    .filtering-button {
-        gap: 1rem;
-    }
+  .filtering-button {
+    gap: 1rem;
+  }
 
-    .filter-btn {
-        width: 50px;
-        height: 50px;
-    }
+  .filter-btn {
+    width: 50px;
+    height: 50px;
+  }
 
-    .filter-btn img {
-        width: 70px;
-        height: 22px;
-    }
+  .filter-btn img {
+    width: 70px;
+    height: 22px;
+  }
 
-    #searchBar {
-        width: 220px;
-        padding: 8px;
-    }
+  #searchBar {
+    width: 220px;
+    padding: 8px;
+  }
 
-    .kaart {
-        width: 90px;
-        height: 140px;
-    }
+  .kaart {
+    width: 90px;
+    height: 140px;
+  }
 
-    .rij1, .rij2 {
-        gap: 1.5rem;
-        margin-bottom: 3rem;
-    }
+  .rij1,
+  .rij2 {
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
 }
 
 /* Kleine tablets en brede telefoons (799px - 599px) */
 @media (max-width: 599px) {
-    .filtering {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
+  .filtering {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
-    .filtering-button {
-        gap: 0.8rem;
-    }
+  .filtering-button {
+    gap: 0.8rem;
+  }
 
-    .filter-btn {
-        width: 45px;
-        height: 45px;
-    }
+  .filter-btn {
+    width: 45px;
+    height: 45px;
+  }
 
-    .filter-btn img {
-        width: 60px;
-        height: 20px;
-    }
+  .filter-btn img {
+    width: 60px;
+    height: 20px;
+  }
 
-    #searchBar {
-        width: 200px;
-        font-size: 12px;
-    }
+  #searchBar {
+    width: 200px;
+    font-size: 12px;
+  }
 
-    .kaart {
-        width: 80px;
-        height: 130px;
-    }
+  .kaart {
+    width: 80px;
+    height: 130px;
+  }
 
-    .rij1, .rij2 {
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 }
 
 /* Kleine telefoons (599px - 399px) */
 @media (max-width: 399px) {
-    .filtering {
-        gap: 0.5rem;
-        padding: 5px;
-    }
+  .filtering {
+    gap: 0.5rem;
+    padding: 5px;
+  }
 
-    .filtering-button {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
+  .filtering-button {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
-    .filter-btn {
-        width: 40px;
-        height: 40px;
-    }
+  .filter-btn {
+    width: 40px;
+    height: 40px;
+  }
 
-    .filter-btn img {
-        width: 50px;
-        height: 18px;
-    }
+  .filter-btn img {
+    width: 50px;
+    height: 18px;
+  }
 
-    #searchBar {
-        width: 180px;
-        padding: 6px;
-    }
+  #searchBar {
+    width: 180px;
+    padding: 6px;
+  }
 
-    .kaart {
-        width: 70px;
-        height: 120px;
-    }
+  .kaart {
+    width: 70px;
+    height: 120px;
+  }
 
-    .rij1, .rij2 {
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-bottom: 1.5rem;
-    }
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Extreem kleine telefoons (minder dan 399px) */
 @media (max-width: 299px) {
-    .filtering {
-        gap: 0.3rem;
-        padding: 2px;
-    }
+  .filtering {
+    gap: 0.3rem;
+    padding: 2px;
+  }
 
-    .filtering-button {
-        flex-wrap: wrap;
-        gap: 0.3rem;
-    }
+  .filtering-button {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
 
-    .filter-btn {
-        width: 35px;
-        height: 35px;
-    }
+  .filter-btn {
+    width: 35px;
+    height: 35px;
+  }
 
-    .filter-btn img {
-        width: 40px;
-        height: 16px;
-    }
+  .filter-btn img {
+    width: 40px;
+    height: 16px;
+  }
 
-    #searchBar {
-        width: 160px;
-        font-size: 11px;
-    }
+  #searchBar {
+    width: 160px;
+    font-size: 11px;
+  }
 
-    .kaart {
-        width: 60px;
-        height: 100px;
-    }
+  .kaart {
+    width: 60px;
+    height: 100px;
+  }
 
-    .rij1, .rij2 {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
 }
 /* -- Tablet (bijv. max 1024px) -- */
 @media screen and (max-width: 1024px) {
@@ -2867,14 +2852,10 @@ right: 100%;
   }
 
   #kaartContainer {
-  
     height: auto;
     margin-bottom: 2rem;
     box-shadow: none; /* eventueel minder schaduw */
   }
-
-
-  
 
   /* Filtering in kolom in plaats van rij */
   .filtering {
@@ -2910,7 +2891,7 @@ right: 100%;
     display: flex;
     flex-direction: column;
   }
-  .popupImg{
+  .popupImg {
     border-radius: 10px;
   }
   .rij1,
@@ -2971,11 +2952,117 @@ right: 100%;
   .icon svg {
     margin-top: 0rem;
   }
-#kaartContainer{
- margin: 0;
- padding: 0;
- 
+  #kaartContainer {
+    margin: 0;
+    padding: 0;
+  }
 }
 
+/* Algemene fixes voor horizontale scroll */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
+/* Fix voor de midden-container */
+.midden-container {
+  width: 95%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Fix voor kaartContainer */
+#kaartContainer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 0;
+}
+
+/* Fix voor deck-info sectie */
+.deck-info {
+  width: 95%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 15px;
+  box-sizing: border-box;
+  gap: 2rem;
+}
+
+/* Fix voor tooltip container */
+.tooltip-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.tooltip {
+  max-width: 90%;
+  box-sizing: border-box;
+}
+
+/* Fix voor card-display */
+.card-display {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  gap: 15px;
+}
+
+/* Aanpassingen voor zeer kleine schermen */
+@media screen and (max-width: 480px) {
+  .deck-info {
+    padding: 10px;
+    gap: 1rem;
+  }
+
+  .deck-info span {
+    font-size: 12px;
+  }
+
+  .deck-info img {
+    width: 20px;
+  }
+
+  #unique-draw-section {
+    padding: 10px;
+    width: 95%;
+  }
+
+  .filtering {
+    padding: 10px;
+  }
+
+  .filtering-button {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #searchBar {
+    width: 90%;
+    max-width: none;
+  }
+}
+
+/* Fix voor slider op landing page */
+@media screen and (max-width: 800px) {
+  #slider-container {
+    width: 95%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .slider-item.active {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+footer {
+  margin-top: auto;
 }
