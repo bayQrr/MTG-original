@@ -346,6 +346,10 @@
   padding: 20px;
 }
 
+#popupImg {
+  border-radius: 10px;
+}
+
 #searchBar {
   width: 300px;
   padding: 10px;
