@@ -2802,4 +2802,149 @@ footer {
         margin-bottom: 1rem;
     }
 }
+/* -- Tablet (bijv. max 1024px) -- */
+@media screen and (max-width: 1024px) {
+  /* Middencontainer minder breed en automatisch in hoogte */
+  .midden-container {
+    width: 90%;
+    height: auto;
+    margin-top: 30px;
+  }
 
+  .popup-container {
+    max-width: 70%;
+  }
+
+  /* Kaartcontainer breder opvullen en automatisch in hoogte */
+  #kaartContainer {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  /* Filtering naast elkaar houden maar iets dichter op elkaar */
+  .filtering {
+    gap: 5rem; /* iets kleiner dan 15rem */
+  }
+
+  /* De kaarten iets groter of kleiner, naar wens */
+  .kaart {
+    width: 100px;
+    height: 150px;
+  }
+
+  .kaart > p {
+    font-size: 16px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* -- Mobiel (bijv. max 768px) -- */
+@media screen and (max-width: 768px) {
+  /* Middencontainer volledig breed, auto-hoogte */
+  .midden-container {
+    width: 95%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  #kaartContainer {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    box-shadow: none; /* eventueel minder schaduw */
+  }
+
+  /* Filtering in kolom in plaats van rij */
+  .filtering {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 10px;
+  }
+
+  #searchBar {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .filtering-button {
+    gap: 1rem;
+  }
+
+  /* Zorg dat rij1 en rij2 wraps worden */
+  section.rij {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* gap: 3rem; */
+    margin-top: 4rem;
+  }
+  .popup-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Kaarten worden iets kleiner en vullen 45% van de breedte (2 naast elkaar) */
+  .kaart {
+    width: 45%;
+    height: auto;
+    margin-bottom: 1rem;
+    /* Zorg dat de hoogte automatisch schaalt met de breedte (als je alleen de breedte opgeeft) */
+  }
+
+  .kaart img {
+    width: 100%;
+    height: auto;
+  }
+
+  .kaart > p {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Paginering iets compacter */
+  #pagination {
+    margin: 2rem auto;
+    padding: 0 10px;
+  }
+
+  .page-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+/* -- Eventueel extra breakpoint voor héél kleine schermen (max 480px) -- */
+@media screen and (max-width: 480px) {
+  .kaart {
+    width: 80%;
+    margin: 0.5rem auto;
+    height: auto;
+  }
+
+  .kaart > p {
+    font-size: 0.8rem;
+  }
+
+  #searchBar {
+    width: 90%;
+  }
+}
