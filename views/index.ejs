@@ -39,68 +39,69 @@
 
                 <!-- Kaartcontainer: toont enkel naam en afbeelding -->
                 <section id="kaartContainer">
-                    <section class="rijen">
-                        <% if (cards && cards.length> 0) { %>
-                            <% cards.forEach(card=> { %>
-                                <section class="kaart" data-name="<%= card.name %>" data-type="<%= card.type %>"
-                                    data-mana-cost="<%= card.manaCost %>">
-                                    <p>
-                                        <%= card.name %>
-                                    </p>
-                                    <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
+                    <% const seenNames=new Set(); %>
+                        <section class="rijen">
+                            <% if (cards && cards.length> 0) { %>
+                                <% cards.forEach(card=> {
+                                    // alleen tonen als er een imageUrl is en we deze naam nog niet gezien hebben
+                                    if (card.imageUrl && !seenNames.has(card.name)) {
+                                    seenNames.add(card.name);
+                                    %>
+                                    <section class="kaart" data-name="<%= card.name %>" data-type="<%= card.type %>"
+                                        data-mana-cost="<%= card.manaCost %>">
+                                        <p>
+                                            <%= card.name %>
+                                        </p>
+                                        <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
+                                    </section>
+                                    <% }}) %>
+                                        <% } else { %>
+                                            <p>Geen kaarten gevonden.</p>
+                                            <% } %>
+                        </section>
+
+                        <!-- Popup voor kaartdetails (initieel verborgen) -->
+                        <section id="kaartPopup" style="display: none;">
+                            <section class="popup-container">
+                                <section class="popup-container-img">
+                                    <img id="popupImg" src="" alt="Kaart">
                                 </section>
-                                <% }) %>
-                                    <% } else { %>
-                                        <p>Geen kaarten gevonden.</p>
-                                        <% } %>
-                    </section>
-                </section>
+                                <section class="popup-specifications">
+                                    <p id="popupTitle"></p>
+                                    <p><strong>Type:</strong> <span id="popupType"></span></p>
+                                    <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
 
-                <!-- Popup voor kaartdetails (initieel verborgen) -->
-                <section id="kaartPopup" style="display: none;">
-                    <section class="popup-container">
-                        <section class="popup-container-img">
-                            <img id="popupImg" src="" alt="Kaart">
-                        </section>
-                        <section class="popup-specifications">
-                            <p id="popupTitle"></p>
-                            <p><strong>Type:</strong> <span id="popupType"></span></p>
-                            <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
+                                    <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
 
-                            <!-- Voeg onderstaande regels toe als je ze wilt tonen -->
-                            <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
-                            <p><strong>Set:</strong> <span id="popupSet"></span></p>
-                            <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
-                            <p><strong>Text:</strong> <span id="popupText"></span></p>
-                            <p><strong>Flavor:</strong> <span id="popupFlavor"></span></p>
-                            <p><strong>Artist:</strong> <span id="popupArtist"></span></p>
+                                    <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
+                                    <p><strong>Text:</strong> <span id="popupText"></span></p>
+
+                                </section>
+                                <span class="close">&times;</span>
+                            </section>
+
+                            <section class="card-counter">
+                                <button class="decrease-btn">-</button>
+                                <span id="cardCount">1</span>
+                                <button class="increase-btn">+</button>
+                            </section>
                         </section>
 
-                        <span class="close">&times;</span>
-                    </section>
-
-                    <section class="card-counter">
-                        <button class="decrease-btn">-</button>
-                        <span id="cardCount">1</span>
-                        <button class="increase-btn">+</button>
-                    </section>
+                        <!-- Paginering -->
+                        <section id="pagination">
+                            <button class="page-btn prev" onclick="prevPage()">«</button>
+                            <section class="page-numbers">
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">3</button>
+                                <button class="page-btn">4</button>
+                                <button class="page-btn">5</button>
+                                <span class="dots">...</span>
+                                <button class="page-btn">10</button>
+                            </section>
+                            <button class="page-btn next" onclick="nextPage()">»</button>
+                        </section>
                 </section>
-
-                <!-- Paginering -->
-                <section id="pagination">
-                    <button class="page-btn prev" onclick="prevPage()">«</button>
-                    <section class="page-numbers">
-                        <button class="page-btn active">1</button>
-                        <button class="page-btn">2</button>
-                        <button class="page-btn">3</button>
-                        <button class="page-btn">4</button>
-                        <button class="page-btn">5</button>
-                        <span class="dots">...</span>
-                        <button class="page-btn">10</button>
-                    </section>
-                    <button class="page-btn next" onclick="nextPage()">»</button>
-                </section>
-            </section>
         </main>
 
         <!-- Verwijs naar het JS-bestand; let op dat je pad begint met /js/ -->

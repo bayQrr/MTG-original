@@ -10,11 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupType = document.getElementById("popupType");
   const popupMana = document.getElementById("popupMana");
   const popupRarity = document.getElementById("popupRarity");
-  const popupSet = document.getElementById("popupSet");
   const popupPowerToughness = document.getElementById("popupPowerToughness");
   const popupText = document.getElementById("popupText");
-  const popupFlavor = document.getElementById("popupFlavor");
-  const popupArtist = document.getElementById("popupArtist");
 
   // Teller-elementen
   const increaseBtn = document.querySelector(".increase-btn");
@@ -48,27 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
       const type = kaart.getAttribute("data-type");
       const manaCost = kaart.getAttribute("data-mana-cost");
       const rarity = kaart.getAttribute("data-rarity");
-      const set = kaart.getAttribute("data-set");
       const power = kaart.getAttribute("data-power");
       const toughness = kaart.getAttribute("data-toughness");
       const text = kaart.getAttribute("data-text");
-      const flavor = kaart.getAttribute("data-flavor");
-      const artist = kaart.getAttribute("data-artist");
 
       // Vul de popup met de gegevens
       popupTitle.textContent = name || "";
       popupType.textContent = type || "";
       popupMana.textContent = manaCost || "";
       popupRarity.textContent = rarity || "";
-      popupSet.textContent = set || "";
       if (power && toughness) {
         popupPowerToughness.textContent = power + "/" + toughness;
       } else {
         popupPowerToughness.textContent = "";
       }
       popupText.textContent = text || "";
-      popupFlavor.textContent = flavor || "";
-      popupArtist.textContent = artist || "";
 
       // Haal de afbeelding op en vul de popup
       const imgEl = kaart.querySelector("img");
