@@ -1,13 +1,8 @@
 <%- include("partials/header") %>
 
     <body class="cards_body">
-
-
-
         <main>
-            <script src="/js/kaartendetail.js" defer></script>
-
-            <!-- icon -->
+            <!-- Icon -->
             <section class="tooltip-container">
                 <section class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
@@ -19,13 +14,9 @@
                 <section class="tooltip">
                     <p>Welkom bij Magic The Gathering! In dit spel kun je kaarten filteren op zeldzaamheid, kaarten
                         toevoegen aan je deck en meer.</p>
-                    <p>Klik op een kaart om details te bekijken, gebruik de teller om meerdere kaarten toe te
-                        voegen, en stel je eigen deck samen.</p>
+                    <p>Klik op een kaart om details te bekijken.</p>
                 </section>
             </section>
-
-
-
 
             <section class="midden-container">
                 <section class="filtering">
@@ -52,14 +43,11 @@
                         <% if (cards && cards.length> 0) { %>
                             <% cards.forEach(card=> { %>
                                 <section class="kaart" data-name="<%= card.name %>" data-type="<%= card.type %>"
-                                    data-mana-cost="<%= card.manaCost %>" data-rarity="<%= card.rarity %>"
-                                    data-set="<%= card.set %>" data-power="<%= card.power || '' %>"
-                                    data-toughness="<%= card.toughness || '' %>" data-text="<%= card.text || '' %>"
-                                    data-flavor="<%= card.flavor || '' %>" data-artist="<%= card.artist || '' %>">
+                                    data-mana-cost="<%= card.manaCost %>">
                                     <p>
                                         <%= card.name %>
                                     </p>
-                                    <img src="<%=card.imageUrl%>" alt="<%= card.name %>">
+                                    <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
                                 </section>
                                 <% }) %>
                                     <% } else { %>
@@ -78,46 +66,30 @@
                             <p id="popupTitle"></p>
                             <p><strong>Type:</strong> <span id="popupType"></span></p>
                             <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
+
+                            <!-- Voeg onderstaande regels toe als je ze wilt tonen -->
                             <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
                             <p><strong>Set:</strong> <span id="popupSet"></span></p>
                             <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
-                            <p><em><span id="popupText"></span></em></p>
+                            <p><strong>Text:</strong> <span id="popupText"></span></p>
                             <p><strong>Flavor:</strong> <span id="popupFlavor"></span></p>
                             <p><strong>Artist:</strong> <span id="popupArtist"></span></p>
-
-
-                            <form action="#" method="GET">
-
-                                <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
-                                <section class="card-counter">
-                                    <button class="decrease-btn">-</button>
-                                    <span id="cardCount">1</span>
-                                    <button class="increase-btn">+</button>
-                                </section>
-                                <section>
-
-                                    <button class="add-btn">Voeg toe</button>
-
-                                    <section class="deck-dropdown hidden">
-                                        <a href="#">Deck 1</a>
-                                        <a href="#">Deck 2</a>
-                                        <a href="#">Deck 3</a>
-                                    </section>
-                                </section>
-
-                            </form>
-
-                            <!-- option welke deck -->
                         </section>
+
                         <span class="close">&times;</span>
+                    </section>
+
+                    <section class="card-counter">
+                        <button class="decrease-btn">-</button>
+                        <span id="cardCount">1</span>
+                        <button class="increase-btn">+</button>
                     </section>
                 </section>
 
-                <!-- dit is de bonus vraag over de tabjespaginering -->
+                <!-- Paginering -->
                 <section id="pagination">
                     <button class="page-btn prev" onclick="prevPage()">«</button>
                     <section class="page-numbers">
-
                         <button class="page-btn active">1</button>
                         <button class="page-btn">2</button>
                         <button class="page-btn">3</button>
@@ -128,10 +100,11 @@
                     </section>
                     <button class="page-btn next" onclick="nextPage()">»</button>
                 </section>
-
+            </section>
         </main>
 
-
-
+        <!-- Verwijs naar het JS-bestand; let op dat je pad begint met /js/ -->
+        <script src="/js/kaartendetail.js" defer></script>
     </body>
+
     <%- include("partials/footer") %>

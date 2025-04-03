@@ -20,22 +20,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const increaseBtn = document.querySelector(".increase-btn");
   const decreaseBtn = document.querySelector(".decrease-btn");
   const cardCount = document.getElementById("cardCount");
+
   let count = 1;
-  cardCount.textContent = count;
-
-  increaseBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    count++;
+  if (cardCount) {
     cardCount.textContent = count;
-  });
 
-  decreaseBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    if (count > 1) {
-      count--;
+    increaseBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      count++;
       cardCount.textContent = count;
-    }
-  });
+    });
+
+    decreaseBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (count > 1) {
+        count--;
+        cardCount.textContent = count;
+      }
+    });
+  }
 
   // Voeg een click-event toe aan elke kaart
   kaarten.forEach(kaart => {
@@ -80,7 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Reset de teller naar 1
       count = 1;
-      cardCount.textContent = count;
+      if (cardCount) {
+        cardCount.textContent = count;
+      }
     });
   });
 
