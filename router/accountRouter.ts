@@ -1,48 +1,38 @@
-
-import express, { Express, Router } from "express";
-import dotenv from "dotenv";
-import path, { format } from "path";
+// router/accountRouter.ts
+import express from "express";
 import { login } from "../database";
-import { Collection } from "mongodb";
-import { User } from "../types";
-import { secureMiddleware } from "../middelware/secureMiddleware";
-import { use } from "dev/lib/application";
 
-export default function accountRouter(){
-    const router= express.Router();
+export function accountRouter() {
+  const router = express.Router();
 
-//login
-    router.get("/login", (req, res) => {
-        res.render("login");
-    });
-    
-    router.post("/login", async(req, res) => {
-        const username : string = req.body.username;
-        const password : string = req.body.password;
-        try {
-            let user : User = await login(username, password);
-            delete user.password; 
-            req.session.user = user;
-            res.redirect("/")
-        } catch (e : any) {
-            res.redirect("/login");
-        }
-    });
- 
-    
-//logount
+  // GET /login: Render de loginpagina
+  router.get("/login", (req, res) => {
+    if (req.session.user) {
+      return res.redirect("/");
+    }
+    res.render("login");
+  });
 
-router.get("/logout", async(req, res) => {
-    req.session.destroy(() => {
-        res.redirect("/login");
-    });
-});
+  // POST /login: Verwerk het loginformulier
+  router.post("/login", async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      const user = await login(username, password);
+      req.session.user = user; // Sla de user op in de sessie
+      res.redirect("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      res.redirect("/login?error=invalid");
+    }
+  });
 
-router.post("/logout", secureMiddleware, async (req, res) => {
+  // GET /logout: Log de gebruiker uit
+  router.get("/logout", (req, res) => {
     req.session.destroy((err) => {
-        res.redirect("/login");
+      if (err) console.error("Logout error:", err);
+      res.redirect("/login");
     });
-});
-return router;
-}
+  });
 
+  return router;
+}

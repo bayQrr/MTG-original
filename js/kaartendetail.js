@@ -1,167 +1,110 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Selecteer alle kaart-elementen
     const kaarten = document.querySelectorAll(".kaart");
+    console.log("Aantal kaarten gevonden:", kaarten.length);
+  
+    // Haal de popup-elementen op
     const popup = document.getElementById("kaartPopup");
     const popupImg = document.getElementById("popupImg");
     const popupTitle = document.getElementById("popupTitle");
-    const closeButton = document.querySelector(".close");
-
-    // Kaarten verhogen/verlagen
+    const popupType = document.getElementById("popupType");
+    const popupMana = document.getElementById("popupMana");
+    const popupRarity = document.getElementById("popupRarity");
+    const popupSet = document.getElementById("popupSet");
+    const popupPowerToughness = document.getElementById("popupPowerToughness");
+    const popupText = document.getElementById("popupText");
+    const popupFlavor = document.getElementById("popupFlavor");
+    const popupArtist = document.getElementById("popupArtist");
+  
+    // Teller-elementen in de popup
     const increaseBtn = document.querySelector(".increase-btn");
     const decreaseBtn = document.querySelector(".decrease-btn");
     const cardCount = document.getElementById("cardCount");
-
     let count = 1;
-
-
-   
     cardCount.textContent = count;
-
+  
     increaseBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        count++;
-        cardCount.textContent = count;
+      event.preventDefault();
+      count++;
+      cardCount.textContent = count;
+      console.log("Teller verhoogd:", count);
     });
-
+  
     decreaseBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (count > 1) {
-            count--;
-            cardCount.textContent = count;
-        }
+      event.preventDefault();
+      if (count > 1) {
+        count--;
+        cardCount.textContent = count;
+        console.log("Teller verlaagd:", count);
+      }
     });
-
-    // Kaarten klikken om details te tonen
+  
+    // Voeg click-event toe aan elke kaart
     kaarten.forEach(kaart => {
-        kaart.addEventListener("click", function () {
-            let imgSrc = this.querySelector("img").src;
-            let naam = this.querySelector("p").textContent;
-
-            popupImg.src = imgSrc;
-            popupTitle.textContent = naam;
-            popup.style.display = "flex";
-
-            // Reset teller naar 1 bij openen van popup
-            count = 1;
-            cardCount.textContent = count;
-        });
+      kaart.addEventListener("click", function () {
+        console.log("Kaart geklikt:", kaart);
+        
+        // Lees de data-attributen uit
+        // Zorg dat in je EJS voor elke kaart de naam in <p> staat!
+        const name = kaart.getAttribute("data-name");
+        const type = kaart.getAttribute("data-type");
+        const manaCost = kaart.getAttribute("data-mana-cost");
+        const rarity = kaart.getAttribute("data-rarity");
+        const set = kaart.getAttribute("data-set");
+        const power = kaart.getAttribute("data-power");
+        const toughness = kaart.getAttribute("data-toughness");
+        const text = kaart.getAttribute("data-text");
+        const flavor = kaart.getAttribute("data-flavor");
+        const artist = kaart.getAttribute("data-artist");
+  
+        console.log("Data gelezen:", { name, type, manaCost, rarity, set });
+  
+        // Haal de afbeelding op uit het <img>-element
+        const imgEl = kaart.querySelector("img");
+        if (imgEl) {
+          popupImg.src = imgEl.src;
+        } else {
+          console.error("Geen afbeelding gevonden in deze kaart.");
+        }
+  
+        // Vul de popup met de gegevens
+        popupTitle.textContent = name || "";
+        popupType.textContent = type || "";
+        popupMana.textContent = manaCost || "";
+        popupRarity.textContent = rarity || "";
+        popupSet.textContent = set || "";
+        if (power && toughness) {
+          popupPowerToughness.textContent = power + "/" + toughness;
+        } else {
+          popupPowerToughness.textContent = "";
+        }
+        popupText.textContent = text || "";
+        popupFlavor.textContent = flavor || "";
+        popupArtist.textContent = artist || "";
+  
+        // Maak de popup zichtbaar (verwijder eventueel de "hidden" class)
+        popup.style.display = "flex";
+        console.log("Popup zichtbaar");
+  
+        // Reset teller naar 1 bij openen
+        count = 1;
+        cardCount.textContent = count;
+      });
     });
-
-    // Sluit bij klik op de sloitknop
+  
+    // Sluit de popup wanneer op de sluitknop wordt geklikt
+    const closeButton = document.querySelector(".close");
     closeButton.addEventListener("click", function () {
-        popup.style.display = "none";
+      popup.style.display = "none";
+      console.log("Popup gesloten via sluitknop");
     });
-
-    // Sluit popup bij klikken ergens buiten de container
+  
+    // Sluit de popup als er buiten de container wordt geklikt
     popup.addEventListener("click", function (event) {
-        if (event.target === popup) {
-            popup.style.display = "none";
-        }
+      if (event.target === popup) {
+        popup.style.display = "none";
+        console.log("Popup gesloten door buiten de container te klikken");
+      }
     });
-});
-
-// Toevoegen aan deck functie 
-document.addEventListener("DOMContentLoaded", function () {
-    const addButton = document.querySelector(".add-btn");
-    const dropdown = document.querySelector(".deck-dropdown");
-
-    addButton.addEventListener("click", function (event) {
-        event.preventDefault(); 
-        dropdown.classList.toggle("hidden"); 
-    });
-});
-
-// kaarten ophalen n op via  API
-document.addEventListener("DOMContentLoaded", function () {
-    const kaartenContainer = document.getElementById("kaartContainer");
-
-    fetch("https://api.magicthegathering.io/v1/cards")
-        .then(response => response.json())
-        .then(data => {
-            renderKaarten(data.cards);
-        })
-        .catch(error => console.error("Fout bij het ophalen van kaarten:", error));
-});
-
-function renderKaarten(kaarten) {
-    const kaartenContainer = document.getElementById("kaartContainer");
-    kaartenContainer.innerHTML = ''; // Leegmaken eerst
-
-    // enkel eerste 4 tonen (dit moet nog aangepast worden zodat dit bij elke pagina wordt gedaan)
-    const maxKaarten = kaarten.slice(0, 8); // enkel eerste 4
-
-    //  telkens 4 kaarten per rij
-    for (let i = 0; i < maxKaarten.length; i += 4) {
-        const rij = document.createElement('section');
-        rij.classList.add('rij');
-
-        // Voeg 4 kaarten toe aan deze rij
-        for (let j = i; j < i + 4 && j < maxKaarten.length; j++) {
-            const kaart = maxKaarten[j];
-            const kaartElement = document.createElement('section');
-            kaartElement.classList.add('kaart', kaart.rarity?.toLowerCase() || 'common');
-
-            const kaartNaam = document.createElement('p');
-            kaartNaam.textContent = kaart.name;
-
-            const kaartAfbeelding = document.createElement('img');
-            kaartAfbeelding.src = kaart.imageUrl || "/assets/images/cardExample.jpg";
-
-            kaartElement.appendChild(kaartNaam);
-            kaartElement.appendChild(kaartAfbeelding);
-
-            kaartElement.addEventListener("click", function () {
-                showDetails(kaart);
-            });
-
-            rij.appendChild(kaartElement);
-        }
-
-        kaartenContainer.appendChild(rij);
-    }
-}
-
-// Toon de details van een kaart in de popup
-function showDetails(kaart) {
-    const popup = document.getElementById("kaartPopup");
-    const popupImg = document.getElementById("popupImg");
-    const popupTitle = document.getElementById("popupTitle");
-    
-//  popup toont img en titel 
-    popupImg.src = kaart.imageUrl || "/assets/images/cardExample.jpg";
-    popupTitle.textContent = kaart.name;
-
-// specificaties (nog te bespreken in groep welke we moeten nemen)
-    document.getElementById("popupType").textContent = kaart.type || "";
-    document.getElementById("popupMana").textContent = kaart.manaCost || "";
-    document.getElementById("popupRarity").textContent = kaart.rarity || "";
-    document.getElementById("popupSet").textContent = kaart.set || "";
-    document.getElementById("popupPowerToughness").textContent = (kaart.power && kaart.toughness) ? `${kaart.power}/${kaart.toughness}` : "";
-    document.getElementById("popupText").textContent = kaart.text || "";
-    document.getElementById("popupFlavor").textContent = kaart.flavor || "";
-    document.getElementById("popupArtist").textContent = kaart.artist || "";
-    //  popup zichtbaar mken
-    popup.style.display = "flex";
-}
-
-// Sluit de popup wanneer op de close button wordt geklikt
-document.querySelector('.close').addEventListener('click', function() {
-    document.getElementById("kaartPopup").style.display = "none";
-});
-
-
-// vraagteken
-document.addEventListener("DOMContentLoaded", function () {
-    
-
-    const uitlegKnop = document.getElementById("openUitlegPopup");
-    const uitlegPopup = document.getElementById("uitlegPopup");
-    const closeUitlegBtn = document.querySelector(".close-uitleg");
-
-    uitlegKnop.addEventListener("click", function () {
-        uitlegPopup.classList.add("active");
-    });
-
-    closeUitlegBtn.addEventListener("click", function () {
-        uitlegPopup.classList.remove("active");
-    });
-});
+  });
+  

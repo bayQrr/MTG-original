@@ -7,3 +7,15 @@ export interface User {
     password?: string;
     
 }
+
+
+export interface Cards {
+    _id?: ObjectId;
+    name:string;
+    rarety:string;
+    text:string;
+    type:string;
+    manaCost:string;
+    imageUrl:string;
+
+}

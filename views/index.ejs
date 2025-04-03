@@ -68,57 +68,25 @@
                 <section id="kaartContainer">
                     <section class="rij1">
 
-                        <section class="kaart common" onclick="showDetails(this)">
-                            <p>Kaart Naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
+                        <% if (cards && cards.length> 0) { %>
+                            <% cards.forEach(card=> { %>
+                                <section class="kaart">
+                                    <p>
+                                        <%= card.name %>
+                                    </p>
+                                    <img src="<%= card.imageUrl %>" alt="">
+                                </section>
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>Geen kaarten gevonden.</p>
+                                        <% } %>
 
-                        </section>
-                        <section class="kaart uncommon" onclick="showDetails(this)">
-                            <p>Kaart Naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
-
-                        </section>
-                        <section class="kaart rare" onclick="showDetails(this)">
-                            <p>Kaart Naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
-
-                        </section>
-                        <section class="kaart mythic" onclick="showDetails(this)">
-                            <p>Kaart Naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
-
-                        </section>
                     </section>
-
-                    <section class="rij2">
-
-                        <section class="kaart gewoon" onclick="showDetails(this)">
-                            <p>kaart naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
-
-                        </section>
-
-                        <section class="kaart gewoon" onclick="showDetails(this)">
-                            <p>kaart naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
-
-                        </section>
-
-                        <section class="kaart gewoon" onclick="showDetails(this)">
-                            <p>kaart naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
-
-                        </section>
-
-                        <section class="kaart gewoon" onclick="showDetails(this)">
-                            <p>kaart naam</p>
-                            <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
-
-                        </section>
                     </section>
-
-
                 </section>
+
+
+            </section>
             </section>
 
             <!-- de detail container -->
@@ -192,7 +160,7 @@
             </section>
 
         </main>
-      
+
 
     </body>
     <%- include("partials/footer") %>

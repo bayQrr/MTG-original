@@ -1,48 +1,38 @@
+// index.ts
 import express, { Express } from "express";
 import dotenv from "dotenv";
-import path, { format } from "path";
+import path from "path";
 import { connect } from "./database";
-import session from "./session";
-import accountRouter from "./router/accountRouter";
+import session from "./session"; // Zorg dat je session.ts correct is ingesteld
+import { accountRouter } from "./router/accountRouter";
 import { homeRouter } from "./router/homeRouter";
-import { secureMiddleware } from "./middelware/secureMiddleware";
+
 dotenv.config();
 
-const app : Express = express();
+const app: Express = express();
 
+// Stel EJS als view engine in en definieer de views-map
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session);
-connect();
-app.use(accountRouter());
-app.use(homeRouter());
+app.use(session); // Zorg dat sessie-middleware vóór de routers komt
 
-app.set('views', path.join(__dirname, "views"));
+// Routers
+app.use(accountRouter());
+app.use("/", homeRouter());
 
 app.set("port", process.env.PORT || 3000);
 
-// app.get("/" ,secureMiddleware, async(req, res) => {
-//     res.render("index");
-// });
-
-app.get("/", async(req, res) => {
-    if (req.session.user) {
-        res.render("index", {user: req.session.user});
-    } else {
-        res.redirect("/login");
-    }
-});
-
-
-
-app.listen(app.get("port"),async () => {
-    try {
-        await connect();
-        console.log("Server started on http://localhost:" + app.get('port'));
-    } catch (e) {
-        console.log(e);
-        process.exit(1); 
-    }
+app.listen(app.get("port"), async () => {
+  try {
+    await connect();
+    console.log(`Server started on http://localhost:${app.get("port")}`);
+  } catch (error) {
+    console.error("Error connecting to database:", error);
+    process.exit(1);
+  }
 });

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,48 +8,39 @@
     <link rel="stylesheet" href="/css/font.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <script src="js/kaartendetail.js" defer></script>
-    <script src="js/logout.js" defer></script>
-    <script src="js/hamburger.js" defer></script>
-    <script src="js/api.js" defer></script>
-    <script src="js/deck.js" defer></script>
-    <script src="js/drawtest.js" defer></script>
-    <script src="js/deckview.js" defer></script>
+    <script src="/js/kaartendetail.js" defer></script>
+    <script src="/js/logout.js" defer></script>
+    <script src="/js/hamburger.js" defer></script>
+    <script src="/js/api.js" defer></script>
+    <script src="/js/deck.js" defer></script>
+    <script src="/js/drawtest.js" defer></script>
+    <script src="/js/deckview.js" defer></script>
 </head>
-</head>
-
 <body>
-
     <header id="unique-header">
-        <a href="index.html"><img src="/assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
+        <a href="index.html">
+            <img src="/assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem" alt="Logo">
+        </a>
         <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
-
         <nav id="unique-navigation">
             <ul id="unique-nav-list">
-
                 <li id="unique-nav-decks"><a href="/deck">DECKS</a></li>
                 <li id="unique-nav-drawtest"><a href="/game">DRAWTEST</a></li>
             </ul>
         </nav>
-        <a href="#" id="unique-profile-link"><img src="assets/images/dragonbadr.png" alt="My Profile"
-                id="unique-profile-icon">
+        <a href="#" id="unique-profile-link">
+            <img src="/assets/images/dragonbadr.png" alt="My Profile" id="unique-profile-icon">
         </a>
         <div id="profile-dropdown" class="dropdown-menu hidden">
             <form action="/logout" method="post">
                 <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
                 <button type="submit">Uitloggen</button>
             </form>
-          
-           
-              
         </div>
-        </a>
     </header>

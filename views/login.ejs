@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inloggen</title>
-    <script src="/js/register.js" defer></script>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/style.css">
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inloggen</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/register.js" defer></script>
 </head>
-
 <body class="login">
 
-    <header id="unique-header">
-        <a href="landing.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo"> </a>
+  <header id="unique-header">
+    <a href="/"><img src="/assets/logo/LOGO-MAGIC 2.png" id="logo" alt="Logo"></a>
+  </header>
 
-    </header>
-
-    <section class="Login-container">
-        <section class="register-container">
-            <section class="register-form">
-                <h1>INLOGGEN</h1>
-                <form action="/login" method="post">
-
-                    <input type="text" placeholder="Gebruikersnaam" required>
-                    <section class="password-container">
-                        <input type="password" placeholder="Wachtwoord" required>
-
-                        <span class="toggle-password" onclick="togglePassword('password', this)">
-                            <i class="fas fa-eye-slash"></i>
-                        </span>
-                    </section>
-                </form>
-                <button type="submit" id="btn">Inloggen</button>
-                <p class="login-text">Geen account? <a href="register.html">Registreer</a></p>
-            </section>
-        </section>
+  <section class="Login-container">
+    <section class="register-container">
+      <section class="register-form">
+        <h1>INLOGGEN</h1>
+        <!-- Foutmelding als er een error query is -->
+        <% if (typeof query !== 'undefined' && query.error === 'invalid') { %>
+          <p style="color: red;">Ongeldige inloggegevens, probeer opnieuw.</p>
+        <% } %>
+        <form action="/login" method="post">
+          <input type="text" name="username" placeholder="Gebruikersnaam" required>
+          <section class="password-container">
+            <input type="password" name="password" id="password" placeholder="Wachtwoord" required>
+            <span class="toggle-password" onclick="togglePassword('password', this)">
+              <i class="fas fa-eye-slash"></i>
+            </span>
+          </section>
+          <button type="submit" id="btn">Inloggen</button>
+        </form>
+        <p class="login-text">Geen account? <a href="/register">Registreer</a></p>
+      </section>
     </section>
+  </section>
 
 </body>
-
 </html>
