@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const toughness = kaart.getAttribute("data-toughness");
       const text = kaart.getAttribute("data-text");
 
+
       // Vul de popup met de gegevens
       popupTitle.textContent = name || "";
       popupType.textContent = type || "";
