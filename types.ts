@@ -2,20 +2,20 @@ import { ObjectId } from "mongodb";
 
 export interface User {
     _id?: ObjectId;
-    username:string;
+    username: string;
     email?: string;
     password?: string;
-    
+
 }
 
 
 export interface Cards {
     _id?: ObjectId;
-    name:string;
-    rarety:string;
-    text:string;
-    type:string;
-    manaCost:string;
-    imageUrl:string;
+    name: string;
+    rarity: string;
+    text: string;
+    type: string;
+    manaCost: string;
+    imageUrl: string;
 
 }
