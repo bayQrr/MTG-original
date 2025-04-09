@@ -47,6 +47,7 @@ export function homeRouter() {
     }
   });
 
+  // kaart fitere 
   router.get("/", async (req, res) => {
     try {
       if (req.session.user) {
