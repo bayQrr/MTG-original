@@ -14,5 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdown.classList.remove("show");
         }
     });
+
+    document.getElementById("unique-profile-link").addEventListener("click", () => {
+        const tooltip = document.querySelector(".tooltip");
+        if (tooltip) tooltip.style.display = "none";
+    });
+
 });
 

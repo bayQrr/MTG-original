@@ -6,6 +6,7 @@ import { connect } from "./database";
 import session from "./session"; // Zorg dat je session.ts correct is ingesteld
 import { accountRouter } from "./router/accountRouter";
 import { homeRouter } from "./router/homeRouter";
+import { userRouter } from "./router/userRouter";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(session); // Zorg dat sessie-middleware vóór de routers komt
 // Routers
 app.use(accountRouter());
 app.use("/", homeRouter());
+app.use(userRouter());
 
 app.set("port", process.env.PORT || 3000);
 
