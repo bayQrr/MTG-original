@@ -121,3 +121,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Start op pagina 1
     showPage(currentPage);
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const kaarten = document.querySelectorAll(".kaart");
+
+    kaarten.forEach(kaart => {
+
+        const rarity = kaart.getAttribute("data-rarity");
+
+        if (rarity) {
+            kaart.classList.add(rarity.toLowerCase());
+        }
+    });
+
+  
+});
