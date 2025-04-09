@@ -1,116 +1,64 @@
-<!DOCTYPE html>
-<html lang="nl">
+<%- include("partials/header") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic: The Gathering Draw Test</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/logout.js" defer></script>
-    <script src="js/hamburger.js" defer></script>
-    <script src="js/drawtest.js" defer></script>
+    <body id="unique-body">
+        
 
-</head>
-
-<body id="unique-body">
-    <header id="unique-header">
-        <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <nav id="unique-navigation">
-            <ul id="unique-nav-list">
-
-                <li id="unique-nav-decks"><a href="deck.html">DECKS</a></li>
-                <li id="unique-nav-drawtest"><a href="game.html">DRAWTEST</a></li>
-            </ul>
-        </nav>
-        <a href="#" id="unique-profile-link"><img src="assets/images/dragonbadr.png" alt="My Profile"
-                id="unique-profile-icon">
-        </a>
-        <div id="profile-dropdown" class="dropdown-menu hidden">
-            <a href="login.html"> <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
-                Uitloggen</a>
-        </div>
-        </a>
-    </header>
-
-    <!-- info bar -->
-    <section class="tooltip-container">
-        <section class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
-                <path
-                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
-                </path>
-            </svg>
+        <!-- info bar -->
+        <section class="tooltip-container">
+            <section class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+                    </path>
+                </svg>
+            </section>
+            <section class="tooltip">
+                <p>Trek kaarten, schud je deck, reset het spel en ontdek de kans op een specifieke kaart.</p>
+            </section>
         </section>
-        <section class="tooltip">
-            <p>Trek kaarten, schud je deck, reset het spel en ontdek de kans op een specifieke kaart.</p>
-        </section>
-    </section>
 
-    <main id="unique-main">
-        <section id="unique-draw-section">
-            <div id="unique-draw-controls">
-                <div id="main-buttons">
-                    <button id="unique-draw-button">Draw</button>
-                    <button id="unique-shuffle-button">Shuffle</button>
-                    <button id="unique-reset-button">Reset</button>
-                </div>
+        <main id="unique-main">
+            <section id="unique-draw-section">
+                <div id="unique-draw-controls">
+                    <div id="main-buttons">
+                        <button id="unique-draw-button">Draw</button>
+                        <button id="unique-shuffle-button">Shuffle</button>
+                        <button id="unique-reset-button">Reset</button>
+                    </div>
 
-                <div id="search-controls">
-                    <input type="text" id="card-search" placeholder="Zoek een kaart...">
-                    <button id="calculate-odds">Kans</button>
-                    <span id="odds-result"></span>
-                </div>
-            </div>
-
-            <span id="unique-deck-icon">
-                <span id="cards-remaining">60 kaarten over</span>
-            </span>
-
-            <div id="unique-card-display">
-                <div id="deck-pile">
-                    <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
-                </div>
-                <span id="unique-crossed-swords">
-                    <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="">
-                </span>
-                <!-- Voeg dit toe in je HTML tussen je twee stapels -->
-<img id="moving-card" class="moving-card" src="" alt="" />
-
-                <div id="drawn-pile">
-                    <div id="current-card">
-                        <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card" id="unique-drawn-card">
-                     
+                    <div id="search-controls">
+                        <input type="text" id="card-search" placeholder="Zoek een kaart...">
+                        <button id="calculate-odds">Kans</button>
+                        <span id="odds-result"></span>
                     </div>
                 </div>
-            </div>
 
-            <div id="drawn-cards-history"></div>
-        </section>
-    </main>
+                <span id="unique-deck-icon">
+                    <span id="cards-remaining">60 kaarten over</span>
+                </span>
 
+                <div id="unique-card-display">
+                    <div id="deck-pile">
+                        <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
+                    </div>
+                    <span id="unique-crossed-swords">
+                        <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="">
+                    </span>
+                    <!-- Voeg dit toe in je HTML tussen je twee stapels -->
+                    <img id="moving-card" class="moving-card" src="" alt="" />
 
-    <footer>
+                    <div id="drawn-pile">
+                        <div id="current-card">
+                            <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card" id="unique-drawn-card">
 
-        <ul>
-            <p>&copy; MTG-Originals - All rights reserved</p>
-        </ul>
-    </footer>
+                        </div>
+                    </div>
+                </div>
 
+                <div id="drawn-cards-history"></div>
+            </section>
+        </main>
 
+    </body>
 
-</body>
-
-</html>
+    <%- include("partials/footer") %>

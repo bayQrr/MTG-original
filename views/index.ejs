@@ -1,249 +1,147 @@
-<!DOCTYPE html>
-<html lang="nl-BE">
+<%- include("partials/header") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic The Gathering kaarten</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/kaartendetail.js" defer></script>
-    <script src="js/logout.js" defer></script>
-    <script src="js/hamburger.js" defer></script>
-    <script src="js/api.js" defer></script>
-</head>
-
-<body class="cards_body">
-    <header id="unique-header">
-        <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <nav id="unique-navigation">
-            <ul id="unique-nav-list">
-
-                <li id="unique-nav-decks"><a href="/views/deck.ejs">DECKS</a></li>
-                <li id="unique-nav-drawtest"><a href="game.ejs">DRAWTEST</a></li>
-            </ul>
-        </nav>
-        <a href="#" id="unique-profile-link"><img src="assets/images/dragonbadr.png" alt="My Profile"
-                id="unique-profile-icon">
-        </a>
-        <div id="profile-dropdown" class="dropdown-menu hidden">
-            <a href="login.html"> <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
-                Uitloggen</a>
-        </div>
-        </a>
-    </header>
-
-
- <main>
-    <!-- icon eerste versie  -->
-<!-- <section id="uitleg-knop">
-    <img src="assets/icon/pngegg.png" alt="uitleg" id="openUitlegPopup" />
-  </section>
-  
-  <section id="uitlegPopup" class="hidden">
-    <section class="uitlegIndex">
-      <p>Welkom bij Magic The Gathering! In dit spel kun je kaarten filteren op zeldzaamheid, kaarten toevoegen aan je deck en meer.</p>
-      <p>Klik op een kaart om details te bekijken, gebruik de teller om meerdere kaarten toe te voegen, en stel je eigen deck samen.</p>
-      <span class="close-uitleg">&times;</span>
-    </section>
-  </section> -->
-
-  <!-- icon tweede versie --> 
-<section class="tooltip-container">
-    <section class="icon">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="50"
-        height="50"
-      >
-        <path
-          d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z"
-        ></path>
-      </svg>
-    </section>
-    <section class="tooltip">
-        <p>Welkom bij Magic The Gathering! In dit spel kun je kaarten filteren op zeldzaamheid, kaarten toevoegen aan je deck en meer.</p>
-        <p>Klik op een kaart om details te bekijken, gebruik de teller om meerdere kaarten toe te voegen, en stel je eigen deck samen.</p>
-    </section>
-  </section>
-  
-  
-  
-
-        <section class="midden-container">
-
-
-            <section class="filtering">
-
-
-                <section class="filtering-button">
-                    <button class="filter-btn common" data-type="common">
-                        <img src="assets/icon/CummonIcon.png" alt="Common">
-                    </button>
-                    <button class="filter-btn uncommon" data-type="uncommon">
-                        <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
-                    </button>
-                    <button class="filter-btn rare" data-type="rare">
-                        <img src="assets/icon/RareIcon.png" alt="Rare">
-                    </button>
-                    <button class="filter-btn mythic" data-type="mythic">
-                        <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
-                    </button>
+    <body class="cards_body">
+        <main>
+            <!-- Icon -->
+            <section class="tooltip-container">
+                <section class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+                        </path>
+                    </svg>
                 </section>
-                <input type="text" id="searchBar" placeholder="Zoek een kaart...">
+                <section class="tooltip">
+                    <p>Welkom bij Magic The Gathering! In dit spel kun je kaarten filteren op zeldzaamheid, kaarten
+                        toevoegen aan je deck en meer.</p>
+                    <p>Klik op een kaart om details te bekijken.</p>
+                </section>
             </section>
 
-
-            <!-- moet nog met api opgehaald worden -->
-            <!-- dit is enkel een voorbeeld van hoe het eruit kan zien -->
-
-            <section id="kaartContainer">
-                <section class="rij1">
-
-                    <section class="kaart common" onclick="showDetails(this)">
-                        <p>Kaart Naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 1">
-
-                    </section>
-                    <section class="kaart uncommon" onclick="showDetails(this)">
-                        <p>Kaart Naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 2">
-
-                    </section>
-                    <section class="kaart rare" onclick="showDetails(this)">
-                        <p>Kaart Naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 3">
-
-                    </section>
-                    <section class="kaart mythic" onclick="showDetails(this)">
-                        <p>Kaart Naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 4">
-
-                    </section>
-                </section>
-
-                <section class="rij2">
-
-                    <section class="kaart gewoon" onclick="showDetails(this)">
-                        <p>kaart naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 5">
-
-                    </section>
-
-                    <section class="kaart gewoon" onclick="showDetails(this)">
-                        <p>kaart naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 6">
-
-                    </section>
-
-                    <section class="kaart gewoon" onclick="showDetails(this)">
-                        <p>kaart naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 7">
-
-                    </section>
-
-                    <section class="kaart gewoon" onclick="showDetails(this)">
-                        <p>kaart naam</p>
-                        <img src="/assets/images/cardExample.jpg" alt="Kaart 8">
-
-                    </section>
-                </section>
-
-
-            </section>
-        </section>
-
-        <!-- de detail container -->
-        <section id="kaartPopup" class="hidden">
-            <section class="popup-container">
-                <section class="popup-container-img">
-                    <img id="popupImg" src="" alt="Kaart">
-                </section>
-                <section class="popup-specifications">
-                    <p id="popupTitle"></p>
-                    <!-- specificaties die uit api gehaald worden -->
-                    <p><strong>Type:</strong> <span id="popupType"></span></p>
-                    <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
-                    <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
-                    <p><strong>Set:</strong> <span id="popupSet"></span></p>
-                    <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
-                    <p><em><span id="popupText"></span></em></p>
-                    <p><strong>Flavor:</strong> <span id="popupFlavor"></span></p>
-                    <p><strong>Artist:</strong> <span id="popupArtist"></span></p>
-
-                    <form action="#" method="GET">
-
-                        <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
-                        <section class="card-counter">
-                            <button class="decrease-btn">-</button>
-                            <span id="cardCount">1</span>
-                            <button class="increase-btn">+</button>
+            <section class="midden-container">
+                <section class="filtering">
+                    <form action="/cards" method="get" class="filtering">
+                        <section class="filtering-button">
+                          <button class="filter-btn common" name="rarity" value="common" type="submit">
+                            <img src="assets/icon/CummonIcon.png" alt="Common">
+                          </button>
+                          <button class="filter-btn uncommon" name="rarity" value="uncommon" type="submit">
+                            <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
+                          </button>
+                          <button class="filter-btn rare" name="rarity" value="rare" type="submit">
+                            <img src="assets/icon/RareIcon.png" alt="Rare">
+                          </button>
+                          <button class="filter-btn mythic" name="rarity" value="mythic" type="submit">
+                            <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
+                          </button>
                         </section>
-                        <section>
+                      
+                        <input type="text" name="zoekterm" id="searchBar" placeholder="Zoek een kaart...">
+                      </form>
+                      
+                </section>
 
-                            <button class="add-btn">Voeg toe</button>
+                <!-- Kaartcontainer: toont enkel naam en afbeelding -->
+                <section id="kaartContainer">
+                    <% const seenNames=new Set(); %>
+                        <section class="rijen">
+                            <% if (cards && cards.length> 0) { %>
+                                <% cards.forEach(card=> {
+                                    // alleen tonen als er een imageUrl is en we deze naam nog niet gezien hebben
+                                    if (card.imageUrl && !seenNames.has(card.name)) {
+                                    seenNames.add(card.name);
+                                    %>
+                                    <section class="kaart" data-name="<%= card.name %>" data-type="<%= card.type %>"
+                                        data-mana-cost="<%= card.manaCost %>" data-rarity="<%= card.rarity %>"
+                                        data-power="<%= card.power %>" data-toughness="<%= card.toughness %>"
+                                        data-text="<%= card.text %>">
+                                        <p>
+                                            <%= card.name %>
+                                        </p>
+                                        <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
+                                    </section>
 
-                            <section class="deck-dropdown hidden">
-                                <a href="#">Deck 1</a>
-                                <a href="#">Deck 2</a>
-                                <a href="#">Deck 3</a>
+                                    <% }}) %>
+                                        <% } else { %>
+                                            <p>Geen kaarten gevonden.</p>
+                                            <% } %>
+                        </section>
+
+                        <!-- Popup voor kaartdetails (initieel verborgen) -->
+                        <section id="kaartPopup" style="display: none;">
+                            <section class="popup-container">
+                                <section class="popup-container-img">
+                                    <img id="popupImg" src="" alt="Kaart">
+                                </section>
+                                <section class="popup-specifications">
+                                    <p id="popupTitle"></p>
+                                    <p><strong>Type:</strong> <span id="popupType"></span></p>
+                                    <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
+
+                                    <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
+
+                                    <p><strong>Power/Toughness:</strong> <span id="popupPowerToughness"></span></p>
+                                    <p><strong>Text:</strong> <span id="popupText"></span></p>
+
+                                </section>
+                                <span class="close">&times;</span>
                             </section>
 
+                            <form action="#" method="GET">
+
+                                <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
+                                <section class="card-counter">
+                                    <button class="decrease-btn">-</button>
+                                    <span id="cardCount">1</span>
+                                    <button class="increase-btn">+</button>
+                                </section>
+                                <section>
+
+                                    <button class="add-btn">Voeg toe</button>
+
+                                    <section class="deck-dropdown hidden">
+                                        <a href="#">Deck 1</a>
+                                        <a href="#">Deck 2</a>
+                                        <a href="#">Deck 3</a>
+                                    </section>
+
+
+                                </section>
+
+
+
+                            </form>
+
+
+
 
                         </section>
 
 
 
-                    </form>
 
-
-
-                    <!-- option welke deck -->
                 </section>
-                <span class="close">&times;</span>
-
-
-
             </section>
-        </section>
 
-        <!-- dit is de bonus vraag over de tabjespaginering -->
-        <section id="pagination">
-            <button class="page-btn prev" onclick="prevPage()">«</button>
-            <section class="page-numbers">
-
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-                <button class="page-btn">4</button>
-                <button class="page-btn">5</button>
-                <span class="dots">...</span>
-                <button class="page-btn">10</button>
+            <!-- dit is de bonus vraag over de tabjespaginering -->
+            <section id="pagination">
+                <button class="page-btn prev" onclick="prevPage()" disabled>«</button>
+                <section class="page-numbers">
+                    <button class="page-btn active" data-page="1">1</button>
+                    <button class="page-btn" data-page="2">2</button>
+                    <button class="page-btn" data-page="3">3</button>
+                    <button class="page-btn" data-page="4">4</button>
+                    <button class="page-btn" data-page="5">5</button>
+                    <span class="dots">...</span>
+                </section>
+                <button class="page-btn next" onclick="nextPage()" disabled>»</button>
             </section>
-            <button class="page-btn next" onclick="nextPage()">»</button>
-        </section>
 
-    </main>
-    <footer>
 
-        <ul>
-            <p>&copy; MTG-Originals - All rights reserved</p>
-        </ul>
-    </footer>
+        </main>
 
-</body>
+        <!-- Verwijs naar het JS-bestand; let op dat je pad begint met /js/ -->
+        <script src="/js/kaartendetail.js" defer></script>
+    </body>
 
-</html>
+    <%- include("partials/footer") %>

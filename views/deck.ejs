@@ -1,116 +1,64 @@
-<!DOCTYPE html>
-<html lang="nl">
+<%- include("partials/header") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic: The Gathering Decks</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/deck.js" defer></script>
-    <script src="js/logout.js" defer></script>
-    <script src="js/hamburger.js" defer></script>
+    <body id="body-background">
 
-
-</head>
-
-<body id="body-background">
-    <header id="unique-header">
-        <a href="index.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" width="90rem"> </a>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <nav id="unique-navigation">
-            <ul id="unique-nav-list">
-
-                <li id="unique-nav-decks"><a href="deck.html">DECKS</a></li>
-                <li id="unique-nav-drawtest"><a href="game.html">DRAWTEST</a></li>
-            </ul>
-        </nav>
-        <a href="#" id="unique-profile-link"><img src="assets/images/dragonbadr.png" alt="My Profile"
-                id="unique-profile-icon">
-        </a>
-        <div id="profile-dropdown" class="dropdown-menu hidden">
-            <a href="login.html"> <img src="/assets/icon/poweroff icon.png" alt="poweroff" class="icon-img">
-                Uitloggen</a>
-        </div>
-        </a>
-    </header>
-    <section class="tooltip-container">
-        <section class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
-                <path
-                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
-                </path>
-            </svg>
-        </section>
-        <section class="tooltip">
-            <p>Beheer hier je persoonlijke decks. Maak nieuwe decks aan, geef ze een naam en achtergrond. </p>
-            <p>Klik op een deck bekijk je kaartverzameling.</p>
-        </section>
-    </section>
-
-    <main id="main-content">
-        <h2>DECK COLLECTION</h2>
-        <section id="deck-section">
-           
-            <article id="deck-1" class="deck-item">
-                <a href="deckview.html">
-                    <img src="/assets/images/Magic_card_back 19.png" alt="Deck 1" id="deck-img-1">
-                    <p id="deck-text-1">deck 1</p>
-                </a>
-            </article>
-            <article id="deck-2" class="deck-item">
-                <a href="deckview.html">
-                    <img src="/assets/images/Magic_card_back 19.png" alt="Deck 2" id="deck-img-2">
-                    <p id="deck-text-2">deck 2</p>
-                </a>
-            </article>
-            <article id="deck-3" class="deck-item">
-                <a href="deckview.html">
-                    <img src="/assets/images/Magic_card_back 19.png" alt="Deck 3" id="deck-img-3">
-                    <p id="deck-text-3">deck 3</p>
-                </a>
-            </article>
-       
-
-            <div id="deck-container"></div>
-           
-        </section>
-        <section class="new-deck-wrapper">
-
-          
-            <button id="add-deck-btn"><img src="/assets/icon/cards icon.png" alt="plusLogo"> </button>
+        <section class="tooltip-container">
+            <section class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+                    </path>
+                </svg>
+            </section>
+            <section class="tooltip">
+                <p>Beheer hier je persoonlijke decks. Maak nieuwe decks aan, geef ze een naam en achtergrond. </p>
+                <p>Klik op een deck bekijk je kaartverzameling.</p>
+            </section>
         </section>
 
+        <main id="main-content">
+            <h2>DECK COLLECTION</h2>
+            <section id="deck-section">
 
-    </main>
+                <article id="deck-1" class="deck-item">
+                    <a href="deckview.html">
+                        <img src="/assets/images/Magic_card_back 19.png" alt="Deck 1" id="deck-img-1">
+                        <p id="deck-text-1">deck 1</p>
+                    </a>
+                </article>
+                <article id="deck-2" class="deck-item">
+                    <a href="deckview.html">
+                        <img src="/assets/images/Magic_card_back 19.png" alt="Deck 2" id="deck-img-2">
+                        <p id="deck-text-2">deck 2</p>
+                    </a>
+                </article>
+                <article id="deck-3" class="deck-item">
+                    <a href="deckview.html">
+                        <img src="/assets/images/Magic_card_back 19.png" alt="Deck 3" id="deck-img-3">
+                        <p id="deck-text-3">deck 3</p>
+                    </a>
+                </article>
 
-    <!-- deckpopup bij het aanmaken van nieuwe deck -->
-    <section id="deck-popup" class="deck-popup-container">
-        <section class="deck-popup-content">
-            <span class="deck-close-btn">&times;</span>
-            <input type="text" id="deck-name" placeholder="Deck naam" required>
-            <input type="url" id="deck-img-url" placeholder="Achtergrondafbeelding URL" required>
-            <button id="save-deck-btn">Opslaan</button>
+
+                <div id="deck-container"></div>
+
+            </section>
+            <section class="new-deck-wrapper">
+
+
+                <button id="add-deck-btn"><img src="/assets/icon/cards icon.png" alt="plusLogo"> </button>
+            </section>
+
+
+        </main>
+
+        <!-- deckpopup bij het aanmaken van nieuwe deck -->
+        <section id="deck-popup" class="deck-popup-container">
+            <section class="deck-popup-content">
+                <span class="deck-close-btn">&times;</span>
+                <input type="text" id="deck-name" placeholder="Deck naam" required>
+                <input type="url" id="deck-img-url" placeholder="Achtergrondafbeelding URL" required>
+                <button id="save-deck-btn">Opslaan</button>
+            </section>
         </section>
-    </section>
-
-    <footer>
-
-        <ul>
-            <p>&copy; MTG-Originals - All rights reserved</p>
-        </ul>
-    </footer>
-</body>
-
-</html>
+        <%- include("partials/footer") %>
