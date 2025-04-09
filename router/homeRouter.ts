@@ -8,17 +8,9 @@ export function homeRouter() {
     try {
       const zoekterm = (req.query.zoekterm as string || "").toLowerCase();
       const rarityFilter = req.query.rarity as string || "";
-
-      console.log("Ontvangen zoekterm:", zoekterm);
-      console.log("Ontvangen rarity-filter:", rarityFilter);
-
       const allCards = await getCards();
 
-      // Debug: check of er überhaupt rare kaarten zijn
-      const rareCards = allCards.filter(card =>
-        card.rarity?.toLowerCase() === "rare"
-      );
-      console.log("Aantal 'rare' kaarten in database:", rareCards.length);
+
 
       // Begin met alleen kaarten met image
       let filteredCards = allCards.filter(card => card.imageUrl);

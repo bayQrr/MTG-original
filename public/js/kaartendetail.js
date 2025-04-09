@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initialiseerKaarten() {
     const kaarten = document.querySelectorAll(".kaart");
     const popup = document.getElementById("kaartPopup");
     const popupImg = document.getElementById("popupImg");
@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const popupText = document.getElementById("popupText");
     const closeBtn = document.querySelector(".close");
 
-    // Teller elementen
     const increaseBtn = document.querySelector(".increase-btn");
     const decreaseBtn = document.querySelector(".decrease-btn");
     const cardCountSpan = document.getElementById("cardCount");
 
     let count = 1;
 
-    // Kaart popup tonen bij klik
     kaarten.forEach(kaart => {
         kaart.addEventListener("click", function () {
             const name = kaart.getAttribute("data-name");
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const text = kaart.getAttribute("data-text");
             const imageUrl = kaart.querySelector("img").src;
 
-            // Popup vullen
             popupTitle.textContent = name;
             popupType.textContent = type;
             popupMana.textContent = manaCost;
@@ -38,21 +35,23 @@ document.addEventListener("DOMContentLoaded", function () {
             popupText.textContent = text;
             popupImg.src = imageUrl;
 
-            // Teller resetten
             count = 1;
             if (cardCountSpan) cardCountSpan.textContent = count;
 
             popup.style.display = "block";
         });
+
+        const rarity = kaart.getAttribute("data-rarity");
+        if (rarity) {
+            kaart.classList.add(rarity.toLowerCase());
+        }
     });
 
-    // Popup sluiten
     closeBtn?.addEventListener("click", () => popup.style.display = "none");
     window.addEventListener("click", (e) => {
         if (e.target === popup) popup.style.display = "none";
     });
 
-    // Teller logica
     increaseBtn?.addEventListener("click", function (e) {
         e.preventDefault();
         count++;
@@ -67,41 +66,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Paginering
-    let currentPage = 1;
-    const kaartenPerPagina = 8;
+    showPage(currentPage); // <-- Herlaad huidige pagina
+}
 
-    function showPage(page) {
-        const kaartenArray = Array.from(document.querySelectorAll(".kaart"));
-        const startIndex = (page - 1) * kaartenPerPagina;
-        const endIndex = page * kaartenPerPagina;
+let currentPage = 1;
+const kaartenPerPagina = 8;
 
-        kaartenArray.forEach(kaart => kaart.style.display = "none");
-        kaartenArray.slice(startIndex, endIndex).forEach(kaart => kaart.style.display = "block");
+function showPage(page) {
+    const kaartenArray = Array.from(document.querySelectorAll(".kaart"));
+    const startIndex = (page - 1) * kaartenPerPagina;
+    const endIndex = page * kaartenPerPagina;
 
-        currentPage = page;
-        updatePagination(page);
-    }
+    kaartenArray.forEach(kaart => kaart.style.display = "none");
+    kaartenArray.slice(startIndex, endIndex).forEach(kaart => kaart.style.display = "block");
 
-    function updatePagination(page) {
-        const kaarten = document.querySelectorAll(".kaart");
-        const totaalPaginas = Math.ceil(kaarten.length / kaartenPerPagina);
-        const prevButton = document.querySelector(".prev");
-        const nextButton = document.querySelector(".next");
-        const pageButtons = document.querySelectorAll(".page-btn[data-page]");
+    currentPage = page;
+    updatePagination(page);
+}
 
-        pageButtons.forEach(button => {
-            button.classList.remove("active");
-            if (parseInt(button.dataset.page) === page) {
-                button.classList.add("active");
-            }
-        });
+function updatePagination(page) {
+    const kaarten = document.querySelectorAll(".kaart");
+    const totaalPaginas = Math.ceil(kaarten.length / kaartenPerPagina);
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const pageButtons = document.querySelectorAll(".page-btn[data-page]");
 
-        if (prevButton) prevButton.disabled = (page === 1);
-        if (nextButton) nextButton.disabled = (page === totaalPaginas);
-    }
+    pageButtons.forEach(button => {
+        button.classList.remove("active");
+        if (parseInt(button.dataset.page) === page) {
+            button.classList.add("active");
+        }
+    });
 
-    // Navigatie knoppen
+    if (prevButton) prevButton.disabled = (page === 1);
+    if (nextButton) nextButton.disabled = (page === totaalPaginas);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    initialiseerKaarten();
+
     document.querySelector(".prev")?.addEventListener("click", function () {
         if (currentPage > 1) showPage(currentPage - 1);
     });
@@ -118,20 +121,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Start op pagina 1
-    showPage(currentPage);
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const kaarten = document.querySelectorAll(".kaart");
+    // Live zoeken
+    const zoekInput = document.getElementById("searchBar");
+    const kaartContainer = document.getElementById("kaartContainer");
 
-    kaarten.forEach(kaart => {
+    zoekInput.addEventListener("input", async () => {
+        const zoekterm = zoekInput.value;
 
-        const rarity = kaart.getAttribute("data-rarity");
+        try {
+            const response = await fetch(`/cards?zoekterm=${encodeURIComponent(zoekterm)}`);
+            const html = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const nieuweKaarten = doc.querySelector("#kaartContainer");
 
-        if (rarity) {
-            kaart.classList.add(rarity.toLowerCase());
+            if (nieuweKaarten) {
+                kaartContainer.innerHTML = nieuweKaarten.innerHTML;
+                initialiseerKaarten(); // <<< HERSTEL alle event listeners en classes
+            }
+        } catch (err) {
+            console.error("Fout bij zoeken:", err);
         }
     });
-
-  
 });

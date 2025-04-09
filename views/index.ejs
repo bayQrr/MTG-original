@@ -20,25 +20,25 @@
 
             <section class="midden-container">
                 <section class="filtering">
-                    <form action="/cards" method="get" class="filtering">
+                    <form action="/cards" method="get" class="filtering" id="searchForm">
                         <section class="filtering-button">
-                          <button class="filter-btn common" name="rarity" value="common" type="submit">
-                            <img src="assets/icon/CummonIcon.png" alt="Common">
-                          </button>
-                          <button class="filter-btn uncommon" name="rarity" value="uncommon" type="submit">
-                            <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
-                          </button>
-                          <button class="filter-btn rare" name="rarity" value="rare" type="submit">
-                            <img src="assets/icon/RareIcon.png" alt="Rare">
-                          </button>
-                          <button class="filter-btn mythic" name="rarity" value="mythic" type="submit">
-                            <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
-                          </button>
+                            <button class="filter-btn common" name="rarity" value="common" type="submit">
+                                <img src="assets/icon/CummonIcon.png" alt="Common">
+                            </button>
+                            <button class="filter-btn uncommon" name="rarity" value="uncommon" type="submit">
+                                <img src="assets/icon/UncommonIcon.png" alt="Uncommon">
+                            </button>
+                            <button class="filter-btn rare" name="rarity" value="rare" type="submit">
+                                <img src="assets/icon/RareIcon.png" alt="Rare">
+                            </button>
+                            <button class="filter-btn mythic" name="rarity" value="mythic" type="submit">
+                                <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
+                            </button>
                         </section>
-                      
+
                         <input type="text" name="zoekterm" id="searchBar" placeholder="Zoek een kaart...">
-                      </form>
-                      
+                    </form>
+
                 </section>
 
                 <!-- Kaartcontainer: toont enkel naam en afbeelding -->
@@ -142,6 +142,7 @@
 
         <!-- Verwijs naar het JS-bestand; let op dat je pad begint met /js/ -->
         <script src="/js/kaartendetail.js" defer></script>
+
     </body>
 
     <%- include("partials/footer") %>
