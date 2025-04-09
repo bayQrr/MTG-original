@@ -60,6 +60,23 @@ export async function loadCardsFromApi() {
     }
 }
 
+export async function getFilteredCards({ zoekterm = "", rarity = "" }) {
+    const allCards = await getCards(); 
+  
+    const filtered = allCards.filter((card) => {
+      const naam = card.name?.toLowerCase() || "";
+      const zoek = zoekterm.toLowerCase();
+  
+      const naamBegintMetZoekterm = zoek ? naam.startsWith(zoek) : true;
+      const komtOvereenMetRarity = rarity ? card.rarity?.toLowerCase() === rarity.toLowerCase() : true;
+  
+      return naamBegintMetZoekterm && komtOvereenMetRarity;
+    });
+  
+    return filtered;
+  }
+  
+
 export async function login(username: string, password: string) {
     if (username === "" || password === "") {
         throw new Error("Email en ww moet");
