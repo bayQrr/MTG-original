@@ -27,6 +27,17 @@ app.use("/", homeRouter());
 
 app.set("port", process.env.PORT || 3000);
 
+app.get('/deck', (req, res) => {
+  res.render('deck'); // zorgt voor weergave van views/deck.ejs
+});
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+// Route naar de drawtest pagina
+app.get('/game', (req, res) => {
+  res.render('game'); // zorgt voor weergave van views/game.ejs
+});
 app.listen(app.get("port"), async () => {
   try {
     await connect();
