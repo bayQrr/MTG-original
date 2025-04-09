@@ -51,68 +51,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 let currentPage = 1;
-const kaartenPerPagina = 8;
+    const kaartenPerPagina = 8;
 
-function showPage(page) {
-    const startIndex = (page - 1) * kaartenPerPagina;
-    const endIndex = page * kaartenPerPagina;
-    const kaarten = document.querySelectorAll(".kaart");
-    const kaartenArray = Array.from(kaarten);
+    function showPage(page) {
+        const startIndex = (page - 1) * kaartenPerPagina;
+        const endIndex = page * kaartenPerPagina;
+        const kaarten = document.querySelectorAll(".kaart");
+        const kaartenArray = Array.from(kaarten);
 
-    // Verberg alle kaarten
-    kaartenArray.forEach(kaart => {
-        kaart.style.display = "none";
-    });
+        kaartenArray.forEach(kaart => kaart.style.display = "none");
+        kaartenArray.slice(startIndex, endIndex).forEach(kaart => kaart.style.display = "block");
 
-    // Toon de kaarten voor de huidige pagina
-    const cardsToShow = kaartenArray.slice(startIndex, endIndex);
-    cardsToShow.forEach(kaart => {
-        kaart.style.display = "block";
-    });
+        currentPage = page;
+        updatePagination(page);
+    }
 
-    // Update de paginering knoppen
-    updatePagination(page);
-}
+    function updatePagination(page) {
+        const kaarten = document.querySelectorAll(".kaart");
+        const totaalPaginas = Math.ceil(kaarten.length / kaartenPerPagina);
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+        const pageButtons = document.querySelectorAll(".page-btn[data-page]");
 
-function updatePagination(page) {
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
-    const pageButtons = document.querySelectorAll(".page-btn");
+        pageButtons.forEach(button => {
+            button.classList.remove("active");
+            if (parseInt(button.dataset.page) === page) {
+                button.classList.add("active");
+            }
+        });
 
-    // Zet de 'active' klasse op de huidige pagina
-    pageButtons.forEach(button => {
-        button.classList.remove("active");
-        if (parseInt(button.dataset.page) === page) {
-            button.classList.add("active");
+        prevButton.disabled = (page === 1);
+        nextButton.disabled = (page === totaalPaginas);
+    }
+
+    // Prev knop
+    document.querySelector(".prev").addEventListener("click", function () {
+        if (currentPage > 1) {
+            showPage(currentPage - 1);
         }
     });
 
-    // Zet de prev en next knoppen inactief indien nodig
-    prevButton.disabled = (page === 1);
-    nextButton.disabled = (page === Math.ceil(document.querySelectorAll(".kaart").length / kaartenPerPagina));
-}
-
-document.querySelector(".prev").addEventListener("click", function () {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-    }
-});
-
-document.querySelector(".next").addEventListener("click", function () {
-    if (currentPage < Math.ceil(document.querySelectorAll(".kaart").length / kaartenPerPagina)) {
-        currentPage++;
-        showPage(currentPage);
-    }
-});
-
-document.querySelectorAll(".page-btn").forEach(button => {
-    button.addEventListener("click", function () {
-        currentPage = parseInt(this.dataset.page);
-        showPage(currentPage);
+    // Next knop
+    document.querySelector(".next").addEventListener("click", function () {
+        const totaalPaginas = Math.ceil(document.querySelectorAll(".kaart").length / kaartenPerPagina);
+        if (currentPage < totaalPaginas) {
+            showPage(currentPage + 1);
+        }
     });
-});
 
-// Initialiseer de eerste pagina
-showPage(currentPage);
+    // Paginaknoppen (inclusief 10)
+    document.querySelectorAll(".page-btn[data-page]").forEach(button => {
+        button.addEventListener("click", function () {
+            const selectedPage = parseInt(this.dataset.page);
+            showPage(selectedPage);
+        });
+    });
 
+    // Init
+    showPage(currentPage);
