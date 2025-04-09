@@ -1,63 +1,80 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const kaarten = document.querySelectorAll(".kaart");
-  const popup = document.getElementById("kaartPopup");
-  const popupImg = document.getElementById("popupImg");
-  const popupTitle = document.getElementById("popupTitle");
-  const popupType = document.getElementById("popupType");
-  const popupMana = document.getElementById("popupMana");
-  const popupRarity = document.getElementById("popupRarity");
-  const popupPowerToughness = document.getElementById("popupPowerToughness");
-  const popupText = document.getElementById("popupText");
-  const closeBtn = document.querySelector(".close");
+    const kaarten = document.querySelectorAll(".kaart");
+    const popup = document.getElementById("kaartPopup");
+    const popupImg = document.getElementById("popupImg");
+    const popupTitle = document.getElementById("popupTitle");
+    const popupType = document.getElementById("popupType");
+    const popupMana = document.getElementById("popupMana");
+    const popupRarity = document.getElementById("popupRarity");
+    const popupPowerToughness = document.getElementById("popupPowerToughness");
+    const popupText = document.getElementById("popupText");
+    const closeBtn = document.querySelector(".close");
 
-  // Open de popup bij klik op een kaart
-  kaarten.forEach(kaart => {
-      kaart.addEventListener("click", function () {
-          const name = kaart.getAttribute("data-name");
-          const type = kaart.getAttribute("data-type");
-          const manaCost = kaart.getAttribute("data-mana-cost");
-          const rarity = kaart.getAttribute("data-rarity");
-          const power = kaart.getAttribute("data-power");
-          const toughness = kaart.getAttribute("data-toughness");
-          const text = kaart.getAttribute("data-text");
-          const imageUrl = kaart.querySelector("img").src;
+    // Teller elementen
+    const increaseBtn = document.querySelector(".increase-btn");
+    const decreaseBtn = document.querySelector(".decrease-btn");
+    const cardCountSpan = document.getElementById("cardCount");
 
-          // Vul de popup met de kaartgegevens
-          popupTitle.textContent = name;
-          popupType.textContent = type;
-          popupMana.textContent = manaCost;
-          popupRarity.textContent = rarity;
-          popupPowerToughness.textContent = `Power: ${power}, Toughness: ${toughness}`;
-          popupText.textContent = text;
-          popupImg.src = imageUrl;
+    let count = 1;
 
-          // Toon de popup
-          popup.style.display = "block";
-      });
-  });
+    // Kaart popup tonen bij klik
+    kaarten.forEach(kaart => {
+        kaart.addEventListener("click", function () {
+            const name = kaart.getAttribute("data-name");
+            const type = kaart.getAttribute("data-type");
+            const manaCost = kaart.getAttribute("data-mana-cost");
+            const rarity = kaart.getAttribute("data-rarity");
+            const power = kaart.getAttribute("data-power");
+            const toughness = kaart.getAttribute("data-toughness");
+            const text = kaart.getAttribute("data-text");
+            const imageUrl = kaart.querySelector("img").src;
 
-  // Sluit de popup als op de sluitknop wordt geklikt
-  closeBtn.addEventListener("click", function () {
-      popup.style.display = "none";
-  });
+            // Popup vullen
+            popupTitle.textContent = name;
+            popupType.textContent = type;
+            popupMana.textContent = manaCost;
+            popupRarity.textContent = rarity;
+            popupPowerToughness.textContent = `Power: ${power}, Toughness: ${toughness}`;
+            popupText.textContent = text;
+            popupImg.src = imageUrl;
 
-  // Sluit de popup als ergens buiten de popup wordt geklikt
-  window.addEventListener("click", function (e) {
-      if (e.target === popup) {
-          popup.style.display = "none";
-      }
-  });
-});
+            // Teller resetten
+            count = 1;
+            if (cardCountSpan) cardCountSpan.textContent = count;
 
+            popup.style.display = "block";
+        });
+    });
 
-let currentPage = 1;
+    // Popup sluiten
+    closeBtn?.addEventListener("click", () => popup.style.display = "none");
+    window.addEventListener("click", (e) => {
+        if (e.target === popup) popup.style.display = "none";
+    });
+
+    // Teller logica
+    increaseBtn?.addEventListener("click", function (e) {
+        e.preventDefault();
+        count++;
+        cardCountSpan.textContent = count;
+    });
+
+    decreaseBtn?.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (count > 1) {
+            count--;
+            cardCountSpan.textContent = count;
+        }
+    });
+
+    // Paginering
+    let currentPage = 1;
     const kaartenPerPagina = 8;
 
     function showPage(page) {
+        const kaartenArray = Array.from(document.querySelectorAll(".kaart"));
         const startIndex = (page - 1) * kaartenPerPagina;
         const endIndex = page * kaartenPerPagina;
-        const kaarten = document.querySelectorAll(".kaart");
-        const kaartenArray = Array.from(kaarten);
 
         kaartenArray.forEach(kaart => kaart.style.display = "none");
         kaartenArray.slice(startIndex, endIndex).forEach(kaart => kaart.style.display = "block");
@@ -80,26 +97,20 @@ let currentPage = 1;
             }
         });
 
-        prevButton.disabled = (page === 1);
-        nextButton.disabled = (page === totaalPaginas);
+        if (prevButton) prevButton.disabled = (page === 1);
+        if (nextButton) nextButton.disabled = (page === totaalPaginas);
     }
 
-    // Prev knop
-    document.querySelector(".prev").addEventListener("click", function () {
-        if (currentPage > 1) {
-            showPage(currentPage - 1);
-        }
+    // Navigatie knoppen
+    document.querySelector(".prev")?.addEventListener("click", function () {
+        if (currentPage > 1) showPage(currentPage - 1);
     });
 
-    // Next knop
-    document.querySelector(".next").addEventListener("click", function () {
+    document.querySelector(".next")?.addEventListener("click", function () {
         const totaalPaginas = Math.ceil(document.querySelectorAll(".kaart").length / kaartenPerPagina);
-        if (currentPage < totaalPaginas) {
-            showPage(currentPage + 1);
-        }
+        if (currentPage < totaalPaginas) showPage(currentPage + 1);
     });
 
-    // Paginaknoppen (inclusief 10)
     document.querySelectorAll(".page-btn[data-page]").forEach(button => {
         button.addEventListener("click", function () {
             const selectedPage = parseInt(this.dataset.page);
@@ -107,5 +118,6 @@ let currentPage = 1;
         });
     });
 
-    // Init
+    // Start op pagina 1
     showPage(currentPage);
+});
