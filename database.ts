@@ -1,16 +1,47 @@
 import dotenv from "dotenv";
-dotenv.config();
 import { MongoClient } from "mongodb";
 import { Cards, User } from "./types";
 import bcrypt from "bcrypt";
 
+dotenv.config();
+
 const saltRounds: number = 10;
 
+// Exporteer de MongoDB URI
 export const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
-export const client = new MongoClient(MONGODB_URI);
-export const userCollectionMTG = client.db("MTG").collection<User>("users");
-export const cardsCollection = client.db("MTG").collection<Cards>("cards");
+export const DB_NAME = "mtgdb";
 
+// Maak MongoDB client
+const client = new MongoClient(MONGODB_URI);
+
+// Exporteer de database collectie die we nodig hebben
+export const userCollectionMTG = client.db(DB_NAME).collection("users");
+export const cardsCollection = client.db(DB_NAME).collection<Cards>("cards");
+
+// Functie om verbinding te maken met de database
+export const connect = async () => {
+    try {
+        await client.connect();
+        console.log(`Verbonden met MongoDB database op ${MONGODB_URI}`);
+        await eergstegebruiker();
+        await loadCardsFromApi();
+        process.on("SIGINT", exit);
+        return client;
+    } catch (error) {
+        console.error("Database connectie error:", error);
+        process.exit(1);
+    }
+};
+
+// Functie om de database verbinding te sluiten
+export const disconnect = async () => {
+    try {
+        await client.close();
+        console.log("Database verbinding gesloten");
+    } catch (error) {
+        console.error("Error bij sluiten database:", error);
+    }
+};
 
 async function exit() {
     try {
@@ -61,21 +92,21 @@ export async function loadCardsFromApi() {
 }
 
 export async function getFilteredCards({ zoekterm = "", rarity = "" }) {
-    const allCards = await getCards(); 
-  
+    const allCards = await getCards();
+
     const filtered = allCards.filter((card) => {
-      const naam = card.name?.toLowerCase() || "";
-      const zoek = zoekterm.toLowerCase();
-  
-      const naamBegintMetZoekterm = zoek ? naam.startsWith(zoek) : true;
-      const komtOvereenMetRarity = rarity ? card.rarity?.toLowerCase() === rarity.toLowerCase() : true;
-  
-      return naamBegintMetZoekterm && komtOvereenMetRarity;
+        const naam = card.name?.toLowerCase() || "";
+        const zoek = zoekterm.toLowerCase();
+
+        const naamBegintMetZoekterm = zoek ? naam.startsWith(zoek) : true;
+        const komtOvereenMetRarity = rarity ? card.rarity?.toLowerCase() === rarity.toLowerCase() : true;
+
+        return naamBegintMetZoekterm && komtOvereenMetRarity;
     });
-  
+
     return filtered;
-  }
-  
+}
+
 
 export async function login(username: string, password: string) {
     if (username === "" || password === "") {
@@ -93,10 +124,4 @@ export async function login(username: string, password: string) {
     }
 }
 
-export async function connect() {
-    await client.connect();
-    console.log("Connected to database");
-    await eergstegebruiker();
-    await loadCardsFromApi();
-    process.on("SIGINT", exit);
-}
+export const getDB = () => client.db(DB_NAME);

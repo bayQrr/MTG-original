@@ -1,47 +1,64 @@
 <!DOCTYPE html>
-<html lang="nl_BE">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/font.css">
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/font.css" />
     <script src="/js/register.js" defer></script>
     <title>Registreren</title>
-</head>
+  </head>
 
-<body class="register">
-
+  <body class="register">
     <header id="unique-header">
-        <a href="landing.html"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo"> </a>
-      
+      <a href="landing.html"
+        ><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" />
+      </a>
     </header>
 
     <section class="register-container">
-        <section class="register-form">
-            <h1>REGISTREREN</h1>
-            <form action="#">
+      <section class="register-form">
+        <h1>REGISTREREN</h1>
+        <% if (error) { %>
+        <div class="error-message"><%= error %></div>
+        <% } %>
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
 
-                <input type="text" placeholder="Gebruikersnaam" required>
-                <input type="text" placeholder="E-mail" required>
-                <section class="password-container">
-                    <input type="password" placeholder="Wachtwoord" required>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
 
-                    <span class="toggle-password" onclick="togglePassword('password', this)">
-                        <i class="fas fa-eye-slash"></i>
-                    </span>
-                </section>
+          <div class="form-group">
+            <label for="password">Wachtwoord:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
 
-                <!-- BERICHT ALs WW NIET JUIST IS  -->
-                <p id="password-error" class="error-message"></p>
-            </form>
-            <button type="submit" id="btn">Registreer</button>
-            <p class="login-text">Al een account? <a href="login.html">Inloggen</a></p>
-        </section>
+          <div class="form-group">
+            <label for="confirmPassword">Bevestig wachtwoord:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+          </div>
+
+          <button type="submit" id="btn">Registreren</button>
+        </form>
+        <p class="login-text">
+          Al een account? <a href="/login">Log hier in</a>
+        </p>
+      </section>
     </section>
-
-</body>
-
+  </body>
 </html>

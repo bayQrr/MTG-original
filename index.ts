@@ -7,6 +7,8 @@ import session from "./session"; // Zorg dat je session.ts correct is ingesteld
 import { accountRouter } from "./router/accountRouter";
 import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
+import { registerRouter } from "./router/registerRouter";
+import { loginRouter } from "./router/loginRouter";
 
 dotenv.config();
 
@@ -26,6 +28,8 @@ app.use(session); // Zorg dat sessie-middleware vóór de routers komt
 app.use(accountRouter());
 app.use("/", homeRouter());
 app.use(userRouter());
+app.use(registerRouter());
+app.use(loginRouter());
 
 app.set("port", process.env.PORT || 3000);
 
@@ -43,9 +47,9 @@ app.get('/game', (req, res) => {
 app.listen(app.get("port"), async () => {
   try {
     await connect();
-    console.log(`Server started on http://localhost:${app.get("port")}`);
+    console.log(`Server gestart op http://localhost:${app.get("port")}`);
   } catch (error) {
-    console.error("Error connecting to database:", error);
+    console.error("Error bij verbinden met database:", error);
     process.exit(1);
   }
 });
