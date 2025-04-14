@@ -19,3 +19,9 @@ export interface Cards {
     imageUrl: string;
 
 }
+
+// flashmessage
+export interface FlashMessage {
+    type: "error" | "success"
+    message: string;
+}

@@ -9,6 +9,7 @@ import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
 import { registerRouter } from "./router/registerRouter";
 import { loginRouter } from "./router/loginRouter";
+import { flashMiddleware } from "./middelware/flashMiddleware";
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use("/", homeRouter());
 app.use(userRouter());
 app.use(registerRouter());
 app.use(loginRouter());
+app.use(flashMiddleware);
 
 app.set("port", process.env.PORT || 3000);
 

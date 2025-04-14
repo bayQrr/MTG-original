@@ -1,14 +1,9 @@
 import express, { Router } from "express";
 import bcrypt from "bcrypt";
 import { userCollectionMTG } from "../database";
+import { User } from "../types";
 
-// Definieer de User interface
-interface User {
-    username: string;
-    email: string;
-    password: string;
-    createdAt: Date;
-}
+
 
 export const registerRouter = (): Router => {
     const router = Router();
@@ -25,8 +20,13 @@ export const registerRouter = (): Router => {
 
             // Basis validatie
             if (!username || !email || !password || !confirmPassword) {
+               
+               
                 return res.render("register", {
                     error: "Alle velden zijn verplicht"
+
+                   
+                    
                 });
             }
 
@@ -68,7 +68,9 @@ export const registerRouter = (): Router => {
             console.error("Registratie error:", error);
             res.render("register", {
                 error: "Er is een fout opgetreden bij het registreren"
+               
             });
+          
         }
     });
 

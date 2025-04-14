@@ -2,6 +2,7 @@ import { MONGODB_URI } from "./database";
 import session, { MemoryStore } from "express-session";
 import { User } from "./types";
 import mongoDbSession from "connect-mongodb-session";
+import { FlashMessage } from "./types";
 const MongoDBStore = mongoDbSession(session);
 
 const mongoStore = new MongoDBStore({
@@ -12,9 +13,11 @@ const mongoStore = new MongoDBStore({
 
 declare module 'express-session' {
     export interface SessionData {
-        user?: User
+        user?: User;
+        message?: FlashMessage;
     }
 }
+
 
 export default session({
     secret: process.env.SESSION_SECRET ?? "my-super-secret-secret",

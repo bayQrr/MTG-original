@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import { login } from "../database";
-
+import { FlashMessage } from "../types";
 export const loginRouter = (): Router => {
     const router = Router();
 
@@ -36,11 +36,13 @@ export const loginRouter = (): Router => {
             // Redirect naar home pagina na succesvolle login
             res.redirect("/");
 
-        } catch (error) {
-            console.error("Login error:", error);
+        } catch (e) {
+            console.error("Login error:", e);
             res.render("login", {
                 error: "Ongeldige gebruikersnaam of wachtwoord"
             });
+
+            req.session.message = {type: "error", message: e.message};
         }
     });
 

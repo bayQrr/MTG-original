@@ -22,7 +22,7 @@ export const cardsCollection = client.db(DB_NAME).collection<Cards>("cards");
 export const connect = async () => {
     try {
         await client.connect();
-        console.log(`Verbonden met MongoDB database op ${MONGODB_URI}`);
+        console.log(`Verbonden met database`);
         await eergstegebruiker();
         await loadCardsFromApi();
         process.on("SIGINT", exit);
