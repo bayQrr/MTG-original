@@ -24,6 +24,10 @@ export interface Deck {
     userId: ObjectId; 
     name: string;
     imageUrl: string;
+    cards: {
+        name: string;
+        count: number;
+    }[];  
     
   }
   

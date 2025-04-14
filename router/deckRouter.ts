@@ -26,17 +26,18 @@ export function deckRouter() {
   router.post("/create-deck", async (req, res) => {
     try {
       const { deckName, deckImageUrl } = req.body;
-
+  
       // Maak een nieuw deck object
       const newDeck: Deck = {
         name: deckName,
         imageUrl: deckImageUrl,
-        userId: req.session.user!._id // Gebruik de ingelogde gebruiker uit req.session.user
+        userId: req.session.user!._id, // Gebruik de ingelogde gebruiker uit req.session.user
+        cards: [] // Voeg een lege kaarten array toe
       };
-
-      // CreÃ«er het deck in de database
+  
+      // Creëer het deck in de database
       await createDeck(newDeck);
-
+  
       // Redirect naar de lijst van decks
       res.redirect("/deck");
     } catch (error) {

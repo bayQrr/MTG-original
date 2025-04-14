@@ -106,6 +106,38 @@ export async function updateDeck(deckId: ObjectId, updatedDeck: Partial<Deck>) {
 export async function deleteDeck(deckId: ObjectId) {
     return await deckCollection.deleteOne({ _id: deckId });
 }
+
+// kaartentoevoegen aan een deck
+
+// Voeg een kaart toe aan het deck
+export async function addCardToDeck(deckId: string, cardName: string, cardCount: number) {
+    try {
+        const deck = await deckCollection.findOne({ _id: new ObjectId(deckId) });
+        if (!deck) {
+            throw new Error("Deck niet gevonden.");
+        }
+
+        // Zoek naar de kaart in het deck en werk het aantal bij, of voeg het toe als het nog niet bestaat
+        const cardIndex = deck.cards.findIndex((card: any) => card.name === cardName);
+        
+        if (cardIndex >= 0) {
+            // Kaart bestaat al, werk het aantal bij
+            deck.cards[cardIndex].count += cardCount;
+        } else {
+            // Voeg de kaart toe aan het deck
+            deck.cards.push({ name: cardName, count: cardCount });
+        }
+
+        // Update het deck in de database
+        await deckCollection.updateOne({ _id: new ObjectId(deckId) }, { $set: { cards: deck.cards } });
+
+        return true;
+    } catch (error) {
+        console.error("Fout bij toevoegen van de kaart aan het deck:", error);
+        return false;
+    }
+}
+
 // login
 export async function login(username: string, password: string) {
     if (username === "" || password === "") {

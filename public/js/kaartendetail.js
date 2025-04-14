@@ -144,3 +144,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const addBtn = document.querySelector(".add-btn");
+    const dropdown = document.querySelector(".deck-dropdown");
+
+    if (addBtn && dropdown) {
+        addBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // voorkom standaard submit gedrag
+            dropdown.classList.toggle("hidden");
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("addCardForm");
+    const hiddenCardName = document.getElementById("hiddenCardName");
+    const hiddenCardCount = document.getElementById("hiddenCardCount");
+    const countDisplay = document.getElementById("cardCount");
+
+    form.addEventListener("submit", function (e) {
+        const selectedDeck = document.getElementById("deckSelect").value;
+        const cardName = document.getElementById("popupTitle").textContent;
+
+        if (!selectedDeck) {
+            e.preventDefault();
+            alert("Kies een deck!");
+            return;
+        }
+
+        hiddenCardName.value = cardName;
+        hiddenCardCount.value = countDisplay.textContent;
+    });
+});
