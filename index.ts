@@ -8,7 +8,6 @@ import { accountRouter } from "./router/accountRouter";
 import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
 import { registerRouter } from "./router/registerRouter";
-import { loginRouter } from "./router/loginRouter";
 import { flashMiddleware } from "./middelware/flashMiddleware";
 
 dotenv.config();
@@ -24,14 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(session); // Zorg dat sessie-middleware vóór de routers komt
+app.use(flashMiddleware);
 
 // Routers
 app.use(accountRouter());
 app.use("/", homeRouter());
 app.use(userRouter());
 app.use(registerRouter());
-app.use(loginRouter());
-app.use(flashMiddleware);
 
 app.set("port", process.env.PORT || 3000);
 

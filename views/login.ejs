@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <script src="/js/register.js" defer></script>
 </head>
+
 <body class="login">
 
   <header id="unique-header">
@@ -21,23 +23,27 @@
       <section class="register-form">
         <h1>INLOGGEN</h1>
         <!-- Foutmelding als er een error query is -->
-        <% if (typeof query !== 'undefined' && query.error === 'invalid') { %>
-          <p style="color: red;">Ongeldige inloggegevens, probeer opnieuw.</p>
-        <% } %>
-        <form action="/login" method="post">
-          <input type="text" name="username" placeholder="Gebruikersnaam" required>
-          <section class="password-container">
-            <input type="password" name="password" id="password" placeholder="Wachtwoord" required>
-            <span class="toggle-password" onclick="togglePassword('password', this)">
-              <i class="fas fa-eye-slash"></i>
-            </span>
-          </section>
-          <button type="submit" id="btn">Inloggen</button>
-        </form>
-        <p class="login-text">Geen account? <a href="/register">Registreer</a></p>
+        <% const message=locals.message; %>
+          <% if (message) { %>
+            <p class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
+              <%= message.message %>
+            </p>
+            <% } %>
+              <form action="/login" method="post">
+                <input type="text" name="username" placeholder="Gebruikersnaam" required>
+                <section class="password-container">
+                  <input type="password" name="password" id="password" placeholder="Wachtwoord" required>
+                  <span class="toggle-password" onclick="togglePassword('password', this)">
+                    <i class="fas fa-eye-slash"></i>
+                  </span>
+                </section>
+                <button type="submit" id="btn">Inloggen</button>
+              </form>
+              <p class="login-text">Geen account? <a href="/register">Registreer</a></p>
       </section>
     </section>
   </section>
 
 </body>
+
 </html>
