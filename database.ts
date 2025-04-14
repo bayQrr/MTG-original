@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
-import { MongoClient,ObjectId } from "mongodb";
-import { Cards, User,Deck } from "./types";
+import { MongoClient, ObjectId } from "mongodb";
+import { Cards, User, Deck } from "./types";
 import bcrypt from "bcrypt";
 
 dotenv.config();
@@ -15,7 +15,7 @@ export const DB_NAME = "MTGdb";
 const client = new MongoClient(MONGODB_URI);
 
 // Exporteer de database collectie die we nodig hebben
-export const userCollectionMTG = client.db(DB_NAME).collection("users"); 
+export const userCollectionMTG = client.db(DB_NAME).collection("users");
 export const cardsCollection = client.db(DB_NAME).collection<Cards>("cards");
 export const deckCollection = client.db(DB_NAME).collection<Deck>("decks");
 
@@ -60,7 +60,7 @@ export async function getCards() {
 export async function loadCardsFromApi() {
     const cards: Cards[] = await getCards();
     if (cards.length == 0) {
-        console.log("Database is leeg, loading users from API")
+        console.log("Database is leeg, kaarten laden van de API")
         const response = await fetch("https://api.magicthegathering.io/v1/cards");
         const data = await response.json();
         const cardsFromApi: Cards[] = data.cards;
@@ -90,36 +90,36 @@ export async function getFilteredCards({ zoekterm = "", rarity = "" }) {
 export async function createDeck(deck: Deck) {
     const result = await deckCollection.insertOne(deck);
     return result;
-  }
-  
-  // Read (alle decks van een user)
-  export async function getDecksByUser(userId: ObjectId) {
+}
+
+// Read (alle decks van een user)
+export async function getDecksByUser(userId: ObjectId) {
     return await deckCollection.find({ userId }).toArray();
-  }
-  
-  // Update
-  export async function updateDeck(deckId: ObjectId, updatedDeck: Partial<Deck>) {
+}
+
+// Update
+export async function updateDeck(deckId: ObjectId, updatedDeck: Partial<Deck>) {
     return await deckCollection.updateOne({ _id: deckId }, { $set: updatedDeck });
-  }
-  
-  // Delete
-  export async function deleteDeck(deckId: ObjectId) {
+}
+
+// Delete
+export async function deleteDeck(deckId: ObjectId) {
     return await deckCollection.deleteOne({ _id: deckId });
-  }
+}
 // login
 export async function login(username: string, password: string) {
     if (username === "" || password === "") {
-        throw new Error("Email en ww moet");
+        throw new Error("Gebruikersnaam en wachtwoord moeten ingevuld zijn");
     }
     let user: User | null = await userCollectionMTG.findOne<User>({ username: username });
     if (user) {
         if (await bcrypt.compare(password, user.password!)) {
             return user;
         } else {
-            throw new Error("Wachtwoord is fout");
+            throw new Error("Wachtwoord is verkeerd");
         }
     } else {
-        throw new Error("User niet gevonden");
+        throw new Error("Gebruikersnaam niet gevonden");
     }
 }
 

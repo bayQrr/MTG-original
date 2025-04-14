@@ -1,4 +1,4 @@
-// index.ts
+
 import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
@@ -8,6 +8,7 @@ import { accountRouter } from "./router/accountRouter";
 import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
 import { registerRouter } from "./router/registerRouter";
+import { deckRouter } from "./router/deckRouter";
 import { flashMiddleware } from "./middelware/flashMiddleware";
 
 dotenv.config();
@@ -30,6 +31,8 @@ app.use(accountRouter());
 app.use("/", homeRouter());
 app.use(userRouter());
 app.use(registerRouter());
+app.use("/", deckRouter());
+
 
 app.set("port", process.env.PORT || 3000);
 

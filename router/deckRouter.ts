@@ -6,92 +6,99 @@ import { Deck } from "../types";
 import session from "../session"
 import { secureMiddleware } from "../middelware/secureMiddleware";
 
-// Initialiseer de router
-const router = express.Router();
+export function deckRouter() {
+  // Initialiseer de router
+  const router = express.Router();
 
-// Route om alle decks van een gebruiker op te halen
-router.get("/deck", async (req, res) => {
-  try {
-    // Haal de decks van de ingelogde gebruiker op uit req.session.user
-    const userId = req.session.user!._id; // Gebruiker info wordt opgeslagen in req.session.user
-    const decks = await getDecksByUser(userId);
-    res.render("deck", { decks }); // Render de view 'deck.ejs' en stuur de decks mee
-  } catch (error) {
-    res.status(500).send("Er is iets mis gegaan bij het ophalen van de decks.");
-  }
-});
+  // Route om alle decks van een gebruiker op te halen
+  router.get("/deck", async (req, res) => {
+    try {
+      // Haal de decks van de ingelogde gebruiker op uit req.session.user
+      const userId = req.session.user!._id; // Gebruiker info wordt opgeslagen in req.session.user
+      const decks = await getDecksByUser(userId);
+      res.render("deck", { decks }); // Render de view 'deck.ejs' en stuur de decks mee
+    } catch (error) {
+      res.status(500).send("Er is iets mis gegaan bij het ophalen van de decks.");
+    }
+  });
 
-// Route voor het aanmaken van een nieuw deck
-router.post("/create-deck", async (req, res) => {
-  try {
-    const { deckName, deckImageUrl } = req.body;
+  // Route voor het aanmaken van een nieuw deck
+  router.post("/create-deck", async (req, res) => {
+    try {
+      const { deckName, deckImageUrl } = req.body;
 
-    // Maak een nieuw deck object
-    const newDeck: Deck = {
-      name: deckName,
-      imageUrl: deckImageUrl,
-      userId: req.session.user!._id // Gebruik de ingelogde gebruiker uit req.session.user
-    };
+      // Maak een nieuw deck object
+      const newDeck: Deck = {
+        name: deckName,
+        imageUrl: deckImageUrl,
+        userId: req.session.user!._id // Gebruik de ingelogde gebruiker uit req.session.user
+      };
 
-    // Creëer het deck in de database
-    await createDeck(newDeck);
+      // CreÃ«er het deck in de database
+      await createDeck(newDeck);
 
-    // Redirect naar de lijst van decks
-    res.redirect("/decks");
-  } catch (error) {
-    res.status(500).send("Er is iets mis gegaan bij het aanmaken van het deck.");
-  }
-});
+      // Redirect naar de lijst van decks
+      res.redirect("/deck");
+    } catch (error) {
+      res.status(500).send("Er is iets mis gegaan bij het aanmaken van het deck.");
+    }
+  });
 
-// Route om een deck te bewerken (laat de huidige gegevens zien)
-router.get("/edit-deck/:id", async (req , res) => {
-  try {
-    const deckId = new ObjectId(req.params.id);
-    const decks = await getDecksByUser(req.session.user!._id); // Haal de decks op van de ingelogde gebruiker uit req.session.user
-    const deckToEdit = decks.find(d => d._id.toString() === deckId.toString());
-    
-   
+  // Route om een deck te bewerken (laat de huidige gegevens zien)
+  router.get("/edit-deck/:id", async (req, res) => {
+    try {
+      const deckId = new ObjectId(req.params.id);
+      const decks = await getDecksByUser(req.session.user!._id); // Haal de decks op van de ingelogde gebruiker uit req.session.user
+      const deckToEdit = decks.find(d => d._id.toString() === deckId.toString());
 
-    res.render("edit-deck", { deck: deckToEdit });
-  } catch (error) {
-    res.status(500).send("Er is iets mis gegaan bij het ophalen van het deck.");
-  }
-});
 
-// Route om een deck bij te werken
-router.post("/edit-deck/:id", async (req, res) => {
-  try {
-    const deckId = new ObjectId(req.params.id);
-    const { deckName, deckImageUrl } = req.body;
 
-    const updatedDeck: Partial<Deck> = {
-      name: deckName,
-      imageUrl: deckImageUrl
-    };
+      res.render("edit-deck", { deck: deckToEdit });
+    } catch (error) {
+      res.status(500).send("Er is iets mis gegaan bij het ophalen van het deck.");
+    }
+  });
 
-    // Update het deck in de database
-    await updateDeck(deckId, updatedDeck);
+  // Route om een deck bij te werken
+  router.post("/edit-deck/:id", async (req, res) => {
+    try {
+      const deckId = new ObjectId(req.params.id);
+      const { deckName, deckImageUrl } = req.body;
 
-    // Redirect naar de lijst van decks
-    res.redirect("/decks");
-  } catch (error) {
-    res.status(500).send("Er is iets mis gegaan bij het bijwerken van het deck.");
-  }
-});
+      const updatedDeck: Partial<Deck> = {
+        name: deckName,
+        imageUrl: deckImageUrl
+      };
 
-// Route om een deck te verwijderen
-router.post("/delete-deck/:id", async (req, res) => {
-  try {
-    const deckId = new ObjectId(req.params.id);
+      // Update het deck in de database
+      await updateDeck(deckId, updatedDeck);
 
-    // Verwijder het deck uit de database
-    await deleteDeck(deckId);
+      // Redirect naar de lijst van decks
+      res.redirect("/deck");
+    } catch (error) {
+      res.status(500).send("Er is iets mis gegaan bij het bijwerken van het deck.");
+    }
+  });
 
-    // Redirect naar de lijst van decks
-    res.redirect("/decks");
-  } catch (error) {
-    res.status(500).send("Er is iets mis gegaan bij het verwijderen van het deck.");
-  }
-});
+  // Route om een deck te verwijderen
+  router.post("/delete-deck/:id", async (req, res) => {
+    try {
+      const deckId = new ObjectId(req.params.id);
 
-export default router;
+      // Verwijder het deck uit de database
+      await deleteDeck(deckId);
+
+      // Redirect naar de lijst van decks
+      res.redirect("/deck");
+    } catch (error) {
+      res.status(500).send("Er is iets mis gegaan bij het verwijderen van het deck.");
+    }
+  });
+
+
+  //deckview
+  
+
+  return router;
+
+}
