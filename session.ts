@@ -8,7 +8,7 @@ const MongoDBStore = mongoDbSession(session);
 const mongoStore = new MongoDBStore({
     uri: MONGODB_URI,
     collection: "sessions",
-    databaseName: "login-express",
+    databaseName: "MTGdb",
 });
 
 declare module 'express-session' {
@@ -20,7 +20,7 @@ declare module 'express-session' {
 
 
 export default session({
-    secret: process.env.SESSION_SECRET ?? "my-super-secret-secret",
+    secret: process.env.SESSION_SECRET ?? "secret",
     store: mongoStore,
     resave: true,
     saveUninitialized: true,
