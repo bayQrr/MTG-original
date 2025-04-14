@@ -25,7 +25,7 @@
         <!-- Foutmelding als er een error query is -->
         <% const message=locals.message; %>
           <% if (message) { %>
-            <p class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
+            <p id="flash-message-login" <%=message.type==='success' ? 'alert alert-success' : 'alert alert-danger' %>">
               <%= message.message %>
             </p>
             <% } %>
