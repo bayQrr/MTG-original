@@ -85,51 +85,62 @@ export function homeRouter() {
 
 // Route voor het toevoegen van een kaart aan een deck
 // Route voor het toevoegen van een kaart aan een deck
+
 router.post("/add-to-deck", async (req, res) => {
   try {
+    // Haal de gegevens uit het formulier
     const { deckId, cardName, cardCount } = req.body;
 
-    // Zorg ervoor dat de cardCount een getal is
-    const count = parseInt(cardCount, 10) || 1; // Standaard op 1 als geen geldige count is gegeven
+    // Log de ontvangen gegevens voor debugging
+    console.log("Ontvangen gegevens:", req.body);
 
-    // Controleer of het deckId een geldig ObjectId is
+    // Controleer of de deckId geldig is
     if (!ObjectId.isValid(deckId)) {
        res.status(400).send("Ongeldig deckId");
     }
 
-    // Werk het deck bij
+    // Zet de cardCount om naar een getal, default naar 1 als geen waarde is opgegeven
+    const count = parseInt(cardCount, 10) || 1;
+
+    // Zoek het deck op in de database
     const deck = await deckCollection.findOne({ _id: new ObjectId(deckId) });
 
-    // Controleer of het deck bestaat (null check)
+    // Controleer of het deck bestaat
     if (!deck) {
        res.status(404).send("Deck niet gevonden");
     }
 
-    // Kijk of de kaart al bestaat in het deck
-    const cardIndex = deck?.cards.findIndex(card => card.name === cardName);
+    // Log de deck-gegevens voor debugging
+    console.log("Gevonden deck:", deck);
 
-    if (cardIndex !== -1) {
-      // Als de kaart al bestaat, werk dan het aantal bij
+   
+    // Controleer of de kaart al bestaat in het deck
+    const bestaandeKaart = deck?.cards.find(card => card.name === cardName);
+
+    if (bestaandeKaart) {
+      // Kaart bestaat al, verhoog de hoeveelheid
+      console.log(`Kaart bestaat al, verhoog de hoeveelheid: ${cardName}`);
       await deckCollection.updateOne(
         { _id: new ObjectId(deckId), "cards.name": cardName },
         { $inc: { "cards.$.count": count } }
       );
     } else {
-      // Als de kaart nog niet in het deck zit, voeg deze toe met count
+      // Nieuwe kaart toevoegen aan het deck
+      console.log(`Nieuwe kaart toevoegen: ${cardName}`);
       await deckCollection.updateOne(
         { _id: new ObjectId(deckId) },
-        { $push: { cards: { name: cardName, count: count } } }
+        { $push: { cards: { name: cardName, count } } }
       );
     }
 
-    // Redirect naar het deck-overzicht
-    res.redirect("/deck");
-  } catch (error) {
-    console.error("Error adding card to deck:", error);
-    res.status(500).send("Er is iets mis gegaan bij het toevoegen van de kaart.");
+    // Redirect naar de deck-pagina of een andere pagina
+    res.redirect("/deck"); // Zorg ervoor dat deze pagina correct bestaat
+
+  } catch (err) {
+    console.error("Fout bij toevoegen aan deck:", err);
+    res.status(500).send("Server error");
   }
 });
-
 
 
   return router;

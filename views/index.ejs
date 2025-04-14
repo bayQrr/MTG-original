@@ -99,10 +99,9 @@
                                             <span class="close">&times;</span>
                                         </section>
 
-                                        <form id="addCardForm" action="/add-to-deck" method="POST">
-                                            <input type="hidden" name="cardName" id="hiddenCardName" />
-                                            <input type="hidden" name="cardCount" id="hiddenCardCount" value="1" />
-                                            
+                                         <form id="addCardForm" action="/add-to-deck" method="POST">
+                                            <input type="hidden" name="cardName" id="cardNameInput">
+
                                             <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
                                             <section class="card-counter">
                                                 <button class="decrease-btn">-</button>
@@ -113,28 +112,35 @@
 
                                                 <button class="add-btn">Voeg toe</button>
 
-                                                <section class="deck-dropdown ">
-                                                    <!-- <a href="#">Deck 1</a>
+                                                <!-- <section class="deck-dropdown ">
+                                                  <a href="#">Deck 1</a>
                                                     <a href="#">Deck 2</a>
-                                                    <a href="#">Deck 3</a> -->
-                                                    <select name="deckId" id="deckSelect">
+                                                    <a href="#">Deck 3</a> 
+                                                   <select name="deckId" id="deckSelect">
                                                         <option value="">Kies een deck</option>
                                                         <% decks.forEach(function(deck) { %>
                                                             <option value="<%= deck._id %>"><%= deck.name %></option>
                                                         <% }); %>
-                                                    </select>
+                                                    </select>  -->
 
-                                                 
+
+                                                    <label for="deckSelect">Kies een deck:</label>
+                                                    <select name="deckId" id="deckSelect" required>
+                                                        <option value="">-- Selecteer een deck --</option>
+                                                        <% decks.forEach(deck => { %>
+                                                            <option value="<%= deck._id %>"><%= deck.name %></option>
+                                                        <% }) %>
+                                                    </select>
+                                                  
                                                 </section>
 
-                                            
+                                        
 
 
-
-                                        </form>
-
+                                        </form> 
 
 
+                                 
 
                                     </section>
 

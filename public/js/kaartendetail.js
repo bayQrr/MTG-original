@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (nieuweKaarten) {
                 kaartContainer.innerHTML = nieuweKaarten.innerHTML;
-                initialiseerKaarten(); // <<< HERSTEL alle event listeners en classes
+                initialiseerKaarten(); 
             }
         } catch (err) {
             console.error("Fout bij zoeken:", err);
@@ -155,23 +155,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("addCardForm");
-    const hiddenCardName = document.getElementById("hiddenCardName");
-    const hiddenCardCount = document.getElementById("hiddenCardCount");
-    const countDisplay = document.getElementById("cardCount");
-
-    form.addEventListener("submit", function (e) {
-        const selectedDeck = document.getElementById("deckSelect").value;
-        const cardName = document.getElementById("popupTitle").textContent;
-
-        if (!selectedDeck) {
-            e.preventDefault();
-            alert("Kies een deck!");
-            return;
-        }
-
-        hiddenCardName.value = cardName;
-        hiddenCardCount.value = countDisplay.textContent;
+document.querySelectorAll('.kaart').forEach(kaart => {
+    kaart.addEventListener('click', function() {
+        const cardName = this.dataset.name;
+        document.getElementById('cardNameInput').value = cardName;  
+        document.getElementById('popupTitle').innerText = cardName; 
+        document.getElementById('kaartPopup').style.display = "block"; 
     });
+});
+
+
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('kaartPopup').style.display = "none";
 });
