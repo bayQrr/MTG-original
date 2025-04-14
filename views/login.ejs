@@ -19,18 +19,19 @@
   </header>
 
   <section class="Login-container">
+         <!-- Flashmessenger -->
+         <% const message=locals.message; %>
+         <% if (message) { %>
+         
+           <p id="flash-message-login" class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
+             <%= message.message %>
+           </p>
+           
+           <% } %>
     <section class="register-container">
       <section class="register-form">
         <h1>INLOGGEN</h1>
-        <!-- Flashmessenger -->
-        <% const message=locals.message; %>
-          <% if (message) { %>
-          
-            <p id="flash-message-login" class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
-              <%= message.message %>
-            </p>
-            
-            <% } %>
+   
               <form action="/login" method="post">
                 <input type="text" name="username" placeholder="Gebruikersnaam" required>
                 <section class="password-container">

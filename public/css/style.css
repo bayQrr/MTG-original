@@ -3144,6 +3144,7 @@ body {
 /* succes */
 /* Flash message container */
 #flash-message {
+  font-family: prompt;
   position: fixed;
   top: 20px;
   left: 50%;
@@ -3186,7 +3187,8 @@ body {
 
 #flash-message-login {
   /* position: fixed; */
-  top: 0px;
+  font-family: prompt;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   padding: 15px 30px;

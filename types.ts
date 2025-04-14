@@ -19,6 +19,14 @@ export interface Cards {
     imageUrl: string;
 
 }
+export interface Deck {
+    _id?: ObjectId;
+    userId: ObjectId; 
+    name: string;
+    imageUrl: string;
+    
+  }
+  
 
 // flashmessage
 export interface FlashMessage {

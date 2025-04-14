@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
-import { MongoClient } from "mongodb";
-import { Cards, User } from "./types";
+import { MongoClient,ObjectId } from "mongodb";
+import { Cards, User,Deck } from "./types";
 import bcrypt from "bcrypt";
 
 dotenv.config();
@@ -15,8 +15,10 @@ export const DB_NAME = "MTGdb";
 const client = new MongoClient(MONGODB_URI);
 
 // Exporteer de database collectie die we nodig hebben
-export const userCollectionMTG = client.db(DB_NAME).collection("users");
+export const userCollectionMTG = client.db(DB_NAME).collection("users"); 
 export const cardsCollection = client.db(DB_NAME).collection<Cards>("cards");
+export const deckCollection = client.db(DB_NAME).collection<Deck>("decks");
+
 
 async function exit() {
     try {
@@ -82,7 +84,29 @@ export async function getFilteredCards({ zoekterm = "", rarity = "" }) {
     return filtered;
 }
 
+// crud toepassen bij deck pagina
 
+// Create
+export async function createDeck(deck: Deck) {
+    const result = await deckCollection.insertOne(deck);
+    return result;
+  }
+  
+  // Read (alle decks van een user)
+  export async function getDecksByUser(userId: ObjectId) {
+    return await deckCollection.find({ userId }).toArray();
+  }
+  
+  // Update
+  export async function updateDeck(deckId: ObjectId, updatedDeck: Partial<Deck>) {
+    return await deckCollection.updateOne({ _id: deckId }, { $set: updatedDeck });
+  }
+  
+  // Delete
+  export async function deleteDeck(deckId: ObjectId) {
+    return await deckCollection.deleteOne({ _id: deckId });
+  }
+// login
 export async function login(username: string, password: string) {
     if (username === "" || password === "") {
         throw new Error("Email en ww moet");
