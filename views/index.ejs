@@ -3,9 +3,10 @@
     <body class="cards_body">
 
         <main>
+            <!-- Flashmessenger -->
             <% const message=locals.message; %>
                 <% if (message) { %>
-                    <p id="flash-message-index"
+                    <p id="flash-message"
                         class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
                         <%= message.message %>
                     </p>
