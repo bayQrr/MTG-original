@@ -4,15 +4,16 @@ import { createDeck, getDecksByUser, updateDeck, deleteDeck } from "../database"
 import { Deck } from "../types";
 
 import session from "../session"
+import { secureMiddleware } from "../middelware/secureMiddleware";
 
 // Initialiseer de router
-const deckRouter = express.Router();
+const router = express.Router();
 
 // Route om alle decks van een gebruiker op te halen
-deckRouter.get("/decks", async (req: Request, res: Response) => {
+router.get("/deck", async (req, res) => {
   try {
     // Haal de decks van de ingelogde gebruiker op uit req.session.user
-    const userId = req.session.user._id; // Gebruiker info wordt opgeslagen in req.session.user
+    const userId = req.session.user!._id; // Gebruiker info wordt opgeslagen in req.session.user
     const decks = await getDecksByUser(userId);
     res.render("deck", { decks }); // Render de view 'deck.ejs' en stuur de decks mee
   } catch (error) {
@@ -21,7 +22,7 @@ deckRouter.get("/decks", async (req: Request, res: Response) => {
 });
 
 // Route voor het aanmaken van een nieuw deck
-deckRouter.post("/create-deck", async (req: Request, res: Response) => {
+router.post("/create-deck", async (req, res) => {
   try {
     const { deckName, deckImageUrl } = req.body;
 
@@ -29,7 +30,7 @@ deckRouter.post("/create-deck", async (req: Request, res: Response) => {
     const newDeck: Deck = {
       name: deckName,
       imageUrl: deckImageUrl,
-      userId: req.session.user._id // Gebruik de ingelogde gebruiker uit req.session.user
+      userId: req.session.user!._id // Gebruik de ingelogde gebruiker uit req.session.user
     };
 
     // Creëer het deck in de database
@@ -43,15 +44,13 @@ deckRouter.post("/create-deck", async (req: Request, res: Response) => {
 });
 
 // Route om een deck te bewerken (laat de huidige gegevens zien)
-deckRouter.get("/edit-deck/:id", async (req: Request, res: Response) => {
+router.get("/edit-deck/:id", async (req , res) => {
   try {
     const deckId = new ObjectId(req.params.id);
-    const decks = await getDecksByUser(req.session.user._id); // Haal de decks op van de ingelogde gebruiker uit req.session.user
+    const decks = await getDecksByUser(req.session.user!._id); // Haal de decks op van de ingelogde gebruiker uit req.session.user
     const deckToEdit = decks.find(d => d._id.toString() === deckId.toString());
     
-    if (!deckToEdit) {
-      return res.status(404).send("Deck niet gevonden.");
-    }
+   
 
     res.render("edit-deck", { deck: deckToEdit });
   } catch (error) {
@@ -60,7 +59,7 @@ deckRouter.get("/edit-deck/:id", async (req: Request, res: Response) => {
 });
 
 // Route om een deck bij te werken
-deckRouter.post("/edit-deck/:id", async (req: Request, res: Response) => {
+router.post("/edit-deck/:id", async (req, res) => {
   try {
     const deckId = new ObjectId(req.params.id);
     const { deckName, deckImageUrl } = req.body;
@@ -81,7 +80,7 @@ deckRouter.post("/edit-deck/:id", async (req: Request, res: Response) => {
 });
 
 // Route om een deck te verwijderen
-deckRouter.post("/delete-deck/:id", async (req: Request, res: Response) => {
+router.post("/delete-deck/:id", async (req, res) => {
   try {
     const deckId = new ObjectId(req.params.id);
 
@@ -95,4 +94,4 @@ deckRouter.post("/delete-deck/:id", async (req: Request, res: Response) => {
   }
 });
 
-export default deckRouter;
+export default router;

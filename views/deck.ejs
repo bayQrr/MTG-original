@@ -22,20 +22,24 @@
 
     <!-- Toon de decks van de gebruiker -->
     <section id="deck-section">
-      <% decks.forEach(function(deck) { %>
-        <article class="deck-item">
-          <a href="/deckview/<%= deck._id %>">
-            <img src="<%= deck.imageUrl %>" alt="<%= deck.name %>" class="deck-img">
-            <p class="deck-text"><%= deck.name %></p>
-          </a>
-          <!-- Verwijder button -->
-          <form action="/delete-deck/<%= deck._id %>" method="POST">
-            <button type="submit" class="delete-deck-btn">Verwijder</button>
-          </form>
-          <!-- Bewerk link -->
-          <a href="/edit-deck/<%= deck._id %>" class="edit-deck-btn">Bewerken</a>
-        </article>
-      <% }) %>
+      <% if (decks && decks.length > 0) { %> <!-- Controleer of de decks aanwezig zijn -->
+        <% decks.forEach(function(deck) { %>
+          <article class="deck-item">
+            <a href="/deckview/<%= deck._id %>">
+              <img src="<%= deck.imageUrl %>" alt="<%= deck.name %>" class="deck-img">
+              <p class="deck-text"><%= deck.name %></p>
+            </a>
+            <!-- Verwijder button -->
+            <form action="/delete-deck/<%= deck._id %>" method="POST">
+              <button type="submit" class="delete-deck-btn">Verwijder</button>
+            </form>
+            <!-- Bewerk link -->
+            <a href="/edit-deck/<%= deck._id %>" class="edit-deck-btn">Bewerken</a>
+          </article>
+        <% }) %>
+      <% } else { %>
+        <p>Je hebt nog geen decks toegevoegd. Maak een nieuw deck om te beginnen!</p>
+      <% } %>
     </section>
 
     <!-- Button voor het openen van de popup voor nieuwe decks -->
