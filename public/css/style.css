@@ -3016,7 +3016,67 @@ body {
 
 
 
+/* --------------------------------------flash-message---------------------------------- */
+/* flash message bij niet succes */
 
+/* Flash message container for login */
+#flash-message-login {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    max-width: 90%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Success message style for login */
+#flash-message-login.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Error message style for login */
+#flash-message-login.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Flash message fade-out animation for login */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Close button inside the message for login */
+#flash-message-login .close {
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 15px;
+    background: transparent;
+    border: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Change the close button color on hover */
+#flash-message-login .close:hover {
+    color: #ddd;
+}
 
 /* flashmessage bij succes */
 /* Flash message container */
