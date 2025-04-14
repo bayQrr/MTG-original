@@ -27,9 +27,10 @@ export interface Deck {
     cards: {
         name: string;
         count: number;
+        type?: string;  
     }[];  
-    
-  }
+}
+
   
 
 // flashmessage

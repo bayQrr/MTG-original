@@ -46,19 +46,38 @@ export function deckRouter() {
   });
 
   // Route om een deck te bewerken (laat de huidige gegevens zien)
-  router.get("/edit-deck/:id", async (req, res) => {
+// Route om naar deckview te gaan
+router.get("/deckview/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
-      const decks = await getDecksByUser(req.session.user!._id); // Haal de decks op van de ingelogde gebruiker uit req.session.user
-      const deckToEdit = decks.find(d => d._id.toString() === deckId.toString());
-
-
-
-      res.render("edit-deck", { deck: deckToEdit });
+      const decks = await getDecksByUser(req.session.user!._id);
+      const selectedDeck = decks.find(deck => deck._id.toString() === deckId.toString());
+  
+      if (!selectedDeck) {
+         res.status(404).send("Deck niet gevonden.");
+      }
+  
+      // Haal de kaarten van het deck
+      const kaartenInDeck = selectedDeck?.cards || [];
+  
+      // Bereken het aantal kaarten, mana en landkaarten
+      const aantalKaarten = kaartenInDeck.reduce((acc, card) => acc + card.count, 0); // Totaal aantal kaarten
+      const aantalLandkaarten = kaartenInDeck.filter(card => card.type === "land").reduce((acc, card) => acc + card.count, 0); // Totaal aantal landkaarten
+      const mana = 0; // Bereken de mana op basis van kaarten (deze logica moet je eventueel verder uitbreiden)
+  
+      // Stuur het deck en de berekende gegevens naar de view
+      res.render("deckview", {
+        deck: selectedDeck,
+        kaartenInDeck,
+        aantalKaarten,
+        aantalLandkaarten,
+        mana
+      });
     } catch (error) {
-      res.status(500).send("Er is iets mis gegaan bij het ophalen van het deck.");
+      res.status(500).send("Fout bij het laden van de deckweergave.");
     }
   });
+  
 
   // Route om een deck bij te werken
   router.post("/edit-deck/:id", async (req, res) => {
