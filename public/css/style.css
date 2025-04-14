@@ -3014,6 +3014,70 @@ body {
   gap: 15px;
 }
 
+
+
+
+
+/* flashmessage bij succes */
+/* Flash message container */
+#flash-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Success message style */
+#flash-message.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Error message style */
+#flash-message.alert-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Flash message fade-out animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Close button inside the message */
+#flash-message .close {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Change the close button color on hover */
+#flash-message .close:hover {
+  color: #ddd;
+}
+
 /* Aanpassingen voor zeer kleine schermen */
 @media screen and (max-width: 480px) {
   .deck-info {
@@ -3067,3 +3131,4 @@ body {
 footer {
   margin-top: auto;
 }
+

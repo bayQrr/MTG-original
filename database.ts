@@ -9,7 +9,7 @@ const saltRounds: number = 10;
 
 // Exporteer de MongoDB URI
 export const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
-export const DB_NAME = "mtgdb";
+export const DB_NAME = "MTGdb";
 
 // Maak MongoDB client
 const client = new MongoClient(MONGODB_URI);
@@ -17,31 +17,6 @@ const client = new MongoClient(MONGODB_URI);
 // Exporteer de database collectie die we nodig hebben
 export const userCollectionMTG = client.db(DB_NAME).collection("users");
 export const cardsCollection = client.db(DB_NAME).collection<Cards>("cards");
-
-// Functie om verbinding te maken met de database
-export const connect = async () => {
-    try {
-        await client.connect();
-        console.log(`Verbonden met database`);
-        await eergstegebruiker();
-        await loadCardsFromApi();
-        process.on("SIGINT", exit);
-        return client;
-    } catch (error) {
-        console.error("Database connectie error:", error);
-        process.exit(1);
-    }
-};
-
-// Functie om de database verbinding te sluiten
-export const disconnect = async () => {
-    try {
-        await client.close();
-        console.log("Database verbinding gesloten");
-    } catch (error) {
-        console.error("Error bij sluiten database:", error);
-    }
-};
 
 async function exit() {
     try {
@@ -83,7 +58,7 @@ export async function getCards() {
 export async function loadCardsFromApi() {
     const cards: Cards[] = await getCards();
     if (cards.length == 0) {
-        console.log("Database is empty, loading users from API")
+        console.log("Database is leeg, loading users from API")
         const response = await fetch("https://api.magicthegathering.io/v1/cards");
         const data = await response.json();
         const cardsFromApi: Cards[] = data.cards;
@@ -117,11 +92,17 @@ export async function login(username: string, password: string) {
         if (await bcrypt.compare(password, user.password!)) {
             return user;
         } else {
-            throw new Error("ww fout");
+            throw new Error("Wachtwoord is fout");
         }
     } else {
-        throw new Error("User not found");
+        throw new Error("User niet gevonden");
     }
 }
 
-export const getDB = () => client.db(DB_NAME);
+export async function connect() {
+    await client.connect();
+    console.log("Connected to database");
+    await eergstegebruiker();
+    await loadCardsFromApi();
+    process.on("SIGINT", exit);
+}
