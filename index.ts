@@ -33,16 +33,22 @@ app.use(registerRouter());
 
 app.set("port", process.env.PORT || 3000);
 
-app.get('/deck', (req, res) => {
-  res.render('deck'); // zorgt voor weergave van views/deck.ejs
-});
+
+//routes die je brengen naar de gevraagde pagina's
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Route naar de drawtest pagina
+app.get("/landing", (req, res) => {
+  res.render("landing");
+});
+
+app.get('/deck', (req, res) => {
+  res.render('deck');
+});
+
 app.get('/game', (req, res) => {
-  res.render('game'); // zorgt voor weergave van views/game.ejs
+  res.render('game');
 });
 app.listen(app.get("port"), async () => {
   try {
