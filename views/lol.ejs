@@ -1,0 +1,48 @@
+<%- include("partials/header") %> 
+
+<body id="body-background">
+
+  <!-- Tooltip voor uitleg -->
+  <section class="tooltip-container">
+    <section class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+        </path>
+      </svg>
+    </section>
+    <section class="tooltip">
+      <p>Beheer hier je persoonlijke decks. Maak nieuwe decks aan, geef ze een naam en achtergrond. </p>
+      <p>Klik op een deck om je kaartverzameling te bekijken.</p>
+    </section>
+  </section>
+
+  <main id="main-content">
+    <h2>DECK COLLECTION</h2>
+
+    <!-- Toon de decks van de gebruiker -->
+    <section id="deck-section">
+      
+    </section>
+
+    <!-- Button voor het openen van de popup voor nieuwe decks -->
+    <section class="new-deck-wrapper">
+      <button id="add-deck-btn">Nieuw Deck Toevoegen</button>
+    </section>
+  </main>
+
+  <!-- Popup voor het aanmaken van een nieuw deck -->
+  <section id="deck-popup" class="deck-popup-container">
+    <section class="deck-popup-content">
+      <span class="deck-close-btn">&times;</span>
+      <form action="/create-deck" method="POST">
+        <input type="text" name="deckName" placeholder="Deck naam" required>
+        <input type="url" name="deckImageUrl" placeholder="Achtergrondafbeelding URL" required>
+        <button type="submit">Opslaan</button>
+      </form>
+    </section>
+  </section>
+
+  <%- include("partials/footer") %>
+
+</body>

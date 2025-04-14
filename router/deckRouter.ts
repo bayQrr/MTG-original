@@ -96,8 +96,24 @@ export function deckRouter() {
   });
 
 
-  //deckview
-  
+  //route om naar deckview te gaan
+  router.get("/deckview/:id", async (req, res) => {
+    try {
+      const deckId = new ObjectId(req.params.id);
+      const decks = await getDecksByUser(req.session.user!._id);
+      const selectedDeck = decks.find(deck => deck._id.toString() === deckId.toString());
+
+      if (!selectedDeck) {
+        res.status(404).send("Deck niet gevonden.");
+      }
+
+
+      res.render("deckview", { deck: selectedDeck });
+    } catch (error) {
+      res.status(500).send("Fout bij het laden van de deckweergave.");
+    }
+  });
+
 
   return router;
 

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.getElementById("deck-name");
     const imageInput = document.getElementById("deck-img-url");
 
-    // Toevoegen aan de hand van de deckRouter.ts
+    // Toevoegen aan de hand van de deckRouter.tsy
     addDeckBtn.addEventListener("click", (event) => {
         event.preventDefault();
         deckForm.action = "/create-deck";
