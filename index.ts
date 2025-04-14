@@ -47,6 +47,9 @@ app.get('/deck', (req, res) => {
   res.render('deck');
 });
 
+app.get('/deckview', (req, res) => {
+  res.render('deckview');
+});
 app.get('/game', (req, res) => {
   res.render('game');
 });
