@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { MongoClient, ObjectId } from "mongodb";
-import { Cards, User, Deck } from "./types";
+import { Cards, User, Deck, CardInDeck } from "./types";
 import bcrypt from "bcrypt";
 
 dotenv.config();
@@ -30,26 +30,37 @@ async function exit() {
     process.exit(0);
 }
 
-// users 
-async function eergstegebruiker() {
-    if (await userCollectionMTG.countDocuments() > 0) {
-        return;
-    }
-    // let email : string | undefined=process.env.ADMIN_EMAIL;
-    let password: string | undefined = process.env.ADMIN_PASSWORD;
-    let username: string | undefined = process.env.ADMIN_USERNAME;
-    if (password === undefined || username === undefined) {
-        throw new Error("ADMIN_EMAIL ADMIN_USERNAME and ADMIN_PASSWORD must be set in environment");
-    }
-    await userCollectionMTG.insertOne({
-        username: username,
-        password: await bcrypt.hash(password, saltRounds)
-    });
-}
+// // users 
+// async function eergstegebruiker() {
+//     if (await userCollectionMTG.countDocuments() > 0) {
+//         return;
+//     }
+//     // let email : string | undefined=process.env.ADMIN_EMAIL;
+//     let password: string | undefined = process.env.ADMIN_PASSWORD;
+//     let username: string | undefined = process.env.ADMIN_USERNAME;
+//     if (password === undefined || username === undefined) {
+//         throw new Error("ADMIN_EMAIL ADMIN_USERNAME and ADMIN_PASSWORD must be set in environment");
+//     }
+//     await userCollectionMTG.insertOne({
+//         username: username,
+//         password: await bcrypt.hash(password, saltRounds)
+//     });
+// }
 
 export async function getUsers() {
     return await userCollectionMTG.find({}).toArray();
 }
+
+// Voeg deze functie toe om een nieuwe gebruiker aan te maken
+export async function createUser(userData: { username: string; email: string; password: string }): Promise<any> {
+    return await userCollectionMTG.insertOne({
+        username: userData.username,
+        email: userData.email,
+        password: userData.password,
+        createdAt: new Date()
+    });
+}
+
 
 
 // api fetchen
@@ -110,26 +121,55 @@ export async function deleteDeck(deckId: ObjectId) {
 // kaartentoevoegen aan een deck
 
 // Voeg een kaart toe aan het deck
-export async function addCardToDeck(deckId: string, cardName: string, cardCount: number) {
+export async function addCardToDeck(deckId: string, cardId: string, cardCount: number) {
     try {
+        console.log("addCardToDeck() gestart met deckId:", deckId, "cardId:", cardId, "cardCount:", cardCount);
+
+        // Deck zoeken
         const deck = await deckCollection.findOne({ _id: new ObjectId(deckId) });
         if (!deck) {
-            throw new Error("Deck niet gevonden.");
-        }
-
-        // Zoek naar de kaart in het deck en werk het aantal bij, of voeg het toe als het nog niet bestaat
-        const cardIndex = deck.cards.findIndex((card: any) => card.name === cardName);
-        
-        if (cardIndex >= 0) {
-            // Kaart bestaat al, werk het aantal bij
-            deck.cards[cardIndex].count += cardCount;
+            console.log("Deck niet gevonden met _id:", deckId);
+            return false;
         } else {
-            // Voeg de kaart toe aan het deck
-            deck.cards.push({ name: cardName, count: cardCount });
+            console.log("Deck gevonden:", deck.name);
         }
 
-        // Update het deck in de database
-        await deckCollection.updateOne({ _id: new ObjectId(deckId) }, { $set: { cards: deck.cards } });
+        // Kaart zoeken
+        const card = await cardsCollection.findOne({ _id: new ObjectId(cardId) });
+        if (!card) {
+            console.log("Kaart niet gevonden met _id:", cardId);
+            return false;
+        } else if (!card.imageUrl) {
+            console.log("Kaart gevonden, maar geen imageUrl:", card);
+            return false;
+        } else {
+            console.log("Kaart gevonden:", card.name, "met imageUrl:", card.imageUrl);
+        }
+
+        // Check of de kaart al in het deck zit
+        const bestaandeKaartIndex = deck.cards.findIndex(c => c.name === card.name);
+        if (bestaandeKaartIndex > -1) {
+            console.log("Kaart bestaat al in deck, verhoog count");
+            await deckCollection.updateOne(
+                { _id: new ObjectId(deckId), "cards.name": card.name },
+                { $inc: { "cards.$.count": cardCount } }
+            );
+        } else {
+            console.log("Kaart bestaat nog niet in deck, push nieuwe kaart");
+            const nieuweKaart: CardInDeck = {
+                name: card.name,
+                imageUrl: card.imageUrl,
+                count: cardCount,
+                type: card.type ?? "onbekend",
+                rarity: card.rarity ?? "onbekend",
+                manaCost: card.manaCost
+            };
+
+            await deckCollection.updateOne(
+                { _id: new ObjectId(deckId) },
+                { $push: { cards: nieuweKaart } }
+            );
+        }
 
         return true;
     } catch (error) {
@@ -137,6 +177,7 @@ export async function addCardToDeck(deckId: string, cardName: string, cardCount:
         return false;
     }
 }
+
 
 // login
 export async function login(username: string, password: string) {
@@ -158,7 +199,30 @@ export async function login(username: string, password: string) {
 export async function connect() {
     await client.connect();
     console.log("Connected to database");
-    await eergstegebruiker();
+    // await eergstegebruiker();
     await loadCardsFromApi();
     process.on("SIGINT", exit);
+}
+
+
+
+// random mana berekening
+export function parseManaCost(manaCost: string): number {
+    // Zoek patronen als {5}, {W}, {X}, {G/U}, etc.
+    const matches = manaCost.match(/\{([^}]*)\}/g) ?? [];
+    let total = 0;
+    for (const match of matches) {
+        // Verwijder { en }
+        const symbol = match.replace(/[{}]/g, "");
+        // Probeer te parsen als getal
+        const numeric = parseInt(symbol, 10);
+        if (!isNaN(numeric)) {
+            // Het was een cijfer (zoals "5")
+            total += numeric;
+        } else {
+            // Anders beschouwen we elk symbool als 1 (vereenvoudigde aanpak)
+            total += 1;
+        }
+    }
+    return total;
 }

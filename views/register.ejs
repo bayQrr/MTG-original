@@ -8,44 +8,41 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="css/font.css" />
-  <script src="/js/register.js" defer></script>
   <title>Registreren</title>
 </head>
 
 <body class="register">
   <header id="unique-header">
-    <a href="/landing"><img src="assets/logo/LOGO-MAGIC 2.png" id="logo" />
+    <a href="/landing">
+      <img src="assets/logo/LOGO-MAGIC 2.png" id="logo" />
     </a>
   </header>
 
   <section class="register-container">
     <section class="register-form">
       <h1>REGISTREREN</h1>
-      <!-- error bij zelfde user maken "al in gebruik" -->
+      <!-- Toon foutbericht indien nodig -->
       <% if (error) { %>
         <div class="error-message">
           <%= error %>
         </div>
         <% } %>
-        <form action="/register" method="POST">
-
-          <input type="text" placeholder="Gebruikersnaam" required>
-          <input type="text" placeholder="E-mail" required>
-          <section class="password-container">
-              <input type="password" placeholder="Wachtwoord" required>
-
+          <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Gebruikersnaam" required>
+            <input type="text" name="email" placeholder="E-mail" required>
+            <section class="password-container">
+              <input type="password" name="password" placeholder="Wachtwoord" required>
               <span class="toggle-password" onclick="togglePassword('password', this)">
-                  <i class="fas fa-eye-slash"></i>
+                <i class="fas fa-eye-slash"></i>
               </span>
-          </section>
-
-          <!-- BERICHT ALs WW NIET JUIST IS  -->
-          <p id="password-error" class="error-message"></p>
-      </form>
-      <button type="submit" id="btn">Registreer</button>
-      <p class="login-text">Al een account? <a href="/login">Inloggen</a></p>
+            </section>
+            <button type="submit" id="btn">Registreer</button>
+            <p class="login-text">Al een account? <a href="/login">Inloggen</a></p>
+          </form>
     </section>
   </section>
+
+  <script src="/js/register.js" defer></script>
 </body>
 
 </html>

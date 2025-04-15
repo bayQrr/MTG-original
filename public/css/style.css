@@ -522,18 +522,19 @@ section > .kaart.mythic > img {
 
 .deck-dropdown {
   display: none;
-  position: absolute;
-
+  /* position: absolute; */
+  top: 50%; 
   border: 1px solid #474242;
   padding: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-
   background: linear-gradient(45deg, #1a1a1a, #3d99ae);
   color: #fff;
   font-size: 20px;
   border: 2px solid black;
   border-radius: 5%;
+  
 }
+
 /* to do font styl aanpassen */
 .deck-dropdown a {
   display: block;
@@ -1619,31 +1620,7 @@ footer {
 
 
 
-/* Hover effect voor grotere schermen */
-@media screen and (min-width: 801px) {
-  .slider-item:hover .slider-title {
-    writing-mode: horizontal-tb;
-    left: 50%;
-    bottom: 10px;
-    top: auto;
-    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
-    width: fit-content;
-  }
-}
 
-/* Mobiele weergave (altijd horizontaal) */
-@media screen and (max-width: 800px) {
-  .slider-title {
-    writing-mode: horizontal-tb;
-    left: 50%;
-    bottom: 10px;
-    top: auto;
-    transform: translateX(-50%);
-    width: fit-content;
-    font-size: 1rem;
-    padding: 8px;
-  }
-}
 /*------------------------------------------- DECKVIEW pagina Kaoutar -------------------------*/
 /* BODY DECKVIEW  */
 .deckview {
@@ -1709,17 +1686,13 @@ footer {
   font-family: magic;
   letter-spacing: 2px;
   font-size: 1rem;
+ 
 }
 
+.deck-list {
+  margin: 20px;
+}
 /* DECK SELECTEREN */
-#deck-selector-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 76px auto;
-}
-
 #deck-selector {
   font-family: magic;
   letter-spacing: 2px;
@@ -1727,16 +1700,17 @@ footer {
   background: #00000080;
   color: #ffffff;
   border: 2px solid #ffffff;
-  padding: 10px auto;
+  padding: 10px;
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   width: 250px;
   text-align: center;
-  /* appearance: none; */
+  margin: 0 auto; 
 }
 
+/* Styling voor de options */
 #deck-selector option {
   background: #0a0a0ae6;
   color: white;
@@ -1752,6 +1726,8 @@ footer {
   gap: 60px;
   padding: 20px;
   list-style: none;
+ 
+ 
 }
 .deck-items a {
   display: block;
@@ -1762,31 +1738,6 @@ footer {
 .deck-items a:hover {
   opacity: 0.8;
 }
-
-/* .deck-items {
-  text-align: center;
-  width: 160px;
-  background: #00000080;
-  border: 2px solid #ffffff33;
-  border-radius: 10px;
-  padding: 13px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-} */
-
-/* Hover-effect */
-/* .deck-items:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px #a1a09ccc;
-} */
-
-/* .deck-items img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 5px;
-} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -2482,33 +2433,6 @@ footer {
   100% {
     transform: translateX(0);
   }
-}
-/* Container voor de deck-kiezer */
-#draw-deck-selector-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Stijl van de dropdown */
-#draw-deck-selector {
-  font-family: magic;
-  letter-spacing: 2px;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: 2px solid white;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  width: 250px;
-  text-align: center;
-}
-
-#draw-deck-selector:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
 }
 
 /* Geel kader om geselecteerd deck te markeren */
@@ -3268,3 +3192,32 @@ footer {
   margin-top: auto;
 }
 
+
+
+
+
+/* Hover effect voor grotere schermen */
+@media screen and (min-width: 801px) {
+  .slider-item:hover .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
+    width: fit-content;
+  }
+}
+
+/* Mobiele weergave (altijd horizontaal) */
+@media screen and (max-width: 800px) {
+  .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%);
+    width: fit-content;
+    font-size: 1rem;
+    padding: 8px;
+  }
+}

@@ -1,9 +1,8 @@
+// registerRouter.ts
 import express, { Router } from "express";
 import bcrypt from "bcrypt";
-import { userCollectionMTG } from "../database";
+import { createUser, userCollectionMTG } from "../database";
 import { User } from "../types";
-
-
 
 export const registerRouter = (): Router => {
     const router = Router();
@@ -16,23 +15,12 @@ export const registerRouter = (): Router => {
     // Verwerk registratie
     router.post("/register", async (req, res) => {
         try {
-            const { username, email, password, confirmPassword } = req.body;
+            const { username, email, password } = req.body;
 
             // Basis validatie
-            if (!username || !email || !password || !confirmPassword) {
-               
-               
+            if (!username || !email || !password) {
                 return res.render("register", {
                     error: "Alle velden zijn verplicht"
-
-                   
-                    
-                });
-            }
-
-            if (password !== confirmPassword) {
-                return res.render("register", {
-                    error: "Wachtwoorden komen niet overeen"
                 });
             }
 
@@ -53,12 +41,11 @@ export const registerRouter = (): Router => {
             // Hash het wachtwoord
             const hashedPassword = await bcrypt.hash(password, 10);
 
-            // Maak nieuwe gebruiker aan
-            await userCollectionMTG.insertOne({
+            // Gebruik de nieuwe createUser functie
+            await createUser({
                 username,
                 email,
-                password: hashedPassword,
-                createdAt: new Date()
+                password: hashedPassword
             });
 
             // Redirect naar login na succesvolle registratie
@@ -68,11 +55,9 @@ export const registerRouter = (): Router => {
             console.error("Registratie error:", error);
             res.render("register", {
                 error: "Er is een fout opgetreden bij het registreren"
-               
             });
-          
         }
     });
 
     return router;
-}; 
+};

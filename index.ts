@@ -9,6 +9,7 @@ import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
 import { registerRouter } from "./router/registerRouter";
 import { deckRouter } from "./router/deckRouter";
+import { gameRouter } from "./router/gameRouter";
 import { flashMiddleware } from "./middelware/flashMiddleware";
 
 dotenv.config();
@@ -32,6 +33,7 @@ app.use("/", homeRouter());
 app.use(userRouter());
 app.use(registerRouter());
 app.use("/", deckRouter());
+app.use(gameRouter());
 
 
 app.set("port", process.env.PORT || 3000);

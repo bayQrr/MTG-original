@@ -1,7 +1,6 @@
 <%- include("partials/header") %>
 
     <body class="cards_body">
-
         <main>
             <!-- Flashmessenger -->
             <% const message=locals.message; %>
@@ -11,26 +10,26 @@
                         <%= message.message %>
                     </p>
                     <% } %>
-                        <!-- Icon -->
+
+                        <!-- Tooltip -->
                         <section class="tooltip-container">
                             <section class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
                                     <path
-                                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
-                                    </path>
+                                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z" />
                                 </svg>
                             </section>
                             <section class="tooltip">
-                                <p>Welkom bij Magic The Gathering! In dit spel kun je kaarten filteren op zeldzaamheid,
-                                    kaarten
-                                    toevoegen aan je deck en meer.</p>
+                                <p>Welkom bij Magic The Gathering! Filter op zeldzaamheid, voeg kaarten toe aan je deck
+                                    en meer.</p>
                                 <p>Klik op een kaart om details te bekijken.</p>
                             </section>
                         </section>
 
+                        <!-- Filter & zoek -->
                         <section class="midden-container">
                             <section class="filtering">
-                                <form action="/cards" method="get" class="filtering" id="searchForm">
+                                <form action="/cards" method="get" id="searchForm">
                                     <section class="filtering-button">
                                         <button class="filter-btn common" name="rarity" value="common" type="submit">
                                             <img src="assets/icon/CummonIcon.png" alt="Common">
@@ -46,13 +45,11 @@
                                             <img src="assets/icon/MythicRareIcon.png" alt="Mythic Rare">
                                         </button>
                                     </section>
-
                                     <input type="text" name="zoekterm" id="searchBar" placeholder="Zoek een kaart...">
                                 </form>
-
                             </section>
 
-                            <!-- Kaartcontainer: toont enkel naam en afbeelding -->
+                            <!-- Kaarten -->
                             <section id="kaartContainer">
                                 <% const seenNames=new Set(); %>
                                     <section class="rijen">
@@ -60,8 +57,9 @@
                                             <% cards.forEach(card=> { %>
                                                 <% if (card.imageUrl && !seenNames.has(card.name)) {
                                                     seenNames.add(card.name); %>
-                                                    <section class="kaart" data-name="<%= card.name %>"
-                                                        data-type="<%= card.type %>"
+                                                    <!-- Voeg hier data-card-id toe -->
+                                                    <section class="kaart" data-card-id="<%= card._id %>"
+                                                        data-name="<%= card.name %>" data-type="<%= card.type %>"
                                                         data-mana-cost="<%= card.manaCost %>"
                                                         data-rarity="<%= card.rarity %>" data-power="<%= card.power %>"
                                                         data-toughness="<%= card.toughness %>"
@@ -78,7 +76,7 @@
                                                                 <% } %>
                                     </section>
 
-                                    <!-- Popup voor kaartdetails (initieel verborgen) -->
+                                    <!-- Popup voor kaartdetails -->
                                     <section id="kaartPopup" style="display: none;">
                                         <section class="popup-container">
                                             <section class="popup-container-img">
@@ -88,72 +86,46 @@
                                                 <p id="popupTitle"></p>
                                                 <p><strong>Type:</strong> <span id="popupType"></span></p>
                                                 <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
-
                                                 <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
-
                                                 <p><strong>Power/Toughness:</strong> <span
                                                         id="popupPowerToughness"></span></p>
                                                 <p><strong>Text:</strong> <span id="popupText"></span></p>
-
                                             </section>
                                             <span class="close">&times;</span>
                                         </section>
 
-                                         <form id="addCardForm" action="/add-to-deck" method="POST">
-                                            <input type="hidden" name="cardName" id="cardNameInput">
+                                        <!-- Formulier om kaart toe te voegen -->
+                                        <form id="addCardForm" action="/add-to-deck" method="POST">
+                                            <!-- Vervang cardName door cardId -->
+                                            <input type="hidden" name="cardId" id="cardIdInput">
+                                            <input type="hidden" name="cardCount" id="cardCountInput" value="1">
 
-                                            <!-- kaartenteller + en - karten verhogen/verlagen bij het toevoegen van deck -->
                                             <section class="card-counter">
                                                 <button class="decrease-btn">-</button>
                                                 <span id="cardCount">1</span>
                                                 <button class="increase-btn">+</button>
                                             </section>
-                                            <section>
 
-                                                <button class="add-btn">Voeg toe</button>
+                                            <label for="deckSelect">Kies een deck:</label>
+                                            <select name="deckId" id="deckSelect" required>
+                                                <option value="">-- Selecteer een deck --</option>
+                                                <% if (decks) { decks.forEach(deck=> { %>
+                                                    <option value="<%= deck._id %>">
+                                                        <%= deck.name %>
+                                                    </option>
+                                                    <% }) } %>
+                                            </select>
 
-                                                <!-- <section class="deck-dropdown ">
-                                                  <a href="#">Deck 1</a>
-                                                    <a href="#">Deck 2</a>
-                                                    <a href="#">Deck 3</a> 
-                                                   <select name="deckId" id="deckSelect">
-                                                        <option value="">Kies een deck</option>
-                                                        <% decks.forEach(function(deck) { %>
-                                                            <option value="<%= deck._id %>"><%= deck.name %></option>
-                                                        <% }); %>
-                                                    </select>  -->
-
-
-                                                    <label for="deckSelect">Kies een deck:</label>
-                                                    <select name="deckId" id="deckSelect" required>
-                                                        <option value="">-- Selecteer een deck --</option>
-                                                        <% decks.forEach(deck => { %>
-                                                            <option value="<%= deck._id %>"><%= deck.name %></option>
-                                                        <% }) %>
-                                                    </select>
-                                                  
-                                                </section>
-
-                                        
-
-
-                                        </form> 
-
-
-                                 
-
+                                            <button type="submit" class="add-btn">Voeg toe</button>
+                                        </form>
                                     </section>
-
-
-
-
                             </section>
                         </section>
 
-                        <!-- dit is de bonus vraag over de tabjespaginering -->
+                        <!-- Pagina navigatie -->
                         <section id="pagination">
                             <button class="page-btn prev" onclick="prevPage()" disabled>«</button>
-                            <section class="page-numbers">
+                            <section class="page-nummers">
                                 <button class="page-btn active" data-page="1">1</button>
                                 <button class="page-btn" data-page="2">2</button>
                                 <button class="page-btn" data-page="3">3</button>
@@ -163,23 +135,18 @@
                             </section>
                             <button class="page-btn next" onclick="nextPage()" disabled>»</button>
                         </section>
-
-
         </main>
 
-
         <script src="/js/kaartendetail.js" defer></script>
-
         <script>
-            // Laat de flash message verdwijnen na 5 seconden
+            // Flash message
             const flash = document.getElementById("flash-message");
             if (flash) {
                 setTimeout(() => {
                     flash.style.display = "none";
-                }, 3000); // 5000ms = 5 seconden
+                }, 3000);
             }
         </script>
-
     </body>
 
     <%- include("partials/footer") %>

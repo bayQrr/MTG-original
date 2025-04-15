@@ -1,8 +1,6 @@
 <%- include("partials/header") %>
 
     <body class="deckview">
-
-
         <!-- info bar -->
         <section class="tooltip-container">
             <section class="icon">
@@ -13,43 +11,51 @@
                 </svg>
             </section>
             <section class="tooltip">
-                <p>Bekijk de inhoud van je geselecteerde deck. Je ziet het aantal kaarten, mana en landkaarten in
-                    een
-                    deck.</p>
-                <p>Wil je de kaarten zien van een andere deck? klik dan op een naar keuze. Klik op export om een
-                    JSON bestand te verkrijgen</p>
-
+                <p>Bekijk de inhoud van je geselecteerde deck...</p>
+                <p>Wil je de kaarten zien van een ander deck? Klik dan op de dropdown!</p>
             </section>
         </section>
 
         <main class="deckview-main">
             <!-- deck overzicht -->
             <section class="deck-overview">
-                <!-- <img src="assets/images/deckview.png" alt="Deck Monsters" class="deck-banner"> -->
-                <!-- 
-                        <section class="deck-info">
-                            <h2>
-                                <%= deck.name %>
-                            </h2>
-                            <span> <img src="/assets/icon/mana icon.png" alt="mana">mana: 0</span>
-                            <span> <img src="/assets/icon/cards icon.png" alt="cards">kaarten: 7/60</span>
-                            <span> <img src="assets/icon/tree icon.png" alt="landcards">landkaarten: 0</span>
-                            <button class="export-btn"><img src="assets/icon/export .png" alt="icon"></button>
-                        </section> -->
-
                 <section class="deck-info">
                     <h2>
                         <%= deck.name %>
                     </h2>
-                    <span> <img src="/assets/icon/mana icon.png" alt="mana">mana: <%= mana %></span>
-                    <span> <img src="/assets/icon/cards icon.png" alt="cards">kaarten: <%= aantalKaarten %>/60</span>
-                    <span> <img src="assets/icon/tree icon.png" alt="landcards">landkaarten: <%= aantalLandkaarten %>
+                    <span>
+                        <img src="/assets/icon/mana icon.png" alt="mana">
+                        mana: <%= mana %>
                     </span>
-                    <button class="export-btn"><img src="assets/icon/export .png" alt="icon"></button>
+                    <span>
+                        <img src="/assets/icon/cards icon.png" alt="cards">
+                        kaarten: <%= aantalKaarten %>/60
+                    </span>
+                    <span>
+                        <img src="/assets/icon/tree icon.png" alt="landcards">
+                        landkaarten: <%= aantalLandkaarten %>
+                    </span>
+                    <button class="export-btn">
+                        <img src="/assets/icon/export.png" alt="icon">
+                    </button>
                 </section>
             </section>
 
+            <!-- Hier plaatsen we de dropdown in de normale flow -->
             <section class="deck-containter">
+                <!-- deck lijst / dropdown -->
+                <section class="deck-list">
+                    <select id="deck-selector" class="deck-dropdown" required>
+                        <option value="">-- Kies een deck --</option>
+                        <% if (decks && decks.length> 0) { %>
+                            <% decks.forEach(d=> { %>
+                                <option value="<%= d._id %>">
+                                    <%= d.name %>
+                                </option>
+                                <% }) %>
+                                    <% } %>
+                    </select>
+                </section>
 
                 <!-- kaarten overzicht -->
                 <section class="card-display">
@@ -62,6 +68,8 @@
                 </section>
             </section>
         </main>
+
+        <script src="/js/dropdown.js" defer></script>
     </body>
 
     <%- include("partials/footer") %>

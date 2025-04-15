@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 
     <body id="unique-body">
-        
+
 
         <!-- info bar -->
         <section class="tooltip-container">
@@ -19,6 +19,20 @@
 
         <main id="unique-main">
             <section id="unique-draw-section">
+
+                <section class="deck-list">
+                    <select id="deck-selector" class="deck-dropdown" required>
+                        <option value="">-- Kies een deck --</option>
+                        <% if (decks && decks.length> 0) { %>
+                            <% decks.forEach(d=> { %>
+                                <option value="<%= d._id %>">
+                                    <%= d.name %>
+                                </option>
+                                <% }) %>
+                                    <% } %>
+                    </select>
+                </section>
+
                 <div id="unique-draw-controls">
                     <div id="main-buttons">
                         <button id="unique-draw-button">Draw</button>
@@ -58,6 +72,8 @@
                 <div id="drawn-cards-history"></div>
             </section>
         </main>
+
+        <script src="/js/dropdown.js" defer></script>
 
     </body>
 
