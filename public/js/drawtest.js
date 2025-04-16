@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardSearch = document.getElementById("card-search");
     const calculateOdds = document.getElementById("calculate-odds");
     const oddsResult = document.getElementById("odds-result");
+    const movingCard = document.getElementById("moving-card");
 
-    // 👉 Deck ophalen als gebruiker deck kiest
+    // 👉 Deck ophalen wanneer gebruiker er één kiest
     deckSelector.addEventListener("change", async (e) => {
         const deckId = e.target.value;
         if (!deckId) return;
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const res = await fetch(`/api/deck/${deckId}`);
             const cards = await res.json();
 
-            // Build deck met duplicates (op basis van count)
+            // Deck opbouwen op basis van count
             deck = [];
             cards.forEach(card => {
                 for (let i = 0; i < (card.count || 1); i++) {
@@ -49,55 +50,64 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 🎴 Kaart trekken
-    drawButton.addEventListener("click", () => {
-        if (deck.length === 0) {
-            alert("Geen kaarten meer over!");
-            return;
-        }
+    // ✅ Zorg dat event listeners niet dubbel worden toegevoegd
+    if (!drawButton.dataset.listenerAdded) {
+        drawButton.addEventListener("click", () => {
+            if (deck.length === 0) {
+                alert("Geen kaarten meer over!");
+                return;
+            }
 
-        const card = deck.pop();
-        drawnCards.push(card);
+            const card = deck.pop();
+            drawnCards.push(card);
 
-        animateCardDraw(card);
-        updateDisplay();
-        addToHistory(card);
-    });
+            animateCardDraw(card);
+            updateDisplay();
+            addToHistory(card);
+        });
+        drawButton.dataset.listenerAdded = "true";
+    }
 
-    // 🔁 Schudden
-    shuffleButton.addEventListener("click", () => {
-        for (let i = deck.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [deck[i], deck[j]] = [deck[j], deck[i]];
-        }
+    if (!shuffleButton.dataset.listenerAdded) {
+        shuffleButton.addEventListener("click", () => {
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
 
-        animateShuffle();
-        updateDisplay();
-    });
+            animateShuffle();
+            updateDisplay();
+        });
+        shuffleButton.dataset.listenerAdded = "true";
+    }
 
-    // 🔄 Reset
-    resetButton.addEventListener("click", () => {
-        deckSelector.dispatchEvent(new Event("change")); // herlaad deck
-        oddsResult.textContent = "";
-        cardSearch.value = "";
-    });
+    if (!resetButton.dataset.listenerAdded) {
+        resetButton.addEventListener("click", () => {
+            deckSelector.dispatchEvent(new Event("change")); // herlaad deck
+            oddsResult.textContent = "";
+            cardSearch.value = "";
+        });
+        resetButton.dataset.listenerAdded = "true";
+    }
 
-    // 🔍 Kansberekening (via backend)
-    calculateOdds.addEventListener("click", async () => {
-        const searchTerm = cardSearch.value.trim().toLowerCase();
-        const deckId = deckSelector.value;
-        if (!searchTerm || !deckId) return;
+    if (!calculateOdds.dataset.listenerAdded) {
+        calculateOdds.addEventListener("click", async () => {
+            const searchTerm = cardSearch.value.trim().toLowerCase();
+            const deckId = deckSelector.value;
+            if (!searchTerm || !deckId) return;
 
-        try {
-            const res = await fetch(`/api/deck/${deckId}/search?term=${encodeURIComponent(searchTerm)}`);
-            const data = await res.json();
+            try {
+                const res = await fetch(`/api/deck/${deckId}/search?term=${encodeURIComponent(searchTerm)}`);
+                const data = await res.json();
 
-            oddsResult.textContent = `Kans: ${data.kans}% (${data.matches} van ${data.totaalKaarten})`;
+                oddsResult.textContent = `Kans: ${data.kans}% (${data.matches} van ${data.totaalKaarten})`;
 
-        } catch (err) {
-            console.error("Fout bij berekening:", err);
-        }
-    });
+            } catch (err) {
+                console.error("Fout bij berekening:", err);
+            }
+        });
+        calculateOdds.dataset.listenerAdded = "true";
+    }
 
     // 🧮 UI Updates
     function updateDisplay() {
@@ -114,8 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function animateCardDraw(card) {
-        const movingCard = document.getElementById("moving-card");
-
         const deckRect = deckCard.getBoundingClientRect();
         const drawnRect = drawnCard.getBoundingClientRect();
         const translateX = drawnRect.left - deckRect.left;
