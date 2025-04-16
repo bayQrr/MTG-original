@@ -6,9 +6,11 @@ import { Deck, Cards, CardInDeck } from "../types";
 export function homeRouter() {
   const router = express.Router();
 
-  // 🔍 Route voor zoeken/filteren kaarten
-  router.get("/cards", async (req: Request, res: Response) => {
+  //  Route voor zoeken/filteren kaarten
+  router.get("/cards", async (req, res) => {
     try {
+      if (!req.session.user) return res.redirect("/login");
+
       const zoekterm = (req.query.zoekterm as string || "").toLowerCase();
       const rarityFilter = req.query.rarity as string || "";
       const allCards: Cards[] = await getCards();
@@ -32,9 +34,13 @@ export function homeRouter() {
         return true;
       });
 
+      // ✅ Decks ophalen en meesturen
+      const userDecks: Deck[] = await getDecksByUser(req.session.user._id);
+
       res.render("index", {
         user: req.session.user,
         cards: uniqueCards,
+        decks: userDecks,
       });
     } catch (error) {
       console.error("Fout bij ophalen van kaarten:", error);
@@ -42,8 +48,9 @@ export function homeRouter() {
     }
   });
 
-  // 🏠 Index route (alle kaarten + decks van user)
-  router.get("/", async (req: Request, res: Response) => {
+
+  // Index route (alle kaarten + decks van user)
+  router.get("/", async (req, res) => {
     try {
       if (!req.session.user) return res.redirect("/login");
 
@@ -83,7 +90,7 @@ export function homeRouter() {
       const success = await addCardToDeck(deckId, cardId, parseInt(cardCount, 10) || 1);
 
       if (!success) {
-        // ✅ Stuur een flash-melding mee bij te veel kaarten
+        // Stuur een flash-melding mee bij te veel kaarten
         req.session.message = {
           type: "error",
           message: "Je deck kan max 60 kaarten nemen. Je kunt geen extra kaarten toevoegen.",
