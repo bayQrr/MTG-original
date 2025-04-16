@@ -134,6 +134,16 @@ export async function addCardToDeck(deckId: string, cardId: string, cardCount: n
             console.log("Deck gevonden:", deck.name);
         }
 
+        //aantal kaarten in een deck berekenen
+        const totaalAantalKaarten = deck.cards?.reduce((acc, card) => acc + (card.count || 1), 0) || 0;
+
+        if (totaalAantalKaarten + cardCount > 60) {
+            console.log("Deck bevat al 60 kaarten of meer, kan niet meer toevoegen");
+            return false; // Stop als limiet bereikt
+        }
+
+
+
         // Kaart zoeken
         const card = await cardsCollection.findOne({ _id: new ObjectId(cardId) });
         if (!card) {

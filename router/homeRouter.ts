@@ -75,21 +75,21 @@ export function homeRouter() {
     try {
       const { deckId, cardId, cardCount } = req.body;
 
-      // Log de binnenkomende data
-      console.log("Ontvangen body:", { deckId, cardId, cardCount });
-
       if (!ObjectId.isValid(deckId) || !ObjectId.isValid(cardId)) {
-        console.log("Ongeldige IDs:", { deckId, cardId });
         res.status(400).send("Ongeldig deckId of cardId");
-        return
+        return;
       }
 
       const success = await addCardToDeck(deckId, cardId, parseInt(cardCount, 10) || 1);
 
       if (!success) {
-        console.log("Kon kaart niet toevoegen:", { deckId, cardId, cardCount });
-        res.status(500).send("Kon kaart niet toevoegen aan deck.");
-        return
+        // ✅ Stuur een flash-melding mee bij te veel kaarten
+        req.session.message = {
+          type: "error",
+          message: "Je deck kan max 60 kaarten nemen. Je kunt geen extra kaarten toevoegen.",
+        };
+        res.redirect("/");
+        return;
       }
 
       return res.redirect(`/deckview/${deckId}`);
@@ -98,6 +98,7 @@ export function homeRouter() {
       res.status(500).send("Server error");
     }
   });
+
 
   return router;
 }
