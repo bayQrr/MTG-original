@@ -1,6 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import { createDeck, getDecksByUser, updateDeck, deleteDeck, parseManaCost } from "../database";
+import { createDeck, getDecksByUser, updateDeck, deleteDeck, parseManaCost ,removeCardFromDeck} from "../database";
 import { Deck, CardInDeck } from "../types";
 
 export function deckRouter() {
@@ -112,6 +112,21 @@ export function deckRouter() {
     }
   });
 
+
+  // mogelijkheid om kaart verwijderen in deckview
+  router.post("/deck/:id/removeCard", async (req, res) => {
+    const { cardName, count } = req.body;
+    const deckId = req.params.id;
+
+    const aantal = parseInt(count);
+    if (!cardName || isNaN(aantal) || aantal < 1) {
+         res.status(400).send("Ongeldige gegevens");
+         return;
+    }
+
+    await removeCardFromDeck(deckId, cardName, aantal);
+    res.redirect(`/deckview/${deckId}`); // terug naar de deckview
+});
 
   return router;
 }

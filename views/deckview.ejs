@@ -59,13 +59,22 @@
 
                 <!-- kaarten overzicht -->
                 <section class="card-display">
-                    <% kaartenInDeck.forEach(card=> { %>
+                    <% kaartenInDeck.forEach(card => { %>
                         <section class="card_<%= (card.rarity || 'default').toLowerCase() %>">
                             <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
                             <span>x<%= card.count %></span>
+                    
+                            <form method="POST" action="/deck/<%= deck._id %>/removeCard" class="remove-card-form">
+                                <input type="hidden" name="cardName" value="<%= card.name %>">
+                                <input type="number" name="count" min="1" max="<%= card.count %>" value="1" required>
+                                <button type="submit">Verwijder</button>
+                            </form>
                         </section>
-                        <% }) %>
+                    <% }) %>
+                    
                 </section>
+
+                
             </section>
         </main>
 

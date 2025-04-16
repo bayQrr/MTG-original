@@ -205,17 +205,6 @@ export async function login(username: string, password: string) {
         throw new Error("Gebruikersnaam niet gevonden");
     }
 }
-
-export async function connect() {
-    await client.connect();
-    console.log("Connected to database");
-    // await eergstegebruiker();
-    await loadCardsFromApi();
-    process.on("SIGINT", exit);
-}
-
-
-
 // random mana berekening
 export function parseManaCost(manaCost: string): number {
     // Zoek patronen als {5}, {W}, {X}, {G/U}, etc.
@@ -236,3 +225,37 @@ export function parseManaCost(manaCost: string): number {
     }
     return total;
 }
+// kaart verwijeren in deck
+export async function removeCardFromDeck(deckId: string, cardName: string, count: number) {
+    const deck = await deckCollection.findOne({ _id: new ObjectId(deckId) });
+    if (!deck || !deck.cards) return;
+
+    const card = deck.cards.find(c => c.name === cardName);
+    if (!card) return;
+
+    if (card.count <= count) {
+        // Hele kaart verwijderen
+        await deckCollection.updateOne(
+            { _id: new ObjectId(deckId) },
+            { $pull: { cards: { name: cardName } } }
+        );
+    } else {
+        // Enkel aantal verminderen
+        await deckCollection.updateOne(
+            { _id: new ObjectId(deckId), "cards.name": cardName },
+            { $inc: { "cards.$.count": -count } }
+        );
+    }
+}
+
+
+export async function connect() {
+    await client.connect();
+    console.log("Connected to database");
+    // await eergstegebruiker();
+    await loadCardsFromApi();
+    process.on("SIGINT", exit);
+}
+
+
+
