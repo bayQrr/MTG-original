@@ -22,7 +22,7 @@
 
                 <section class="deck-list">
                     <select id="deck-selector" class="deck-dropdown" required>
-                        <option value="">-- Kies een deck --</option>
+                        <option value="">-- kies een deck --</option>
                         <% if (decks && decks.length> 0) { %>
                             <% decks.forEach(d=> { %>
                                 <option value="<%= d._id %>">
@@ -35,14 +35,14 @@
 
                 <div id="unique-draw-controls">
                     <div id="main-buttons">
-                        <button id="unique-draw-button">Draw</button>
-                        <button id="unique-shuffle-button">Shuffle</button>
-                        <button id="unique-reset-button">Reset</button>
+                        <button id="unique-draw-button">DRAW</button>
+                        <button id="unique-shuffle-button">SHUFFLE</button>
+                        <button id="unique-reset-button">RESET</button>
                     </div>
 
                     <div id="search-controls">
                         <input type="text" id="card-search" placeholder="Zoek een kaart...">
-                        <button id="calculate-odds">Kans</button>
+                        <button id="calculate-odds">KANS</button>
                         <span id="odds-result"></span>
                     </div>
                 </div>
