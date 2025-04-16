@@ -67,7 +67,8 @@
                             <form method="POST" action="/deck/<%= deck._id %>/removeCard" class="remove-card-form">
                                 <input type="hidden" name="cardName" value="<%= card.name %>">
                                 <input type="number" name="count" min="1" max="<%= card.count %>" value="1" required>
-                                <button type="submit">Verwijder</button>
+                                <!-- <button type="submit">Verwijder</button> -->
+                                <button type="submit" class="delete-deck-btn" title="Verwijder deck">🗑️</button>
                             </form>
                         </section>
                     <% }) %>
