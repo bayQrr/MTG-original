@@ -9,7 +9,7 @@ import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
 import { registerRouter } from "./router/registerRouter";
 import { deckRouter } from "./router/deckRouter";
-import { gameRouter } from "./router/gameRouter";
+import { drawtestRouter } from "./router/drawtestRouter";
 import { flashMiddleware } from "./middelware/flashMiddleware";
 
 dotenv.config();
@@ -33,7 +33,7 @@ app.use("/", homeRouter());
 app.use(userRouter());
 app.use(registerRouter());
 app.use("/", deckRouter());
-app.use(gameRouter());
+app.use(drawtestRouter());
 
 
 app.set("port", process.env.PORT || 3000);
@@ -55,9 +55,11 @@ app.get('/deck', (req, res) => {
 app.get('/deckview', (req, res) => {
   res.render('deckview');
 });
-app.get('/game', (req, res) => {
-  res.render('game');
+
+app.get('/drawtest', (req, res) => {
+  res.render('drawtest');
 });
+
 app.listen(app.get("port"), async () => {
   try {
     await connect();
