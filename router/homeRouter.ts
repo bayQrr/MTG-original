@@ -52,7 +52,7 @@ export function homeRouter() {
   // Index route (alle kaarten + decks van user)
   router.get("/", async (req, res) => {
     try {
-      if (!req.session.user) return res.redirect("/login");
+      if (!req.session.user) return res.redirect("/landing");
 
       const allCards: Cards[] = await getCards();
       const filteredCards = allCards.filter(card => card.imageUrl);
