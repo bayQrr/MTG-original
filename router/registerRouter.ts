@@ -33,9 +33,11 @@ export const registerRouter = (): Router => {
             });
 
             if (existingUser) {
-                return res.render("register", {
-                    error: "Gebruikersnaam of email is al in gebruik"
-                });
+                req.session.message = {
+                    type: "error",
+                    message: "Gebruikersnaam of email is al in gebruik"
+                };
+                return res.redirect("/register");
             }
 
             // Hash het wachtwoord

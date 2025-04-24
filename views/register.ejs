@@ -17,32 +17,36 @@
       <img src="assets/logo/LOGO-MAGIC 2.png" id="logo" />
     </a>
   </header>
+  <!-- Flashmessenger -->
+  <% const message=locals.message; %>
+    <% if (message) { %>
 
-  <section class="register-container">
-    <section class="register-form">
-      <h1>REGISTREREN</h1>
-      <!-- Toon foutbericht indien nodig -->
-      <% if (error) { %>
-        <div class="error-message">
-          <%= error %>
-        </div>
-        <% } %>
-          <form action="/register" method="POST">
-            <input type="text" name="username" placeholder="Gebruikersnaam" required>
-            <input type="text" name="email" placeholder="E-mail" required>
-            <section class="password-container">
-              <input type="password" name="password" placeholder="Wachtwoord" required>
-              <span class="toggle-password" onclick="togglePassword('password', this)">
-                <i class="fas fa-eye-slash"></i>
-              </span>
-            </section>
-            <button type="submit" id="btn">Registreer</button>
-            <p class="login-text">Al een account? <a href="/login">Inloggen</a></p>
-          </form>
-    </section>
-  </section>
+      <p id="flash-message-login"
+        class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
+        <%= message.message %>
+      </p>
 
-  <script src="/js/register.js" defer></script>
+      <% } %>
+        <section class="register-container">
+          <section class="register-form">
+            <h1>REGISTREREN</h1>
+
+            <form action="/register" method="POST">
+              <input type="text" name="username" placeholder="Gebruikersnaam" required>
+              <input type="text" name="email" placeholder="E-mail" required>
+              <section class="password-container">
+                <input type="password" name="password" placeholder="Wachtwoord" required>
+                <span class="toggle-password" onclick="togglePassword('password', this)">
+                  <i class="fas fa-eye-slash"></i>
+                </span>
+              </section>
+              <button type="submit" id="btn">Registreer</button>
+              <p class="login-text">Al een account? <a href="/login">Inloggen</a></p>
+            </form>
+          </section>
+        </section>
+
+        <script src="/js/register.js" defer></script>
 </body>
 
 </html>
