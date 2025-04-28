@@ -1,6 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import { createDeck, getDecksByUser, updateDeck, deleteDeck, parseManaCost ,removeCardFromDeck} from "../database";
+import { createDeck, getDecksByUser, updateDeck, deleteDeck, parseManaCost, removeCardFromDeck, deckCollection } from "../database";
 import { Deck, CardInDeck } from "../types";
 
 export function deckRouter() {
@@ -120,13 +120,33 @@ export function deckRouter() {
 
     const aantal = parseInt(count);
     if (!cardName || isNaN(aantal) || aantal < 1) {
-         res.status(400).send("Ongeldige gegevens");
-         return;
+      res.status(400).send("Ongeldige gegevens");
+      return;
     }
 
     await removeCardFromDeck(deckId, cardName, aantal);
     res.redirect(`/deckview/${deckId}`); // terug naar de deckview
-});
+  });
 
+  router.get('/deck/:id/export', async (req, res) => {
+    const deckId = req.params.id;
+
+    try {
+      const deck = await deckCollection.findOne({ _id: new ObjectId(deckId) });
+
+      if (!deck) {
+        res.status(404).send("Deck niet gevonden");
+        return
+      }
+
+      // Hier zetten we headers
+      res.setHeader('Content-Type', 'application/json');
+      res.send(deck.cards);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Fout bij exporteren van deck");
+    }
+
+  });
   return router;
 }

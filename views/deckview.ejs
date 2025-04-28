@@ -36,7 +36,9 @@
                         landkaarten: <%= aantalLandkaarten %>
                     </span>
                     <button class="export-btn">
-                        <img src="/assets/icon/export.png" alt="icon">
+                        <a href="/deck/<%= deck._id %>/export" class="export-btn">
+                            <img src="/assets/icon/export.png" alt="icon">
+                        </a>
                     </button>
                 </section>
             </section>
