@@ -60,6 +60,10 @@ app.get('/drawtest', (req, res) => {
   res.render('drawtest');
 });
 
+app.get("/login", (req, res) => {
+  res.redirect("/account/login");
+});
+
 app.listen(app.get("port"), async () => {
   try {
     await connect();
