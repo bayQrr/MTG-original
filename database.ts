@@ -248,6 +248,31 @@ export async function removeCardFromDeck(deckId: string, cardName: string, count
     }
 }
 
+// update user
+
+// Functie om de gebruikersnaam en/of wachtwoord bij te werken
+export async function updateUser(userId: ObjectId, updatedData: { username?: string; password?: string }) {
+    // Maak een object met de velden die moeten worden bijgewerkt
+    const updateFields: { [key: string]: any } = {};
+  
+    if (updatedData.username) {
+      updateFields.username = updatedData.username;
+    }
+    if (updatedData.password) {
+      // Hash het nieuwe wachtwoord voordat je het opslaat
+      updateFields.password = await bcrypt.hash(updatedData.password, saltRounds);
+    }
+  
+    const result = await userCollectionMTG.updateOne(
+      { _id: userId },
+      { $set: updateFields }
+    );
+  
+    console.log(`Update result: ${result.modifiedCount}`);  // Voeg deze regel toe om te controleren of de update succesvol was
+    return result.modifiedCount > 0;
+  }
+  
+
 
 export async function connect() {
     await client.connect();
@@ -256,6 +281,3 @@ export async function connect() {
     await loadCardsFromApi();
     process.on("SIGINT", exit);
 }
-
-
-

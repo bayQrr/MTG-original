@@ -1,7 +1,28 @@
 <%- include("partials/header") %>
 
-    <h1>Gebruikersinfo</h1>
+    <h1>Account Instellingen</h1>
     <p>Welkom, <%= user.username %>
     </p>
 
-    <%- include("partials/footer") %>
+    <% if (message) { %>
+        <section class="<%= message.type %>">
+            <%= message.message %>
+        </section>
+        <% } %>
+
+            <form method="POST" action="/account/update-profile">
+                <section>
+                    <label for="username">Nieuwe Gebruikersnaam:</label>
+                    <input type="text" name="username" id="username">
+                </section>
+
+                <section>
+                    <label for="password">Nieuw Wachtwoord:</label>
+                    <input type="password" name="password" id="password">
+                </section>
+
+                <button type="submit">Wijzig Gegevens</button>
+            </form>
+
+
+            <%- include("partials/footer") %>

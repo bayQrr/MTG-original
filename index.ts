@@ -28,7 +28,7 @@ app.use(session); // Zorg dat sessie-middleware vóór de routers komt
 app.use(flashMiddleware);
 
 // Routers
-app.use(accountRouter());
+app.use("/account", accountRouter());
 app.use("/", homeRouter());
 app.use(userRouter());
 app.use(registerRouter());
