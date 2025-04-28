@@ -11,7 +11,7 @@ export function accountRouter() {
     if (req.session.user) {
       return res.redirect("/");
     }
-    res.render("login");
+    res.render("/account/login");
   });
 
   // POST /login: Verwerk het loginformulier
@@ -43,7 +43,7 @@ export function accountRouter() {
       };
 
       // Redirect naar home pagina na succesvolle login
-      res.redirect("/");
+      res.redirect("/account/login");
 
     } catch (e) {
       const error = e as Error;
@@ -63,9 +63,10 @@ export function accountRouter() {
   router.get("/logout", (req, res) => {
     req.session.destroy((err) => {
       if (err) console.error("Logout error:", err);
-      res.redirect("/login");
+      res.redirect("/account/login");
     });
   });
+
 
   // POST /update-profile: Update gebruikersgegevens
   router.post("/update-profile", async (req, res) => {
