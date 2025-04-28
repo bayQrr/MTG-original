@@ -1,6 +1,6 @@
 // Globale variabelen voor paginering
 let currentPage = 1;
-const kaartenPerPagina = 8;
+const kaartenPerPagina = 4;
 
 function showPage(page) {
     const kaartenArray = Array.from(document.querySelectorAll(".kaart"));
