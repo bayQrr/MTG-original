@@ -17,18 +17,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listener voor het wachtwoord toggle-icoon
     togglePasswordBtn.addEventListener("click", togglePassword);
-
-    // Wachtwoordvalidatie bij typen
-    passwordInput.addEventListener("input", function () {
-        const password = passwordInput.value;
-
-        if (password.length < 6) {
-            passwordError.textContent = "Wachtwoord moet minstens 6 tekens lang zijn.";
-            passwordError.style.color = "red";
-            submitButton.disabled = true;
-        } else {
-            passwordError.textContent = "";
-            submitButton.disabled = false;
-        }
-    });
 });

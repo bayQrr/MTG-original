@@ -1,21 +1,46 @@
 import { ObjectId } from "mongodb";
 
+
 export interface User {
-    _id?: ObjectId;
+    _id: ObjectId;
     username: string;
     email?: string;
     password?: string;
-
+    createdAt: Date;
 }
 
 
 export interface Cards {
     _id?: ObjectId;
     name: string;
-    rarity: string;
+    rarity?: string;
     text: string;
-    type: string;
+    type?: string;
     manaCost: string;
-    imageUrl: string;
+    imageUrl?: string;
+}
 
+
+export interface CardInDeck {
+    name: string;
+    count: number;
+    type?: string;
+    imageUrl: string;
+    rarity?: string;
+    manaCost?: string;
+}
+
+
+export interface Deck {
+    _id?: ObjectId;
+    userId: ObjectId;
+    name: string;
+    imageUrl: string;
+    cards: CardInDeck[];
+}
+
+// Flash message type
+export interface FlashMessage {
+    type: "error" | "success";
+    message: string;
 }

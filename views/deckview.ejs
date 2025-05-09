@@ -1,107 +1,93 @@
 <%- include("partials/header") %>
 
     <body class="deckview">
+        <!-- info bar -->
+        <section class="tooltip-container">
+            <section class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+                    </path>
+                </svg>
+            </section>
+            <section class="tooltip">
+                <p>Bekijk de inhoud van je geselecteerde deck...</p>
+                <p>Wil je de kaarten zien van een ander deck? Klik dan op de dropdown!</p>
+            </section>
+        </section>
 
-        <!-- navbar -->
-
-        <body class="cards_body">
-           
-            <!-- info bar -->
-            <section class="tooltip-container">
-                <section class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
-                        <path
-                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
-                        </path>
-                    </svg>
-                </section>
-                <section class="tooltip">
-                    <p>Bekijk de inhoud van je geselecteerde deck. Je ziet het aantal kaarten, mana en landkaarten in
-                        een
-                        deck.</p>
-                    <p>Wil je de kaarten zien van een andere deck? klik dan op een naar keuze. Klik op export om een
-                        JSON bestand te verkrijgen</p>
-
+        <main class="deckview-main">
+            <!-- deck overzicht -->
+            <section class="deck-overview">
+                <section class="deck-info">
+                    <h2>
+                        <%= deck.name %>
+                    </h2>
+                    <span>
+                        <img src="/assets/icon/mana icon.png" alt="mana">
+                        mana: <%= mana %>
+                    </span>
+                    <span>
+                        <img src="/assets/icon/cards icon.png" alt="cards">
+                        kaarten: <%= aantalKaarten %>/60
+                    </span>
+                    <span>
+                        <img src="/assets/icon/tree icon.png" alt="landcards">
+                        landkaarten: <%= aantalLandkaarten %>
+                    </span>
+                    <button class="export-btn">
+                        <a href="/deck/<%= deck._id %>/export" class="export-btn">
+                            <img src="/assets/icon/export.png" alt="icon">
+                        </a>
+                    </button>
                 </section>
             </section>
 
-            <main class="deckview-main">
-                <!-- deck overzicht -->
-                <section class="deck-overview">
-                    <!-- <img src="assets/images/deckview.png" alt="Deck Monsters" class="deck-banner"> -->
+            <!-- Hier plaatsen we de dropdown in de normale flow -->
+            <section class="deck-containter">
 
-                    <section class="deck-info">
-                        <h2>Deck Monsters</h2>
-                        <span> <img src="/assets/icon/mana icon.png" alt="mana">mana: 0</span>
-                        <span> <img src="/assets/icon/cards icon.png" alt="cards">kaarten: 7/60</span>
-                        <span> <img src="assets/icon/tree icon.png" alt="landcards">landkaarten: 0</span>
-                        <button class="export-btn"><img src="assets/icon/export .png" alt="icon"></button>
-                    </section>
+                <form action="/" method="GET">
+                    <button type="submit">get cards</button>
+                </form>
+
+
+                <!-- deck lijst / dropdown -->
+                <section class="deck-list">
+                    <select id="deck-selector" class="deck-dropdown" required>
+                        <option value="">-- kies een deck --</option>
+                        <% if (decks && decks.length> 0) { %>
+                            <% decks.forEach(d=> { %>
+                                <option value="<%= d._id %>">
+                                    <%= d.name %>
+                                </option>
+                                <% }) %>
+                                    <% } %>
+                    </select>
                 </section>
 
-                <section class="deck-containter">
-                    <!-- deck lijst -->
-                    <section class="deck-list">
-                        <!-- <ul>
-                        <li class="deck-items">
-                            <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
-                            deck 1
-                        </li>
-                        <li class="deck-items">
-                            <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
-                            deck 2
-                        </li>
-                        <li class="deck-items">
-                            <img src="/assets/images/Magic_card_back 19.png" alt="magic card">
-                            deck 3
-                        </li>
-                    </ul> -->
-                    </section>
+                <!-- kaarten overzicht -->
+                <section class="card-display">
+                    <% kaartenInDeck.forEach(card=> { %>
+                        <section class="card_<%= (card.rarity || 'default').toLowerCase() %>">
+                            <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
+                            <span>x<%= card.count %></span>
 
-                    <!-- kaarten overzicht -->
-                    <section class="card-display">
-                        <section class="card_uncommon">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x1</span>
+                            <form method="POST" action="/deck/<%= deck._id %>/removeCard" class="remove-card-form">
+                                <input type="hidden" name="cardName" value="<%= card.name %>">
+                                <input type="number" name="count" min="1" max="<%= card.count %>" value="1" required>
+                                <!-- <button type="submit">Verwijder</button> -->
+                                <button type="submit" class="delete-deck-btn" title="Verwijder deck">🗑️</button>
+                            </form>
                         </section>
-                        <section class="card_mythic">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x3</span>
-                        </section>
-                        <section class="card_rare">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x2</span>
-                        </section>
-                        <section class="card_uncommon">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x1</span>
-                        </section>
-                        <section class="card_common">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x3</span>
-                        </section>
-                        <section class="card_rare">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x2</span>
-                        </section>
-                        <section class="card_special">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x1</span>
-                        </section>
-                        <section class="card_uncommon">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x3</span>
-                        </section>
-                        <section class="card_uncommon">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x3</span>
-                        </section>
-                        <section class="card_uncommon">
-                            <img src="/assets/images/cardExample.jpg" alt="Card">
-                            <span>x3</span>
-                        </section>
-                    </section>
-            </main>
-        </body>
+                        <% }) %>
 
-        <%- include("partials/footer") %>
+                </section>
+
+
+            </section>
+        </main>
+
+        <script src="/js/dropdown.js" defer></script>
+    </body>
+
+    <%- include("partials/footer") %>

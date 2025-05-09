@@ -306,33 +306,33 @@
 .midden-container {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
   width: 1000px;
-  height: 900px;
+  height: 460px;
   background: transparent;
   backdrop-filter: blur(20px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
   margin: 0 auto;
+  margin-top: 30px;
   background-image: url("/assets/images/1305500.jpg");
   background-position: center;
   background-size: cover;
-  margin-top: 60px;
 }
 
 #kaartContainer {
   display: flex;
   flex-direction: column;
   width: 900px;
-  height: 800px;
+  height: 300px;
   background: transparent;
   backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
   margin: 0 auto;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 /*kaarten*/
@@ -342,8 +342,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15rem;
-  padding: 20px;
+  gap: 5rem;
+  padding: 10px;
 }
 
 #popupImg {
@@ -401,7 +401,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 /* -----*/
 /*uit api kaarten rij komt uit js */
@@ -409,11 +409,10 @@ section.rijen {
   max-width: 700px;
   margin: 0 auto;
   display: flex;
-  /* flex-direction: row; */
   flex-wrap: wrap;
   justify-content: center;
   gap: 3rem;
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 .popup-specifications > p > strong {
@@ -441,8 +440,10 @@ section.rijen {
 
 .kaart img {
   width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
+
 .kaart > p {
   color: white;
   font-family: magic;
@@ -450,7 +451,6 @@ section.rijen {
   letter-spacing: 2px;
   margin-top: 1rem;
   margin-bottom: 2rem;
-
   font-size: 20px;
 }
 
@@ -479,7 +479,7 @@ section > .kaart.mythic > img {
 #kaartPopup {
   display: none;
   position: fixed;
-  z-index: 1000; 
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
@@ -522,18 +522,18 @@ section > .kaart.mythic > img {
 
 .deck-dropdown {
   display: none;
-  position: absolute;
-
+  /* position: absolute; */
+  top: 50%;
   border: 1px solid #474242;
   padding: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-
   background: linear-gradient(45deg, #1a1a1a, #3d99ae);
   color: #fff;
   font-size: 20px;
   border: 2px solid black;
   border-radius: 5%;
 }
+
 /* to do font styl aanpassen */
 .deck-dropdown a {
   display: block;
@@ -649,7 +649,7 @@ section > .kaart.mythic > img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem auto 5rem;
+  margin: 1rem auto 2rem;
   max-width: 400px;
   padding: 0 20px;
 }
@@ -753,7 +753,7 @@ input:focus {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   left: 17%;
-  z-index: 100; 
+  z-index: 100;
   opacity: 0;
   transition: opacity 0.5s, transform 0.5s;
   transform: translateY(10px);
@@ -838,13 +838,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Voeg dit toe voor verticale centrering */
+  justify-content: center;
   text-align: center;
   min-height: calc(100vh - 200px);
-  padding: 20px;
+  padding: 10px;
   font-family: magic;
   letter-spacing: 2px;
-  gap: 2rem; /* Voeg wat ruimte toe tussen elementen */
+  gap: 1rem;
 }
 
 #main-content h2 {
@@ -859,33 +859,58 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   background: transparent;
   backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
-  padding: 20px;
-  max-width: 800px;
+  padding: 15px;
+  max-width: 700px;
   width: 90%;
   margin: 0 auto;
-  min-height: 400px;
-  position: relative; /* Voeg dit toe */
+  min-height: 300px;
+}
+
+#add-deck-btn {
+  background: linear-gradient(45deg, #1a1a1a, rgb(41, 41, 168));
+  backdrop-filter: blur(10px);
+  border: none;
+  padding: 12px;
+  border-radius: 20%;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px #00000026;
+  margin-top: 1.5rem;
+}
+
+#add-deck-btn img {
+  width: 25px;
+  height: 25px;
+}
+
+#add-deck-btn:hover {
+  background-color: #ef4323;
+  transform: scale(1.1);
 }
 
 /* Aanpassing voor deck items container */
 #deck-container {
   display: flex;
-  flex-wrap: wrap; /* Zorgt ervoor dat items naast elkaar komen, maar naar beneden gaan als er geen ruimte is */
-  justify-content: center; /* Centreert de items */
-  gap: 20px; /* Ruimte tussen de items */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
   margin-top: 20px;
+  max-width: 600px;
 }
 
 /* Aanpassing voor deck items */
 .deck-item {
   text-align: center;
-  width: 160px;
+  width: 130px;
   background: #00000080;
   border: 2px solid #ffffff33;
   border-radius: 10px;
@@ -1495,31 +1520,127 @@ footer {
   right: auto;
 }
 
-/* Hover effect voor grotere schermen */
-@media screen and (min-width: 801px) {
-  .slider-item:hover .slider-title {
-    writing-mode: horizontal-tb;
-    left: 50%;
-    bottom: 10px;
-    top: auto;
-    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
-    width: fit-content;
+/* ---------------------------------------------flashmessage----------------------------- */
+/* succes */
+/* Flash message container */
+#flash-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Success message style */
+#flash-message.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Error message style */
+#flash-message.alert-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Flash message fade-out animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }
 
-/* Mobiele weergave (altijd horizontaal) */
-@media screen and (max-width: 800px) {
-  .slider-title {
-    writing-mode: horizontal-tb;
-    left: 50%;
-    bottom: 10px;
-    top: auto;
-    transform: translateX(-50%);
-    width: fit-content;
-    font-size: 1rem;
-    padding: 8px;
+/* Close button inside the message */
+#flash-message .close {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Change the close button color on hover */
+#flash-message .close:hover {
+  color: #ddd;
+}
+
+/* niet succesvol */
+
+#flash-message-login {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Success message style for login (Green background) */
+#flash-message-login.alert-success {
+  background-color: #28a745; /* Green for success */
+  color: white;
+}
+
+/* Error message style for login (Red background) */
+#flash-message-login.alert-danger {
+  background-color: #dc3545; /* Red for error */
+  color: white;
+}
+
+/* Flash message fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }
+
+/* Close button inside the message */
+#flash-message-login .close {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Change the close button color on hover */
+#flash-message-login .close:hover {
+  color: #ddd;
+}
+
 /*------------------------------------------- DECKVIEW pagina Kaoutar -------------------------*/
 /* BODY DECKVIEW  */
 .deckview {
@@ -1587,15 +1708,10 @@ footer {
   font-size: 1rem;
 }
 
-/* DECK SELECTEREN */
-#deck-selector-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 76px auto;
+.deck-list {
+  margin: 20px;
 }
-
+/* DECK SELECTEREN */
 #deck-selector {
   font-family: magic;
   letter-spacing: 2px;
@@ -1603,16 +1719,17 @@ footer {
   background: #00000080;
   color: #ffffff;
   border: 2px solid #ffffff;
-  padding: 10px auto;
+  padding: 10px;
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   width: 250px;
   text-align: center;
-  /* appearance: none; */
+  margin: 0 auto;
 }
 
+/* Styling voor de options */
 #deck-selector option {
   background: #0a0a0ae6;
   color: white;
@@ -1638,31 +1755,6 @@ footer {
 .deck-items a:hover {
   opacity: 0.8;
 }
-
-/* .deck-items {
-  text-align: center;
-  width: 160px;
-  background: #00000080;
-  border: 2px solid #ffffff33;
-  border-radius: 10px;
-  padding: 13px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-} */
-
-/* Hover-effect */
-/* .deck-items:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px #a1a09ccc;
-} */
-
-/* .deck-items img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 5px;
-} */
 
 /* KAARTEN OVERZICHT */
 .card-display {
@@ -2359,33 +2451,6 @@ footer {
     transform: translateX(0);
   }
 }
-/* Container voor de deck-kiezer */
-#draw-deck-selector-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Stijl van de dropdown */
-#draw-deck-selector {
-  font-family: magic;
-  letter-spacing: 2px;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: 2px solid white;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  width: 250px;
-  text-align: center;
-}
-
-#draw-deck-selector:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
 
 /* Geel kader om geselecteerd deck te markeren */
 .selected-deck {
@@ -2428,7 +2493,7 @@ footer {
 /* UITLOGGEN */
 #profile-dropdown {
   font-family: stratum;
-  z-index: 9999; 
+  z-index: 9999;
 }
 
 @media (max-width: 1200px) {
@@ -2998,7 +3063,7 @@ body {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 0 15px;
+  padding: 0 5px;
 }
 
 .tooltip {
@@ -3012,6 +3077,73 @@ body {
   padding: 15px;
   box-sizing: border-box;
   gap: 15px;
+}
+
+/* ---------------------------------------------flashmessage----------------------------- */
+/* succes */
+/* Flash message container */
+#flash-message {
+  font-family: prompt;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Success message style */
+#flash-message.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Flash message fade-out animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* bij niet succesvol */
+
+#flash-message-login {
+  /* position: fixed; */
+  font-family: prompt;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Success message style */
+#flash-message-login.alert-success {
+  background-color: red;
+  color: white;
 }
 
 /* Aanpassingen voor zeer kleine schermen */
@@ -3066,4 +3198,123 @@ body {
 
 footer {
   margin-top: auto;
+}
+
+/* Hover effect voor grotere schermen */
+@media screen and (min-width: 801px) {
+  .slider-item:hover .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
+    width: fit-content;
+  }
+}
+
+/* Mobiele weergave (altijd horizontaal) */
+@media screen and (max-width: 800px) {
+  .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%);
+    width: fit-content;
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+/* Deckview button stijlen */
+.deck-containter form button[type="submit"] {
+  background: linear-gradient(45deg, #4a148c, #7b1fa2);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: magic;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 3px 5px 0;
+}
+
+.deck-containter form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.delete-deck-btn {
+  background: linear-gradient(45deg, #4a148c, #7b1fa2);
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-family: magic;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 3px;
+}
+
+.delete-deck-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.export-btn {
+  background: linear-gradient(45deg, #4a148c, #7b1fa2);
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-family: magic;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 3px;
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.remove-card-form input[type="number"] {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  width: 60px;
+  color: white;
+  font-family: magic;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.remove-card-form input[type="number"]:focus {
+  outline: none;
+  border-color: #7b1fa2;
+  box-shadow: 0 0 8px rgba(123, 31, 162, 0.7);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.remove-card-form input[type="number"]::-webkit-inner-spin-button,
+.remove-card-form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.remove-card-form input[type="number"] {
+  -moz-appearance: textfield;
 }

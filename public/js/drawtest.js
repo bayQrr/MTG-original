@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    if (!document.getElementById("unique-draw-section")) return;
-  
+    const drawSection = document.getElementById("unique-draw-section");
+    if (!drawSection) return;
+
+    // State
     let deck = [];
     let drawnCards = [];
-  
+
     // DOM Elements
+    const deckSelector = document.getElementById("deck-selector");
     const deckCard = document.getElementById("unique-deck-card");
     const drawnCard = document.getElementById("unique-drawn-card");
     const cardsRemaining = document.getElementById("cards-remaining");
@@ -15,194 +18,140 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardSearch = document.getElementById("card-search");
     const calculateOdds = document.getElementById("calculate-odds");
     const oddsResult = document.getElementById("odds-result");
-  
-    function initializeDeck() {
-        deck = Array.from({ length: 60 }, (_, i) => ({
-            id: i + 1,
-            name: `Card ${i + 1}`,
-          //   image: `assets/images/Magic_card_back 19.png`,
-          image: `/assets/images/cardExample.jpg`
-        }));
-    }
-  
-    function shuffleDeck() {
-        for (let i = deck.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [deck[i], deck[j]] = [deck[j], deck[i]];
-        }
-  
-        animateShuffle();
-        updateDisplay();
-    }
-  
-    function animateShuffle() {
-        deckCard.classList.remove("shuffle-animation"); 
-        void deckCard.offsetWidth; 
-        deckCard.classList.add("shuffle-animation");
-    }
-  
-  
-  
-  function drawCard() {
-      if (deck.length === 0) {
-          alert("Geen kaarten meer over!");
-          return;
-      }
-  
-      const card = deck.pop();
-      drawnCards.push(card);
-  
-      // Posities berekenen
-      const deckRect = deckCard.getBoundingClientRect();
-      const drawnRect = drawnCard.getBoundingClientRect();
-  
-      // Verberg de bovenste kaart van de stapel tijdens de animatie
-      deckCard.style.visibility = "hidden";
-  
-      // Toon de animatiekaart
-      const movingCard = document.getElementById("moving-card");
-      movingCard.src = card.image;
-      movingCard.alt = card.name;
-  
+    const movingCard = document.getElementById("moving-card");
 
-      movingCard.style.display = "block";
-      movingCard.style.opacity = "1";
-  
-      // Forceer hertekenen van het element om de animatie opnieuw te starten
-      void movingCard.offsetWidth;
-  
-      // Reset de transform en zorg dat de animatie opnieuw start
-      movingCard.style.transition = "none"; 
-      movingCard.style.transform = `translate(0, 0)`; 
-  
-      
-      void movingCard.offsetWidth;
-  
-     
-      const translateX = drawnRect.left - deckRect.left;
-      const translateY = drawnRect.top - deckRect.top;
-  
-      movingCard.style.transition = "transform 0.6s ease"; 
-      movingCard.style.transform = `translate(${translateX}px, ${translateY}px)`;
-  
-  
-      setTimeout(() => {
-          drawnCard.src = card.image;
-          drawnCard.alt = card.name;
-          movingCard.style.opacity = "0";
-  
-          // Toon de deck-kaart terug zodra animatie klaar is
-          deckCard.style.visibility = "visible";
-  
-          addToHistory(card);
-      }, 600); 
-  
-      updateDisplay();
-  }
-  
-  
-    function animateDraw(card) {
-        drawnCard.classList.remove("draw-animation"); 
-        void drawnCard.offsetWidth; 
-        drawnCard.classList.add("draw-animation");
-  
-        setTimeout(() => {
-            drawnCard.src = card.image;
-            drawnCard.alt = card.name;
-        }, 500); 
+    // 👉 Deck ophalen wanneer gebruiker er één kiest
+    deckSelector.addEventListener("change", async (e) => {
+        const deckId = e.target.value;
+        if (!deckId) return;
+
+        try {
+            const res = await fetch(`/api/deck/${deckId}`);
+            const cards = await res.json();
+
+            // Deck opbouwen op basis van count
+            deck = [];
+            cards.forEach(card => {
+                for (let i = 0; i < (card.count || 1); i++) {
+                    deck.push({
+                        name: card.name,
+                        image: card.imageUrl || "/assets/images/Magic_card_back 19.png"
+                    });
+                }
+            });
+
+            drawnCards = [];
+            drawnCard.src = "/assets/images/Magic_card_back 19.png";
+            drawnCardsHistory.innerHTML = "";
+            updateDisplay();
+
+        } catch (err) {
+            console.error("Fout bij ophalen deck:", err);
+        }
+    });
+
+    // ✅ Zorg dat event listeners niet dubbel worden toegevoegd
+    if (!drawButton.dataset.listenerAdded) {
+        drawButton.addEventListener("click", () => {
+            if (deck.length === 0) {
+                alert("Geen kaarten meer over!");
+                return;
+            }
+
+            const card = deck.pop();
+            drawnCards.push(card);
+
+            animateCardDraw(card);
+            updateDisplay();
+            addToHistory(card);
+        });
+        drawButton.dataset.listenerAdded = "true";
     }
-  
+
+    if (!shuffleButton.dataset.listenerAdded) {
+        shuffleButton.addEventListener("click", () => {
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+
+            animateShuffle();
+            updateDisplay();
+        });
+        shuffleButton.dataset.listenerAdded = "true";
+    }
+
+    if (!resetButton.dataset.listenerAdded) {
+        resetButton.addEventListener("click", () => {
+            deckSelector.dispatchEvent(new Event("change")); // herlaad deck
+            oddsResult.textContent = "";
+            cardSearch.value = "";
+        });
+        resetButton.dataset.listenerAdded = "true";
+    }
+
+    if (!calculateOdds.dataset.listenerAdded) {
+        calculateOdds.addEventListener("click", async () => {
+            const searchTerm = cardSearch.value.trim().toLowerCase();
+            const deckId = deckSelector.value;
+            if (!searchTerm || !deckId) return;
+
+            try {
+                const res = await fetch(`/api/deck/${deckId}/search?term=${encodeURIComponent(searchTerm)}`);
+                const data = await res.json();
+
+                oddsResult.textContent = `Kans: ${data.kans}% (${data.matches} van ${data.totaalKaarten})`;
+
+            } catch (err) {
+                console.error("Fout bij berekening:", err);
+            }
+        });
+        calculateOdds.dataset.listenerAdded = "true";
+    }
+
+    // 🧮 UI Updates
     function updateDisplay() {
         cardsRemaining.textContent = `${deck.length} kaarten over`;
     }
-  
+
     function addToHistory(card) {
-        const cardElement = document.createElement("img");
-        cardElement.src = card.image;
-        cardElement.alt = card.name;
-        cardElement.title = card.name;
-        cardElement.classList.add("history-card", "fade-in"); 
-        drawnCardsHistory.insertBefore(cardElement, drawnCardsHistory.firstChild);
+        const img = document.createElement("img");
+        img.src = card.image;
+        img.alt = card.name;
+        img.title = card.name;
+        img.classList.add("history-card", "fade-in");
+        drawnCardsHistory.insertBefore(img, drawnCardsHistory.firstChild);
     }
-  
-    function calculateProbability() {
-        const searchTerm = cardSearch.value.toLowerCase();
-        const matchingCards = deck.filter((card) =>
-            card.name.toLowerCase().includes(searchTerm)
-        );
-  
-        const probability = (matchingCards.length / deck.length) * 100;
-        oddsResult.textContent = `Kans: ${probability.toFixed(2)}%`;
+
+    function animateCardDraw(card) {
+        const deckRect = deckCard.getBoundingClientRect();
+        const drawnRect = drawnCard.getBoundingClientRect();
+        const translateX = drawnRect.left - deckRect.left;
+        const translateY = drawnRect.top - deckRect.top;
+
+        deckCard.style.visibility = "hidden";
+        movingCard.src = card.image;
+        movingCard.alt = card.name;
+        movingCard.style.opacity = "1";
+        movingCard.style.display = "block";
+        movingCard.style.transition = "none";
+        movingCard.style.transform = `translate(0, 0)`;
+        void movingCard.offsetWidth;
+
+        movingCard.style.transition = "transform 0.6s ease";
+        movingCard.style.transform = `translate(${translateX}px, ${translateY}px)`;
+
+        setTimeout(() => {
+            drawnCard.src = card.image;
+            drawnCard.alt = card.name;
+            movingCard.style.opacity = "0";
+            deckCard.style.visibility = "visible";
+        }, 600);
     }
-  
-    function resetGame() {
-      deck = [];
-      drawnCards = [];
-      initializeDeck();
-      drawnCard.src = "assets/images/Magic_card_back 19.png";
-      drawnCardsHistory.innerHTML = "";
-      updateDisplay();
-      oddsResult.textContent = "";
-      cardSearch.value = "";
-  }
-  
-  
-    // Event Listeners
-    shuffleButton.addEventListener("click", shuffleDeck);
-    drawButton.addEventListener("click", drawCard);
-    resetButton.addEventListener("click", resetGame);
-    calculateOdds.addEventListener("click", calculateProbability);
-  
-    // Initialiseer het spel
-    resetGame();
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-      if (!document.getElementById("unique-draw-section")) return;
-  
-      const drawControls = document.getElementById("unique-draw-controls");
-      
-      // Maak een container voor de dropdown
-      const deckSelectorContainer = document.createElement("div");
-      deckSelectorContainer.id = "draw-deck-selector-container";
-  
-      // Maak de dropdown
-      const deckSelector = document.createElement("select");
-      deckSelector.id = "draw-deck-selector";
-      deckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
-      
-      deckSelectorContainer.appendChild(deckSelector);
-      drawControls.insertBefore(deckSelectorContainer, drawControls.firstChild);
-  
-      let availableDecks = JSON.parse(localStorage.getItem("savedDecks")) || [];
-  
-      function updateDeckDropdown() {
-          deckSelector.innerHTML = `<option value="">-- Kies een deck --</option>`;
-          
-          availableDecks.forEach((deck, index) => {
-              const option = document.createElement("option");
-              option.value = index;
-              option.textContent = deck.name;
-              deckSelector.appendChild(option);
-          });
-      }
-  
-      deckSelector.addEventListener("change", function () {
-          if (deckSelector.value !== "") {
-              const selectedDeck = availableDecks[deckSelector.value];
-  
-              // Update de game met het gekozen deck
-              initializeGameWithDeck(selectedDeck);
-          }
-      });
-  
-      function initializeGameWithDeck(deck) {
-          alert(`Je hebt ${deck.name} geselecteerd!`);
-          
-          // Reset en laad het gekozen deck in de game
-          deckCards = deck.cards.slice();
-          drawnCards = [];
-          updateDisplay();
-      }
-  
-      updateDeckDropdown();
-  });
+
+    function animateShuffle() {
+        deckCard.classList.remove("shuffle-animation");
+        void deckCard.offsetWidth;
+        deckCard.classList.add("shuffle-animation");
+    }
+});
