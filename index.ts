@@ -26,6 +26,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(session); // Zorg dat sessie-middleware vóór de routers komt
 app.use(flashMiddleware);
 
+// Debug middleware voor request logging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  console.log('Request body:', req.body);
+  next();
+});
+
 // Routers
 app.use("/", homeRouter());
 app.use("/account", accountRouter());
@@ -34,20 +41,8 @@ app.use(registerRouter());
 app.use("/deck", deckRouter());
 app.use("/drawtest", drawtestRouter());
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
 app.get("/landing", (req, res) => {
   res.render("landing");
-});
-
-app.get('/deck', (req, res) => {
-  res.render('deck');
-});
-
-app.get('/deckview', (req, res) => {
-  res.render('deckview');
 });
 
 app.get('/drawtest', (req, res) => {

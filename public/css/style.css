@@ -327,14 +327,14 @@
   display: flex;
   flex-direction: column;
   width: 900px;
-  height: 300px;
+  height: 400px;
   background: transparent;
   backdrop-filter: blur(15px);
   border-radius: 15px;
   box-shadow: 0 6px 30px #000001e6;
   border-radius: 10px;
   margin: 0 auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 /*kaarten*/
@@ -353,7 +353,7 @@
 }
 
 #searchBar {
-  width: 300px;
+  width: 100 px;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid #fff;
@@ -408,12 +408,12 @@
 /* -----*/
 /*uit api kaarten rij komt uit js */
 section.rijen {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3rem;
+  gap: 4rem;
   margin-top: 1rem;
 }
 
@@ -426,7 +426,7 @@ section.rijen {
 .popup-specifications > form {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 /* ---- */
@@ -3802,4 +3802,71 @@ input[type="url"]::placeholder {
 .user-page #unique-header {
   background: #00000080;
   backdrop-filter: blur(15px);
+}
+
+/* Filter & zoek styling */
+.filtering {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.filtering form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.filtering-button {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.filter-btn:hover {
+  transform: scale(1.1);
+}
+
+.filter-btn img {
+  width: 40px;
+  height: 30px;
+}
+
+#searchBar {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+#searchForm {
+  display: flex;
+  justify-content: center;
+}
+.clear-filter-btn {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.clear-filter-btn:hover {
+  transform: scale(1.1);
+}
+
+.clear-filter-btn img {
+  width: 30px;
+  height: 30px;
 }

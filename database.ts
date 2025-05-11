@@ -254,7 +254,7 @@ export async function updateUser(userId: ObjectId, updatedData: { username?: str
     try {
         // Maak een object met de velden die moeten worden bijgewerkt
         const updateFields: { [key: string]: any } = {};
-      
+
         if (updatedData.username) {
             updateFields.username = updatedData.username;
         }
@@ -265,7 +265,7 @@ export async function updateUser(userId: ObjectId, updatedData: { username?: str
         if (updatedData.profileImage) {
             updateFields.profileImage = updatedData.profileImage;
         }
-      
+
         console.log("Update velden:", updateFields);
         console.log("User ID voor update:", userId);
 
@@ -274,9 +274,9 @@ export async function updateUser(userId: ObjectId, updatedData: { username?: str
             { _id: userId },
             { $set: updateFields }
         );
-      
+
         console.log("Update resultaat:", result);
-        
+
         // Controleer of de update succesvol was
         if (result.modifiedCount === 0) {
             console.log("Geen documenten bijgewerkt");
@@ -289,7 +289,7 @@ export async function updateUser(userId: ObjectId, updatedData: { username?: str
         return false;
     }
 }
-  
+
 
 
 export async function connect() {

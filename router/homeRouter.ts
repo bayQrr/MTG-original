@@ -99,7 +99,7 @@ export function homeRouter() {
         return;
       }
 
-      return res.redirect(`/deckview/${deckId}`);
+      return res.redirect(`/deck/${deckId}`);
     } catch (err) {
       console.error("Fout bij toevoegen aan deck:", err);
       res.status(500).send("Server error");

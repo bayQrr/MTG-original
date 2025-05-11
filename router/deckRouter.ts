@@ -20,10 +20,12 @@ export function deckRouter() {
   // Maak een nieuw deck aan
   router.post("/create-deck", async (req, res) => {
     try {
+      console.log("Ontvangen data:", req.body); // Debug logging
       const { deckName, deckImageUrl } = req.body;
 
       // Validatie
       if (!deckName || !deckImageUrl) {
+        console.log("Validatie gefaald:", { deckName, deckImageUrl }); // Debug logging
         req.session.message = {
           type: "error",
           message: "Vul alle velden in"
@@ -31,13 +33,6 @@ export function deckRouter() {
         return res.redirect("/deck");
       }
 
-      if (deckName.length < 3) {
-        req.session.message = {
-          type: "error",
-          message: "Deck naam moet minimaal 3 karakters lang zijn"
-        };
-        return res.redirect("/deck");
-      }
 
       // Controleer of gebruiker is ingelogd
       if (!req.session.user?._id) {
@@ -55,7 +50,10 @@ export function deckRouter() {
         cards: []
       };
 
+      console.log("Nieuwe deck data:", newDeck); // Debug logging
+
       const result = await createDeck(newDeck);
+      console.log("Create deck result:", result); // Debug logging
 
       if (!result.acknowledged) {
         req.session.message = {
@@ -144,6 +142,7 @@ export function deckRouter() {
       }, 0);
 
       res.render("deckview", {
+        user: req.session.user,
         deck: selectedDeck,
         decks,
         kaartenInDeck,
