@@ -1,4 +1,3 @@
-
 import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
@@ -28,18 +27,13 @@ app.use(session); // Zorg dat sessie-middleware vóór de routers komt
 app.use(flashMiddleware);
 
 // Routers
-app.use("/account", accountRouter());
 app.use("/", homeRouter());
-app.use(userRouter());
+app.use("/account", accountRouter());
+app.use("/user", userRouter());
 app.use(registerRouter());
-app.use("/", deckRouter());
-app.use(drawtestRouter());
+app.use("/deck", deckRouter());
+app.use("/drawtest", drawtestRouter());
 
-
-app.set("port", process.env.PORT || 3000);
-
-
-//routes die je brengen naar de gevraagde pagina's
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -63,6 +57,8 @@ app.get('/drawtest', (req, res) => {
 app.get("/login", (req, res) => {
   res.redirect("/account/login");
 });
+
+app.set("port", process.env.PORT || 3000);
 
 app.listen(app.get("port"), async () => {
   try {

@@ -57,6 +57,7 @@ export async function createUser(userData: { username: string; email: string; pa
         username: userData.username,
         email: userData.email,
         password: userData.password,
+        profileImage: "assets/images/dragonbadr.png",
         createdAt: new Date()
     });
 }
@@ -249,28 +250,45 @@ export async function removeCardFromDeck(deckId: string, cardName: string, count
 }
 
 // update user
+export async function updateUser(userId: ObjectId, updatedData: { username?: string; password?: string; profileImage?: string }) {
+    try {
+        // Maak een object met de velden die moeten worden bijgewerkt
+        const updateFields: { [key: string]: any } = {};
+      
+        if (updatedData.username) {
+            updateFields.username = updatedData.username;
+        }
+        if (updatedData.password) {
+            // Hash het nieuwe wachtwoord voordat je het opslaat
+            updateFields.password = await bcrypt.hash(updatedData.password, saltRounds);
+        }
+        if (updatedData.profileImage) {
+            updateFields.profileImage = updatedData.profileImage;
+        }
+      
+        console.log("Update velden:", updateFields);
+        console.log("User ID voor update:", userId);
 
-// Functie om de gebruikersnaam en/of wachtwoord bij te werken
-export async function updateUser(userId: ObjectId, updatedData: { username?: string; password?: string }) {
-    // Maak een object met de velden die moeten worden bijgewerkt
-    const updateFields: { [key: string]: any } = {};
-  
-    if (updatedData.username) {
-      updateFields.username = updatedData.username;
+        // Voer de update uit
+        const result = await userCollectionMTG.updateOne(
+            { _id: userId },
+            { $set: updateFields }
+        );
+      
+        console.log("Update resultaat:", result);
+        
+        // Controleer of de update succesvol was
+        if (result.modifiedCount === 0) {
+            console.log("Geen documenten bijgewerkt");
+            return false;
+        }
+
+        return true;
+    } catch (error) {
+        console.error("Fout bij updaten gebruiker:", error);
+        return false;
     }
-    if (updatedData.password) {
-      // Hash het nieuwe wachtwoord voordat je het opslaat
-      updateFields.password = await bcrypt.hash(updatedData.password, saltRounds);
-    }
-  
-    const result = await userCollectionMTG.updateOne(
-      { _id: userId },
-      { $set: updateFields }
-    );
-  
-    console.log(`Update result: ${result.modifiedCount}`);  // Voeg deze regel toe om te controleren of de update succesvol was
-    return result.modifiedCount > 0;
-  }
+}
   
 
 

@@ -1,17 +1,22 @@
 import express from "express";
+import { Request, Response } from "express";
 
-export function userRouter() {
-    const router = express.Router();
+const router = express.Router();
 
-    router.get("/user", (req, res) => {
-        if (!req.session.user) {
-            return res.redirect("/login");
-        }
+// Middleware om te controleren of gebruiker is ingelogd
+const isAuthenticated = (req: Request, res: Response, next: Function) => {
+  if (req.session.user) {
+    next();
+  } else {
+    res.redirect("/account/login");
+  }
+};
 
-        res.render("user", {
-            user: req.session.user,
-        });
-    });
+// User pagina route
+router.get("/", isAuthenticated, (req: Request, res: Response) => {
+  res.render("user", {
+    user: req.session.user
+  });
+});
 
-    return router;
-}
+export const userRouter = () => router;

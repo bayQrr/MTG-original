@@ -7,7 +7,7 @@ export function deckRouter() {
   const router = express.Router();
 
   // Haal alle decks op van een gebruiker
-  router.get("/deck", async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const userId = req.session.user!._id;
       const decks: Deck[] = await getDecksByUser(userId);
@@ -22,22 +22,66 @@ export function deckRouter() {
     try {
       const { deckName, deckImageUrl } = req.body;
 
+      // Validatie
+      if (!deckName || !deckImageUrl) {
+        req.session.message = {
+          type: "error",
+          message: "Vul alle velden in"
+        };
+        return res.redirect("/deck");
+      }
+
+      if (deckName.length < 3) {
+        req.session.message = {
+          type: "error",
+          message: "Deck naam moet minimaal 3 karakters lang zijn"
+        };
+        return res.redirect("/deck");
+      }
+
+      // Controleer of gebruiker is ingelogd
+      if (!req.session.user?._id) {
+        req.session.message = {
+          type: "error",
+          message: "Je moet ingelogd zijn om een deck aan te maken"
+        };
+        return res.redirect("/account/login");
+      }
+
       const newDeck: Deck = {
         name: deckName,
         imageUrl: deckImageUrl,
-        userId: req.session.user!._id,
+        userId: req.session.user._id,
         cards: []
       };
 
-      await createDeck(newDeck);
+      const result = await createDeck(newDeck);
+
+      if (!result.acknowledged) {
+        req.session.message = {
+          type: "error",
+          message: "Er is een fout opgetreden bij het aanmaken van het deck"
+        };
+        return res.redirect("/deck");
+      }
+
+      req.session.message = {
+        type: "success",
+        message: "Deck succesvol aangemaakt!"
+      };
       res.redirect("/deck");
     } catch (error) {
-      res.status(500).send("Er is iets mis gegaan bij het aanmaken van het deck.");
+      console.error("Fout bij aanmaken deck:", error);
+      req.session.message = {
+        type: "error",
+        message: "Er is een fout opgetreden bij het aanmaken van het deck"
+      };
+      res.redirect("/deck");
     }
   });
 
   // Bewerken van een deck
-  router.post("/edit-deck/:id", async (req, res) => {
+  router.post("/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
       const { deckName, deckImageUrl } = req.body;
@@ -66,7 +110,7 @@ export function deckRouter() {
   });
 
   // Bekijk een specifiek deck
-  router.get("/deckview/:id", async (req, res) => {
+  router.get("/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
       const decks: Deck[] = await getDecksByUser(req.session.user!._id);
@@ -112,9 +156,8 @@ export function deckRouter() {
     }
   });
 
-
   // mogelijkheid om kaart verwijderen in deckview
-  router.post("/deck/:id/removeCard", async (req, res) => {
+  router.post("/:id/removeCard", async (req, res) => {
     const { cardName, count } = req.body;
     const deckId = req.params.id;
 
@@ -125,10 +168,10 @@ export function deckRouter() {
     }
 
     await removeCardFromDeck(deckId, cardName, aantal);
-    res.redirect(`/deckview/${deckId}`); // terug naar de deckview
+    res.redirect(`/deck/${deckId}`); // terug naar de deckview
   });
 
-  router.get('/deck/:id/export', async (req, res) => {
+  router.get('/:id/export', async (req, res) => {
     const deckId = req.params.id;
 
     try {
@@ -146,7 +189,7 @@ export function deckRouter() {
       console.error(error);
       res.status(500).send("Fout bij exporteren van deck");
     }
-
   });
+
   return router;
 }
