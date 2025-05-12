@@ -1,7 +1,8 @@
 <%- include("partials/header") %>
 
 <body class="cards_body">
-  <main>
+  <main id="mainContent">
+  
     <!-- Flashmessenger -->
     <% const message=locals.message; %> <% if (message) { %>
     <p
@@ -113,54 +114,7 @@
           <% } %>
         </section>
 
-        <!-- Popup voor kaartdetails -->
-        <section id="kaartPopup" style="display: none">
-          <section class="popup-container">
-            <section class="popup-container-img">
-              <img id="popupImg" src="" alt="Kaart" />
-            </section>
-            <section class="popup-specifications">
-              <p id="popupTitle"></p>
-              <p><strong>Type:</strong> <span id="popupType"></span></p>
-              <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
-              <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
-              <p>
-                <strong>Power/Toughness:</strong>
-                <span id="popupPowerToughness"></span>
-              </p>
-              <p><strong>Text:</strong> <span id="popupText"></span></p>
-            </section>
-            <span class="close">&times;</span>
-          </section>
-
-          <!-- Formulier om kaart toe te voegen -->
-          <form id="addCardForm" action="/add-to-deck" method="POST">
-            <!-- Vervang cardName door cardId -->
-            <input type="hidden" name="cardId" id="cardIdInput" />
-            <input
-              type="hidden"
-              name="cardCount"
-              id="cardCountInput"
-              value="1"
-            />
-
-            <section class="card-counter">
-              <button class="decrease-btn">-</button>
-              <span id="cardCount">1</span>
-              <button class="increase-btn">+</button>
-            </section>
-
-            <label for="deckSelect">Kies een deck:</label>
-            <select name="deckId" id="deckSelect" required>
-              <option value="">-- Selecteer een deck --</option>
-              <% if (decks) { decks.forEach(deck=> { %>
-              <option value="<%= deck._id %>"><%= deck.name %></option>
-              <% }) } %>
-            </select>
-
-            <button type="submit" class="add-btn">Voeg toe</button>
-          </form>
-        </section>
+    
       </section>
     </section>
 
@@ -178,6 +132,60 @@
       <button class="page-btn next" onclick="nextPage()" disabled>»</button>
     </section>
   </main>
+      <!-- Popup voor kaartdetails -->
+        <section id="kaartPopup" style="display: none">
+           
+          <section class="popup-container">
+          
+            <section class="popup-container-img">
+                 <p id="popupTitle"></p>
+              <img id="popupImg" src="" alt="Kaart" />
+            </section>
+            <section class="popup-specifications">
+            
+              <p><strong>Type:</strong> <span id="popupType"></span></p>
+              <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
+              <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
+              <p>
+                <strong>Power/Toughness:</strong>
+                <span id="popupPowerToughness"></span>
+              </p>
+              <p><strong>Info:</strong> <span id="popupText"></span></p>
+
+
+                 <!-- Formulier om kaart toe te voegen -->
+          <form id="addCardForm" action="/add-to-deck" method="POST">
+            <!-- Vervang cardName door cardId -->
+            <input type="hidden" name="cardId" id="cardIdInput" />
+            <input
+              type="hidden"
+              name="cardCount"
+              id="cardCountInput"
+              value="1"
+            />
+
+            <section class="card-counter">
+              <button class="decrease-btn">-</button>
+              <span id="cardCount">1</span>
+              <button class="increase-btn">+</button>
+            </section>
+
+            <!-- <label for="deckSelect">Kies een deck:</label> -->
+            <select name="deckId" id="deckSelect" required>
+              <option value="">-- Selecteer een deck --</option>
+              <% if (decks) { decks.forEach(deck=> { %>
+              <option value="<%= deck._id %>"><%= deck.name %></option>
+              <% }) } %>
+            </select>
+
+            <button type="submit" class="add-btn">Voeg toe</button>
+          </form>
+            </section>
+            <span class="close">&times;</span>
+          </section>
+
+       
+        </section>
 
   <script src="/js/kaartendetail.js" defer></script>
   <script>
