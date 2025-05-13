@@ -422,7 +422,7 @@
   }
 
   #searchBar {
-  flex: 0 0 200px;             /* vaste breedte, geen flex‐groei of -krimp */
+  flex: 0 0 200px;             
   padding: 4px 8px;
   padding: 10px;
   width: 200px;
@@ -532,7 +532,7 @@
     transform: scale(1.1);
   }
 
-  /* de glow dit zal ook nog aangepast worden met backend  */
+  /* de glow dit zal dat  aangepast wordt met backend  */
   section.kaart.common > img {
     box-shadow: 0 0 60px 20px rgba(255, 255, 255, 1);
   }
@@ -646,7 +646,7 @@
     font-weight: bold;
     margin-right: 1rem;
     padding: 12px 2px;
-    background: linear-gradient(45deg, #1a1a1a, #2ede51);
+    background: linear-gradient(45deg, #2c0e51, #7b1fa2);
     color: #fff;
     border: 2px solid black;
     transform: scale(0.95);
@@ -692,7 +692,7 @@
     height: 25px;
     font-size: 15px;
     font-weight: bold;
-    background-color: #184e23;
+    background: linear-gradient(45deg, #2c0e51, #7b1fa2);
     color: white;
     border: 2px solid black;
     border-radius: 5px;
@@ -702,7 +702,8 @@
   }
 
   .card-counter button:hover {
-    background-color: #28a745; /* Iets donkerder groen voor hover */
+
+       background: linear-gradient(45deg, #2c0e51, #7b1fa2);
     transform: scale(1.1);
   }
 
@@ -714,7 +715,7 @@
   }
 
   #deckSelect {
-    background: linear-gradient(45deg, #1a1a1a, #2ede51);
+    background: #00000080;
     color: #fff;
     border: 2px solid black;
     border-radius: 8px;
@@ -725,12 +726,22 @@
     letter-spacing: 2px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    font-family: "prompt";
+    font-family: prompt;
     width: 13rem;
     margin-top: 2rem;
     margin-right: 1rem;
     transform: scale(0.95);
   }
+
+#deckSelect:focus,
+#deckSelect:active {
+  background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+  box-shadow: 0 0 10px 2px #7b1fa2;
+  outline: none;
+  border-color: #7b1fa2;
+  color: white;
+}
+
 
   /* Opties binnen de dropdown */
   #deckSelect option {
@@ -1670,6 +1681,8 @@
   margin: 0 auto;
 }
 
+
+
 /* Styling voor de options */
 #deck-selector option {
   background: #0a0a0ae6;
@@ -1678,6 +1691,16 @@
   padding: 10px;
   font-family: magic;
 }
+
+#deck-selector:focus,
+#deck-selector:active {
+  background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+  box-shadow: 0 0 10px 2px #7b1fa2;
+  outline: none;
+  border-color: #7b1fa2;
+  color: white;
+}
+
 
 /* DECK LIST */
 .deck-list ul {

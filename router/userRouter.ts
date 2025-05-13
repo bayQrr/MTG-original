@@ -19,4 +19,7 @@ router.get("/", isAuthenticated, (req: Request, res: Response) => {
   });
 });
 
+
+
+
 export const userRouter = () => router;
