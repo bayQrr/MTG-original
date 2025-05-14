@@ -1,1401 +1,1447 @@
-/* Navbar*/
-#unique-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: #00000080;
-}
-#logo {
-  width: 130px;
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  main {
+    flex: 1;
+  }
+
+  /* Navbar */
+  #unique-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #00000080;
+  }
+
+  #logo {
+    width: 130px;
+  }
+
+  #unique-logo {
+    height: 40px;
+  }
+
+  #unique-navigation {  
+    flex-grow: 1;
+    font-family: stratum;
+    font-size: 1rem;
+  }
+
+  #unique-nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+  }
+
+  #unique-nav-list li {
+    display: inline;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    position: relative;
+    transition: color 0.5s ease;
+  }
+
+   #unique-nav-list li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    background-size: 300% 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  #unique-nav-list li a:hover {
+    color: #ffffff;
+  }
+
+  #unique-nav-list li a:hover::after {
+    opacity: 1;
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  #unique-nav-home a,
+  #unique-nav-decks a,
+  #unique-nav-drawtest a,
+  #unique-nav-rules a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  #unique-profile-link {
+    text-decoration: none;
+  }
+
+  #unique-profile-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* UITLOGGEN */
+  #profile-dropdown {
+  font-family: stratum;
+  z-index: 9999;
 }
 
-#unique-logo {
-  height: 40px;
-}
 
-#unique-navigation {
-  font-family: Prompt;
-  font-size: 1rem;
-}
 
-#unique-nav-list {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0;
-  margin: 0;
-}
+  /* ---------------------------------------------------------------------------------------------------------------------------------------- */
 
-#unique-nav-list li {
-  display: inline;
-}
+  .dropdown-menu {
+    font-family: prompt;
+    text-transform: uppercase;
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    padding: 5px;
+    background: #1c1d25;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px #0000001a;
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+  }
 
-#unique-nav-home a,
-#unique-nav-decks a,
-#unique-nav-drawtest a,
-#unique-nav-rules a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+  .dropdown-menu a {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+  }
 
-#unique-profile-link {
-  text-decoration: none;
-}
+  .hidden {
+    display: none;
+  }
 
-#unique-profile-icon {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
+  .hidden .icon-img {
+    width: 20px;
+  }
+  .show {
+    display: flex;
+  }
 
-.dropdown-menu {
-  font-family: prompt;
-  text-transform: uppercase;
-  position: absolute;
-  top: 55px;
-  right: 20px;
-  padding: 5px;
-  background: #1c1d25;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px #0000001a;
-  display: none;
-  flex-direction: column;
-  min-width: 120px;
-}
+  /* ---------------------------------------------------------------------------------------------------------------------------------------- */
 
-.dropdown-menu a {
+
+  /* ----------------------------------LOGINPAGINA ZAIDA*------------------------------------------------- */
+  .login {
+    background-image: url("/assets/images/wizardBackground.jpg");
+    background-size: cover;
+    /* display: flex; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  /*section*/
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .login-form {
+    text-align: center;
+    padding: 30px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 15px;
+    box-shadow: 0 6px 30px #000001e6;
+  }
+
+  #loginbutton {
+    background-color: #9932cc;
+    border: 1px solid white;
+    color: white;
+    font-family: "prompt";
+    font-size: 18px;
+    padding: 10px 75px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 0 15px 5px #9932cc;
+    transition: all 0.3s ease;
+  }
+  #loginbutton:hover {
+    background-color: #2725c7;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px 10px #263bb3;
+  }
+
+  /*------------------------------------------- register pagina Kaoutar -------------------------*/
+  /* BODY MET ID REGISTER */
+  .register {
+    background-image: url("/assets/images/darkWizard.png");
+    background-size: cover;
+    overflow-y: hidden;
+  }
+
+  .register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .register-form {
+    text-align: center;
+    padding: 30px;
+    margin: 0 auto;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    box-shadow: 0 6px 30px #000001e6;
+  }
+  .register-form > form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+  /* TITEL STIJLEN h1 */
+  .register-container h1 {
+    color: white;
+    font-family: "prompt";
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* LOGIN TEXT STIJLEN p */
+  .login-text {
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    color: white;
+  }
+
+  .login-text a {
+    transition: color 0.3s ease;
+    color: white;
+  }
+  .login-text a:hover {
+    color: #0e3c81;
+  }
+
+  #btn,
+  #loginbtn {
+    background-color: rgb(42, 115, 160);
+    border: 1px solid white;
+    color: white;
+    font-family: "prompt";
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 0 15px 5px rgb(5, 76, 119);
+    transition: all 0.3s ease;
+    width: 50%;
+    margin: auto;
+  }
+  #btn:hover {
+    background-color: #03374e;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px 10px #000000;
+  }
+
+  #loginbtn:hover {
+    background-color: #0a75a3;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px 10px #9cc7e4;
+  }
+  /* FORM STIJLEN */
+
+  .register-form input {
+    padding: 12px;
+    border: 2px solid #333036;
+    border-radius: 5px;
+    width: 20rem;
+    margin-bottom: 15px;
+  }
+
+  .register-form button:hover {
+    background-color: #3d34bb;
+  }
+
+  /* EXTRA */
+  /* PASSWOORD REGELEN */
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .password-container input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #262527;
+    border-radius: 5px;
+    width: 100%;
+    padding-right: 45px;
+    box-sizing: border-box;
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #1f5da5;
+    user-select: none;
+  }
+
+  /* ERROR MESSAGE */
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+  }
+
+  /*--------------ZAIDA INDEX --------------------------------*/
+
+  /* Button styling */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .cards_body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    background-image: url("/assets/images/1305500.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+  
+  }
+  #mainContent.blur {
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+
+  .midden-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 5rem;
+    width: 1000px;
+    height: 560px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    box-shadow: 0 6px 30px #000001e6;
+    /* border-radius: 10px; */
+    margin: 0 auto;
+    margin-top: 30px;
+    background-image: url("/assets/images/1305500.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  #kaartContainer {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: 400px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 6px 30px #000001e6;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  /*kaarten*/
+  /*filtering container*/
+  .filtering {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 10px;
+  }
+
+  #popupImg {
+    border-radius: 10px;
+  }
+
+  #searchBar {
+  flex: 0 0 200px;             
+  padding: 4px 8px;
   padding: 10px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-}
-
-.hidden {
-  display: none;
-}
-
-.hidden .icon-img {
-  width: 20px;
-}
-.show {
-  display: flex;
-}
-
-/* ----------------------------------LOGINPAGINA ZAIDA*------------------------------------------------- */
-.login {
-  background-image: url("/assets/images/wizardBackground.jpg");
-  background-size: cover;
-  /* display: flex; */
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-/*section*/
-.login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.login-form {
-  text-align: center;
-  padding: 30px;
-  border-radius: 10px;
-  margin: 0 auto;
-  background: transparent;
-  border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
-}
-
-#loginbutton {
-  background-color: #9932cc;
-  border: 1px solid white;
-  color: white;
-  font-family: "prompt";
-  font-size: 18px;
-  padding: 10px 75px;
-  border-radius: 10px;
-  display: inline-block;
-  text-align: center;
-  box-shadow: 0 0 15px 5px #9932cc;
-  transition: all 0.3s ease;
-}
-#loginbutton:hover {
-  background-color: #2725c7;
-  transform: scale(1.1);
-  box-shadow: 0 0 25px 10px #263bb3;
-}
-
-/*------------------------------------------- register pagina Kaoutar -------------------------*/
-/* BODY MET ID REGISTER */
-.register {
-  background-image: url("/assets/images/darkWizard.png");
-  background-size: cover;
-  overflow-y: hidden;
-}
-
-.register-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.register-form {
-  text-align: center;
-  padding: 30px;
-  border-radius: 10px;
-  margin: 0 auto;
-  background: transparent;
-  backdrop-filter: blur(20px);
-  border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
-}
-.register-form > form {
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-}
-/* TITEL STIJLEN h1 */
-.register-container h1 {
-  color: white;
-  font-family: "prompt";
-  font-weight: bold;
-  font-size: 2rem;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
-}
-
-/* LOGIN TEXT STIJLEN p */
-.login-text {
-  text-align: center;
-  margin-right: auto;
-  display: block;
-  margin-top: 15px;
-  color: white;
-}
-
-.login-text a {
-  transition: color 0.3s ease;
-  color: white;
-}
-.login-text a:hover {
-  color: #0e3c81;
-}
-
-#btn,
-#loginbtn {
-  background-color: rgb(42, 115, 160);
-  border: 1px solid white;
-  color: white;
-  font-family: "prompt";
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
-  text-align: center;
-  box-shadow: 0 0 15px 5px rgb(5, 76, 119);
-  transition: all 0.3s ease;
-  width: 50%;
-  margin: auto;
-}
-#btn:hover {
-  background-color: #03374e;
-  transform: scale(1.1);
-  box-shadow: 0 0 25px 10px #000000;
-}
-
-#loginbtn:hover {
-  background-color: #0a75a3;
-  transform: scale(1.1);
-  box-shadow: 0 0 25px 10px #9cc7e4;
-}
-/* FORM STIJLEN */
-
-.register-form input {
-  padding: 12px;
-  border: 2px solid #333036;
-  border-radius: 5px;
-  width: 20rem;
-  margin-bottom: 15px;
-}
-
-.register-form button:hover {
-  background-color: #3d34bb;
-}
-
-/* EXTRA */
-/* PASSWOORD REGELEN */
-.password-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.password-container input {
-  flex: 1;
-  padding: 12px;
-  border: 2px solid #262527;
-  border-radius: 5px;
-  width: 100%;
-  padding-right: 45px;
-  box-sizing: border-box;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 15px;
-  top: 16px;
-  cursor: pointer;
-  font-size: 15px;
-  color: #1f5da5;
-  user-select: none;
-}
-
-/* ERROR MESSAGE */
-.error-message {
-  color: red;
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  text-align: left;
-  width: 100%;
-}
-
-/*--------------ZAIDA cards --------------------------------*/
-
-/* Algemene stijlen */
-
-/* Button styling */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid white;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.cards_body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #1e1e1e;
-  background-image: url("/assets/images/1305500.jpg");
-  background-repeat: no-repeat;
-  background-position: 50% 10%;
-  background-size: cover;
-  backdrop-filter: blur(5px);
-}
-
-.midden-container {
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  width: 1000px;
-  height: 460px;
-  background: transparent;
-  backdrop-filter: blur(20px);
-  border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 30px;
-  background-image: url("/assets/images/1305500.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-#kaartContainer {
-  display: flex;
-  flex-direction: column;
-  width: 900px;
-  height: 300px;
-  background: transparent;
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-}
-
-/*kaarten*/
-/*filtering container*/
-.filtering {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 5rem;
-  padding: 10px;
-}
-
-#popupImg {
-  border-radius: 10px;
-}
-
-#searchBar {
-  width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 2px solid #fff;
+  width: 200px;
   background-color: #fafafa;
-  font-size: 16px;
   text-align: center;
   outline: none;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+} 
 
-#searchBar::placeholder {
-  color: rgb(10, 9, 9);
-  font-family: dragon;
-  letter-spacing: 2px;
-}
 
-#searchBar:focus {
-  box-shadow: 0 0 15px white;
-  border-color: #977db4;
-}
+  #searchBar::placeholder {
+    color: rgb(10, 9, 9);
+    font-family: dragon;
+    letter-spacing: 2px;
+  }
 
-.filtering-button {
-  display: flex;
-  gap: 2rem;
-}
+  #searchBar:focus {
+    box-shadow: 0 0 15px white;
+    border-color: #977db4;
+  }
 
-/* Stijl voor de filterknoppen */
-.filter-btn {
-  width: 60px;
-  height: 60px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-}
+  .filtering-button {
+    display: flex;
+    gap: 2rem;
+  }
 
-.filter-btn img {
-  width: 90px;
-  height: 30px;
-}
+  /* Stijl voor de filterknoppen */
+  .filter-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+  }
 
-.kaartContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-/* -----*/
-/*uit api kaarten rij komt uit js */
-section.rijen {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 1rem;
-}
+  .filter-btn img {
+    width: 90px;
+    height: 30px;
+  }
 
-.popup-specifications > p > strong {
-  font-weight: bold;
-}
-.popup-specifications > p > em {
-  font-style: italic;
-}
-.popup-specifications > form {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-}
+  .kaartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /*uit api kaarten rij komt uit js */
+  section.rijen {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 1rem;
+  }
 
-/* ---- */
-.kaart {
-  width: 120px;
-  height: 180px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-  text-align: center;
-  padding: 5px;
-}
+  .popup-specifications > p > strong {
+    font-weight: bold;
+  }
+  .popup-specifications > p > em {
+    font-style: italic;
+  }
+  .popup-specifications > form {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
 
-.kaart img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
+  /* ---- */
+  .kaart {
+    width: 120px;
+    height: 180px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    padding: 5px;
+  }
 
-.kaart > p {
+  .kaart img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .kaart > p {
+    color: white;
+    font-family: magic;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+  }
+
+  .kaart:hover {
+    transform: scale(1.1);
+  }
+
+  /* de glow dit zal dat  aangepast wordt met backend  */
+  section.kaart.common > img {
+    box-shadow: 0 0 60px 20px rgba(255, 255, 255, 1);
+  }
+
+  section > .kaart.uncommon > img {
+    box-shadow: 0 0 40px 15px rgb(58, 92, 240);
+  }
+
+  section.kaart.rare > img {
+    box-shadow: 0 0 40px 10px rgb(255, 255, 0);
+  }
+
+  section > .kaart.mythic > img {
+    box-shadow: 0 0 40px 15px rgb(255, 0, 0);
+  }
+
+  /* Popup stijl */
+  #kaartPopup {
+    display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 12rem;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      margin: 15rem 10rem 0;
+      width: 55rem;
+      border-radius: 3%;
+  }
+
+  .popup-container {
+    background: linear-gradient(45deg, #1a1a1a, #2e86de59);
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+  }
+
+  .popup-specifications {
+    margin-right: 2rem;
+    margin-top: 5rem;
+  }
+  .popup-specifications > p {
+    color: white;
+    margin-bottom: 2rem;
+    font-family: prompt;
+  }
+
+  #popupTitle {
+    margin-bottom: 3rem;
+    color: white;
+    font-family: prompt;
+    font-size: 30px;
+    font-weight: bolder;
+    
+  }
+
+  /* dropdown knop bij de addbutton */
+
+  .deck-dropdown {
+    display: none;
+    /* position: absolute; */
+    top: 50%;
+    border: 1px solid #474242;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #1a1a1a, #3d99ae);
+    color: #fff;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5%;
+  }
+
+  /* to do font styl aanpassen */
+  .deck-dropdown a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    font-family: "prompt";
+  }
+
+  .deck-dropdown a:hover {
+    background: rgba(45, 43, 43, 0.747);
+  }
+
+  .deck-dropdown.hidden {
+    display: none;
+  }
+
+  .deck-dropdown:not(.hidden) {
+    display: block;
+  }
+
+  .add-btn {
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 1rem;
+    padding: 12px 2px;
+    background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+    color: #fff;
+    border: 2px solid black;
+    transform: scale(0.95);
+    font-family: "prompt";
+    width: 5rem;
+  }
+
+  .add-btn:before {
+    background: radial-gradient(
+      circle,
+      rgba(0, 170, 255, 0.3) 10%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .add-btn:hover::before {
+    opacity: 1;
+  }
+
+  .add-btn:hover {
+    transform: scale(1.1);
+    border-color: black;
+    box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
+  }
+
+  .dropdown-and-add {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* kaart verhogen/verlagen */
+  .card-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+  }
+
+  .card-counter button {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 2px;
+  }
+
+  .card-counter button:hover {
+
+       background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+    transform: scale(1.1);
+  }
+
+
+  #cardCount {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+  }
+
+  #deckSelect {
+    background: #00000080;
+    color: #fff;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 12px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-family: prompt;
+    width: 13rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    transform: scale(0.95);
+  }
+
+#deckSelect:focus,
+#deckSelect:active {
+  background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+  box-shadow: 0 0 10px 2px #7b1fa2;
+  outline: none;
+  border-color: #7b1fa2;
   color: white;
-  font-family: magic;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-size: 20px;
 }
 
-.kaart:hover {
-  transform: scale(1.1);
+
+  /* Opties binnen de dropdown */
+  #deckSelect option {
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+
+
+  /*paginering*/
+  /* Paginering container */
+  #pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto 2rem;
+
+    max-width: 400px;
+    padding: 0 20px;
+  }
+
+  .page-numbers {
+    display: flex;
+    align-items: center;
+  }
+
+  .page-btn {
+    background-color: #1e1e1e;
+    color: white;
+    border: 2px solid #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Actieve pagina knop */
+  .page-btn.active {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 15px white;
+  }
+
+  .page-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+
+  /* Stijl voor de vorige/volgende knoppen */
+  .prev,
+  .next {
+    font-size: 18px;
+  }
+
+  .dots {
+    color: white;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  input:focus {
+    outline: 2px solid white;
+  }
+
+  #searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    gap: 5rem;
 }
 
-/* de glow dit zal ook nog aangepast worden met backend  */
-section.kaart.common > img {
-  box-shadow: 0 0 60px 20px rgba(255, 255, 255, 1);
-}
+  .svg-icon {
+    width: 25px;
+  }
 
-section > .kaart.uncommon > img {
-  box-shadow: 0 0 40px 15px rgb(58, 92, 240);
-}
+  .tooltip-container {
+    position: relative;
+    display: flex;
+    margin-right: 10rem;
+    justify-content: end;
+  }
 
-section.kaart.rare > img {
-  box-shadow: 0 0 40px 10px rgb(255, 255, 0);
-}
+  /* icon stijlen */
+  .icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
 
-section > .kaart.mythic > img {
-  box-shadow: 0 0 40px 15px rgb(255, 0, 0);
-}
+  /* SVG Animation: Rotate and scale effect */
+  .icon svg {
+    transition: transform 0.5s ease-in-out;
+    margin-top: 2rem;
+  }
 
-/* Popup stijl */
-#kaartPopup {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-}
+  .icon:hover svg {
+    transform: rotate(360deg) scale(1.2);
+  }
 
-.popup-container {
-  background: linear-gradient(45deg, #1a1a1a, #2e86de59);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  max-width: 50%;
-}
+  .tooltip {
+    visibility: hidden;
+    width: 63rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    font-family: "prompt";
+    background-color: #1a1a1a;
+    /* background: linear-gradient(45deg, #1a1a1a, #2e86de59); */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    left: 17%;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(10px);
+  }
+  .tooltip > p {
+    margin-bottom: 2rem;
+  }
 
-.popup-specifications {
-  margin-right: 2rem;
-}
-.popup-specifications > p {
-  color: white;
-  margin-bottom: 2rem;
-  font-family: prompt;
-}
+  /* Tooltip Arrow */
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
 
-#popupTitle {
-  color: white;
-  font-family: prompt;
-  font-size: 30px;
-  font-weight: bolder;
-}
-
-/* dropdown knop bij de addbutton */
-
-.deck-dropdown {
-  display: none;
-  /* position: absolute; */
-  top: 50%;
-  border: 1px solid #474242;
-  padding: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(45deg, #1a1a1a, #3d99ae);
-  color: #fff;
-  font-size: 20px;
-  border: 2px solid black;
-  border-radius: 5%;
-}
-
-/* to do font styl aanpassen */
-.deck-dropdown a {
-  display: block;
-  padding: 5px;
-  text-decoration: none;
-  color: white;
-  font-family: "prompt";
-}
-
-.deck-dropdown a:hover {
-  background: rgba(45, 43, 43, 0.747);
-}
-
-.deck-dropdown.hidden {
-  display: none;
-}
-
-.deck-dropdown:not(.hidden) {
-  display: block;
-}
-
-.add-btn {
-  border-radius: 8px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-  margin-top: 2rem;
-  font-size: 10px;
-  font-weight: bold;
-  margin-right: 1rem;
-  padding: 12px 2px;
-  background: linear-gradient(45deg, #1a1a1a, #2ede51);
-  color: #fff;
-  border: 2px solid black;
-  transform: scale(0.95);
-  font-family: "prompt";
-  width: 5rem;
-}
-
-.add-btn:before {
-  background: radial-gradient(
-    circle,
-    rgba(0, 170, 255, 0.3) 10%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.add-btn:hover::before {
-  opacity: 1;
-}
-
-.add-btn:hover {
-  transform: scale(1.1);
-  border-color: black;
-  box-shadow: 0 0 20px rgba(23, 22, 22, 0.7);
-}
-
-.dropdown-and-add {
-  display: flex;
-  flex-direction: row;
-}
-/* de kruisknopt */
-.close {
-  position: absolute;
-  top: 5px;
-  right: 2px;
-  font-size: 30px;
-  cursor: pointer;
-  color: white;
-}
-
-/* kaart verhogen/verlagen */
-
-.card-counter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 2rem;
-}
-
-.card-counter button {
-  width: 25px;
-  height: 25px;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: #184e23;
-  color: white;
-  border: 2px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  padding: 2px;
-}
-
-.card-counter button:hover {
-  background-color: #28a745; /* Iets donkerder groen voor hover */
-  transform: scale(1.1);
-}
-
-#cardCount {
-  font-size: 15px;
-  font-weight: bold;
-  color: white;
-}
-/*paginering*/
-/* Paginering container */
-#pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem auto 2rem;
-  max-width: 400px;
-  padding: 0 20px;
-}
-
-.page-numbers {
-  display: flex;
-
-  align-items: center;
-}
-
-/* Algemene stijl voor paginering knoppen */
-.page-btn {
-  background-color: #1e1e1e;
-  color: white;
-  border: 2px solid #fff;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-/* Actieve pagina knop */
-.page-btn.active {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  box-shadow: 0 0 15px white;
-}
-
-.page-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-}
-
-/* Stijl voor de vorige/volgende knoppen */
-.prev,
-.next {
-  font-size: 18px;
-}
-
-.dots {
-  color: white;
-  font-size: 18px;
-  padding: 0 10px;
-}
-input:focus {
-  outline: 2px solid white;
-}
-
-.search-form {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "dederon-sans-web", sans-serif;
-}
-
-.svg-icon {
-  width: 25px;
-}
-
-.tooltip-container {
-  position: relative;
-  display: inline-block;
-  display: flex;
-  margin-right: 10rem;
-  justify-content: end;
-}
-
-/* Icon styling */
-.icon {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-/* SVG Animation: Rotate and scale effect */
-.icon svg {
-  transition: transform 0.5s ease-in-out;
-  margin-top: 2rem;
-}
-
-.icon:hover svg {
-  transform: rotate(360deg) scale(1.2);
-}
-
-.tooltip {
-  visibility: hidden;
-  width: 63rem;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 10px;
-  position: absolute;
-  font-family: "prompt";
-  background-color: #1a1a1a;
-  /* background: linear-gradient(45deg, #1a1a1a, #2e86de59); */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  left: 17%;
-  z-index: 100;
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
-  transform: translateY(10px);
-}
-.tooltip > p {
-  margin-bottom: 2rem;
-}
-
-/* Tooltip Arrow */
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #333 transparent transparent transparent;
-}
-
-/* Show tooltip on hover */
-.tooltip-container:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  /* Show tooltip on hover */
+  .tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
     transform: translateY(0);
   }
-  40% {
-    transform: translateY(-30px);
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
   }
-  60% {
-    transform: translateY(-15px);
+
+  .tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: bounce 0.6s ease;
   }
-}
 
-.tooltip-container:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  animation: bounce 0.6s ease;
-}
 
-/*footer*/
-footer {
-  font-family: stratum;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
+  /*------------------------------------------- deck pagina Badr -------------------------*/
+  /* deck pagina */
+  #body-background {
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/images/woman.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-/*------------------------------------------- deck pagina Badr -------------------------*/
+  #main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 200px);
+    padding: 10px;
+    font-family: magic;
+    letter-spacing: 2px;
+    gap: 1rem;
+  }
 
-/* deck page */
-#body-background {
-  margin: 0;
-  padding: 0;
-  background-image: url("/assets/images/woman.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  min-height: 100vh;
+  #main-content h2 {
+    font-size: 2rem;
+    margin: 0; 
+  }
+
+  /* Aanpassing voor deck section */
+  #deck-section {
+    flex: 0 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 6px 30px #000001e6;
+    padding: 15px;
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 300px;
+  }
+
+  /* aanpassing voor deck-container */
+  #deck-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    max-width: 600px;
+  }
+
+  /* aanpassing voor deck-items */
+  .deck-item {
+    text-align: center;
+    width: 130px;
+    background: #00000080;
+    border: 2px solid #ffffff33;
+    border-radius: 10px;
+    padding: 13px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin: 0;
+  }
+
+  .deck-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .deck-item a:hover {
+    opacity: 0.8;
+  }
+
+  .deck-item img {
+    width: 100px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+
+  .deck-item p {
+    font-family: magic;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0;
+  }
+
+  #deck-text-1,
+  #deck-text-2,
+  #deck-text-3,
+  #deck-text-4,
+  #deck-text-5,
+  #deck-text-6 {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+
+  /* KNOP DECK TOEVOEGEN */
+  #add-deck-btn {
+    background: linear-gradient(45deg, #1a1a1a, rgb(41, 41, 168));
+    backdrop-filter: blur(10px);
+    border: none;
+    padding: 15px;
+    border-radius: 20%;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px #00000026;
+    margin-top: 3rem;
+  }
+
+  #add-deck-btn img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #add-deck-btn:hover {
+    background-color: #ef4323;
+  
+  }
+
+  /* Popup */
+  .deck-popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .deck-popup-content {
+    background-image: url("/assets/images/image.png");
+    background-position: center;
+    background-size: cover;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 350px;
+    color: black;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    animation: popupFadeIn 0.3s ease-out;
+  }
+
+  .deck-popup-content .deck-close-btn {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    font-size: 35px;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease;
+    font-family: Gotham;
+  }
+
+  /* Input */
+  .deck-popup-content input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* GEBRUIKT ALLEEN VOOR DE EERSTE INPUT VELD */
+  .deck-popup-content input:first-of-type {
+    margin-top: 25px;
+  }
+  .deck-popup-content button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    background-color: #4582be;
+    margin-top: 2px;
+  }
+
+  /* JS CODE CSS*/
+  .new-deck-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem; 
+  }
+
+  .new-deck-wrapper h2 {
+    text-align: center;
+    font-size: 30px;
+    font-family: magic;
+    text-shadow: 2px 2px 5px #00000080;
+    margin-bottom: 10px;
+    width: 100%;
+    color: white;
+  }
+
+  /* JS ICON BEWERKEN/VERWIJDEREN */
+  .deck-actions button {
+    background: #ffffff33;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  .deck-actions button:hover {
+    background: #ffffff66;
+    transform: scale(1.1);
+  }
+
+  /*------------------------------------------- DRAWTEST pagina Badr -------------------------*/
+  #unique-body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("/assets/images/wallpapergames.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+
+  #unique-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-family: magic;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  #unique-draw-section {
+    background: #00000080;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 6px 30px #000001e6;
+    border-radius: 10px;
+    padding: 70px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5rem;
+    max-width: 800px;
+    width: 120%;
+    margin-bottom: 5rem;
+  }
+
+  #unique-deck-icon img {
+    height: 40px;
+    padding-bottom: 20px;
+  }
+  #unique-draw-button:hover {
+    background-color: #d33131;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #unique-reset-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #unique-track-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #unique-draw-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #main-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #search-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  #unique-draw-controls button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: magic;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(45deg, #4a148c, #7b1fa2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 0 5px;
+  }
+
+  #unique-draw-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  #search-controls {
   display: flex;
-  flex-direction: column;
-}
-
-#main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: calc(100vh - 200px);
-  padding: 10px;
-  font-family: magic;
-  letter-spacing: 2px;
   gap: 1rem;
-}
+  margin-top: 1rem;
+  }
 
-#main-content h2 {
-  font-size: 2rem;
-  margin: 0; /* Reset margin */
-}
+  #card-search {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #828181;
+    font-family: "magic";
+    letter-spacing: 2px;
+    font-size: 1rem;
+  }
 
-/* Aanpassing voor deck section */
-#deck-section {
-  flex: 0 1 auto;
+  #odds-result {
+    color: white;
+    margin-left: 1rem;
+    font-family: magic;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  #unique-progress-bar {
+    font-weight: bold;
+    color: white;
+  }
+
+  #unique-card-display {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #unique-deck-card {
+    width: 130px;
+  }
+
+  #unique-crossed-swords {
+    padding: 1rem;
+  }
+
+  #unique-drawn-card {
+    width: 130px;
+    border-radius: 10px;
+  }
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+    display: flex;
+  }
+
+  .popup.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0s 0s;
+  }
+
+  .popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    font-size: 30px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+
+  .close:hover,
+  .close:focus {
+    background-color: rgba(231, 76, 60, 0.8);
+    color: white;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+#drawn-cards-history {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  background: transparent;
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
-  padding: 15px;
-  max-width: 700px;
-  width: 90%;
-  margin: 0 auto;
-  min-height: 300px;
-}
-
-#add-deck-btn {
-  background: linear-gradient(45deg, #1a1a1a, rgb(41, 41, 168));
-  backdrop-filter: blur(10px);
-  border: none;
-  padding: 12px;
-  border-radius: 20%;
-  width: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px #00000026;
-  margin-top: 1.5rem;
-}
-
-#add-deck-btn img {
-  width: 25px;
-  height: 25px;
-}
-
-#add-deck-btn:hover {
-  background-color: #ef4323;
-  transform: scale(1.1);
-}
-
-/* Aanpassing voor deck items container */
-#deck-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
-  max-width: 600px;
-}
-
-/* Aanpassing voor deck items */
-.deck-item {
-  text-align: center;
-  width: 130px;
-  background: #00000080;
-  border: 2px solid #ffffff33;
-  border-radius: 10px;
-  padding: 13px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  margin: 0;
-}
-
-.deck-item a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.deck-item a:hover {
-  opacity: 0.8;
-}
-
-.deck-item img {
-  width: 100px;
-  /* height: 10px; */
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 5px;
-}
-
-.deck-item p {
-  font-family: magic;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  margin: 10px 0;
-}
-/* #deck-img-1,
-#deck-img-2,
-#deck-img-3,
-#deck-img-4,
-#deck-img-5,
-#deck-img-6 {
-  width: 100px;
-} */
-
-#deck-text-1,
-#deck-text-2,
-#deck-text-3,
-#deck-text-4,
-#deck-text-5,
-#deck-text-6 {
-  margin-top: 5px;
-  font-weight: bold;
-}
-
-/* KNOP DECK TOEVOEGEN */
-#add-deck-btn {
-  background: linear-gradient(45deg, #1a1a1a, rgb(41, 41, 168));
-  backdrop-filter: blur(10px);
-  border: none;
-  padding: 15px;
-  border-radius: 20%;
-  width: 80px;
-  /* width: 60px;
-  height: 60px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  /* transition: transform 0.3s ease-in-out; */
-  box-shadow: 0 4px 10px #00000026;
-  margin-top: 3rem;
-  /* margin: 0 auto; */
-  /* position: absolute;
-  right: 60px;
-  top: calc(50% + 60px); */
-  /* transform: translateX(-70px); */
-  /* transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; */
-}
-
-#add-deck-btn img {
-  width: 30px;
-  height: 30px;
-}
-
-#add-deck-btn:hover {
-  background-color: #ef4323;
-  /* transform: translateX(-10px) scale(1.1); */
-}
-
-/* Popup */
-.deck-popup-container {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.deck-popup-content {
-  background-image: url("/assets/images/image.png");
-  background-position: center;
-  background-size: cover;
-
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-  width: 350px;
-  color: black;
-  position: relative;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  animation: popupFadeIn 0.3s ease-out;
-}
-
-.deck-popup-content .deck-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 35px;
-  cursor: pointer;
-  color: black;
-  transition: color 0.3s ease;
-  font-family: Gotham;
-}
-
-/* Input */
-
-.deck-popup-content input {
-  width: 90%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-/* GEBRUIK ALLEEN DE EERSTE INPUT VELD */
-.deck-popup-content input:first-of-type {
-  margin-top: 25px;
-}
-.deck-popup-content button {
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s ease;
-  background-color: #4582be;
-}
-
-/* JS CODE CSS*/
-.new-deck-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem; /* Voeg wat ruimte toe boven de add deck knop */
-}
-
-.new-deck-wrapper h2 {
-  text-align: center;
-  font-size: 30px;
-  font-family: magic;
-  text-shadow: 2px 2px 5px #00000080;
-  margin-bottom: 10px;
-  width: 100%;
-  color: white;
-}
-
-/* JS ICON BEWERKEN/VERWIJDEREN */
-.deck-actions button {
-  background: #ffffff33;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.deck-actions button:hover {
-  background: #ffffff66;
-  transform: scale(1.1);
-}
-
-/*------------------------------------------- game pagina Badr -------------------------*/
-/* game pagina */
-#unique-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-image: url("/assets/images/wallpapergames.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
-
-#unique-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-
-  /* width: 100%; */
-}
-
-#unique-logo {
-  height: 40px;
-}
-
-#unique-navigation {
-  flex-grow: 1;
-  font-family: stratum;
-}
-
-#unique-nav-list {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0;
-  margin: 0;
-}
-
-#unique-nav-list li {
-  color: #ffffff;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  position: relative;
-  transition: color 0.5s ease;
-}
-
-#unique-nav-list li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ffffff, transparent);
-  background-size: 300% 100%;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-#unique-nav-list li a:hover {
-  color: #ffffff;
-}
-
-#unique-nav-list li a:hover::after {
-  opacity: 1;
-  animation: shimmer 2s linear infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-#unique-nav-home a,
-#unique-nav-decks a,
-#unique-nav-drawtest a,
-#unique-nav-rules a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-#unique-nav-decks a:hover,
-#unique-nav-drawtest a:hover {
-  transform: scale(1.1);
-}
-
-#unique-profile-link {
-  text-decoration: none;
-}
-
-#unique-profile-icon {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-#unique-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  font-family: magic;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-
-#unique-draw-section {
-  background: #00000080;
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
-  box-shadow: 0 6px 30px #000001e6;
-  border-radius: 10px;
-  padding: 70px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 5rem;
-  max-width: 800px;
-  width: 120%;
-  margin-bottom: 5rem;
-}
-
-#unique-deck-icon img {
-  height: 40px;
-  padding-bottom: 20px;
-}
-#unique-draw-button:hover {
-  background-color: #d33131;
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#unique-reset-button:hover {
-  background-color: #d32f2f;
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#unique-track-button:hover {
-  background-color: #d32f2f;
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#unique-draw-controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-#main-buttons {
-  display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-#search-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-#unique-draw-controls button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-family: magic;
-  letter-spacing: 2px;
-  color: white;
-  font-weight: bold;
-  background: linear-gradient(45deg, #4a148c, #7b1fa2);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin: 0 5px;
-}
-
-#unique-draw-controls button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-#card-search {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #828181;
-  font-family: "magic";
-  letter-spacing: 2px;
-  font-size: 1rem;
-}
-
-#odds-result {
-  color: white;
-  margin-left: 1rem;
-  font-family: magic;
-  text-align: center;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-}
-
-#unique-progress-bar {
-  font-weight: bold;
-  color: white;
-}
-
-#unique-card-display {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-#unique-deck-card {
-  width: 130px;
-}
-
-#unique-crossed-swords {
+  justify-content: center;
+  margin-top: 2rem;
+  max-width: 100%;
   padding: 1rem;
 }
 
-#unique-drawn-card {
-  width: 130px;
+
+#drawn-cards-history img {
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+  
+/* js drawtest */
+.history-card {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.history-card:hover {
+  transform: scale(1.1);
+}
+
+.moving-card {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  margin-top: 3rem;
   border-radius: 10px;
-}
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0s 0.5s;
-  display: flex;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.popup.active {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s ease, visibility 0s 0s;
-}
-
-.popup-content {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  width: 90%;
-  animation: fadeIn 0.5s ease-out;
-}
-
-.close {
-  color: black;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.close:hover,
-.close:focus {
-  background-color: rgba(231, 76, 60, 0.8);
-  color: white;
+/* Fade-in effect voor getrokken kaarten */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
-/*------------------------------------------- Landing pagina Kaoutar -------------------------*/
+/* kaarten schudden */
+.shuffle-animation {
+  animation: shuffleShake 0.5s ease-in-out;
+}
+
+@keyframes shuffleShake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/*------------------------------------------- Landing pagina Kaoutar/Brahim -------------------------*/
 /* BODY MET ID landing-page */
 #landing-page {
   font-family: Arial, sans-serif;
@@ -1404,8 +1450,9 @@ footer {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
+  margin: 100px auto;
   padding: 20px;
+  overflow-y: hidden;
 }
 
 #slider-container {
@@ -1415,6 +1462,7 @@ footer {
   align-items: center;
   width: 90%;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 #slider-images {
@@ -1425,35 +1473,36 @@ footer {
   margin-bottom: 50px;
 }
 
-/* Standaard styling voor alle slider items */
+
+/* algemene stijling voor alle slider items */
 .slider-item {
-  width: 150px; /* Vaste breedte voor alle items */
+  width: 150px; 
   height: 500px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  display: flex; /* Toegevoegd: standaard alle items tonen */
+  display: flex; 
 }
 
-/* Actieve slider item */
+/*actieve slider item */
 .slider-item.active {
-  width: 150px; /* Dezelfde breedte als andere items */
+  width: 150px; 
   height: 500px;
 }
 
-/* Aangrenzende items */
+/* aangrenzende items */
 .slider-item.active + .slider-item,
 .slider-item.active + .slider-item + .slider-item {
-  width: 150px; /* Dezelfde breedte als andere items */
+  width: 150px;
   height: 500px;
 }
 
 .slider-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Zorgt voor consistente beeldvulling */
+  object-fit: cover; 
 }
 
 /* AFBEELDINGEN*/
@@ -1466,9 +1515,9 @@ footer {
 /* TITEL */
 .slider-title {
   position: absolute;
-  left: 50%; /* Centreer horizontaal */
-  top: 50%; /* Centreer verticaal */
-  transform: translate(-50%, -50%); /* Perfect centreren */
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
   background: rgba(0, 0, 0, 0.7);
   color: white;
   font-size: 1.2rem;
@@ -1506,6 +1555,7 @@ footer {
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s;
+  display: none;
 }
 
 .slider-arrow:hover {
@@ -1518,127 +1568,6 @@ footer {
 
 .slider-arrow-right {
   right: auto;
-}
-
-/* ---------------------------------------------flashmessage----------------------------- */
-/* succes */
-/* Flash message container */
-#flash-message {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-size: 16px;
-  max-width: 90%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Success message style */
-#flash-message.alert-success {
-  background-color: #28a745;
-  color: white;
-}
-
-/* Error message style */
-#flash-message.alert-danger {
-  background-color: #dc3545;
-  color: white;
-}
-
-/* Flash message fade-out animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* Close button inside the message */
-#flash-message .close {
-  font-size: 18px;
-  cursor: pointer;
-  margin-left: 15px;
-  background: transparent;
-  border: none;
-  color: white;
-  transition: color 0.3s ease;
-}
-
-/* Change the close button color on hover */
-#flash-message .close:hover {
-  color: #ddd;
-}
-
-/* niet succesvol */
-
-#flash-message-login {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-size: 16px;
-  max-width: 90%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Success message style for login (Green background) */
-#flash-message-login.alert-success {
-  background-color: #28a745; /* Green for success */
-  color: white;
-}
-
-/* Error message style for login (Red background) */
-#flash-message-login.alert-danger {
-  background-color: #dc3545; /* Red for error */
-  color: white;
-}
-
-/* Flash message fade-in animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* Close button inside the message */
-#flash-message-login .close {
-  font-size: 18px;
-  cursor: pointer;
-  margin-left: 15px;
-  background: transparent;
-  border: none;
-  color: white;
-  transition: color 0.3s ease;
-}
-
-/* Change the close button color on hover */
-#flash-message-login .close:hover {
-  color: #ddd;
 }
 
 /*------------------------------------------- DECKVIEW pagina Kaoutar -------------------------*/
@@ -1670,10 +1599,13 @@ footer {
   align-items: center;
   gap: 6rem;
   font-size: 18px;
-  /* padding: 20px 10px; */
+  padding: 20px;
   background-color: #28282e;
   border-radius: 10px;
   margin: 80px 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .deck-info span {
   display: flex;
@@ -1700,6 +1632,25 @@ footer {
   background: #00000080;
   border-radius: 10px;
   margin-bottom: 60px;
+}
+.deck-containter form button[type="submit"] {
+  background: linear-gradient(45deg, #4a148c, #7b1fa2);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: magic;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 3px 5px 0;
+}
+
+.deck-containter form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 .deck-containter,
 .deck-list {
@@ -1729,6 +1680,8 @@ footer {
   margin: 0 auto;
 }
 
+
+
 /* Styling voor de options */
 #deck-selector option {
   background: #0a0a0ae6;
@@ -1737,6 +1690,16 @@ footer {
   padding: 10px;
   font-family: magic;
 }
+
+#deck-selector:focus,
+#deck-selector:active {
+  background: linear-gradient(45deg, #2c0e51, #7b1fa2);
+  box-shadow: 0 0 10px 2px #7b1fa2;
+  outline: none;
+  border-color: #7b1fa2;
+  color: white;
+}
+
 
 /* DECK LIST */
 .deck-list ul {
@@ -1780,1473 +1743,6 @@ footer {
   margin-bottom: 15px;
   border-radius: 10px;
 }
-
-/* Algemene media queries */
-@media screen and (max-width: 768px) {
-  /* Navbar styling voor mobiel */
-  #unique-header {
-    flex-direction: column;
-    padding: 15px;
-    position: relative;
-  }
-
-  #logo {
-    height: 35px;
-    margin-bottom: 15px;
-  }
-
-  #unique-navigation {
-    width: 100%;
-  }
-
-  #unique-nav-list {
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px 0;
-  }
-
-  #unique-nav-list li {
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  #unique-nav-list li:last-child {
-    border-bottom: none;
-  }
-
-  #unique-nav-list a {
-    display: block;
-    padding: 8px 0;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-  }
-
-  #unique-nav-list a:hover {
-    color: #9932cc;
-    transform: scale(1.05);
-  }
-
-  #unique-profile-link {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-
-  #unique-profile-icon {
-    height: 35px;
-    width: 35px;
-  }
-
-  /* Footer styling voor mobiel/tablet */
-  footer > ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  #main-content {
-    min-height: calc(100vh - 150px);
-    margin: 30px 0;
-  }
-
-  #deck-section {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
-    width: 70%;
-  }
-
-  .rij1,
-  .rij2 {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .kaart {
-    width: calc(50% - 1.5rem); /* 50% breedte min de gap */
-    max-width: 160px;
-    height: 220px;
-  }
-
-  .kaart > p {
-    font-size: 0.8rem;
-    margin-top: 0.8rem;
-  }
-
-  .icon svg {
-    margin-top: 0rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  #unique-header {
-    padding: 15px 30px;
-  }
-
-  #unique-nav-list {
-    gap: 30px;
-  }
-
-  #unique-nav-list a {
-    font-size: 1rem;
-  }
-
-  #main-content {
-    margin: 40px 0;
-  }
-
-  #deck-section {
-    gap: 30px;
-    padding: 30px;
-  }
-
-  .rij1,
-  .rij2 {
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  #kaartContainer {
-    width: 95%;
-    padding: 35px;
-  }
-
-  .kaart {
-    width: 140px;
-    height: 200px;
-  }
-}
-
-/* Login/Register pagina's */
-@media screen and (max-width: 768px) {
-  .login,
-  .register {
-    justify-content: center;
-    padding: 20px;
-    min-height: 100vh;
-    background-position: center;
-  }
-
-  .Login-container,
-  .register-container {
-    width: 100%;
-    align-items: center;
-    margin: 0;
-  }
-
-  .login-form,
-  .register-form {
-    margin: 20px auto;
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
-  }
-
-  .Login-container h1,
-  .register-container h1 {
-    margin: 0;
-    text-align: center;
-    font-size: 1.8rem;
-  }
-
-  .login-form input,
-  .register-form input {
-    width: 92%;
-    max-width: 100%;
-  }
-
-  .login-form > form > input {
-    width: 100%;
-  }
-
-  .password-container {
-    width: 100%;
-  }
-
-  .login-text {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  #loginbutton {
-    width: 100%;
-    max-width: 300px;
-    margin: 2rem auto;
-  }
-}
-
-/* Cards pagina */
-@media screen and (max-width: 768px) {
-  .filtering {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .filtering-button {
-    gap: 10px;
-  }
-
-  #searchBar {
-    width: 90%;
-  }
-
-  #kaartContainer {
-    padding: 20px;
-    margin: 10px;
-    width: auto;
-  }
-
-  .rij1,
-  .rij2 {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .kaart {
-    width: calc(50% - 1.5rem); /* 50% breedte min de gap */
-    max-width: 160px;
-    height: 220px;
-  }
-
-  .kaart > p {
-    font-size: 0.8rem;
-    margin-top: 0.8rem;
-  }
-}
-
-/* Deck pagina */
-@media screen and (max-width: 768px) {
-  #deck-section {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    padding: 25px;
-    margin: 15px;
-  }
-
-  .deck-item {
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
-
-  .deck-item:hover {
-    transform: scale(1.05);
-  }
-
-  .deck-item img {
-    width: 85%;
-    margin-bottom: 10px;
-  }
-
-  .deck-item p {
-    font-size: 0.9rem;
-    margin-top: 8px;
-  }
-
-  .deck-banner {
-    width: 100%;
-  }
-
-  /* Deck view pagina */
-
-  .deck-list ul {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .card-display {
-    justify-content: center;
-  }
-
-  .card-display section {
-    width: 90%;
-  }
-  .card-display img {
-    width: 40%;
-  }
-
-  /* Game pagina */
-
-  #unique-draw-section {
-    width: 90%;
-    padding: 10px;
-  }
-
-  #unique-card-display {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #unique-deck-card,
-  #unique-drawn-card {
-    width: 80%;
-    max-width: 200px;
-  }
-}
-
-/* Tablet specifieke aanpassingen */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* Cards pagina */
-  #kaartContainer {
-    margin: 20px;
-  }
-
-  .rij1,
-  .rij2 {
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  /* Deck pagina */
-  #deck-section {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Deck view pagina */
-  .deck-banner {
-    width: 90%;
-  }
-
-  .card-display {
-    gap: 20px;
-  }
-
-  /* Game pagina */
-  #unique-draw-section {
-    width: 80%;
-  }
-}
-
-/* Landing pagina slider aanpassingen */
-@media screen and (max-width: 800px) {
-  #landing-page {
-    padding: 10px;
-    min-height: 100vh;
-  }
-
-  #slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  #slider-images {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .slider-item {
-    display: none;
-  }
-
-  .slider-item.active {
-    display: block;
-    width: 200px;
-    height: 400px;
-  }
-
-  .slider-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.hamburger {
-  display: none;
-  cursor: pointer;
-  position: absolute;
-  left: 20px;
-  top: 40%;
-  transform: translateY(-50%);
-  z-index: 100;
-}
-
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  background-color: white;
-}
-
-@media screen and (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  #unique-navigation {
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    gap: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    height: calc(100vh - 70px);
-    text-align: center;
-    transition: 0.3s;
-    z-index: 99;
-  }
-
-  #unique-nav-list {
-    flex-direction: column;
-    padding: 20px 0;
-  }
-
-  #unique-nav-list li {
-    margin: 16px 0;
-  }
-
-  #unique-nav-list li a {
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-  }
-
-  #unique-navigation.active {
-    left: 0;
-  }
-
-  #deck-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .card-pile {
-    width: 200px;
-  }
-
-  #controls-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #search-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #card-search {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-.slider-arrow {
-  display: none;
-}
-
-/* Styling voor desktop versie */
-@media screen and (min-width: 764px) {
-  #unique-navigation {
-    margin-left: auto;
-  }
-
-  #unique-nav-list {
-    display: flex;
-    gap: 2rem;
-  }
-  .slider-title {
-    font-size: 1rem;
-    padding: 8px;
-  }
-}
-
-/* Media query voor schermen kleiner dan 1300px */
-@media screen and (max-width: 1300px) {
-  #landing-page #slider-container {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  #landing-page #slider-images {
-    justify-content: center;
-  }
-
-  #landing-page .slider-item {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-}
-
-/* Voeg animatie toe voor smooth transitions */
-.slider-item {
-  transition: all 0.5s ease-in-out;
-}
-
-@media screen and (max-width: 800px) {
-  .slider-arrow {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  #slider-container {
-    max-width: 280px;
-  }
-
-  .slider-item.active {
-    max-width: 260px;
-  }
-  #landing-page .slider-item:nth-child(3) {
-    display: none;
-  }
-}
-
-/* Extra specifieke aanpassing voor zeer smalle schermen */
-@media screen and (max-width: 500px) {
-  #slider-container {
-    max-width: 280px;
-  }
-
-  .slider-item.active {
-    max-width: 260px;
-  }
-}
-
-/* Minimale styling voor drawtest functionaliteit */
-.card-pile {
-  position: relative;
-}
-
-.card-pile img {
-  border-radius: 10px;
-}
-
-#drawn-cards-history {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-#drawn-cards-history img {
-  border-radius: 5px;
-  transition: transform 0.2s;
-}
-
-#search-section {
-  margin: 1rem 0;
-}
-
-#drawn-cards-history {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-  max-width: 100%;
-  padding: 1rem;
-}
-
-.history-card {
-  width: 100px;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.2s;
-}
-
-.history-card:hover {
-  transform: scale(1.1);
-}
-
-#search-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-#card-search {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-/* Specifieke styling voor de search controls */
-#search-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-#calculate-odds {
-  margin: 0;
-}
-.moving-card {
-  position: absolute;
-  width: 100px;
-  height: auto;
-  margin-top: 3rem;
-  border-radius: 10px;
-
-  transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-/* Fade-in effect voor getrokken kaarten in de geschiedenis */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/* Schokkerige beweging bij het schudden van de deck */
-.shuffle-animation {
-  animation: shuffleShake 0.5s ease-in-out;
-}
-
-@keyframes shuffleShake {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-5px);
-  }
-  40% {
-    transform: translateX(5px);
-  }
-  60% {
-    transform: translateX(-5px);
-  }
-  80% {
-    transform: translateX(5px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Geel kader om geselecteerd deck te markeren */
-.selected-deck {
-  border: 2px solid #ffcc00;
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-/* Specifiek voor de landing page */
-#landing-page #slider-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#landing-page #slider-images {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-#landing-page .slider-item {
-  width: 150px;
-  height: 500px;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  transition: all 0.5s ease-in-out;
-  cursor: pointer;
-  display: flex;
-}
-
-/* UITLOGGEN */
-#profile-dropdown {
-  font-family: stratum;
-  z-index: 9999;
-}
-
-@media (max-width: 1200px) {
-  .tooltip {
-    width: 230px;
-    top: 50px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .tooltip {
-    width: 120px;
-    font-size: 14px;
-    top: 50px;
-  }
-}
-
-@media (max-width: 1099px) {
-  .tooltip {
-    width: 800px;
-    align-items: start;
-    font-size: 13.5px;
-    top: 55px;
-  }
-}
-
-@media (max-width: 1050px) {
-  .tooltip {
-    width: 550px;
-    font-size: 13px;
-    top: 55px;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 899px) {
-  .tooltip-container {
-    justify-content: center;
-    margin: 15px auto;
-  }
-
-  .tooltip {
-    width: 190px;
-    font-size: 12.5px;
-    top: 60px;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 799px) {
-  .tooltip {
-    width: 180px;
-    font-size: 12px;
-    top: 65px;
-  }
-}
-
-@media (max-width: 699px) {
-  .tooltip {
-    width: 170px;
-    font-size: 11.5px;
-    padding: 8px;
-    top: 70px;
-  }
-}
-
-@media (max-width: 599px) {
-  .tooltip {
-    width: 160px;
-    font-size: 11px;
-    padding: 8px;
-    top: 75px;
-  }
-}
-
-@media (max-width: 499px) {
-  .tooltip {
-    width: 150px;
-    font-size: 10px;
-    padding: 6px;
-    top: 80px;
-  }
-}
-
-@media (max-width: 399px) {
-  .tooltip {
-    width: 140px;
-    font-size: 9px;
-    padding: 6px;
-    top: 85px;
-  }
-}
-
-@media (max-width: 299px) {
-  .tooltip {
-    width: 130px;
-    font-size: 8px;
-    padding: 5px;
-    top: 90px;
-  }
-}
-
-.deck-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
-  font-size: 18px;
-  background-color: #28282e;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 80px 0;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 1200px) {
-  .deck-info {
-    gap: 4rem;
-    font-size: 16px;
-    padding: 15px;
-    max-width: 900px;
-  }
-}
-
-@media (max-width: 999px) {
-  .deck-info {
-    gap: 3rem;
-    font-size: 15px;
-    max-width: 750px;
-  }
-}
-
-@media (max-width: 799px) {
-  .deck-info {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-    max-width: 90%;
-    font-size: 14px;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 599px) {
-  .deck-info {
-    gap: 1.5rem;
-    font-size: 13px;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 399px) {
-  .deck-info {
-    gap: 1rem;
-    font-size: 12px;
-    padding: 5px;
-    margin: 50px 0;
-    margin-left: 0.6rem;
-  }
-
-  .tooltip {
-    width: 10rem;
-    left: 0%;
-    right: 100%;
-  }
-}
-/* Groot scherm (boven 1200px) */
-@media (max-width: 1200px) {
-  .filtering {
-    gap: 10rem;
-  }
-
-  .kaart {
-    width: 110px;
-    height: 170px;
-  }
-
-  .filter-btn img {
-    width: 80px;
-    height: 25px;
-  }
-}
-
-/* Laptops en kleinere schermen (1200px - 999px) */
-@media (max-width: 999px) {
-  .filtering {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 15px;
-  }
-
-  .filtering-button {
-    gap: 1.5rem;
-  }
-
-  #searchBar {
-    width: 250px;
-    font-size: 14px;
-  }
-
-  .kaart {
-    width: 100px;
-    height: 160px;
-  }
-
-  .rij1,
-  .rij2 {
-    gap: 2rem;
-    margin-bottom: 4rem;
-  }
-}
-
-/* Tablets en grotere telefoons (999px - 799px) */
-@media (max-width: 799px) {
-  .filtering {
-    gap: 1.5rem;
-    padding: 10px;
-  }
-
-  .filtering-button {
-    gap: 1rem;
-  }
-
-  .filter-btn {
-    width: 50px;
-    height: 50px;
-  }
-
-  .filter-btn img {
-    width: 70px;
-    height: 22px;
-  }
-
-  #searchBar {
-    width: 220px;
-    padding: 8px;
-  }
-
-  .kaart {
-    width: 90px;
-    height: 140px;
-  }
-
-  .rij1,
-  .rij2 {
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-}
-
-/* Kleine tablets en brede telefoons (799px - 599px) */
-@media (max-width: 599px) {
-  .filtering {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .filtering-button {
-    gap: 0.8rem;
-  }
-
-  .filter-btn {
-    width: 45px;
-    height: 45px;
-  }
-
-  .filter-btn img {
-    width: 60px;
-    height: 20px;
-  }
-
-  #searchBar {
-    width: 200px;
-    font-size: 12px;
-  }
-
-  .kaart {
-    width: 80px;
-    height: 130px;
-  }
-
-  .rij1,
-  .rij2 {
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-}
-
-/* Kleine telefoons (599px - 399px) */
-@media (max-width: 399px) {
-  .filtering {
-    gap: 0.5rem;
-    padding: 5px;
-  }
-
-  .filtering-button {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .filter-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .filter-btn img {
-    width: 50px;
-    height: 18px;
-  }
-
-  #searchBar {
-    width: 180px;
-    padding: 6px;
-  }
-
-  .kaart {
-    width: 70px;
-    height: 120px;
-  }
-
-  .rij1,
-  .rij2 {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-/* Extreem kleine telefoons (minder dan 399px) */
-@media (max-width: 299px) {
-  .filtering {
-    gap: 0.3rem;
-    padding: 2px;
-  }
-
-  .filtering-button {
-    flex-wrap: wrap;
-    gap: 0.3rem;
-  }
-
-  .filter-btn {
-    width: 35px;
-    height: 35px;
-  }
-
-  .filter-btn img {
-    width: 40px;
-    height: 16px;
-  }
-
-  #searchBar {
-    width: 160px;
-    font-size: 11px;
-  }
-
-  .kaart {
-    width: 60px;
-    height: 100px;
-  }
-
-  .rij1,
-  .rij2 {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-}
-/* -- Tablet (bijv. max 1024px) -- */
-@media screen and (max-width: 1024px) {
-  /* Middencontainer minder breed en automatisch in hoogte */
-  .midden-container {
-    width: 90%;
-    height: auto;
-    margin-top: 30px;
-  }
-
-  .popup-container {
-    max-width: 70%;
-  }
-
-  /* Kaartcontainer breder opvullen en automatisch in hoogte */
-  #kaartContainer {
-    width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
-  }
-
-  /* Filtering naast elkaar houden maar iets dichter op elkaar */
-  .filtering {
-    gap: 5rem; /* iets kleiner dan 15rem */
-  }
-
-  /* De kaarten iets groter of kleiner, naar wens */
-  .kaart {
-    width: 100px;
-    height: 150px;
-  }
-
-  .kaart > p {
-    font-size: 16px;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-}
-
-/* -- Mobiel (bijv. max 768px) -- */
-@media screen and (max-width: 768px) {
-  /* Middencontainer volledig breed, auto-hoogte */
-  .midden-container {
-    width: 95%;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-
-  #kaartContainer {
-    height: auto;
-    margin-bottom: 2rem;
-    box-shadow: none; /* eventueel minder schaduw */
-  }
-
-  /* Filtering in kolom in plaats van rij */
-  .filtering {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 10px;
-  }
-
-  #searchBar {
-    width: 80%;
-    margin-bottom: 10px;
-  }
-
-  .filtering-button {
-    gap: 1rem;
-  }
-
-  /* Zorg dat rij1 en rij2 wraps worden */
-  section.rij {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    /* gap: 3rem; */
-    margin-top: 4rem;
-  }
-  .popup-container {
-    display: flex;
-    gap: 2rem;
-    display: flex;
-    flex-direction: column;
-  }
-  .popupImg {
-    border-radius: 10px;
-  }
-  .rij1,
-  .rij2 {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Kaarten worden iets kleiner en vullen 45% van de breedte (2 naast elkaar) */
-  .kaart {
-    width: 45%;
-    height: auto;
-    margin-bottom: 1rem;
-    /* Zorg dat de hoogte automatisch schaalt met de breedte (als je alleen de breedte opgeeft) */
-  }
-
-  .kaart img {
-    width: 100%;
-    height: auto;
-  }
-
-  .kaart > p {
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Paginering iets compacter */
-  #pagination {
-    margin: 2rem auto;
-    padding: 0 10px;
-  }
-
-  .page-btn {
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-}
-
-/* -- Eventueel extra breakpoint voor héél kleine schermen (max 480px) -- */
-@media screen and (max-width: 480px) {
-  .kaart {
-    width: 80%;
-    margin: 0.5rem auto;
-    height: auto;
-  }
-
-  .kaart > p {
-    font-size: 0.8rem;
-  }
-
-  #searchBar {
-    width: 90%;
-  }
-
-  .icon svg {
-    margin-top: 0rem;
-  }
-  #kaartContainer {
-    margin: 0;
-    padding: 0;
-  }
-}
-
-/* Algemene fixes voor horizontale scroll */
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-/* Fix voor de midden-container */
-.midden-container {
-  width: 95%;
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* Fix voor kaartContainer */
-#kaartContainer {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 15px;
-  margin: 0;
-}
-
-/* Fix voor deck-info sectie */
-.deck-info {
-  width: 95%;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 15px;
-  box-sizing: border-box;
-  gap: 2rem;
-}
-
-/* Fix voor tooltip container */
-.tooltip-container {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0 5px;
-}
-
-.tooltip {
-  max-width: 90%;
-  box-sizing: border-box;
-}
-
-/* Fix voor card-display */
-.card-display {
-  width: 100%;
-  padding: 15px;
-  box-sizing: border-box;
-  gap: 15px;
-}
-
-/* ---------------------------------------------flashmessage----------------------------- */
-/* succes */
-/* Flash message container */
-#flash-message {
-  font-family: prompt;
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-size: 16px;
-  max-width: 90%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Success message style */
-#flash-message.alert-success {
-  background-color: #28a745;
-  color: white;
-}
-
-/* Flash message fade-out animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* bij niet succesvol */
-
-#flash-message-login {
-  /* position: fixed; */
-  font-family: prompt;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-size: 16px;
-  max-width: 90%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Success message style */
-#flash-message-login.alert-success {
-  background-color: red;
-  color: white;
-}
-
-/* Aanpassingen voor zeer kleine schermen */
-@media screen and (max-width: 480px) {
-  .deck-info {
-    padding: 10px;
-    gap: 1rem;
-  }
-
-  .deck-info span {
-    font-size: 12px;
-  }
-
-  .deck-info img {
-    width: 20px;
-  }
-
-  #unique-draw-section {
-    padding: 10px;
-    width: 95%;
-  }
-
-  .filtering {
-    padding: 10px;
-  }
-
-  .filtering-button {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #searchBar {
-    width: 90%;
-    max-width: none;
-  }
-}
-
-/* Fix voor slider op landing page */
-@media screen and (max-width: 800px) {
-  #slider-container {
-    width: 95%;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .slider-item.active {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-  }
-}
-
-footer {
-  margin-top: auto;
-}
-
-/* Hover effect voor grotere schermen */
-@media screen and (min-width: 801px) {
-  .slider-item:hover .slider-title {
-    writing-mode: horizontal-tb;
-    left: 50%;
-    bottom: 10px;
-    top: auto;
-    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
-    width: fit-content;
-  }
-}
-
-/* Mobiele weergave (altijd horizontaal) */
-@media screen and (max-width: 800px) {
-  .slider-title {
-    writing-mode: horizontal-tb;
-    left: 50%;
-    bottom: 10px;
-    top: auto;
-    transform: translateX(-50%);
-    width: fit-content;
-    font-size: 1rem;
-    padding: 8px;
-  }
-}
-
-/* Deckview button stijlen */
-.deck-containter form button[type="submit"] {
-  background: linear-gradient(45deg, #4a148c, #7b1fa2);
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-family: magic;
-  letter-spacing: 2px;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin: 3px 5px 0;
-}
-
-.deck-containter form button[type="submit"]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
 .delete-deck-btn {
   background: linear-gradient(45deg, #4a148c, #7b1fa2);
   border: none;
@@ -3266,27 +1762,6 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
-.export-btn {
-  background: linear-gradient(45deg, #4a148c, #7b1fa2);
-  border: none;
-  padding: 8px 15px;
-  font-size: 1rem;
-  font-family: magic;
-  letter-spacing: 2px;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 3px;
-}
-
-.export-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
 .remove-card-form input[type="number"] {
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -3315,17 +1790,31 @@ footer {
   margin: 0;
 }
 
-.remove-card-form input[type="number"] {
+/* .remove-card-form input[type="number"] {
   -moz-appearance: textfield;
+} */
+/*-------------------------------Gebruikers pagina Brahim-----------------------------------------------*/
+#profilebody{
+  background: linear-gradient(45deg, #1a2b4e, #0c111d, #0a1d3b, #021439, #1a2b4e);
+  background-size: 400% 400%;
+  animation: gradientBG 6s ease infinite;
 }
-
-
-/* profile pagina */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .user-container {
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #1e1e2f;
+   flex-direction: column;
     border-radius: 1rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     color: #fff;
@@ -3413,3 +1902,1130 @@ button.danger-btn:hover {
 #profilebody{
     background-color: #1d1d2e;
 }
+
+ /* ---------------------------------------------FLASH MESSENGER----------------------------- */
+/* succes */
+#flash-message {
+  font-family: prompt;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* succesmelding */
+#flash-message.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* foutmelding */
+#flash-message.alert-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* fade-in animation voor flashmessenger */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* sluitkop melding */
+#flash-message .close {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+#flash-message .close:hover {
+  color: #ddd;
+}
+
+/* niet succesvol */
+#flash-message-login {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  max-width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* succesmelding voor login */
+#flash-message-login.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* foutmelding voor login */
+#flash-message-login.alert-danger {
+  background-color: #dc3545; 
+  color: white;
+}
+
+/* fade-in animation voor flashmessenger */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+#flash-message-login .close {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+#flash-message-login .close:hover {
+  color: #ddd;
+}
+
+
+ /* ---------------------------------------------FOOTER----------------------------- */
+footer {
+  font-family: stratum;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  margin-top: auto;
+}
+/* MEDIA QUERIES */
+
+/* mobiel */
+/* alle pagina's stijling*/
+@media (max-width: 299px) {
+  .tooltip {
+    width: 130px;
+    font-size: 8px;
+    padding: 5px;
+    top: 90px;
+  }
+  
+  .filtering {
+    gap: 0.3rem;
+    padding: 2px;
+  }
+
+  .filtering-button {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .filter-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .filter-btn img {
+    width: 40px;
+    height: 16px;
+  }
+
+  #searchBar {
+    width: 160px;
+    font-size: 11px;
+  }
+
+  .kaart {
+    width: 60px;
+    height: 100px;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 399px) {
+/* index pagina */
+ .tooltip {
+    width: 140px;
+    font-size: 9px;
+    padding: 6px;
+    top: 85px;
+    left: 0%;
+    right: 100%;
+  }
+   .filtering {
+    gap: 0.5rem;
+    padding: 5px;
+  }
+
+  .filtering-button {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .filter-btn img {
+    width: 50px;
+    height: 18px;
+  }
+
+  #searchBar {
+    width: 180px;
+    padding: 6px;
+  }
+
+  .kaart {
+    width: 70px;
+    height: 120px;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  /* deckview pagina */
+  .deck-info {
+    gap: 1rem;
+    font-size: 12px;
+    padding: 5px;
+    margin: 50px 0;
+    margin-left: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* navbar */
+   #unique-draw-section {
+    padding: 10px;
+    width: 95%;
+  }
+
+/* deck pagina */
+  .deck-info {
+    padding: 10px;
+    gap: 1rem;
+  }
+
+  .deck-info span {
+    font-size: 12px;
+  }
+
+  .deck-info img {
+    width: 20px;
+  }
+
+
+  /* index pagina */
+   .kaart {
+    width: 80%;
+    margin: 0.5rem auto;
+    height: auto;
+  }
+
+  .kaart > p {
+    font-size: 0.8rem;
+  }
+
+  .icon svg {
+    margin-top: 0rem;
+  }
+  #kaartContainer {
+    margin: 0;
+    padding: 0;
+  }
+  .filtering {
+    padding: 10px;
+  }
+
+  .filtering-button {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #searchBar {
+    width: 90%;
+    max-width: none;
+  }
+}
+
+
+/* random stijling*/
+@media screen and (min-width: 764px) {
+  #unique-navigation {
+    margin-left: auto;
+  }
+
+  #unique-nav-list {
+    display: flex;
+    gap: 2rem;
+  }
+  .slider-title {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* hamburg */
+.hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* navbar */
+  #unique-header {
+    flex-direction: column;
+    padding: 15px;
+    position: relative;
+  }
+
+  #logo {
+    height: 35px;
+    margin-bottom: 15px;
+  }
+
+  #unique-navigation {
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: calc(100vh - 70px);
+    text-align: center;
+    transition: 0.3s;
+    z-index: 99;
+  }
+
+  #unique-nav-list {
+    flex-direction: column;
+    padding: 20px 0;
+    /* padding: 15px 0; */
+  }
+
+  #unique-navigation.active {
+    left: 0;
+  }
+
+  #unique-nav-list li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 16px 0;
+  }
+
+  #unique-nav-list li:last-child {
+    border-bottom: none;
+  }
+
+    #unique-nav-list li a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+  }
+
+
+  #unique-nav-list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  #unique-nav-list a:hover {
+    color: #9932cc;
+    transform: scale(1.05);
+  }
+
+  #unique-profile-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  #unique-profile-icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  /* login/register pagina */
+  .login,
+  .register {
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-position: center;
+  }
+
+  .Login-container,
+  .register-container {
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .login-form,
+  .register-form {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .Login-container h1,
+  .register-container h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .login-form input,
+  .register-form input {
+    width: 92%;
+    max-width: 100%;
+  }
+
+  .login-form > form > input {
+    width: 100%;
+  }
+
+  .password-container {
+    width: 100%;
+  }
+
+  .login-text {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  #loginbutton {
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto;
+  }
+
+/* index pagina */
+ .midden-container {
+    width: 95%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+.filtering {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 10px;
+  }
+
+  .filtering-button {
+    gap: 10px;
+    
+  }
+
+  #searchBar {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  #kaartContainer {
+    padding: 20px;
+    margin: 10px;
+    width: auto;
+    height: auto;
+    margin-bottom: 2rem;
+    box-shadow: none; 
+  }
+
+  section.rij {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+  }
+  .popup-container {
+    display: flex;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .popupImg {
+    border-radius: 10px;
+  }
+  
+  .rij1,
+  .rij2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .kaart {
+    width: 45%;
+    max-width: 160px;
+    height: 220px;
+    margin-bottom: 1rem;
+  }
+
+  .kaart img {
+    width: 100%;
+    height: auto;
+  }
+  .kaart > p {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .icon svg {
+    margin-top: 0rem;
+  }
+
+   /* Paginering iets compacter */
+  #pagination {
+    margin: 2rem auto;
+    padding: 0 10px;
+  }
+
+  .page-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+/* deck pagina */
+  #main-content {
+    min-height: calc(100vh - 150px);
+    margin: 30px 0;
+  }
+
+  #deck-section { 
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    /* gap: 25px; */
+   gap: 2rem;
+    padding: 25px;
+    /* width: 70%; */
+    margin: 15px;
+  }
+
+   .deck-item {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .deck-item:hover {
+    transform: scale(1.05);
+  }
+
+  .deck-item img {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .deck-item p {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+
+  .deck-banner {
+    width: 100%;
+  }
+
+  /* deckview pagina */
+  .deck-list ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-display {
+    justify-content: center;
+  }
+
+  .card-display section {
+    width: 90%;
+  }
+  .card-display img {
+    width: 40%;
+  }
+
+  /* game pagina */
+  #unique-draw-section {
+    width: 90%;
+    padding: 10px;
+  }
+
+  #unique-card-display {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #unique-deck-card,
+  #unique-drawn-card {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  /* gebruikers pagina */
+   .account-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .settings-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .account-input {
+    padding: 10px;
+  }
+
+  .account-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  /*footer*/
+  footer > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+}
+
+
+/* Landing pagina  */
+@media screen and (max-width: 500px) {
+  #slider-container {
+    max-width: 280px;
+  }
+
+  .slider-item.active {
+    max-width: 260px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #slider-container {
+    max-width: 280px;
+  }
+
+  .slider-item.active {
+    max-width: 260px;
+  }
+  #landing-page .slider-item:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #landing-page {
+    padding: 10px;
+    min-height: 100vh;
+  }
+
+  #slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  #slider-images {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .slider-item {
+    display: none;
+  }
+
+  .slider-item.active {
+    display: block;
+    width: 100%;
+    height: 400px;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+ .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%);
+    width: fit-content;
+    font-size: 1rem;
+    padding: 8px;
+ }
+  .slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider-arrow {
+    display: block;
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+
+@media screen and (max-width: 1300px) {
+  #landing-page #slider-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #landing-page #slider-images {
+    justify-content: center;
+  }
+
+  #landing-page .slider-item {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .slider-item:hover .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%); 
+    width: fit-content;
+  }
+}
+
+/* alle pagina's */
+@media screen and (max-width: 1024px) {
+/* index pagina */
+  .midden-container {
+    width: 90%;
+    height: auto;
+    margin-top: 30px;
+  }
+
+  .popup-container {
+    max-width: 70%;
+  }
+  #kaartContainer {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+  .filtering {
+    gap: 5rem; 
+  }
+
+  .kaart {
+    width: 100px;
+    height: 150px;
+  }
+
+  .kaart > p {
+    font-size: 16px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  /* gebruikers pagina */
+   .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #unique-header {
+    padding: 15px 30px;
+  }
+
+  #unique-nav-list {
+    gap: 30px;
+  }
+
+  #unique-nav-list a {
+    font-size: 1rem;
+  }
+
+  /* index pagina */
+   #kaartContainer {
+    margin: 20px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #kaartContainer {
+    width: 95%;
+    padding: 35px;
+  }
+
+  .kaart {
+    width: 140px;
+    height: 200px;
+  }
+
+  /* Deck pagina */
+  #main-content {
+    margin: 40px 0;
+  }
+
+  #deck-section {
+    gap: 30px;
+    padding: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* deckview pagina */
+  .deck-banner {
+    width: 90%;
+  }
+
+  .card-display {
+    gap: 20px;
+  }
+
+  /* game pagina */
+  #unique-draw-section {
+    width: 80%;
+}
+}
+
+
+/* tooltip in verschillende media queries */
+@media (max-width: 1200px) {
+  /* index pagina */
+  .tooltip {
+    width: 230px;
+    top: 50px;
+  }
+   .filtering {
+    gap: 10rem;
+  }
+
+  .kaart {
+    width: 110px;
+    height: 170px;
+  }
+
+  .filter-btn img {
+    width: 80px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .tooltip {
+    width: 120px;
+    font-size: 14px;
+    top: 50px;
+  }
+}
+
+@media (max-width: 1099px) {
+  .tooltip {
+    width: 800px;
+    align-items: start;
+    font-size: 13.5px;
+    top: 55px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .tooltip {
+    width: 550px;
+    font-size: 13px;
+    top: 55px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 899px) {
+  .tooltip-container {
+    justify-content: center;
+    margin: 15px auto;
+  }
+
+  .tooltip {
+    width: 190px;
+    font-size: 12.5px;
+    top: 60px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 799px) {
+  .tooltip {
+    width: 180px;
+    font-size: 12px;
+    top: 65px;
+  }
+}
+
+@media (max-width: 699px) {
+  .tooltip {
+    width: 170px;
+    font-size: 11.5px;
+    padding: 8px;
+    top: 70px;
+  }
+}
+
+@media (max-width: 599px) {
+  /* index pagina */
+  .tooltip {
+    width: 160px;
+    font-size: 11px;
+    padding: 8px;
+    top: 75px;
+  }
+   .filtering {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .filtering-button {
+    gap: 0.8rem;
+  }
+
+  .filter-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .filter-btn img {
+    width: 60px;
+    height: 20px;
+  }
+
+  #searchBar {
+    width: 200px;
+    font-size: 12px;
+  }
+
+  .kaart {
+    width: 80px;
+    height: 130px;
+  }
+
+  .rij1,
+  .rij2 {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* deckview pagina */
+   .deck-info {
+    gap: 1.5rem;
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 499px) {
+  .tooltip {
+    width: 150px;
+    font-size: 10px;
+    padding: 6px;
+    top: 80px;
+  }
+}
+
+/* deck-info in verschillende media queries */
+@media (max-width: 1200px) {
+  .deck-info {
+    gap: 4rem;
+    font-size: 16px;
+    padding: 15px;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 999px) {
+ /*index pagina  */
+  .filtering {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 15px;
+  }
+
+  .filtering-button {
+    gap: 1.5rem;
+  }
+
+  #searchBar {
+    width: 250px;
+    font-size: 14px;
+  }
+
+  .kaart {
+    width: 100px;
+    height: 160px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  /* deckview pagina */
+  .deck-info {
+    gap: 3rem;
+    font-size: 15px;
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 799px) {
+  /*index pagina  */
+   .filtering {
+    gap: 1.5rem;
+    padding: 10px;
+  }
+
+  .filtering-button {
+    gap: 1rem;
+  }
+
+  .filter-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .filter-btn img {
+    width: 70px;
+    height: 22px;
+  }
+
+  #searchBar {
+    width: 220px;
+    padding: 8px;
+  }
+
+  .kaart {
+    width: 90px;
+    height: 140px;
+  }
+
+  .rij1,
+  .rij2 {
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  /* deckview pagina */
+  .deck-info {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    max-width: 90%;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+
+

@@ -30,22 +30,6 @@ async function exit() {
     process.exit(0);
 }
 
-// // users 
-// async function eergstegebruiker() {
-//     if (await userCollectionMTG.countDocuments() > 0) {
-//         return;
-//     }
-//     // let email : string | undefined=process.env.ADMIN_EMAIL;
-//     let password: string | undefined = process.env.ADMIN_PASSWORD;
-//     let username: string | undefined = process.env.ADMIN_USERNAME;
-//     if (password === undefined || username === undefined) {
-//         throw new Error("ADMIN_EMAIL ADMIN_USERNAME and ADMIN_PASSWORD must be set in environment");
-//     }
-//     await userCollectionMTG.insertOne({
-//         username: username,
-//         password: await bcrypt.hash(password, saltRounds)
-//     });
-// }
 
 export async function getUsers() {
     return await userCollectionMTG.find({}).toArray();
@@ -119,8 +103,6 @@ export async function deleteDeck(deckId: ObjectId) {
 }
 
 // kaartentoevoegen aan een deck
-
-// Voeg een kaart toe aan het deck
 export async function addCardToDeck(deckId: string, cardId: string, cardCount: number) {
     try {
         console.log("addCardToDeck() gestart met deckId:", deckId, "cardId:", cardId, "cardCount:", cardCount);
@@ -141,8 +123,6 @@ export async function addCardToDeck(deckId: string, cardId: string, cardCount: n
             console.log("Deck bevat al 60 kaarten of meer, kan niet meer toevoegen");
             return false; // Stop als limiet bereikt
         }
-
-
 
         // Kaart zoeken
         const card = await cardsCollection.findOne({ _id: new ObjectId(cardId) });
@@ -254,7 +234,7 @@ export async function removeCardFromDeck(deckId: string, cardName: string, count
 // export async function updateUser(userId: ObjectId, updatedData: { username?: string; password?: string }) {
 //     // Maak een object met de velden die moeten worden bijgewerkt
 //     const updateFields: { [key: string]: any } = {};
-  
+
 //     if (updatedData.username) {
 //       updateFields.username = updatedData.username;
 //     }
@@ -262,33 +242,45 @@ export async function removeCardFromDeck(deckId: string, cardName: string, count
 //       // Hash het nieuwe wachtwoord voordat je het opslaat
 //       updateFields.password = await bcrypt.hash(updatedData.password, saltRounds);
 //     }
-  
+
 //     const result = await userCollectionMTG.updateOne(
 //       { _id: userId },
 //       { $set: updateFields }
 //     );
-  
+
 //     console.log(`Update result: ${result.modifiedCount}`);  // Voeg deze regel toe om te controleren of de update succesvol was
 //     return result.modifiedCount > 0;
 //   }
-  
+
 
 // Update functie blijft zoals je die had
-export async function updateUser(userId: ObjectId, updatedData: { username?: string; password?: string }) {
-    const updateFields: { [key: string]: any } = {};
+export async function getUserById(userId: ObjectId) {
+    return await userCollectionMTG.findOne<{ password: string }>({ _id: userId });
+}
 
-    if (updatedData.username) {
-        updateFields.username = updatedData.username;
+// Update-functie uitbreiden
+export async function updateUser(
+    userId: ObjectId,
+    updatedData: {
+        username?: string;
+        password?: string;
+        email?: string;
+        avatar?: string;
     }
+) {
+    const updateFields: Record<string, any> = {};
+    if (updatedData.username) updateFields.username = updatedData.username;
     if (updatedData.password) {
+        // hash het nieuwe wachtwoord
         updateFields.password = await bcrypt.hash(updatedData.password, saltRounds);
     }
+    if (updatedData.email) updateFields.email = updatedData.email;
+    if (updatedData.avatar) updateFields.avatar = updatedData.avatar;
 
     const result = await userCollectionMTG.updateOne(
         { _id: userId },
         { $set: updateFields }
     );
-
     return result.modifiedCount > 0;
 }
 

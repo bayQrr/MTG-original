@@ -1,50 +1,60 @@
 <%- include("partials/header") %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body id="profilebody">
-    <main class="user-container">
-    <h1>Accountinstellingen</h1>
-    <p class="welcome-msg">Welkom, <%= user.username %></p>
+    <body id="profilebody">
+        <main class="user-container">
+            <h1>Accountinstellingen</h1>
+            <p class="welcome-msg">Welkom, <%= user.username %>
+            </p>
 
-    <% if (message) { %>
-        <section class="notification <%= message.type %>">
-            <%= message.message %>
-        </section>
-    <% } %>
+            <!-- Profielafbeelding -->
+            <% if (user.avatar) { %>
+                <img src="<%= user.avatar %>" alt="Profielfoto" class="avatar-img">
+                <% } else { %>
+                    <img src="/assets/images/default-avatar.png" alt="Profielfoto" class="avatar-img">
+                    <% } %>
 
-    <form method="POST" action="/user/update-profile" class="form-box">
-        <h2>Profiel bijwerken</h2>
+                        <!-- Meldingen -->
+                        <% if (message) { %>
+                            <section class="notification <%= message.type %>">
+                                <%= message.message %>
+                            </section>
+                            <% } %>
 
-        <label for="username">Nieuwe gebruikersnaam</label>
-        <input type="text" name="username" id="username" placeholder="Bijv. MagicMaster99">
+                                <!-- Profiel bijwerken -->
+                                <form method="POST" action="/user/update-profile" class="form-box">
+                                    <h2 id="titel">Profiel bijwerken</h2>
 
-        <label for="email">Nieuw e-mailadres</label>
-        <input type="email" name="email" id="email" placeholder="bijv. jij@email.com">
+                                    <label for="username">Gebruikersnaam</label>
+                                    <input type="text" name="username" id="username" value="<%= user.username %>"
+                                        required>
 
-        <label for="password">Nieuw wachtwoord</label>
-        <input type="password" name="password" id="password" placeholder="Nieuw wachtwoord">
+                                    <label for="email">E-mailadres</label>
+                                    <input type="email" name="email" id="email" value="<%= user.email %>" required>
 
-        <button type="submit" class="primary-btn">Wijzig gegevens</button>
-    </form>
+                                    <label for="avatar">URL van profielfoto</label>
+                                    <input type="text" name="avatar" id="avatar" value="<%= user.avatar || '' %>">
 
-    <form method="POST" action="/user/delete-password" class="form-box danger-box">
-        <h2>Alleen wachtwoord verwijderen</h2>
-        <button type="submit" class="danger-btn">Verwijder wachtwoord</button>
-    </form>
+                                    <hr>
 
-    <form method="POST" action="/user/delete-account" class="form-box danger-box">
-        <h2>Account verwijderen</h2>
-        <button type="submit" class="danger-btn">Verwijder account</button>
-    </form>
-</main>
-    
-</body>
-</html>
+                                    <h2>Wachtwoord wijzigen</h2>
 
-<%- include("partials/footer") %>
+                                    <label for="oldPassword">Oud wachtwoord</label>
+                                    <input type="password" name="oldPassword" id="oldPassword">
+
+                                    <label for="newPassword">Nieuw wachtwoord</label>
+                                    <input type="password" name="newPassword" id="password">
+
+                                    <button type="submit" class="primary-btn">Wijzig gegevens</button>
+                                </form>
+
+                                <!-- Account verwijderen -->
+                                <form method="POST" action="/user/delete-account" class="form-box danger-box">
+                                    <!-- <label for="delete-account">Verwijder account</label> -->
+                                    <button type="submit" class="danger-btn"
+                                        onclick="return confirm('Ben je zeker dat je je account wilt verwijderen?')">
+                                        Verwijder account
+                                    </button>
+                                </form>
+        </main>
+    </body>
+    <%- include("partials/footer") %>

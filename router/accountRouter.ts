@@ -22,7 +22,7 @@ export function accountRouter() {
           type: "error",
           message: "Vul alle velden in!"
         };
-        return res.redirect("/account/login");  // ✅
+        return res.redirect("/account/login");  
       }
 
       const user = await login(username, password);
