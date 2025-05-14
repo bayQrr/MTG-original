@@ -32,7 +32,7 @@
             <div class="settings-grid">
               <div class="settings-section">
                 <h2>Basis Informatie</h2>
-                <form method="POST" action="/account/update-profile" class="account-form">
+                <form method="POST" action="/user/update-profile" class="account-form">
                   <section class="form-section">
                     <label for="username">Gebruikersnaam:</label>
                     <input type="text" name="username" id="username" class="account-input"
@@ -52,7 +52,7 @@
 
               <div class="settings-section">
                 <h2>Wachtwoord</h2>
-                <form method="POST" action="/account/update-password" class="account-form">
+                <form method="POST" action="/user/update-password" class="account-form">
                   <section class="form-section">
                     <label for="current-password">Huidig Wachtwoord:</label>
                     <input type="password" name="currentPassword" id="current-password" class="account-input" />
@@ -76,7 +76,7 @@
 
               <div class="settings-section">
                 <h2>Notificaties</h2>
-                <form method="POST" action="/account/update-notifications" class="account-form">
+                <form method="POST" action="/user/update-notifications" class="account-form">
                   <section class="form-section checkbox-section">
                     <label class="checkbox-label">
                       <input type="checkbox" name="emailNotifications" <%=user.emailNotifications ? 'checked' : '' %>>
@@ -103,7 +103,7 @@
                 <p class="warning-text">
                   Let op: Dit kan niet ongedaan worden gemaakt!
                 </p>
-                <form method="POST" action="/account/delete" class="account-form"
+                <form method="POST" action="/user/delete" class="account-form"
                   onsubmit="return confirm('Weet je zeker dat je je account wilt verwijderen?');">
                   <section class="form-section">
                     <label for="delete-confirm">Typ 'VERWIJDER' om te bevestigen:</label>

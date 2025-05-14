@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connect } from "./database";
-import session from "./session"; // Zorg dat je session.ts correct is ingesteld
+import session from "./session";
 import { accountRouter } from "./router/accountRouter";
 import { homeRouter } from "./router/homeRouter";
 import { userRouter } from "./router/userRouter";
@@ -15,25 +15,16 @@ dotenv.config();
 
 const app: Express = express();
 
-// Stel EJS als view engine in en definieer de views-map
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session); // Zorg dat sessie-middleware vóór de routers komt
+app.use(session);
 app.use(flashMiddleware);
 
-// Debug middleware voor request logging
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  console.log('Request body:', req.body);
-  next();
-});
-
-// Routers
+// routers
 app.use("/", homeRouter());
 app.use("/account", accountRouter());
 app.use("/user", userRouter());
