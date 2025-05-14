@@ -215,15 +215,7 @@ export function accountRouter(): Router {
         return res.redirect("/user");
       }
 
-      if (newPassword.length < 6) {
-        console.log("Nieuw wachtwoord is te kort");
-        req.session.message = {
-          type: "error",
-          message: "Het wachtwoord moet minimaal 6 karakters lang zijn"
-        };
-        return res.redirect("/user");
-      }
-
+     
       const hashedPassword = await bcrypt.hash(newPassword, 10);
       console.log("Nieuw wachtwoord gehashed");
 
