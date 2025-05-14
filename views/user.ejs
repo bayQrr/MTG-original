@@ -1,28 +1,50 @@
 <%- include("partials/header") %>
 
-    <h1>Account Instellingen</h1>
-    <p>Welkom, <%= user.username %>
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="profilebody">
+    <main class="user-container">
+    <h1>Accountinstellingen</h1>
+    <p class="welcome-msg">Welkom, <%= user.username %></p>
 
     <% if (message) { %>
-        <section class="<%= message.type %>">
+        <section class="notification <%= message.type %>">
             <%= message.message %>
         </section>
-        <% } %>
+    <% } %>
 
-            <form method="POST" action="/account/update-profile">
-                <section>
-                    <label for="username">Nieuwe Gebruikersnaam:</label>
-                    <input type="text" name="username" id="username">
-                </section>
+    <form method="POST" action="/user/update-profile" class="form-box">
+        <h2>Profiel bijwerken</h2>
 
-                <section>
-                    <label for="password">Nieuw Wachtwoord:</label>
-                    <input type="password" name="password" id="password">
-                </section>
+        <label for="username">Nieuwe gebruikersnaam</label>
+        <input type="text" name="username" id="username" placeholder="Bijv. MagicMaster99">
 
-                <button type="submit">Wijzig Gegevens</button>
-            </form>
+        <label for="email">Nieuw e-mailadres</label>
+        <input type="email" name="email" id="email" placeholder="bijv. jij@email.com">
 
+        <label for="password">Nieuw wachtwoord</label>
+        <input type="password" name="password" id="password" placeholder="Nieuw wachtwoord">
 
-            <%- include("partials/footer") %>
+        <button type="submit" class="primary-btn">Wijzig gegevens</button>
+    </form>
+
+    <form method="POST" action="/user/delete-password" class="form-box danger-box">
+        <h2>Alleen wachtwoord verwijderen</h2>
+        <button type="submit" class="danger-btn">Verwijder wachtwoord</button>
+    </form>
+
+    <form method="POST" action="/user/delete-account" class="form-box danger-box">
+        <h2>Account verwijderen</h2>
+        <button type="submit" class="danger-btn">Verwijder account</button>
+    </form>
+</main>
+    
+</body>
+</html>
+
+<%- include("partials/footer") %>

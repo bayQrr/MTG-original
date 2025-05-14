@@ -58,39 +58,39 @@ export function accountRouter() {
   });
 
   // POST /update-profile: Update gebruikersgegevens
-  router.post("/update-profile", async (req, res) => {
-    const { username, password } = req.body;
-    const userId = req.session.user?._id;
+  // router.post("/update-profile", async (req, res) => {
+  //   const { username, password } = req.body;
+  //   const userId = req.session.user?._id;
 
-    if (!userId) {
-      res.status(401).send("Niet ingelogd");
-      return
-    }
+  //   if (!userId) {
+  //     res.status(401).send("Niet ingelogd");
+  //     return
+  //   }
 
-    try {
-      const updatedData: { username?: string; password?: string } = {};
-      if (username) updatedData.username = username;
-      if (password) updatedData.password = password;
+  //   try {
+  //     const updatedData: { username?: string; password?: string } = {};
+  //     if (username) updatedData.username = username;
+  //     if (password) updatedData.password = password;
 
-      const updateResult = await updateUser(userId, updatedData);
+  //     const updateResult = await updateUser(userId, updatedData);
 
-      if (updateResult) {
-        if (req.session.user && updatedData.username) {
-          req.session.user.username = updatedData.username;
-        }
-        req.session.message = {
-          type: "success",
-          message: "Je gegevens zijn succesvol bijgewerkt!",
-        };
-        return res.redirect("/");
-      } else {
-        res.status(400).send("Er is een fout opgetreden bij het bijwerken.");
-      }
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Serverfout bij het bijwerken van gebruikersgegevens.");
-    }
-  });
+  //     if (updateResult) {
+  //       if (req.session.user && updatedData.username) {
+  //         req.session.user.username = updatedData.username;
+  //       }
+  //       req.session.message = {
+  //         type: "success",
+  //         message: "Je gegevens zijn succesvol bijgewerkt!",
+  //       };
+  //       return res.redirect("/");
+  //     } else {
+  //       res.status(400).send("Er is een fout opgetreden bij het bijwerken.");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     res.status(500).send("Serverfout bij het bijwerken van gebruikersgegevens.");
+  //   }
+  // });
 
   return router;
 }
