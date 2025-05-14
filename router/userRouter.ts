@@ -1,19 +1,16 @@
-import express from "express";
-import { Request, Response } from "express";
 
-const router = express.Router();
+import express, { Request, Response, Router, RequestHandler } from "express";
+import { secureMiddleware } from "../middelware/secureMiddleware";
 
-// Middleware om te controleren of gebruiker is ingelogd
-const isAuthenticated = (req: Request, res: Response, next: Function) => {
-  if (req.session.user) {
-    next();
-  } else {
-    res.redirect("/account/login");
-  }
-};
+export function userRouter(): Router {
+  const router = express.Router();
+
+
+
+
 
 // User pagina route
-router.get("/", isAuthenticated, (req: Request, res: Response) => {
+router.get("/", secureMiddleware, (req: Request, res: Response) => {
   res.render("user", {
     user: req.session.user
   });
@@ -22,4 +19,5 @@ router.get("/", isAuthenticated, (req: Request, res: Response) => {
 
 
 
-export const userRouter = () => router;
+  return router;
+}

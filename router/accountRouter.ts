@@ -4,21 +4,7 @@ import { User } from "../types";
 import { ObjectId } from "mongodb";
 import bcrypt from "bcrypt";
 
-// Extend Express Request type to include session
-declare module 'express-session' {
-  interface SessionData {
-    user?: User;
-    userId?: string;
-    message?: {
-      type: "error" | "success";
-      message: string;
-    };
-  }
-}
 
-interface FlashRequest extends Request {
-  flash(type: string, message: string): void;
-}
 
 export function accountRouter(): Router {
   const router = express.Router();
