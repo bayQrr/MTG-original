@@ -1,9 +1,5 @@
 import express from "express";
-import { login, updateUser, userCollectionMTG } from "../database";
-import { User } from "../types";
-import { ObjectId } from "mongodb";
-import bcrypt from "bcrypt";
-
+import { login } from "../database";
 
 
 export function accountRouter() {

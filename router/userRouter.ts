@@ -1,6 +1,6 @@
 
 import express from "express";
-import { secureMiddleware} from "../middelware/secureMiddleware";
+import { secureMiddleware } from "../middelware/secureMiddleware";
 import { login, updateUser, userCollectionMTG } from "../database";
 import { User } from "../types";
 import { ObjectId } from "mongodb";
@@ -50,6 +50,44 @@ export function userRouter() {
       return res.redirect("/user");
     }
   });
+
+  // profielfoto veranderen
+  router.get("/change-profile", secureMiddleware, (req, res) => {
+    res.render("change-profile", {
+      user: req.session.user,
+      message: req.session.message || null,
+    });
+  });
+
+
+  router.post("/update-profile-image", secureMiddleware, async (req, res) => {
+    const userId = req.session.user?._id;
+    const { imageUrl } = req.body;
+    if (!userId || !imageUrl) {
+      req.session.message = { type: "error", message: "Ongeldige aanvraag." };
+      return res.redirect("/user/change-profile");
+    }
+    try {
+      await userCollectionMTG.updateOne(
+        { _id: new ObjectId(userId) },
+        { $set: { profileImage: imageUrl } }
+      );
+      req.session.user!.profileImage = imageUrl;
+      req.session.message = {
+        type: "success",
+        message: "Profielfoto bijgewerkt!",
+      };
+      res.redirect("/user");
+    } catch (err) {
+      console.error(err);
+      req.session.message = {
+        type: "error",
+        message: "Fout bij het bijwerken van de profielfoto.",
+      };
+      res.redirect("/user/change-profile");
+    }
+  }
+  );
 
   // wachtwoord veranderen
   router.post("/update-password", async (req, res) => {

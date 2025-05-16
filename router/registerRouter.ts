@@ -1,11 +1,12 @@
 // registerRouter.ts
-import express, { Router } from "express";
+import express from "express";
 import bcrypt from "bcrypt";
 import { createUser, userCollectionMTG } from "../database";
-import { User } from "../types";
 
-export const registerRouter = (): Router => {
-    const router = Router();
+
+export function registerRouter() {
+    const router = express.Router();
+
 
     // Toon registratieformulier
     router.get("/register", (req, res) => {

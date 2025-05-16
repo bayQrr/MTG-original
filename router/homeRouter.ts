@@ -81,28 +81,43 @@ export function homeRouter() {
   router.post("/add-to-deck", async (req, res) => {
     try {
       const { deckId, cardId, cardCount } = req.body;
+      const toAdd = parseInt(cardCount, 10) || 1;
 
-      if (!ObjectId.isValid(deckId) || !ObjectId.isValid(cardId)) {
-        res.status(400).send("Ongeldig deckId of cardId");
-        return;
-      }
+      // 1) Pak het deck en de bestaande kaartcount
+      const deck = await deckCollection.findOne({ _id: new ObjectId(deckId) });
+      const existingEntry = deck?.cards.find(c => c.name === cardId);
+      const existingCount = existingEntry?.count ?? 0;
 
-      const success = await addCardToDeck(deckId, cardId, parseInt(cardCount, 10) || 1);
-
-      if (!success) {
-        // Stuur een flash-melding mee bij te veel kaarten
+      // 2) Check per-kaart-limiet
+      if (existingCount + toAdd > 4) {
+        // **Overschrijdt de 4-per-kaart-limiet → blijf op index**
         req.session.message = {
           type: "error",
-          message: "Je deck kan max 60 kaarten nemen. Je kunt geen extra kaarten toevoegen.",
+          message: "Je kunt maximaal 4 van dezelfde kaart in een deck hebben."
         };
         res.redirect("/");
-        return;
+        return
       }
 
+      // 3) Anders: ga door met toevoegen (test op de totaal-limiet in je DB-functie)
+      const success = await addCardToDeck(deckId, cardId, toAdd);
+
+      if (!success) {
+        // **Alleen mogelijk door de 60-totaal-limiet**
+        req.session.message = {
+          type: "error",
+          message: "Je deck kan maximaal 60 kaarten bevatten."
+        };
+        res.redirect("/");
+        return
+      }
+
+      // 4) Bij wél succesvol toevoegen: door naar deck-detail
       return res.redirect(`/deck/${deckId}`);
     } catch (err) {
       console.error("Fout bij toevoegen aan deck:", err);
       res.status(500).send("Server error");
+      return
     }
   });
 

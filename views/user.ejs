@@ -9,7 +9,7 @@
               <div class="profile-image-container">
                 <img src="<%= user.profileImage || '/assets/images/default-avatar.png' %>" alt="Profielfoto"
                   class="profile-image" />
-                <a href="/account/change-profile-image" class="change-profile-link">
+                <a href="/user/change-profile" class="change-profile-link">
                   <i class="fas fa-camera"></i>
                   Profielfoto wijzigen
                 </a>
@@ -74,31 +74,7 @@
                 </form>
               </div>
 
-              <div class="settings-section">
-                <h2>Notificaties</h2>
-                <form method="POST" action="/user/update-notifications" class="account-form">
-                  <section class="form-section checkbox-section">
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="emailNotifications" <%=user.emailNotifications ? 'checked' : '' %>>
-                      E-mail notificaties
-                      ontvangen
-                    </label>
-                  </section>
-
-                  <section class="form-section checkbox-section">
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="newsletter" <%=user.newsletter ? 'checked' : '' %>> Nieuwsbrief
-                      ontvangen
-                    </label>
-                  </section>
-
-                  <button type="submit" class="account-button">
-                    Wijzig Notificaties
-                  </button>
-                </form>
-              </div>
-
-              <div class="settings-section danger-zone">
+              <div class="settings-section danger-zone" id="danger-zone">
                 <h2>Account Verwijderen</h2>
                 <p class="warning-text">
                   Let op: Dit kan niet ongedaan worden gemaakt!

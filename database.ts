@@ -136,6 +136,11 @@ export async function addCardToDeck(deckId: string, cardId: string, cardCount: n
 
         // controleert of de kaart al in de deck bestaat
         const bestaandeKaartIndex = deck.cards.findIndex(c => c.name === card.name);
+        const bestaandCount = deck.cards[bestaandeKaartIndex]?.count ?? 0;
+        if (bestaandCount + cardCount > 4) {
+            console.log("Per kaart mag je maximaal 4 exemplaren hebben");
+            return false;
+        }
         if (bestaandeKaartIndex > -1) {
             console.log("Kaart bestaat al in deck, verhoog count");
             await deckCollection.updateOne(
