@@ -106,7 +106,7 @@
             data-toughness="<%= card.toughness %>"
             data-text="<%= card.text %>"
           >
-            <p><%= card.name %></p>
+            <h1><%= card.name %></h1>
             <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
           </section>
           <% } %> <% }) %> <% } else { %>
@@ -137,8 +137,13 @@
            
           <section class="popup-container">
           
+            <section>
+                  <h1 id="popupTitle"></h1>
+            </section>
+
+            <section class="img-spec">
             <section class="popup-container-img">
-                 <p id="popupTitle"></p>
+             
               <img id="popupImg" src="" alt="Kaart" />
             </section>
             <section class="popup-specifications">
@@ -181,22 +186,13 @@
             <button type="submit" class="add-btn">Voeg toe</button>
           </form>
             </section>
+
+            </section>
             <span class="close">&times;</span>
           </section>
 
        
         </section>
-
-  <script src="/js/kaartendetail.js" defer></script>
-  <script>
-    // Flash message
-    const flash = document.getElementById("flash-message");
-    if (flash) {
-      setTimeout(() => {
-        flash.style.display = "none";
-      }, 3000);
-    }
-  </script>
 </body>
 
 <%- include("partials/footer") %>
