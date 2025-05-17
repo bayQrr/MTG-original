@@ -6,7 +6,7 @@ import { Deck, CardInDeck } from "../types";
 export function deckRouter() {
   const router = express.Router();
 
-  // Haal alle decks op van een gebruiker
+  // haalt alle decks op van de gebruiker
   router.get("/", async (req, res) => {
     try {
       const userId = req.session.user!._id;
@@ -17,15 +17,13 @@ export function deckRouter() {
     }
   });
 
-  // Maak een nieuw deck aan
+  // maakt een nieuwe deck aan
   router.post("/create-deck", async (req, res) => {
     try {
-      console.log("Ontvangen data:", req.body); // Debug logging
       const { deckName, deckImageUrl } = req.body;
 
-      // Validatie
+      // checken
       if (!deckName || !deckImageUrl) {
-        console.log("Validatie gefaald:", { deckName, deckImageUrl }); // Debug logging
         req.session.message = {
           type: "error",
           message: "Vul alle velden in"
@@ -34,7 +32,7 @@ export function deckRouter() {
       }
 
 
-      // Controleer of gebruiker is ingelogd
+      // checkt of de gebruiker is ingelogd
       if (!req.session.user?._id) {
         req.session.message = {
           type: "error",
@@ -50,10 +48,7 @@ export function deckRouter() {
         cards: []
       };
 
-      console.log("Nieuwe deck data:", newDeck); // Debug logging
-
       const result = await createDeck(newDeck);
-      console.log("Create deck result:", result); // Debug logging
 
       if (!result.acknowledged) {
         req.session.message = {
@@ -78,7 +73,7 @@ export function deckRouter() {
     }
   });
 
-  // Bewerken van een deck
+  // deck kunnen bewerken
   router.post("/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
@@ -96,7 +91,7 @@ export function deckRouter() {
     }
   });
 
-  // Verwijder een deck
+  // deck verwijderen
   router.post("/delete-deck/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
@@ -107,7 +102,7 @@ export function deckRouter() {
     }
   });
 
-  // Bekijk een specifiek deck
+  // een specifiek deck bekijken
   router.get("/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
@@ -118,25 +113,18 @@ export function deckRouter() {
         res.status(404).send("Deck niet gevonden.");
         return;
       }
-
-      // Haal de kaarten op (CardInDeck array)
       const kaartenInDeck: CardInDeck[] = selectedDeck.cards || [];
 
-      // Bereken totaal aantal kaarten
+      // berekent het aantal kaarten
       const aantalKaarten = kaartenInDeck.reduce((acc, card) => acc + (card.count || 0), 0);
 
-      // Bereken aantal landkaarten (controleer 'card.type' op 'land', case-insensitive)
+      // berekent het aantal landt kaarten en checkt ze
       const aantalLandkaarten = kaartenInDeck
         .filter(card => card.type && card.type.toLowerCase().includes("land"))
         .reduce((acc, card) => acc + (card.count || 0), 0);
 
-      // Bereken totale mana uit de manaCost-string.
-      // We gaan ervan uit dat elk card een 'manaCost' veld bevat, 
-      // bijvoorbeeld uit de originele Cards data.
+      // manacost berekenen
       const mana = kaartenInDeck.reduce((acc, card) => {
-        // Gebruik 'card.manaCost' als die bestaat, anders een lege string.
-        // (Typecasting: als je CardInDeck nog geen manaCost heeft, kun je 
-        //  even casten naar any om de property te lezen.)
         const costStr = (card as any).manaCost || "";
         return acc + parseManaCost(costStr) * (card.count || 1);
       }, 0);
@@ -155,7 +143,7 @@ export function deckRouter() {
     }
   });
 
-  // mogelijkheid om kaart verwijderen in deckview
+  // deck verwijderen
   router.post("/:id/removeCard", async (req, res) => {
     const { cardName, count } = req.body;
     const deckId = req.params.id;
@@ -165,9 +153,8 @@ export function deckRouter() {
       res.status(400).send("Ongeldige gegevens");
       return;
     }
-
     await removeCardFromDeck(deckId, cardName, aantal);
-    res.redirect(`/deck/${deckId}`); // terug naar de deckview
+    res.redirect(`/deck/${deckId}`);
   });
 
   router.get('/:id/export', async (req, res) => {
@@ -181,7 +168,7 @@ export function deckRouter() {
         return
       }
 
-      // Hier zetten we headers
+      // we maken document aan om te kunnen exporteren
       res.setHeader('Content-Type', 'application/json');
       res.send(deck.cards);
     } catch (error) {

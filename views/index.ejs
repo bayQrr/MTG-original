@@ -3,7 +3,7 @@
   <body class="cards_body">
     <main id="mainContent">
 
-      <!-- Flashmessenger -->
+      <!-- fashmessenger -->
       <% const message=locals.message; %>
         <% if (message) { %>
           <p id="flash-message"
@@ -12,7 +12,7 @@
           </p>
           <% } %>
 
-            <!-- Tooltip -->
+            <!-- tooltip -->
             <section class="tooltip-container">
               <section class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
@@ -29,7 +29,7 @@
               </section>
             </section>
 
-            <!-- Filter & zoek -->
+            <!-- filter & zoek -->
             <section class="midden-container">
               <section class="filtering">
                 <form action="/cards" method="get" id="searchForm">
@@ -54,7 +54,7 @@
                 </form>
               </section>
 
-              <!-- Kaarten -->
+              <!-- kaarten -->
               <section id="kaartContainer">
                 <% const seenNames=new Set(); %>
                   <section class="rijen">
@@ -76,8 +76,6 @@
                                 <p>Geen kaarten gevonden.</p>
                                 <% } %>
                   </section>
-
-
               </section>
             </section>
 

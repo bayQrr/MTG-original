@@ -157,7 +157,6 @@
   .login {
     background-image: url("/assets/images/wizardBackground.jpg");
     background-size: cover;
-    /* display: flex; */
     overflow-x: hidden;
     overflow-y: hidden;
   }
@@ -281,8 +280,8 @@
     transform: scale(1.1);
     box-shadow: 0 0 25px 10px #9cc7e4;
   }
-  /* FORM STIJLEN */
 
+  /* FORM STIJLEN */
   .register-form input {
     padding: 12px;
     border: 2px solid #333036;
@@ -566,7 +565,7 @@
     background: rgba(0, 0, 0, 0.8); 
     justify-content: center;
     align-items: center;
-    margin: 10rem 8rem 0 ;
+    margin: 10rem auto;
     width: 55rem;
     border-radius: 3%;
   }
@@ -609,10 +608,8 @@
   }
 
   /* dropdown knop bij de addbutton */
-
   .deck-dropdown {
     display: none;
-    /* position: absolute; */
     top: 50%;
     border: 1px solid #474242;
     padding: 10px;
@@ -624,7 +621,6 @@
     border-radius: 5%;
   }
 
-  /* to do font styl aanpassen */
   .deck-dropdown a {
     display: block;
     padding: 5px;
@@ -845,7 +841,6 @@
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
-  /* SVG Animation: Rotate and scale effect */
   .icon svg {
     transition: transform 0.5s ease-in-out;
     margin-top: 2rem;
@@ -865,7 +860,6 @@
     position: absolute;
     font-family: "prompt";
     background-color: #1a1a1a;
-    /* background: linear-gradient(45deg, #1a1a1a, #2e86de59); */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.3);
     left: 17%;
@@ -874,11 +868,11 @@
     transition: opacity 0.5s, transform 0.5s;
     transform: translateY(10px);
   }
+
   .tooltip > p {
     margin-bottom: 2rem;
   }
 
-  /* Tooltip Arrow */
   .tooltip::after {
     content: "";
     position: absolute;
@@ -890,7 +884,6 @@
     border-color: #333 transparent transparent transparent;
   }
 
-  /* Show tooltip on hover */
   .tooltip-container:hover .tooltip {
     visibility: visible;
     opacity: 1;
@@ -922,7 +915,6 @@
 
 
   /*------------------------------------------- deck pagina Badr -------------------------*/
-  /* deck pagina */
   #body-background {
     margin: 0;
     padding: 0;
@@ -955,7 +947,7 @@
     margin: 0; 
   }
 
-  /* Aanpassing voor deck section */
+  /* deck section */
   #deck-section {
     flex: 0 1 auto;
     display: flex;
@@ -974,7 +966,7 @@
     min-height: 300px;
   }
 
-  /* aanpassing voor deck-container */
+  /* deck-container */
   #deck-container {
     display: flex;
     flex-wrap: wrap;
@@ -985,7 +977,7 @@
     max-width: 600px;
   }
 
-  /* aanpassing voor deck-items */
+  /* deck-items */
   .deck-item {
     text-align: center;
     width: 130px;
@@ -1033,7 +1025,7 @@
     font-weight: bold;
   }
 
-  /* KNOP DECK TOEVOEGEN */
+  /* knop deck toevoegen */
   #add-deck-btn {
     background: linear-gradient(45deg, #1a1a1a, rgb(41, 41, 168));
     backdrop-filter: blur(10px);
@@ -1059,7 +1051,7 @@
   
   }
 
-  /* Popup */
+  /* popup */
   .deck-popup-container {
     display: none;
     position: fixed;
@@ -1098,7 +1090,7 @@
     font-family: Gotham;
   }
 
-  /* Input */
+  /* input */
   .deck-popup-content input {
     width: 90%;
     padding: 8px;
@@ -2321,10 +2313,11 @@ footer {
   }
 
  #kaartPopup{
+    left: 50%;
     width: auto;
     height: auto;
     transform: translateX(-50%);
-    margin: 10rem auto 0 3.5rem;
+    margin: 10rem auto 3.5rem;
 
   }
 
@@ -2340,7 +2333,6 @@ footer {
 
   .popup-specifications {
     margin-right: 0;
-    /* width: 100%; */
   }
 
   .popup-specifications > p {
@@ -2418,35 +2410,11 @@ footer {
   }
 
   #kaartPopup{
+    left: 50%;
     width: auto;
     height: auto;
     transform: translateX(-50%);
-    margin: 10rem 15rem;
-  }
-
- .popup-container{
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .img-spec {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .popup-specifications {
-    margin-right: 0;
-    /* width: 100%; */
-  }
-
-  .popup-specifications > p {
-    margin-bottom: 1rem;
-    word-break: break-word; 
-  }
-
-  #popupTitle {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin: 10rem auto;
   }
 
 /* ---------------------------------deckview pagina ---------------------------------------*/
@@ -2462,17 +2430,16 @@ footer {
   /* --------------------------------- tooltip ---------------------------------------*/
   .tooltip-container{
   margin: 0 10px 3rem 0;
-}
+  }
 
   .tooltip{
     width:auto;
   }
-
-  /* --------------------------------- index pagina ---------------------------------------*/
-  
+    /* --------------------------------- index pagina ---------------------------------------*/
   #kaartPopup{
     width: auto;
     height: auto;
+     
   }
 }
 

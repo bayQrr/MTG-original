@@ -40,7 +40,7 @@ export interface Deck {
     cards: CardInDeck[];
 }
 
-// Flash message type
+// Flash message 
 export interface FlashMessage {
     type: "error" | "success";
     message: string;
