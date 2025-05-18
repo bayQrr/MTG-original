@@ -1,30 +1,31 @@
 // registerRouter.ts
-import express, { Router } from "express";
+import express from "express";
 import bcrypt from "bcrypt";
 import { createUser, userCollectionMTG } from "../database";
-import { User } from "../types";
 
-export const registerRouter = (): Router => {
-    const router = Router();
 
-    // Toon registratieformulier
+export function registerRouter() {
+    const router = express.Router();
+
+
+    // register renderen
     router.get("/register", (req, res) => {
         res.render("register", { error: null });
     });
 
-    // Verwerk registratie
+    // register pagina verwerken
     router.post("/register", async (req, res) => {
         try {
             const { username, email, password } = req.body;
 
-            // Basis validatie
+            // checkt of alles is ingevuld
             if (!username || !email || !password) {
                 return res.render("register", {
                     error: "Alle velden zijn verplicht"
                 });
             }
 
-            // Controleer of gebruiker al bestaat
+            // checkt of de gebruiker al bestaat
             const existingUser = await userCollectionMTG.findOne({
                 $or: [
                     { username: username },
@@ -40,17 +41,15 @@ export const registerRouter = (): Router => {
                 return res.redirect("/register");
             }
 
-            // Hash het wachtwoord
+            // wachtwoord hashen
             const hashedPassword = await bcrypt.hash(password, 10);
 
-            // Gebruik de nieuwe createUser functie
+            //createUser functie
             await createUser({
                 username,
                 email,
                 password: hashedPassword
             });
-
-            // Redirect naar login na succesvolle registratie
             res.redirect("/login");
 
         } catch (error) {

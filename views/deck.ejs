@@ -1,72 +1,79 @@
 <%- include("partials/header") %>
 
-    <body id="body-background">
+  <body id="body-background">
+    <section class="tooltip-container">
+      <section class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+          </path>
+        </svg>
+      </section>
+      <section class="tooltip">
+        <p>
+          Beheer hier je persoonlijke decks. Maak nieuwe decks aan, geef ze een
+          naam en achtergrond.
+        </p>
+        <p>Klik op een deck om je kaartverzameling te bekijken.</p>
+      </section>
+    </section>
 
-        <section class="tooltip-container">
-            <section class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
-                    <path
-                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
-                    </path>
-                </svg>
-            </section>
-            <section class="tooltip">
-                <p>Beheer hier je persoonlijke decks. Maak nieuwe decks aan, geef ze een naam en achtergrond.</p>
-                <p>Klik op een deck om je kaartverzameling te bekijken.</p>
-            </section>
+    <main id="main-content">
+      <h2>DECK COLLECTION</h2>
+      <section id="deck-section">
+        <% if (decks && decks.length> 0) { %> <% decks.forEach(function(deck) { %>
+            <article class="deck-item">
+              <a href="/deck/<%= deck._id %>">
+                <img src="<%= deck.imageUrl %>" class="deck-img" />
+                <p class="deck-text">
+                  <%= deck.name %>
+                </p>
+              </a>
+
+              <div class="deck-actions">
+                <!-- bewerken met JS -->
+                <button type="button" class="edit-deck-btn" data-id="<%= deck._id %>" data-name="<%= deck.name %>"
+                  data-image="<%= deck.imageUrl %>" title="Bewerk deck">
+                  ✏️
+                </button>
+
+                <form action="/delete-deck/<%= deck._id %>" method="POST" style="display: inline">
+                  <button type="submit" class="delete-deck-btn" title="Verwijder deck">
+                    🗑️
+                  </button>
+                </form>
+              </div>
+            </article>
+            <% }) %>
+              <% } else { %>
+                <p class="geen-decks">
+                  Je hebt nog geen decks toegevoegd. Maak een nieuw deck om te beginnen!
+                </p>
+                <% } %>
+      </section>
+
+      <!-- nieuw deck knop -->
+      <section class="new-deck-wrapper">
+        <button id="add-deck-btn">
+          <img src="/assets/icon/cards icon.png" alt="plusLogo" />
+        </button>
+      </section>
+
+      <!-- popup voor nieuw/bewerk deck -->
+      <section id="deck-popup" class="deck-popup-container">
+        <section class="deck-popup-content">
+          <span class="deck-close-btn">&times;</span>
+          <form id="popup-deck-form" method="POST" action="/deck/create-deck">
+            <input type="hidden" name="deckId" id="deck-id" />
+            <input type="text" name="deckName" id="deck-name" placeholder="Deck naam" required />
+            <input type="url" name="deckImageUrl" id="deck-img-url" placeholder="Achtergrondafbeelding URL" required />
+            <button type="submit" id="save-deck-btn">Opslaan</button>
+          </form>
         </section>
+      </section>
 
-        <main id="main-content">
-            <h2>DECK COLLECTION</h2>
-            <section id="deck-section">
-                <% if (decks && decks.length> 0) { %>
-                    <% decks.forEach(function(deck) { %>
-                        <article class="deck-item">
-                            <a href="/deckview/<%= deck._id %>">
-                                <img src="<%= deck.imageUrl %>" alt="<%= deck.name %>" class="deck-img">
-                                <p class="deck-text">
-                                    <%= deck.name %>
-                                </p>
-                            </a>
+      <script src="/js/deck.js" defer></script>
+    </main>
 
-                            <div class="deck-actions">
-                                <!-- Bewerken met JS -->
-                                <button type="button" class="edit-deck-btn" data-id="<%= deck._id %>"
-                                    data-name="<%= deck.name %>" data-image="<%= deck.imageUrl %>"
-                                    title="Bewerk deck">✏️</button>
-
-                                <form action="/delete-deck/<%= deck._id %>" method="POST" style="display:inline;">
-                                    <button type="submit" class="delete-deck-btn" title="Verwijder deck">🗑️</button>
-                                </form>
-                            </div>
-                        </article>
-                        <% }) %>
-                            <% } else { %>
-                                <p class="geen-decks">Je hebt nog geen decks toegevoegd. Maak een nieuw deck om te
-                                    beginnen!</p>
-                                <% } %>
-            </section>
-
-            <!-- Nieuw deck knop -->
-            <section class="new-deck-wrapper">
-                <button id="add-deck-btn"><img src="/assets/icon/cards icon.png" alt="plusLogo"> </button>
-            </section>
-
-            <!-- Popup voor nieuw/bewerk deck -->
-            <section id="deck-popup" class="deck-popup-container">
-                <section class="deck-popup-content">
-                    <span class="deck-close-btn">&times;</span>
-                    <form id="popup-deck-form" method="POST">
-                        <input type="hidden" name="deckId" id="deck-id">
-                        <input type="text" name="deckName" id="deck-name" placeholder="Deck naam" required>
-                        <input type="url" name="deckImageUrl" id="deck-img-url" placeholder="Achtergrondafbeelding URL">
-                        <button type="submit" id="save-deck-btn">Opslaan</button>
-                    </form>
-                </section>
-            </section>
-
-            <script src="/js/deck.js" defer></script>
-        </main>
-
-        <%- include("partials/footer") %>
-    </body>
+    <%- include("partials/footer") %>
+  </body>

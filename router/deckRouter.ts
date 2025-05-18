@@ -6,8 +6,8 @@ import { Deck, CardInDeck } from "../types";
 export function deckRouter() {
   const router = express.Router();
 
-  // Haal alle decks op van een gebruiker
-  router.get("/deck", async (req, res) => {
+  // haalt alle decks op van de gebruiker
+  router.get("/", async (req, res) => {
     try {
       const userId = req.session.user!._id;
       const decks: Deck[] = await getDecksByUser(userId);
@@ -17,27 +17,64 @@ export function deckRouter() {
     }
   });
 
-  // Maak een nieuw deck aan
+  // maakt een nieuwe deck aan
   router.post("/create-deck", async (req, res) => {
     try {
       const { deckName, deckImageUrl } = req.body;
 
+      // checken
+      if (!deckName || !deckImageUrl) {
+        req.session.message = {
+          type: "error",
+          message: "Vul alle velden in"
+        };
+        return res.redirect("/deck");
+      }
+
+
+      // checkt of de gebruiker is ingelogd
+      if (!req.session.user?._id) {
+        req.session.message = {
+          type: "error",
+          message: "Je moet ingelogd zijn om een deck aan te maken"
+        };
+        return res.redirect("/account/login");
+      }
+
       const newDeck: Deck = {
         name: deckName,
         imageUrl: deckImageUrl,
-        userId: req.session.user!._id,
+        userId: req.session.user._id,
         cards: []
       };
 
-      await createDeck(newDeck);
+      const result = await createDeck(newDeck);
+
+      if (!result.acknowledged) {
+        req.session.message = {
+          type: "error",
+          message: "Er is een fout opgetreden bij het aanmaken van het deck"
+        };
+        return res.redirect("/deck");
+      }
+
+      req.session.message = {
+        type: "success",
+        message: "Deck succesvol aangemaakt!"
+      };
       res.redirect("/deck");
     } catch (error) {
-      res.status(500).send("Er is iets mis gegaan bij het aanmaken van het deck.");
+      console.error("Fout bij aanmaken deck:", error);
+      req.session.message = {
+        type: "error",
+        message: "Er is een fout opgetreden bij het aanmaken van het deck"
+      };
+      res.redirect("/deck");
     }
   });
 
-  // Bewerken van een deck
-  router.post("/edit-deck/:id", async (req, res) => {
+  // deck kunnen bewerken
+  router.post("/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
       const { deckName, deckImageUrl } = req.body;
@@ -54,7 +91,7 @@ export function deckRouter() {
     }
   });
 
-  // Verwijder een deck
+  // deck verwijderen
   router.post("/delete-deck/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
@@ -65,8 +102,8 @@ export function deckRouter() {
     }
   });
 
-  // Bekijk een specifiek deck
-  router.get("/deckview/:id", async (req, res) => {
+  // een specifiek deck bekijken
+  router.get("/:id", async (req, res) => {
     try {
       const deckId = new ObjectId(req.params.id);
       const decks: Deck[] = await getDecksByUser(req.session.user!._id);
@@ -76,30 +113,24 @@ export function deckRouter() {
         res.status(404).send("Deck niet gevonden.");
         return;
       }
-
-      // Haal de kaarten op (CardInDeck array)
       const kaartenInDeck: CardInDeck[] = selectedDeck.cards || [];
 
-      // Bereken totaal aantal kaarten
+      // berekent het aantal kaarten
       const aantalKaarten = kaartenInDeck.reduce((acc, card) => acc + (card.count || 0), 0);
 
-      // Bereken aantal landkaarten (controleer 'card.type' op 'land', case-insensitive)
+      // berekent het aantal landt kaarten en checkt ze
       const aantalLandkaarten = kaartenInDeck
         .filter(card => card.type && card.type.toLowerCase().includes("land"))
         .reduce((acc, card) => acc + (card.count || 0), 0);
 
-      // Bereken totale mana uit de manaCost-string.
-      // We gaan ervan uit dat elk card een 'manaCost' veld bevat, 
-      // bijvoorbeeld uit de originele Cards data.
+      // manacost berekenen
       const mana = kaartenInDeck.reduce((acc, card) => {
-        // Gebruik 'card.manaCost' als die bestaat, anders een lege string.
-        // (Typecasting: als je CardInDeck nog geen manaCost heeft, kun je 
-        //  even casten naar any om de property te lezen.)
         const costStr = (card as any).manaCost || "";
         return acc + parseManaCost(costStr) * (card.count || 1);
       }, 0);
 
       res.render("deckview", {
+        user: req.session.user,
         deck: selectedDeck,
         decks,
         kaartenInDeck,
@@ -112,9 +143,8 @@ export function deckRouter() {
     }
   });
 
-
-  // mogelijkheid om kaart verwijderen in deckview
-  router.post("/deck/:id/removeCard", async (req, res) => {
+  // deck verwijderen
+  router.post("/:id/removeCard", async (req, res) => {
     const { cardName, count } = req.body;
     const deckId = req.params.id;
 
@@ -123,12 +153,11 @@ export function deckRouter() {
       res.status(400).send("Ongeldige gegevens");
       return;
     }
-
     await removeCardFromDeck(deckId, cardName, aantal);
-    res.redirect(`/deckview/${deckId}`); // terug naar de deckview
+    res.redirect(`/deck/${deckId}`);
   });
 
-  router.get('/deck/:id/export', async (req, res) => {
+  router.get('/:id/export', async (req, res) => {
     const deckId = req.params.id;
 
     try {
@@ -139,14 +168,14 @@ export function deckRouter() {
         return
       }
 
-      // Hier zetten we headers
+      // we maken document aan om te kunnen exporteren
       res.setHeader('Content-Type', 'application/json');
       res.send(deck.cards);
     } catch (error) {
       console.error(error);
       res.status(500).send("Fout bij exporteren van deck");
     }
-
   });
+
   return router;
 }

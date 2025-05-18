@@ -1,80 +1,83 @@
 <%- include("partials/header") %>
 
-    <body id="unique-body">
-
-
+  <body id="unique-body">
+    <% if (!user) { %>
+      <div class="error-message">
+        <p>Je moet ingelogd zijn om deze pagina te bekijken.</p>
+        <a href="/login" class="login-link">Ga naar login</a>
+      </div>
+      <% } else { %>
         <!-- info bar -->
         <section class="tooltip-container">
-            <section class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
-                    <path
-                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
-                    </path>
-                </svg>
-            </section>
-            <section class="tooltip">
-                <p>Trek kaarten, schud je deck, reset het spel en ontdek de kans op een specifieke kaart.</p>
-            </section>
+          <section class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z">
+              </path>
+            </svg>
+          </section>
+          <section class="tooltip">
+            <p>
+              Trek kaarten, schud je deck, reset het spel en ontdek de kans op een
+              specifieke kaart.
+            </p>
+          </section>
         </section>
 
         <main id="unique-main">
-            <section id="unique-draw-section">
-
-                <section class="deck-list">
-                    <select id="deck-selector" class="deck-dropdown" required>
-                        <option value="">-- kies een deck --</option>
-                        <% if (decks && decks.length> 0) { %>
-                            <% decks.forEach(d=> { %>
-                                <option value="<%= d._id %>">
-                                    <%= d.name %>
-                                </option>
-                                <% }) %>
-                                    <% } %>
-                    </select>
-                </section>
-
-                <div id="unique-draw-controls">
-                    <div id="main-buttons">
-                        <button id="unique-draw-button">DRAW</button>
-                        <button id="unique-shuffle-button">SHUFFLE</button>
-                        <button id="unique-reset-button">RESET</button>
-                    </div>
-
-                    <div id="search-controls">
-                        <input type="text" id="card-search" placeholder="Zoek een kaart...">
-                        <button id="calculate-odds">KANS</button>
-                        <span id="odds-result"></span>
-                    </div>
-                </div>
-
-                <span id="unique-deck-icon">
-                    <span id="cards-remaining">geen kaarten over</span>
-                </span>
-
-                <div id="unique-card-display">
-                    <div id="deck-pile">
-                        <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card">
-                    </div>
-                    <span id="unique-crossed-swords">
-                        <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="">
-                    </span>
-                    <!-- Voeg dit toe in je HTML tussen je twee stapels -->
-                    <img id="moving-card" class="moving-card" src="" alt="" />
-
-                    <div id="drawn-pile">
-                        <div id="current-card">
-                            <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card" id="unique-drawn-card">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div id="drawn-cards-history"></div>
+          <section id="unique-draw-section">
+            <section class="deck-list">
+              <select id="deck-selector" class="deck-dropdown" required>
+                <option value="">-- kies een deck --</option>
+                <% if (decks && decks.length> 0) { %> <% decks.forEach(d=> { %>
+                    <option value="<%= d._id %>">
+                      <%= d.name %>
+                    </option>
+                    <% }) %>
+                      <% } %>
+              </select>
             </section>
+
+            <div id="unique-draw-controls">
+              <div id="main-buttons">
+                <button id="unique-draw-button">DRAW</button>
+                <button id="unique-shuffle-button">SHUFFLE</button>
+                <button type="button" id="unique-reset-button">RESET</button>
+              </div>
+
+              <div id="search-controls">
+                <input type="text" id="card-search" placeholder="Zoek een kaart..." />
+                <button id="calculate-odds">KANS</button>
+                <span id="odds-result"></span>
+              </div>
+            </div>
+
+            <span id="unique-deck-icon">
+              <span id="cards-remaining">geen kaarten over</span>
+            </span>
+
+            <div id="unique-card-display">
+              <div id="deck-pile">
+                <img src="assets/images/Magic_card_back 19.png" alt="Deck" id="unique-deck-card" />
+              </div>
+              <span id="unique-crossed-swords">
+                <img src="/assets/images/icons8-vs-100(1) 1.png" height="80rem" alt="" />
+              </span>
+              <img id="moving-card" class="moving-card" src="" alt="" />
+
+              <div id="drawn-pile">
+                <div id="current-card">
+                  <img src="/assets/images/Magic_card_back 19.png" alt="Drawn Card" id="unique-drawn-card" />
+                </div>
+              </div>
+            </div>
+
+            <div id="drawn-cards-history"></div>
+          </section>
         </main>
+        <% } %>
 
-        <script src="/js/drawtest.js" defer></script>
+          <script src="/js/drawtest.js" defer></script>
+  </body>
 
-    </body>
-
-    <%- include("partials/footer") %>
+  <%- include("partials/footer") %>

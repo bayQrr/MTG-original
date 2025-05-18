@@ -1,12 +1,14 @@
 import express from "express";
 import { ObjectId } from "mongodb";
 import { createDeck, getDecksByUser, updateDeck, deleteDeck, parseManaCost } from "../database";
+import { secureMiddleware } from "../middelware/secureMiddleware";
 import { Deck, CardInDeck } from "../types";
 
 export function drawtestRouter() {
     const router = express.Router();
 
-    router.get("/drawtest", async (req, res) => {
+    // drawtest pagina render
+    router.get("/", secureMiddleware, async (req, res) => {
         try {
             const userId = req.session.user!._id;
             const decks: Deck[] = await getDecksByUser(userId);
@@ -32,8 +34,6 @@ export function drawtestRouter() {
         }
     });
 
-
-
     router.get("/api/deck/:id", async (req, res) => {
         try {
             const deckId = req.params.id;
@@ -57,6 +57,7 @@ export function drawtestRouter() {
         }
     });
 
+    // kaart zoeken en kans berekenen
     router.get("/api/deck/:id/search", async (req, res) => {
         try {
             const deckId = req.params.id;

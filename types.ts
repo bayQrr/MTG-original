@@ -7,6 +7,7 @@ export interface User {
     email?: string;
     password?: string;
     createdAt: Date;
+    profileImage?: string;
 }
 
 
@@ -39,7 +40,7 @@ export interface Deck {
     cards: CardInDeck[];
 }
 
-// Flash message type
+// Flash message 
 export interface FlashMessage {
     type: "error" | "success";
     message: string;
