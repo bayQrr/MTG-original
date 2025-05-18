@@ -17,6 +17,14 @@
         <p>Klik op een deck om je kaartverzameling te bekijken.</p>
       </section>
     </section>
+<% if (message) { %>
+  <p id="flash-message"
+     class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
+    <%= message.message %>
+  </p>
+<% } %>
+
+
 
     <main id="main-content">
       <h2>DECK COLLECTION</h2>
@@ -37,7 +45,9 @@
                   ✏️
                 </button>
 
-                <form action="/delete-deck/<%= deck._id %>" method="POST" style="display: inline">
+                <!-- <form action="/delete-deck/<%= deck._id %>" method="POST" style="display: inline"> -->
+                  <form action="/deck/delete-deck/<%= deck._id %>" method="POST" style="display: inline">
+
                   <button type="submit" class="delete-deck-btn" title="Verwijder deck">
                     🗑️
                   </button>

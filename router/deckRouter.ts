@@ -73,34 +73,36 @@ export function deckRouter() {
     }
   });
 
-  // deck kunnen bewerken
-  router.post("/:id", async (req, res) => {
-    try {
-      const deckId = new ObjectId(req.params.id);
-      const { deckName, deckImageUrl } = req.body;
 
-      const updatedDeck: Partial<Deck> = {
-        name: deckName,
-        imageUrl: deckImageUrl
-      };
+ // deck kunnen bewerken
+router.post("/:id", async (req, res) => {
+  try {
+    const deckId = new ObjectId(req.params.id);
+    const { deckName, deckImageUrl } = req.body;
 
-      await updateDeck(deckId, updatedDeck);
-      res.redirect("/deck");
-    } catch (error) {
-      res.status(500).send("Er is iets mis gegaan bij het bijwerken van het deck.");
-    }
-  });
+    const updatedDeck: Partial<Deck> = {
+      name: deckName,
+      imageUrl: deckImageUrl
+    };
 
-  // deck verwijderen
-  router.post("/delete-deck/:id", async (req, res) => {
-    try {
-      const deckId = new ObjectId(req.params.id);
-      await deleteDeck(deckId);
-      res.redirect("/deck");
-    } catch (error) {
-      res.status(500).send("Er is iets mis gegaan bij het verwijderen van het deck.");
-    }
-  });
+    await updateDeck(deckId, updatedDeck);
+
+    req.session.message = {
+      type: "success",
+      message: "Deck succesvol bijgewerkt!"
+    };
+
+    res.redirect("/deck");
+  } catch (error) {
+    req.session.message = {
+      type: "error",
+      message: "Er is iets mis gegaan bij het bijwerken van het deck."
+    };
+    res.redirect("/deck");
+  }
+});
+
+
 
   // een specifiek deck bekijken
   router.get("/:id", async (req, res) => {
@@ -144,18 +146,28 @@ export function deckRouter() {
   });
 
   // deck verwijderen
-  router.post("/:id/removeCard", async (req, res) => {
-    const { cardName, count } = req.body;
-    const deckId = req.params.id;
 
-    const aantal = parseInt(count);
-    if (!cardName || isNaN(aantal) || aantal < 1) {
-      res.status(400).send("Ongeldige gegevens");
-      return;
-    }
-    await removeCardFromDeck(deckId, cardName, aantal);
-    res.redirect(`/deck/${deckId}`);
-  });
+router.post("/delete-deck/:id", async (req, res) => {
+  try {
+    const deckId = new ObjectId(req.params.id);
+    await deleteDeck(deckId);
+
+    req.session.message = {
+      type: "success",
+      message: "Deck succesvol verwijderd!"
+    };
+
+    res.redirect("/deck");
+  } catch (error) {
+    req.session.message = {
+      type: "error",
+      message: "Er is iets mis gegaan bij het verwijderen van het deck."
+    };
+
+    res.redirect("/deck");
+  }
+});
+
 
   router.get('/:id/export', async (req, res) => {
     const deckId = req.params.id;

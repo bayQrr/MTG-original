@@ -61,5 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (link) window.location.href = link.href;
       });
     });
+
+    // flashmessage automatisch laten verdiinen
+    document.addEventListener("DOMContentLoaded", () => {
+  const flash = document.getElementById("flash-message");
+  if (flash) {
+    setTimeout(() => {
+      flash.style.display = "none";
+    }, 4000); // message gaat weg na 4 seconden
+  }
+});
+
   });
   
