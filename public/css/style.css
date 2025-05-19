@@ -228,6 +228,13 @@
     flex-direction: column;
     padding: 30px;
   }
+  .register-form>form>label{
+
+  color: white;
+  font-size:20px;
+  text-align: left;
+
+  }
   /* TITEL STIJLEN h1 */
   .register-container h1 {
     color: white;
@@ -299,8 +306,10 @@
   .password-container {
     position: relative;
     display: flex;
-    align-items: center;
     width: 100%;
+    color: white;
+    font-size: 20px;
+    flex-direction: column
   }
 
   .password-container input {
@@ -316,11 +325,14 @@
   .toggle-password {
     position: absolute;
     right: 15px;
-    top: 16px;
+    top: 55px;
     cursor: pointer;
     font-size: 15px;
     color: #1f5da5;
     user-select: none;
+  }
+.password-container>label{
+    text-align: left;
   }
 
   /* ERROR MESSAGE */
@@ -534,6 +546,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+    text-shadow: 2px 1px black;
   }
 
   .kaart:hover {
@@ -1154,8 +1167,6 @@
 
   /*------------------------------------------- DRAWTEST pagina Badr -------------------------*/
   #unique-body {
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -1164,6 +1175,7 @@
     background-size: cover;
     background-position: center;
     color: white;
+  overflow-x: hidden;
   }
 
   #unique-main {

@@ -168,6 +168,20 @@ router.post("/delete-deck/:id", async (req, res) => {
   }
 });
 
+// kaart uit deck verwijderen
+
+  router.post("/:id/removeCard", async (req, res) => {
+    const { cardName, count } = req.body;
+    const deckId = req.params.id;
+
+    const aantal = parseInt(count);
+    if (!cardName || isNaN(aantal) || aantal < 1) {
+      res.status(400).send("Ongeldige gegevens");
+      return;
+    }
+    await removeCardFromDeck(deckId, cardName, aantal);
+    res.redirect(`/deck/${deckId}`);
+  });
 
   router.get('/:id/export', async (req, res) => {
     const deckId = req.params.id;

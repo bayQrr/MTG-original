@@ -57,7 +57,7 @@
             <% }) %>
               <% } else { %>
                 <p class="geen-decks">
-                  Je hebt nog geen decks toegevoegd. Maak een nieuw deck om te beginnen!
+                  Je hebt nog geen decks toegevoegd. <br> <br>Maak een nieuw deck om te beginnen!
                 </p>
                 <% } %>
       </section>
@@ -75,8 +75,8 @@
           <span class="deck-close-btn">&times;</span>
           <form id="popup-deck-form" method="POST" action="/deck/create-deck">
             <input type="hidden" name="deckId" id="deck-id" />
-            <input type="text" name="deckName" id="deck-name" placeholder="Deck naam" required />
-            <input type="url" name="deckImageUrl" id="deck-img-url" placeholder="Achtergrondafbeelding URL" required />
+            <input type="text" name="deckName" id="deck-name" placeholder="deck naam" required />
+            <input type="url" name="deckImageUrl" id="deck-img-url" placeholder="achtergrondafbeelding URL" required />
             <button type="submit" id="save-deck-btn">Opslaan</button>
           </form>
         </section>

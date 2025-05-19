@@ -32,16 +32,18 @@
             <section class="register-form">
               <h1>INLOGGEN</h1>
               <form action="/account/login" method="post">
-                <input type="text" name="username" placeholder="Gebruikersnaam" required>
+                <label for="username">gebruikersnaam</label><br>
+                <input type="text" name="username"  required>
                 <section class="password-container">
-                  <input type="password" name="password" id="password" placeholder="Wachtwoord" required>
+                  <label for="password">wachtwoord</label><br>
+                  <input type="password" name="password" id="password"  required>
                   <span class="toggle-password" onclick="togglePassword('password', this)">
                     <i class="fas fa-eye-slash"></i>
                   </span>
                 </section>
-                <button type="submit" id="btn">Inloggen</button>
+                <button type="submit" id="btn">login</button>
               </form>
-              <p class="login-text">Geen account? <a href="/register">Registreer</a></p>
+              <p class="login-text">geen account? <a href="/register">registreer</a></p>
             </section>
           </section>
   </section>
