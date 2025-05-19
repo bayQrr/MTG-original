@@ -1,0 +1,45 @@
+<%- include("partials/header") %>
+
+  <body class="user-page">
+    <div class="page-wrapper">
+      <div class="account-container">
+        <div class="profile-header">
+          <h1>Profielfoto Wijzigen</h1>
+        </div>
+
+        <% if (message) { %>
+          <section class="<%= message.type %>">
+            <%= message.message %>
+          </section>
+          <% } %>
+
+            <div class="settings-section">
+              <form method="POST" action="/user/update-profile-image" class="account-form">
+                <div class="current-image">
+                  <img src="<%= user.profileImage || '/assets/images/default-avatar.png' %>" alt="Huidige profielfoto"
+                    class="profile-image-preview" />
+                </div>
+
+                <section class="form-section">
+                  <label for="imageUrl">Voer de URL in van je nieuwe profielfoto:</label>
+                  <input type="url" name="imageUrl" id="imageUrl" required class="account-input"
+                    placeholder="https://voorbeeld.com/afbeelding.jpg" />
+                  <p class="help-text">
+                    Voer een directe link in naar een afbeelding (bijvoorbeeld: .jpg,
+                    .png, .gif)
+                  </p>
+                </section>
+
+                <div class="button-group">
+                  <button type="submit" class="account-button">
+                    Profielfoto bijwerken
+                  </button>
+                  <a href="/user" class="cancel-button">Annuleren</a>
+                </div>
+              </form>
+            </div>
+      </div>
+    </div>
+
+    <%- include("partials/footer") %>
+  </body>

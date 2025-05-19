@@ -1,155 +1,157 @@
 <%- include("partials/header") %>
 
-    <body class="cards_body">
-        <main>
-            <!-- Flashmessenger -->
-            <% const message=locals.message; %>
-                <% if (message) { %>
-                    <p id="flash-message"
-                        class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
-                        <%= message.message %>
-                    </p>
-                    <% } %>
+  <body class="cards_body">
+    <main id="mainContent">
 
-                        <!-- Tooltip -->
-                        <section class="tooltip-container">
-                            <section class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
-                                    <path
-                                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z" />
-                                </svg>
-                            </section>
-                            <section class="tooltip">
-                                <p>Welkom bij Magic The Gathering! Filter op zeldzaamheid, voeg kaarten toe aan je deck
-                                    en meer.</p>
-                                <p>Klik op een kaart om details te bekijken.</p>
-                            </section>
-                        </section>
+      <!-- fashmessenger -->
+      <% const message=locals.message; %>
+        <% if (message) { %>
+          <p id="flash-message"
+            class="<%= message.type === 'success' ? 'alert alert-success' : 'alert alert-danger' %>">
+            <%= message.message %>
+          </p>
+          <% } %>
 
-                        <!-- Filter & zoek -->
-                        <section class="midden-container">
-                            <section class="filtering">
-                                <form action="/cards" method="get" id="searchForm">
-                                    <section class="filtering-button">
-                                        <button class="filter-btn common" name="rarity" value="common" type="submit">
-                                            <img src="/assets/icon/CummonIcon.png" alt="Common">
-                                        </button>
-                                        <button class="filter-btn uncommon" name="rarity" value="uncommon"
-                                            type="submit">
-                                            <img src="/assets/icon/UncommonIcon.png" alt="Uncommon">
-                                        </button>
-                                        <button class="filter-btn rare" name="rarity" value="rare" type="submit">
-                                            <img src="/assets/icon/RareIcon.png" alt="Rare">
-                                        </button>
-                                        <button class="filter-btn mythic" name="rarity" value="mythic" type="submit">
-                                            <img src="/assets/icon/MythicRareIcon.png" alt="Mythic Rare">
-                                        </button>
-                                    </section>
-                                    <input type="text" name="zoekterm" id="searchBar" placeholder="Zoek een kaart...">
+            <!-- tooltip -->
+            <section class="tooltip-container">
+              <section class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.518 0-10-4.482-10-10s4.482-10 10-10 10 4.482 10 10-4.482 10-10 10zm-1-16h2v6h-2zm0 8h2v2h-2z" />
+                </svg>
+              </section>
+              <section class="tooltip">
+                <p>
+                  Welkom bij Magic The Gathering! Filter op zeldzaamheid, voeg kaarten
+                  toe aan je deck en meer.
+                </p>
+                <p>Klik op een kaart om details te bekijken.</p>
+              </section>
+            </section>
 
-                                    <a href="/cards" class="clear-filter-btn"><img src="/assets/icon/reset_icon.png"
-                                            alt="reset" width="40"></a>
-                                </form>
-                            </section>
+            <!-- filter & zoek -->
+            <section class="midden-container">
+              <section class="filtering">
+                <form action="/cards" method="get" id="searchForm">
+                  <section class="filtering-button">
+                    <button class="filter-btn common" name="rarity" value="common" type="submit">
+                      <img src="/assets/icon/CummonIcon.png" alt="Common" />
+                    </button>
+                    <button class="filter-btn uncommon" name="rarity" value="uncommon" type="submit">
+                      <img src="/assets/icon/UncommonIcon.png" alt="Uncommon" />
+                    </button>
+                    <button class="filter-btn rare" name="rarity" value="rare" type="submit">
+                      <img src="/assets/icon/RareIcon.png" alt="Rare" />
+                    </button>
+                    <button class="filter-btn mythic" name="rarity" value="mythic" type="submit">
+                      <img src="/assets/icon/MythicRareIcon.png" alt="Mythic Rare" />
+                    </button>
+                  </section>
+                  <input type="text" name="zoekterm" id="searchBar" placeholder="Zoek een kaart..." />
 
-                            <!-- Kaarten -->
-                            <section id="kaartContainer">
-                                <% const seenNames=new Set(); %>
-                                    <section class="rijen">
-                                        <% if (cards && cards.length> 0) { %>
-                                            <% cards.forEach(card=> { %>
-                                                <% if (card.imageUrl && !seenNames.has(card.name)) {
-                                                    seenNames.add(card.name); %>
-                                                    <!-- Voeg hier data-card-id toe -->
-                                                    <section class="kaart" data-card-id="<%= card._id %>"
-                                                        data-name="<%= card.name %>" data-type="<%= card.type %>"
-                                                        data-mana-cost="<%= card.manaCost %>"
-                                                        data-rarity="<%= card.rarity %>" data-power="<%= card.power %>"
-                                                        data-toughness="<%= card.toughness %>"
-                                                        data-text="<%= card.text %>">
-                                                        <p>
-                                                            <%= card.name %>
-                                                        </p>
-                                                        <img src="<%= card.imageUrl %>" alt="<%= card.name %>">
-                                                    </section>
-                                                    <% } %>
-                                                        <% }) %>
-                                                            <% } else { %>
-                                                                <p>Geen kaarten gevonden.</p>
-                                                                <% } %>
-                                    </section>
+                  <a href="/cards" class="clear-filter-btn"><img src="/assets/icon/reset_icon.png" alt="reset"
+                      width="40" /></a>
+                </form>
+              </section>
 
-                                    <!-- Popup voor kaartdetails -->
-                                    <section id="kaartPopup" style="display: none;">
-                                        <section class="popup-container">
-                                            <section class="popup-container-img">
-                                                <img id="popupImg" src="" alt="Kaart">
-                                            </section>
-                                            <section class="popup-specifications">
-                                                <p id="popupTitle"></p>
-                                                <p><strong>Type:</strong> <span id="popupType"></span></p>
-                                                <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
-                                                <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
-                                                <p><strong>Power/Toughness:</strong> <span
-                                                        id="popupPowerToughness"></span></p>
-                                                <p><strong>Text:</strong> <span id="popupText"></span></p>
-                                            </section>
-                                            <span class="close">&times;</span>
-                                        </section>
+              <!-- kaarten -->
+              <section id="kaartContainer">
+                <% const seenNames=new Set(); %>
+                  <section class="rijen">
+                    <% if (cards && cards.length> 0) { %> <% cards.forEach(card=> { %> <% if (card.imageUrl &&
+                          !seenNames.has(card.name)) { seenNames.add(card.name); %>
+                          <!-- Voeg hier data-card-id toe -->
+                          <section class="kaart" data-card-id="<%= card._id %>" data-name="<%= card.name %>"
+                            data-type="<%= card.type %>" data-mana-cost="<%= card.manaCost %>"
+                            data-rarity="<%= card.rarity %>" data-power="<%= card.power %>"
+                            data-toughness="<%= card.toughness %>" data-text="<%= card.text %>">
+                            <p>
+                              <%= card.name %>
+                            </p>
+                            <img src="<%= card.imageUrl %>" alt="<%= card.name %>" />
+                          </section>
+                          <% } %>
+                            <% }) %>
+                              <% } else { %>
+                                <p>Geen kaarten gevonden.</p>
+                                <% } %>
+                  </section>
+              </section>
+            </section>
 
-                                        <!-- Formulier om kaart toe te voegen -->
-                                        <form id="addCardForm" action="/add-to-deck" method="POST">
-                                            <!-- Vervang cardName door cardId -->
-                                            <input type="hidden" name="cardId" id="cardIdInput">
-                                            <input type="hidden" name="cardCount" id="cardCountInput" value="1">
+            <!-- Pagina navigatie -->
+            <section id="pagination">
+              <button class="page-btn prev" onclick="prevPage()" disabled>«</button>
+              <section class="page-nummers">
+                <button class="page-btn active" data-page="1">1</button>
+                <button class="page-btn" data-page="2">2</button>
+                <button class="page-btn" data-page="3">3</button>
+                <button class="page-btn" data-page="4">4</button>
+                <button class="page-btn" data-page="5">5</button>
+                <span class="dots">...</span>
+              </section>
+              <button class="page-btn next" onclick="nextPage()" disabled>»</button>
+            </section>
+    </main>
+    <!-- Popup voor kaartdetails -->
+    <section id="kaartPopup" style="display: none">
 
-                                            <section class="card-counter">
-                                                <button class="decrease-btn">-</button>
-                                                <span id="cardCount">1</span>
-                                                <button class="increase-btn">+</button>
-                                            </section>
+      <section class="popup-container">
 
-                                            <label for="deckSelect">Kies een deck:</label>
-                                            <select name="deckId" id="deckSelect" required>
-                                                <option value="">-- Selecteer een deck --</option>
-                                                <% if (decks) { decks.forEach(deck=> { %>
-                                                    <option value="<%= deck._id %>">
-                                                        <%= deck.name %>
-                                                    </option>
-                                                    <% }) } %>
-                                            </select>
+        <section>
+          <h1 id="popupTitle"></h1>
+        </section>
 
-                                            <button type="submit" class="add-btn">Voeg toe</button>
-                                        </form>
-                                    </section>
-                            </section>
-                        </section>
+        <section class="img-spec">
+          <section class="popup-container-img">
 
-                        <!-- Pagina navigatie -->
-                        <section id="pagination">
-                            <button class="page-btn prev" onclick="prevPage()" disabled>«</button>
-                            <section class="page-nummers">
-                                <button class="page-btn active" data-page="1">1</button>
-                                <button class="page-btn" data-page="2">2</button>
-                                <button class="page-btn" data-page="3">3</button>
-                                <button class="page-btn" data-page="4">4</button>
-                                <button class="page-btn" data-page="5">5</button>
-                                <span class="dots">...</span>
-                            </section>
-                            <button class="page-btn next" onclick="nextPage()" disabled>»</button>
-                        </section>
-        </main>
+            <img id="popupImg" src="" alt="Kaart" />
+          </section>
+          <section class="popup-specifications">
 
-        <script src="/js/kaartendetail.js" defer></script>
-        <script>
-            // Flash message
-            const flash = document.getElementById("flash-message");
-            if (flash) {
-                setTimeout(() => {
-                    flash.style.display = "none";
-                }, 3000);
-            }
-        </script>
-    </body>
+            <p><strong>Type:</strong> <span id="popupType"></span></p>
+            <p><strong>Mana Cost:</strong> <span id="popupMana"></span></p>
+            <p><strong>Rarity:</strong> <span id="popupRarity"></span></p>
+            <p>
+              <strong>Power/Toughness:</strong>
+              <span id="popupPowerToughness"></span>
+            </p>
+            <p><strong>Info:</strong> <span id="popupText"></span></p>
 
-    <%- include("partials/footer") %>
+
+            <!-- Formulier om kaart toe te voegen -->
+            <form id="addCardForm" action="/add-to-deck" method="POST">
+              <!-- Vervang cardName door cardId -->
+              <input type="hidden" name="cardId" id="cardIdInput" />
+              <input type="hidden" name="cardCount" id="cardCountInput" value="1" />
+
+              <section class="card-counter">
+                <button class="decrease-btn">-</button>
+                <span id="cardCount">1</span>
+                <button class="increase-btn">+</button>
+              </section>
+
+              <!-- <label for="deckSelect">Kies een deck:</label> -->
+              <select name="deckId" id="deckSelect" required>
+                <option value="">-- Selecteer een deck --</option>
+                <% if (decks) { decks.forEach(deck=> { %>
+                  <option value="<%= deck._id %>">
+                    <%= deck.name %>
+                  </option>
+                  <% }) } %>
+              </select>
+
+              <button type="submit" class="add-btn">Voeg toe</button>
+            </form>
+          </section>
+
+        </section>
+        <span class="close">&times;</span>
+      </section>
+
+
+    </section>
+    <script src="/js/kaartendetail.js" defer></script>
+  </body>
+
+  <%- include("partials/footer") %>

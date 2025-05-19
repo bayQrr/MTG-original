@@ -68,6 +68,8 @@ function initialiseerKaarten() {
             const toughness = kaart.getAttribute("data-toughness");
             const text = kaart.getAttribute("data-text");
             const imageUrl = kaart.querySelector("img").src;
+          const blurWrapper = document.getElementById("mainContent");
+
 
             // Vul de popup-elementen in
             popupTitle.textContent = name;
@@ -77,6 +79,7 @@ function initialiseerKaarten() {
             popupPowerToughness.textContent = `Power: ${power}, Toughness: ${toughness}`;
             popupText.textContent = text;
             popupImg.src = imageUrl;
+           
 
             // Nieuwe functionaliteit: als cardId beschikbaar is, stel de hidden field in
             if (cardId) {
@@ -99,6 +102,8 @@ function initialiseerKaarten() {
 
             // Toon de popup
             popup.style.display = "block";
+               blurWrapper.classList.add("blur"); // 👈 Voeg blur toe
+            
         });
 
         // Voeg class toe op basis van rarity (oude code)
@@ -108,11 +113,19 @@ function initialiseerKaarten() {
         }
     });
 
-    // Voeg close-functionaliteit toe (één keer, maar behouden extra als safety)
-    closeBtn?.addEventListener("click", () => (popup.style.display = "none"));
-    window.addEventListener("click", e => {
-        if (e.target === popup) popup.style.display = "none";
-    });
+    // bij het klikken op de close btn in popupcontainer, wordt de achtergrond blurr terug weggehaald
+  closeBtn?.addEventListener("click", () => {
+    popup.style.display = "none";
+    document.getElementById("mainContent")?.classList.remove("blur");
+});
+
+window.addEventListener("click", e => {
+    if (e.target === popup) {
+        popup.style.display = "none";
+        document.getElementById("mainContent")?.classList.remove("blur");
+    }
+});
+
 
     // Teller handlers: nieuw en origineel
     increaseBtn?.addEventListener("click", function (e) {

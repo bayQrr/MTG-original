@@ -1,28 +1,99 @@
 <%- include("partials/header") %>
 
-    <h1>Account Instellingen</h1>
-    <p>Welkom, <%= user.username %>
-    </p>
+  <body class="user-page">
+    <div class="page-wrapper">
+      <div class="account-container">
+        <div class="profile-header">
+          <div class="profile-layout">
+            <div class="profile-image-section">
+              <div class="profile-image-container">
+                <img src="<%= user.profileImage || '/assets/images/default-avatar.png' %>" alt="Profielfoto"
+                  class="profile-image" />
+                <a href="/user/change-profile" class="change-profile-link">
+                  <i class="fas fa-camera"></i>
+                  profielfoto wijzigen
+                </a>
+              </div>
+            </div>
+            <div class="profile-content">
+              <h1>account instellingen</h1>
+              <p class="welcome-text">Welkom, <%= user.username %>
+              </p>
+            </div>
+          </div>
+        </div>
 
-    <% if (message) { %>
-        <section class="<%= message.type %>">
-            <%= message.message %>
-        </section>
-        <% } %>
+        <% if (message) { %>
+          <div id="flash-message" class="alert-<%= message.type === 'success' ? 'success' : 'danger' %>">
+            <span>
+              <%= message.message %>
+            </span>
+          </div>
+          <% } %>
 
-            <form method="POST" action="/account/update-profile">
-                <section>
-                    <label for="username">Nieuwe Gebruikersnaam:</label>
-                    <input type="text" name="username" id="username">
-                </section>
+            <div class="settings-grid">
+              <div class="settings-section">
+                <h2>profiel</h2>
+                <form method="POST" action="/user/update-profile" class="account-form">
+                  <section class="form-section">
+                    <label for="username">gebruikersnaam:</label>
+                    <input type="text" name="username" id="username" class="account-input"
+                      value="<%= user.username %>" />
+                  </section>
 
-                <section>
-                    <label for="password">Nieuw Wachtwoord:</label>
-                    <input type="password" name="password" id="password">
-                </section>
+                  <section class="form-section">
+                    <label for="email">e-mailadres</label>
+                    <input type="email" name="email" id="email" class="account-input" value="<%= user.email %>" />
+                  </section>
 
-                <button type="submit">Wijzig Gegevens</button>
-            </form>
+                  <button type="submit" class="account-button" id="wijzig-gegevens">
+                    wijzig gegevens
+                  </button>
+                </form>
+              </div>
 
+              <div class="settings-section">
+                <h2>wachtwoord</h2>
+                <form method="POST" action="/user/update-password" class="account-form">
+                  <section class="form-section">
+                    <label for="current-password">huidig Wachtwoord</label>
+                    <input type="password" name="currentPassword" id="current-password" class="account-input" />
+                  </section>
 
-            <%- include("partials/footer") %>
+                  <section class="form-section">
+                    <label for="new-password">nieuw wachtwoord</label>
+                    <input type="password" name="newPassword" id="new-password" class="account-input" />
+                  </section>
+
+                  <section class="form-section">
+                    <label for="confirm-password">bevestig nieuw wachtwoord</label>
+                    <input type="password" name="confirmPassword" id="confirm-password" class="account-input" />
+                  </section>
+
+                  <button type="submit" class="account-button">
+                    wijzig wachtwoord
+                  </button>
+                </form>
+              </div>
+
+              <div class="settings-section danger-zone" id="danger-zone">
+                <h2>account verwijderen</h2>
+                <p class="warning-text">
+                  Let op: Dit kan niet ongedaan worden gemaakt!
+                </p>
+                <form method="POST" action="/user/delete" class="account-form"
+                  onsubmit="return confirm('Weet je zeker dat je je account wilt verwijderen?');">
+                  <section class="form-section">
+                    <label for="delete-confirm">Typ 'VERWIJDER' om te bevestigen:</label>
+                    <input type="text" name="deleteConfirm" id="delete-confirm" class="account-input" required />
+                  </section>
+                  <button type="submit" class="delete-button">
+                    account verwijderen
+                  </button>
+                </form>
+              </div>
+            </div>
+      </div>
+    </div>
+  </body>
+  <%- include("partials/footer") %>
