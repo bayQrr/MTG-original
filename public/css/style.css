@@ -1980,17 +1980,24 @@
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 10px;
+  margin-top: 60px;
 }
 
 .account-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
-.danger-zone {
-  border: 1px solid rgba(255, 0, 0, 0.3);
+#wijzig-gegevens{
+  margin-top: 10rem;
 }
+
+/* .danger-zone {
+  border: 1px solid rgba(255, 0, 0, 0.3);
+} */
+ .danger-zone {
+  grid-column: 1 / -1;
+}
+
 
 .warning-text {
   color: #ff4444;

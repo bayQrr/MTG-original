@@ -11,12 +11,12 @@
                   class="profile-image" />
                 <a href="/user/change-profile" class="change-profile-link">
                   <i class="fas fa-camera"></i>
-                  Profielfoto wijzigen
+                  profielfoto wijzigen
                 </a>
               </div>
             </div>
             <div class="profile-content">
-              <h1>Account Instellingen</h1>
+              <h1>account instellingen</h1>
               <p class="welcome-text">Welkom, <%= user.username %>
               </p>
             </div>
@@ -33,51 +33,51 @@
 
             <div class="settings-grid">
               <div class="settings-section">
-                <h2>Basis Informatie</h2>
+                <h2>profiel</h2>
                 <form method="POST" action="/user/update-profile" class="account-form">
                   <section class="form-section">
-                    <label for="username">Gebruikersnaam:</label>
+                    <label for="username">gebruikersnaam:</label>
                     <input type="text" name="username" id="username" class="account-input"
                       value="<%= user.username %>" />
                   </section>
 
                   <section class="form-section">
-                    <label for="email">E-mailadres:</label>
+                    <label for="email">e-mailadres</label>
                     <input type="email" name="email" id="email" class="account-input" value="<%= user.email %>" />
                   </section>
 
-                  <button type="submit" class="account-button">
-                    Wijzig Gegevens
+                  <button type="submit" class="account-button" id="wijzig-gegevens">
+                    wijzig gegevens
                   </button>
                 </form>
               </div>
 
               <div class="settings-section">
-                <h2>Wachtwoord</h2>
+                <h2>wachtwoord</h2>
                 <form method="POST" action="/user/update-password" class="account-form">
                   <section class="form-section">
-                    <label for="current-password">Huidig Wachtwoord:</label>
+                    <label for="current-password">huidig Wachtwoord</label>
                     <input type="password" name="currentPassword" id="current-password" class="account-input" />
                   </section>
 
                   <section class="form-section">
-                    <label for="new-password">Nieuw Wachtwoord:</label>
+                    <label for="new-password">nieuw wachtwoord</label>
                     <input type="password" name="newPassword" id="new-password" class="account-input" />
                   </section>
 
                   <section class="form-section">
-                    <label for="confirm-password">Bevestig Nieuw Wachtwoord:</label>
+                    <label for="confirm-password">bevestig nieuw wachtwoord</label>
                     <input type="password" name="confirmPassword" id="confirm-password" class="account-input" />
                   </section>
 
                   <button type="submit" class="account-button">
-                    Wijzig Wachtwoord
+                    wijzig wachtwoord
                   </button>
                 </form>
               </div>
 
               <div class="settings-section danger-zone" id="danger-zone">
-                <h2>Account Verwijderen</h2>
+                <h2>account verwijderen</h2>
                 <p class="warning-text">
                   Let op: Dit kan niet ongedaan worden gemaakt!
                 </p>
@@ -88,7 +88,7 @@
                     <input type="text" name="deleteConfirm" id="delete-confirm" class="account-input" required />
                   </section>
                   <button type="submit" class="delete-button">
-                    Account Verwijderen
+                    account verwijderen
                   </button>
                 </form>
               </div>

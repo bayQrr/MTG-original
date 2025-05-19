@@ -29,7 +29,7 @@ export function userRouter() {
       if (email) updatedData.email = email;
 
       const ok = await updateUser(new ObjectId(userId), updatedData);
-      if (!ok) throw new Error("No update");
+      // if (!ok) throw new Error("No update");
 
       // update sessie
       if (req.session.user) {
