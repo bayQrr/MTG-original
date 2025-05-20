@@ -50,6 +50,12 @@ export function registerRouter() {
                 email,
                 password: hashedPassword
             });
+            //flashmessage toevoegen als je succsvol bnt ingzlogd
+
+            req.session.message = {
+    type: "success",
+    message: "Registratie geslaagd! Je kunt nu inloggen."
+};
             res.redirect("/login");
 
         } catch (error) {

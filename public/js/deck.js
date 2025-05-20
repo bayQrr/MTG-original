@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const addDeckBtn = document.getElementById("add-deck-btn");
-    const deckSection = document.getElementById("deck-section"); // Container met alle decks
+    const deckSection = document.getElementById("deck-section"); 
     const deckPopup = document.getElementById("deck-popup");
     const closeBtn = document.querySelector(".deck-close-btn");
     const deckForm = document.getElementById("popup-deck-form");
@@ -8,20 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.getElementById("deck-name");
     const imageInput = document.getElementById("deck-img-url");
   
-    // Toevoegen via de deckRouter.ts
+    // deck aanmaken functie  via de deckRouter.ts
     addDeckBtn.addEventListener("click", (event) => {
-      event.preventDefault();
+      event.preventDefault(); //zorgt ervoor dat de pagina niet herladen wordt
       // Tel het aantal decks op basis van het aantal ".deck-item" elementen
       const currentDeckCount =
         deckSection.getElementsByClassName("deck-item").length;
-      if (currentDeckCount >= 9) {
-        alert("Je kan maximaal 9 decks maken.");
+      if (currentDeckCount >= 9) { //max 9decks toegestaan
+        alert("Je kan maximaal 9 decks maken.");//als meer dan 9decks, krijg je melding
         return;
       }
-      deckForm.action = "/deck/create-deck";
-      nameInput.value = "";
+      deckForm.action = "/deck/create-deck"; //verijwst nr de form
+      nameInput.value = ""; //inputvelden als default leegmaken
       imageInput.value = "";
-      deckPopup.style.display = "flex";
+      deckPopup.style.display = "flex"; //popup deckaanmaken wordt getoond
     });
   
     // Sluiten van de pop-up bij het klikken op de sluitknop
