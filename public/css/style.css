@@ -1616,6 +1616,7 @@
   background-position: center;
   color: white;
   text-align: center;
+  overflow-x: hidden;
 }
 
 /* DECK */
@@ -2063,7 +2064,9 @@
   margin-bottom: 20px;
   text-align: center;
 } 
-
+.current-image>img{
+  max-width: 10rem;
+}
 
  /* ---------------------------------------------FLASH MESSENGER----------------------------- */
 /* succes */
