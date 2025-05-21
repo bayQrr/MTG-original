@@ -15,7 +15,7 @@ export function userRouter() {
       user: req.session.user
     });
   });
-
+// profule updaten
   router.post("/update-profile", async (req, res) => {
     const userId = req.session.user?._id;
     if (!userId) {
@@ -28,8 +28,8 @@ export function userRouter() {
       if (username) updatedData.username = username;
       if (email) updatedData.email = email;
 
-      const ok = await updateUser(new ObjectId(userId), updatedData);
-      // if (!ok) throw new Error("No update");
+      const ok = await updateUser(new ObjectId(userId), updatedData);//updateuqer uit db.ts funtie gehaald
+    
 
       // update sessie
       if (req.session.user) {

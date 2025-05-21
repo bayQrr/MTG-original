@@ -17,7 +17,7 @@ export function accountRouter() {
   router.post("/login", (async (req, res) => {
     try {
       const { username, password } = req.body;
-
+// zorgt ervoor dat alle velden ingevuld zijn
       if (!username || !password) {
         req.session.message = {
           type: "error",
@@ -49,7 +49,7 @@ export function accountRouter() {
   router.get("/logout", ((req, res) => {
     req.session.destroy((err) => {
       if (err) console.error("Logout error:", err);
-      res.redirect("/account/login");
+      res.redirect("/account/login");//als je uitgelogd bent wordt je teruggestuurd naar login
     });
   }));
 

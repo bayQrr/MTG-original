@@ -11,18 +11,18 @@ export function homeRouter() {
     try {
       if (!req.session.user) return res.redirect("/landing");
 
-      const allCards: Cards[] = await getCards();
-      const filteredCards = allCards.filter(card => card.imageUrl);
-      const seenNames = new Set<string>();
-
+      const allCards: Cards[] = await getCards();//kaarten ophalen
+      const filteredCards = allCards.filter(card => card.imageUrl);//kaarten filteren die img hebben
+      const seenNames = new Set<string>();//vermijd kaarten met zelfde namen
+// unieke kaarten filteren
       const uniqueCards = filteredCards.filter(card => {
         if (seenNames.has(card.name)) return false;
         seenNames.add(card.name);
         return true;
       });
-
+// decks ophalen van de huidige user
       const userDecks: Deck[] = await getDecksByUser(req.session.user._id);
-
+//view renderen met user, kaarten, dekks
       res.render("index", {
         user: req.session.user,
         cards: uniqueCards,
@@ -37,24 +37,24 @@ export function homeRouter() {
   //  kaarten zoeken en filteren
   router.get("/cards", async (req, res) => {
     try {
-      if (!req.session.user) return res.redirect("/login");
+      if (!req.session.user) return res.redirect("/login");//user niet ingelogd? verstuurd nr login
 
-      const zoekterm = (req.query.zoekterm as string || "").toLowerCase();
-      const rarityFilter = req.query.rarity as string || "";
-      const allCards: Cards[] = await getCards();
+      const zoekterm = (req.query.zoekterm as string || "").toLowerCase();//zoekterm uit query halen, omzetten naar lowercase
+      const rarityFilter = req.query.rarity as string || "";//rarity filteren
+      const allCards: Cards[] = await getCards();//kaarten ophalen
 
-      let filteredCards = allCards.filter(card => card.imageUrl);
-
+      let filteredCards = allCards.filter(card => card.imageUrl);//zoekt kaarten met img
+// als zoekterm is gegeven, filteren op naam
       if (zoekterm) {
         filteredCards = filteredCards.filter(card =>
           card.name?.toLowerCase().includes(zoekterm)
         );
-      } else if (rarityFilter) {
+      } else if (rarityFilter) {//anders filteren op zeldzaamheid
         filteredCards = filteredCards.filter(card =>
           card.rarity?.toLowerCase() === rarityFilter.toLowerCase()
         );
       }
-
+//dubbele kaarten vermijden
       const seenNames = new Set<string>();
       const uniqueCards = filteredCards.filter(card => {
         if (seenNames.has(card.name)) return false;
@@ -64,7 +64,7 @@ export function homeRouter() {
 
       // decks ophalen en mee sturen
       const userDecks: Deck[] = await getDecksByUser(req.session.user._id);
-
+//inddx renderen met gefulterde kaarten
       res.render("index", {
         user: req.session.user,
         cards: uniqueCards,
@@ -79,7 +79,7 @@ export function homeRouter() {
   // kaart toevoegen aan deck
   router.post("/add-to-deck", async (req, res) => {
     try {
-      const { deckId, cardId, cardCount } = req.body;
+      const { deckId, cardId, cardCount } = req.body;//gegevens uit form ophalen
       const toAdd = parseInt(cardCount, 10) || 1;
 
       // neemt het deck en de bestaande kaartcount

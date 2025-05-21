@@ -1557,6 +1557,17 @@
   width: fit-content;
 }
 
+   .slider-item:hover .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
+    width: fit-content;
+     background: rgba(255, 255, 255, 0.8);
+  color: black;
+   }
+
 .slider-controls {
   width: 100%;
   display: flex;
