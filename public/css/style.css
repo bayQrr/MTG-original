@@ -594,6 +594,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    /* width:55rem; */
 
   }
 .img-spec{
@@ -610,6 +611,7 @@
     font-family: prompt;
   }
 
+  
   #popupTitle {
     margin-bottom: 3rem;
     color: white;
@@ -621,6 +623,14 @@
     
   }
 
+#popupText {
+  display: inline-flex;
+  max-width: 600px;      
+
+}
+ .popup-specifications:nth-child(5){
+  text-shadow: green ;
+ }
   /* dropdown knop bij de addbutton */
   .deck-dropdown {
     display: none;
@@ -1547,6 +1557,17 @@
   width: fit-content;
 }
 
+   .slider-item:hover .slider-title {
+    writing-mode: horizontal-tb;
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: translateX(-50%); /* Alleen horizontaal centreren bij hover */
+    width: fit-content;
+     background: rgba(255, 255, 255, 0.8);
+  color: black;
+   }
+
 .slider-controls {
   width: 100%;
   display: flex;
@@ -1595,6 +1616,7 @@
   background-position: center;
   color: white;
   text-align: center;
+  overflow-x: hidden;
 }
 
 /* DECK */
@@ -2042,7 +2064,9 @@
   margin-bottom: 20px;
   text-align: center;
 } 
-
+.current-image>img{
+  max-width: 10rem;
+}
 
  /* ---------------------------------------------FLASH MESSENGER----------------------------- */
 /* succes */

@@ -3,7 +3,7 @@
   <body class="cards_body">
     <main id="mainContent">
 
-      <!-- fashmessenger -->
+      <!-- flashmessage wordt getoond als je succesvol bent ingelogd -->
       <% const message=locals.message; %>
         <% if (message) { %>
           <p id="flash-message"
@@ -79,7 +79,7 @@
               </section>
             </section>
 
-            <!-- Pagina navigatie -->
+            <!-- Pagination -->
             <section id="pagination">
               <button class="page-btn prev" onclick="prevPage()" disabled>«</button>
               <section class="page-nummers">
@@ -121,7 +121,7 @@
 
             <!-- Formulier om kaart toe te voegen -->
             <form id="addCardForm" action="/add-to-deck" method="POST">
-              <!-- Vervang cardName door cardId -->
+            
               <input type="hidden" name="cardId" id="cardIdInput" />
               <input type="hidden" name="cardCount" id="cardCountInput" value="1" />
 
@@ -131,7 +131,7 @@
                 <button class="increase-btn">+</button>
               </section>
 
-              <!-- <label for="deckSelect">Kies een deck:</label> -->
+
               <select name="deckId" id="deckSelect" required>
                 <option value="">-- Selecteer een deck --</option>
                 <% if (decks) { decks.forEach(deck=> { %>
