@@ -57,7 +57,6 @@ function initialiseerKaarten() {
     kaarten.forEach(kaart => {
         kaart.addEventListener("click", function () {
             const cardId = kaart.getAttribute("data-card-id");
-            const cardId = kaart.getAttribute("data-card-id"); 
             const name = kaart.getAttribute("data-name");
             const type = kaart.getAttribute("data-type");
             const manaCost = kaart.getAttribute("data-mana-cost");
@@ -66,9 +65,8 @@ function initialiseerKaarten() {
             const toughness = kaart.getAttribute("data-toughness");
             const text = kaart.getAttribute("data-text");
             const imageUrl = kaart.querySelector("img").src;
+            // info in de popup zetten, die info werd gehaald uit api met mongodb
             const blurWrapper = document.getElementById("mainContent");
-// info in de popup zetten, die info werd gehaald uit api met mongodb
-          const blurWrapper = document.getElementById("mainContent");
 
             // popup-elementen invullen
             popupTitle.textContent = name;
