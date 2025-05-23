@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = document.getElementById("password-error");
     const submitButton = document.getElementById("btn");
 
-    // Functie om wachtwoord te tonen/verbergen
+    // functie om wachtwoord te tonen/verbergen
     function togglePassword() {
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -14,7 +14,5 @@ document.addEventListener("DOMContentLoaded", function () {
             togglePasswordBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
         }
     }
-
-    // Event listener voor het wachtwoord toggle-icoon
     togglePasswordBtn.addEventListener("click", togglePassword);
 });

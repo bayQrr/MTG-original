@@ -4,11 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevButton = document.querySelector(".slider-arrow-left");
   let currentIndex = 0;
 
-  if (!nextButton || !prevButton ||  sliderItems.length === 0) {
-      console.error("FOUT: Knoppen of slider-items niet gevonden!");
-      return;
+  if (!nextButton || !prevButton || sliderItems.length === 0) {
+    console.error("FOUT: Knoppen of slider-items niet gevonden!");
+    return;
   }
-
 
   function updateSlider() {
     const screenWidth = window.innerWidth;
@@ -29,17 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   nextButton.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % sliderItems.length;
-      updateSlider();
+    currentIndex = (currentIndex + 1) % sliderItems.length;
+    updateSlider();
   });
 
-  // Vorige afbeelding
+  // teruf kunnen gaan naar de vorige afbeelding
   prevButton.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + sliderItems.length) % sliderItems.length;
-      updateSlider();
+    currentIndex = (currentIndex - 1 + sliderItems.length) % sliderItems.length;
+    updateSlider();
   });
 
-  updateSlider(); 
+  updateSlider();
 
   window.addEventListener('resize', updateSlider);
 });

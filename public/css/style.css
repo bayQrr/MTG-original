@@ -2334,7 +2334,7 @@ footer {
 
  #kaartPopup{
     left: 50%;
-    width: auto;
+    width: 390px;
     height: auto;
     transform: translateX(-50%);
     margin: 10rem auto 3.5rem;
@@ -2354,6 +2354,10 @@ footer {
   .popup-specifications {
     margin-right: 0;
   }
+  
+  .popup-specifications > form{
+    gap: 0rem ;
+  }
 
   .popup-specifications > p {
     margin-bottom: 1rem;
@@ -2365,6 +2369,10 @@ footer {
     margin-bottom: 1rem;
   }
 
+  #addCardForm{
+    display: flex;
+    flex-direction: column;
+  }
  /* ---------------------------------deckview pagina ---------------------------------------*/
  .deck-info{
   display: flex;

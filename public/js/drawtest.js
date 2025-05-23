@@ -2,11 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const drawSection = document.getElementById("unique-draw-section");
   if (!drawSection) return;
 
-  // State
   let deck = [];
   let drawnCards = [];
 
-  // DOM Elements
   const deckSelector = document.getElementById("deck-selector");
   const deckCard = document.getElementById("unique-deck-card");
   const drawnCard = document.getElementById("unique-drawn-card");
@@ -20,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const oddsResult = document.getElementById("odds-result");
   const movingCard = document.getElementById("moving-card");
 
-  // 👉 Deck ophalen wanneer gebruiker er één kiest
+  // deck ophalen wnr er eenthe gekozen wordt
   deckSelector.addEventListener("change", async (e) => {
     const deckId = e.target.value;
     if (!deckId) return;
@@ -49,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Zorg dat event listeners niet dubbel worden toegevoegd
+  // zorgt voor dat event listeners niet dubbel worden toegevoegd
   if (!drawButton.dataset.listenerAdded) {
     drawButton.addEventListener("click", () => {
       if (deck.length === 0) {
@@ -108,8 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     calculateOdds.dataset.listenerAdded = "true";
   }
-
-  // 🧮 UI Updates
   function updateDisplay() {
     cardsRemaining.textContent = `${deck.length} kaarten over`;
   }

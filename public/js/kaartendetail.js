@@ -1,4 +1,3 @@
-// Globale variabelen voor paginering
 let currentPage = 1;
 const kaartenPerPagina = 4;
 
@@ -32,8 +31,6 @@ function updatePagination(page) {
     if (nextButton) nextButton.disabled = page === totaalPaginas;
 }
 
-// Gecombineerde initialiseerKaarten functie: 
-// Hierin zit de logica van beide versies (met behoud van oude en nieuwe functionaliteit)
 function initialiseerKaarten() {
     const kaarten = document.querySelectorAll(".kaart");
     const popup = document.getElementById("kaartPopup");
@@ -46,7 +43,7 @@ function initialiseerKaarten() {
     const popupText = document.getElementById("popupText");
     const closeBtn = document.querySelector(".close");
 
-    // Elementen voor de teller
+    // element voor de teller
     const increaseBtn = document.querySelector(".increase-btn");
     const decreaseBtn = document.querySelector(".decrease-btn");
     const cardCountSpan = document.getElementById("cardCount");
@@ -54,12 +51,9 @@ function initialiseerKaarten() {
 
     let count = 1;
 
-    // Loop over elke kaart-element
     kaarten.forEach(kaart => {
-        // Voeg de event listener toe (nieuwe logica met cardId en teller-reset)
         kaart.addEventListener("click", function () {
-            // Haal data-attributen op
-            const cardId = kaart.getAttribute("data-card-id"); // Nieuw
+            const cardId = kaart.getAttribute("data-card-id"); 
             const name = kaart.getAttribute("data-name");
             const type = kaart.getAttribute("data-type");
             const manaCost = kaart.getAttribute("data-mana-cost");
@@ -70,8 +64,7 @@ function initialiseerKaarten() {
             const imageUrl = kaart.querySelector("img").src;
           const blurWrapper = document.getElementById("mainContent");
 
-
-            // Vul de popup-elementen in
+            // popup-elementen invullen
             popupTitle.textContent = name;
             popupType.textContent = type;
             popupMana.textContent = manaCost;
@@ -80,8 +73,6 @@ function initialiseerKaarten() {
             popupText.textContent = text;
             popupImg.src = imageUrl;
            
-
-            // Nieuwe functionaliteit: als cardId beschikbaar is, stel de hidden field in
             if (cardId) {
                 const cardIdInput = document.getElementById("cardIdInput");
                 if (cardIdInput) {
@@ -89,24 +80,23 @@ function initialiseerKaarten() {
                 }
             }
 
-            // Oude functionaliteit (wordt niet verwijderd): stel de cardName in
             const cardNameInput = document.getElementById("cardNameInput");
             if (cardNameInput) {
                 cardNameInput.value = name;
             }
 
-            // Reset de teller
+            // reset de teller
             count = 1;
             if (cardCountSpan) cardCountSpan.textContent = count;
             if (cardCountInput) cardCountInput.value = count;
 
-            // Toon de popup
+            // toont de popup
             popup.style.display = "block";
-               blurWrapper.classList.add("blur"); // 👈 Voeg blur toe
+               blurWrapper.classList.add("blur"); 
             
         });
 
-        // Voeg class toe op basis van rarity (oude code)
+        // voeg klasse op basis van rarity
         const kaartRarity = kaart.getAttribute("data-rarity");
         if (kaartRarity) {
             kaart.classList.add(kaartRarity.toLowerCase());
@@ -114,7 +104,7 @@ function initialiseerKaarten() {
     });
 
     // bij het klikken op de close btn in popupcontainer, wordt de achtergrond blurr terug weggehaald
-  closeBtn?.addEventListener("click", () => {
+    closeBtn?.addEventListener("click", () => {
     popup.style.display = "none";
     document.getElementById("mainContent")?.classList.remove("blur");
 });
@@ -125,9 +115,6 @@ window.addEventListener("click", e => {
         document.getElementById("mainContent")?.classList.remove("blur");
     }
 });
-
-
-    // Teller handlers: nieuw en origineel
     increaseBtn?.addEventListener("click", function (e) {
         e.preventDefault();
         count++;
@@ -144,11 +131,10 @@ window.addEventListener("click", e => {
         }
     });
 
-    // Roep de paginering aan
+    // roept de paginering aan
     showPage(currentPage);
 }
 
-// Extra event listeners uit de originele code (worden niet verwijderd)
 document.querySelectorAll(".kaart").forEach(kaart => {
     kaart.addEventListener("click", function () {
         const cardName = this.dataset.name;
@@ -174,11 +160,11 @@ document.querySelector(".close")?.addEventListener("click", function () {
     }
 });
 
-// DOMContentLoaded: voer initialiseerKaarten en overige functionaliteit uit
+
 document.addEventListener("DOMContentLoaded", function () {
     initialiseerKaarten();
 
-    // Paginering
+    // paginering
     document.querySelector(".prev")?.addEventListener("click", function () {
         if (currentPage > 1) showPage(currentPage - 1);
     });
@@ -195,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Live zoeken
+    // actief zoeken
     const zoekInput = document.getElementById("searchBar");
     const kaartContainer = document.getElementById("kaartContainer");
 
@@ -209,7 +195,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const nieuweKaarten = doc.querySelector("#kaartContainer");
             if (nieuweKaarten) {
                 kaartContainer.innerHTML = nieuweKaarten.innerHTML;
-                // Herinitialiseer de kaarten zodat ook alle event listeners opnieuw gezet worden
                 initialiseerKaarten();
             }
         } catch (err) {
@@ -217,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Dropdown voor deck-selectie
+    // dropdown voor deck-selectie
     const addBtn = document.querySelector(".add-btn");
     const dropdown = document.querySelector(".deck-dropdown");
     if (addBtn && dropdown) {

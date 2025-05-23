@@ -9,14 +9,14 @@ hamburger.addEventListener("click", () => {
     body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "auto";
 });
 
-// Sluit menu bij klikken op een link
+// sluit menu bij klikken op een link
 document.querySelectorAll("#unique-nav-list li a").forEach(n => n.addEventListener("click", () => {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
     body.style.overflow = "auto";
 }));
 
-// Sluit menu bij klikken buiten het menu
+// sluit menu bij klikken buiten het menu
 document.addEventListener("click", (e) => {
     if (!hamburger.contains(e.target) && 
         !navMenu.contains(e.target) && 
