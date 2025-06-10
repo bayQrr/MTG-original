@@ -33,8 +33,8 @@ Bij het betreden van de applicatie komt de gebruiker op een landing page waar me
 
 ### 🔍 Kaarten zoeken (API)
 - Zoek met een tekstveld naar kaarten via de officiële [MTG API](https://docs.magicthegathering.io/)
-- Resultaten tonen de eerste 10 kaarten met afbeelding
--  paginatie bij meer dan 10 kaarten
+- Resultaten tonen de eerste 4 kaarten met afbeelding
+-  paginatie bij meer dan 4 kaarten
 -  randkleur per zeldzaamheid:
   - Wit = Common
   - Blauw = Uncommon
@@ -54,7 +54,7 @@ Bij het betreden van de applicatie komt de gebruiker op een landing page waar me
 
 - Elk deck bevat:
   - Een **naam**
-  - Een **achtergrondafbeelding** (URL opgeslagen in JSON)
+  - URL opgeslagen in JSON
   - Maximaal **60 kaarten**
   - Maximaal **4 kopieën per kaart** (tenzij het een **land** is)
   - **Gemiddelde mana-cost** (land-kaarten niet meegerekend)
